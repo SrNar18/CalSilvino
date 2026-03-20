@@ -76,7 +76,7 @@ nav .btn {
     position: absolute;
     right: -530px; /* ajustable */
 
-    background-color: #b31111;
+    background-color: #c71f1f;
     color: #ffffff;
     padding: 10px 18px;
     border-radius: 20px;
@@ -130,17 +130,18 @@ nav .btn:hover {
 
 /* Botón banner */
 .home-banner-button {
-    background-color: #b31111;
+    background-color: #c50101;
     color: white;
     border: none;
     padding: 12px 20px;
     border-radius: 25px;
-    font-size: 16px;
+    font-size: 23px;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .home-banner-button:hover {
-    background-color: #3f4691;
+    background-color: #990808;
 }
 
 /* Sección siguiente */
