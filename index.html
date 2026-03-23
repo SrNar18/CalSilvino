@@ -1,130 +1,207 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inici | Cal Silvino</title>
+    <title>Inicio | Cal Silvino</title>
+
+    <!-- Fuente -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Estilos -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+    <!-- ================= HEADER ================= -->
     <header>
-        <img src="/images/logo.png" class="logo">
+        <img src="/images/logo.png" class="logo" alt="Logo Cal Silvino">
 
         <nav>
             <a href="#" class="active">Inicio</a>
             <a href="#">Menú</a>
-            <a href="#" class="btn">Contacto</a>
+            <a href="#" class="btn">Reservar ahora</a>
         </nav>
     </header>
 
+    <!-- ================= MAIN ================= -->
     <main>
+
+        <!-- ===== BANNER PRINCIPAL ===== -->
         <section class="home-banner">
             <div class="home-banner-content">
                 <h1 class="home-banner-title">Cal Silvino</h1>
-
                 <button class="home-banner-button">Reservar mesa</button>
             </div>
         </section>
 
+        <!-- ===== SOBRE EL RESTAURANTE ===== -->
         <section class="home-about">
-
             <div class="home-about-container">
 
                 <!-- TEXTO -->
                 <div class="home-about-text">
-                    <h2>EL NOSTRE RESTAURANT</h2>
+                    <h2>NUESTRO RESTAURANTE</h2>
 
                     <p>
-                        Fa més de 12 anys que vam obrir el Cal Silvino a la Massana, un negoci familiar que ha passat de pares a fills. Proposem una cuina tradicional andorrana i portuguesa en un ambient càlid i proper.
+                        Hace más de 12 años abrimos Cal Silvino en La Massana, un negocio familiar que ha pasado de padres a hijos. Ofrecemos una cocina tradicional andorrana y portuguesa en un ambiente cálido y cercano.
                     </p>
 
                     <p>
-                        Els plats que tenen més èxit entre els comensals, destaca el bacallà, el pop a la brasa, els «callos«, també el tàrtar. Igualment elaborem els plats més tradicionals de la cuina andorrana, com els cargols a la llauna, els canelons o la carn a la brasa.
+                        Entre los platos más destacados se encuentran el bacalao, el pulpo a la brasa, los callos o el tartar. También elaboramos platos tradicionales como los caracoles a la llauna, los canelones o la carne a la brasa.
                     </p>
 
                     <p>
-                        Tenim una àmplia carta de tapes, com les patates braves, els calamars, el pop a la gallega, els seitons o les anxoves. També elaborem menús per a grups i organitzem celebracions.
+                        Disponemos de una amplia carta de tapas y organizamos celebraciones, aniversarios y comidas de empresa.
                     </p>
 
-                    <div class="about-schedule">
-
-                        <div class="about-schedule-item">
-                            <span class="day">Dilluns - Dimarts</span>
-                            <span class="time closed">Tancat</span>
-                        </div>
-
-                        <div class="about-schedule-item">
-                            <span class="day">Dimecres - Divendres</span>
-                            <span class="time">10:00 - 16:00<br>20:00 - 23:00</span>
-                        </div>
-
-                        <div class="about-schedule-item">
-                            <span class="day">Dissabte - Diumenge</span>
-                            <span class="time">11:00 - 16:30<br>20:00 - 23:30</span>
-                        </div>
-
-                    </div>
+                   
                 </div>
 
-                
-
+                <!-- CARRUSEL -->
                 <div class="home-about-carousel">
-
                     <div class="carousel-track">
-                        <img src="images/uno.jpg" class="carousel-img">
-                        <img src="images/dos.jpg" class="carousel-img">
-                        <img src="images/tres.jpg" class="carousel-img">
-                        <img src="images/cuatro.jpg" class="carousel-img"> 
+                        <img src="images/uno.jpg" class="carousel-img" alt="">
+                        <img src="images/dos.jpg" class="carousel-img" alt="">
+                        <img src="images/tres.jpg" class="carousel-img" alt="">
+                        <img src="images/cuatro.jpg" class="carousel-img" alt="">
                     </div>
 
-                    <!-- BOTONES -->
                     <button class="carousel-btn prev">&#10094;</button>
                     <button class="carousel-btn next">&#10095;</button>
-
                 </div>
 
             </div>
-
         </section>
+
+        <!-- ===== SECCIÓN MENÚ ===== -->
         <section class="home-menu-banner">
             <button class="home-menu-button">Ver menú</button>
         </section>
+
+        <section class="home-schedule">
+
+            <div class="home-schedule-container">
+
+                <h2>Horario</h2>
+
+                <div class="home-schedule-grid">
+
+                    <div class="home-schedule-item">
+                        <p class="day">Lunes - Martes</p>
+                        <p class="time closed">Cerrado</p>
+                    </div>
+
+                    <div class="home-schedule-item">
+                        <p class="day">Miércoles - Viernes</p>
+                        <p class="time">10:00 - 16:00</p>
+                        <p class="time">20:00 - 23:00</p>
+                    </div>
+
+                    <div class="home-schedule-item">
+                        <p class="day">Sábado - Domingo</p>
+                        <p class="time">11:00 - 16:30</p>
+                        <p class="time">20:00 - 23:30</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ===== CONTACTO + MAPA ===== -->
+        <section class="home-contact">
+            <div class="home-contact-container">
+
+                <!-- MAPA -->
+                <div class="home-contact-map">
+                    <iframe 
+                        src="https://www.google.com/maps?q=42.5458333,1.5172222&hl=es&z=17&output=embed"
+                        loading="lazy">
+                    </iframe>
+                </div>
+
+                <!-- INFO -->
+                <div class="home-contact-info">
+
+                    <div class="home-social">
+
+                        <!-- TELÉFONO -->
+                        <a href="#" class="social-btn" id="phoneBtn">
+                            <img src="images/phone.png" alt="Teléfono">
+                        </a>
+
+                        <!-- INSTAGRAM -->
+                        <a href="https://instagram.com/calsilvino/" target="_blank" class="social-btn">
+                            <img src="images/instagram.png" alt="Instagram">
+                        </a>
+
+                        <!-- FACEBOOK -->
+                        <a href="https://facebook.com/calsilvino/" target="_blank" class="social-btn">
+                            <img src="images/facebook.png" alt="Facebook">
+                        </a>
+
+                    </div>
+
+                    <!-- TEXTO -->
+                    <div class="home-contact-text">
+                        <h3>Ven a disfrutar de una experiencia única</h3>
+                        <p>
+                            Descubre nuestra cocina tradicional en un ambiente acogedor, donde cada plato está preparado con pasión y calidad.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
+    <!-- ================= FOOTER ================= -->
     <footer>
-    <div class="footer-left">
-        <img src="/images/logo.png" class="footer-logo">
 
-        <div class="footer-info">
-            <p>Av. el Través, 21, AD400 La Massana</p>
-            <p>Telèfon: +376 840 720</p>
-            <p>info@restaurantcalsilvino.com</p>
-        </div>
-    </div>
+        <!-- IZQUIERDA -->
+        <div class="footer-left">
+            <img src="/images/logo.png" class="footer-logo" alt="Logo">
 
-    <div class="footer-right">
-
-        <div class="footer-schedule">
-            <div class="schedule-block">
-                <p><strong>Dilluns i dimarts</strong></p>
-                <p>Tancat</p>
-            </div>
-
-            <div class="schedule-block">
-                <p><strong>Dimecres, dijous i divendres</strong></p>
-                <p>10.00 - 16.00</p>
-                <p>20.00 - 23.00</p>
-            </div>
-
-            <div class="schedule-block">
-                <p><strong>Dissabte, diumenge i festius</strong></p>
-                <p>11.00 - 16.30</p>
-                <p>20.00 - 23.30</p>
+            <div class="footer-info">
+                <p>Av. el Través, 21, AD400 La Massana</p>
+                <p>Teléfono: +376 840 720</p>
+                <p>info@restaurantcalsilvino.com</p>
             </div>
         </div>
-    </div>
+
+        <!-- DERECHA -->
+        <div class="footer-right">
+            <div class="footer-schedule">
+
+                <div class="schedule-block">
+                    <p><strong>Lunes y martes</strong></p>
+                    <p>Cerrado</p>
+                </div>
+
+                <div class="schedule-block">
+                    <p><strong>Miércoles a viernes</strong></p>
+                    <p>10:00 - 16:00</p>
+                    <p>20:00 - 23:00</p>
+                </div>
+
+                <div class="schedule-block">
+                    <p><strong>Sábado y domingo</strong></p>
+                    <p>11:00 - 16:30</p>
+                    <p>20:00 - 23:30</p>
+                </div>
+
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- JS -->
     <script src="script.js"></script>
+
 </body>
 </html>
