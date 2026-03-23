@@ -151,6 +151,7 @@ footer {
     align-items: flex-start;
     padding: 40px 60px;
     gap: 40px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.08);
 }
 
 .footer-left {
@@ -561,13 +562,12 @@ footer {
     font-weight: 600;
     cursor: pointer;
 
-    transition: 0.3s;
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .home-menu-button:hover {
     background-color: #990808;
-    transform: scale(1.05);
-    flex: 1;
+    transform: scale(1.08); /* 🔥 crece como los otros */
 }
 
 /* ── MENÚ PAGE ── */
@@ -682,4 +682,177 @@ footer {
 @keyframes scroll-left {
     0%   { transform: translateX(0); }
     100% { transform: translateX(-50%); }
+}
+
+
+/* SECCIÓN */
+.home-contact {
+    padding: 80px 40px;
+    background: #f9f6f2;
+}
+
+/* CONTENEDOR */
+.home-contact-container {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+/* MAPA */
+.home-contact-map {
+    flex: 1;
+}
+
+.home-contact-map iframe {
+    width: 100%;
+    height: 400px;
+    border-radius: 20px;
+}
+
+/* DERECHA */
+.home-contact-info {
+    flex: 1;
+}
+
+/* REDES */
+.home-social {
+    display: flex;
+    gap: 20px;
+}
+
+/* BOTONES (reutiliza si ya los tienes) */
+.social-btn {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+    transition: 0.3s;
+}
+
+.social-btn img {
+    width: 28px;
+}
+
+.social-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* DERECHA */
+.home-contact-info {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 🔥 centra vertical */
+    align-items: center;     /* 🔥 centra horizontal */
+    text-align: center;
+
+    height: 100%;
+}
+
+/* REDES */
+.home-social {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.home-contact-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 🔥 centra el bloque */
+}
+
+.home-contact-text h3 {
+    font-size: 22px;
+    color: #c50101;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.home-contact-text p {
+    max-width: 300px;
+    text-align: center; /* 🔥 centra el texto dentro */
+    margin: 0 auto;     /* 🔥 centra el bloque */
+}
+
+.home-contact-container {
+    display: flex;
+    gap: 60px;
+    align-items: center; /* 🔥 centra ambas columnas */
+}
+
+
+/* SECCIÓN HORARIO */
+.home-schedule {
+    background: linear-gradient(135deg, #c50101, #8b0000);
+    padding: 80px 40px;
+    color: white;
+    text-align: center;
+}
+
+/* CONTENEDOR */
+.home-schedule-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.home-schedule {
+    background: linear-gradient(135deg, #c50101, #8b0000);
+    padding: 50px 40px 80px 40px; /* 🔥 menos arriba */
+    color: white;
+    text-align: center;
+}
+
+.home-schedule h2 {
+    font-size: 32px;
+    margin-top: 0;       /* 🔥 quita espacio arriba */
+    margin-bottom: 30px; /* un poco menos abajo */
+}
+
+/* GRID */
+.home-schedule-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* TARJETAS */
+.home-schedule-item {
+    background: rgba(255,255,255,0.1);
+    padding: 20px 25px;
+    border-radius: 15px;
+    min-width: 200px;
+
+    backdrop-filter: blur(6px);
+}
+
+/* DÍA */
+.home-schedule-item .day {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* HORA */
+.home-schedule-item .time {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* CERRADO */
+.home-schedule-item .closed {
+    color: #ffd1d1;
+    font-weight: 600;
 }

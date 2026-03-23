@@ -108,3 +108,20 @@ setInterval(() => {
     index = (index + 1) % slides.length;
     updateCarousel();
 }, 4000); // cada 4 segundos
+
+
+const phoneBtn = document.getElementById("phoneBtn");
+
+if (phoneBtn) {
+    phoneBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+
+        const isMobile = /iPhone|Android|iPad/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            window.location.href = "tel:+376840720";
+        } else {
+            alert("Utiliza tu teléfono móvil para llamar 📞\n\nNúmero: +376 840 720");
+        }
+    });
+}
