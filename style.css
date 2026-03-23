@@ -85,11 +85,13 @@ nav .btn {
     border-radius: 12px;
     font-size: 16px;
     font-weight: 600;
+    transition: 0.3s;
 }
 
 nav .btn:hover {
-    background-color: #ae1c1c;
     opacity: 1;
+    background-color: #990808;
+    transform: scale(1.05);
 }
 
 /* BANNER */
@@ -124,10 +126,13 @@ nav .btn:hover {
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
+    
+    transition: 0.3s;
 }
 
 .home-banner-button:hover {
     background-color: #990808;
+    transform: scale(1.05);
 }
 
 /* SECCIÓN */
@@ -135,6 +140,8 @@ nav .btn:hover {
     min-height: 100vh;
     padding: 40px;
 }
+
+
 
 /* FOOTER */
 footer {
@@ -180,6 +187,46 @@ footer {
 .schedule-block p {
     margin: 3px 0;
     font-size: 14px;
+}
+
+
+
+
+/* CONTENEDOR */
+.contact-social {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+/* BOTÓN REDONDO */
+.social-btn {
+    width: 60px;
+    height: 60px;
+    background: #ffffff;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ICONO */
+.social-btn img {
+    width: 28px;
+    height: 28px;
+}
+
+/* HOVER PRO */
+.social-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 /* CONTACT MAIN */
@@ -252,6 +299,7 @@ footer {
 
 .contact-form button:hover {
     background-color: #990808;
+    transform: scale(1.05);
 }
 
 /* HORARIO */
@@ -292,4 +340,231 @@ footer {
 
 .date-time-group input {
     flex: 1; /* ocupan el mismo espacio */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SECCIÓN */
+.home-about {
+    background: linear-gradient(
+        135deg,
+        #c50101,
+        #8b0000
+    );
+    padding: 80px 40px;
+    color: white;
+}
+
+/* CONTENEDOR */
+.home-about-container {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+/* TEXTO */
+.home-about-text {
+    flex: 1;
+}
+
+.home-about-text h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.home-about-text p {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    opacity: 0.95;
+}
+
+.home-about-carousel {
+    position: relative;
+    width: 50%;
+    max-height: 450px; 
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+/* TRACK */
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* IMÁGENES */
+.carousel-img {
+    width: 100%;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* BOTONES */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+
+    transition: 0.3s;
+}
+
+/* POSICIONES */
+.carousel-btn.prev {
+    left: 15px;
+}
+
+.carousel-btn.next {
+    right: 15px;
+}
+
+/* HOVER */
+.carousel-btn:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+
+
+/* CONTENEDOR */
+.about-schedule {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+/* CADA TARJETA */
+.about-schedule-item {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 15px 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    min-width: 150px;
+}
+
+/* DÍA */
+.about-schedule-item .day {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* HORA */
+.about-schedule-item .time {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* CERRADO */
+.about-schedule-item .time.closed {
+    color: #ffd1d1;
+    font-weight: 600;
+}
+
+
+
+
+
+
+/* SECCIÓN */
+.home-menu-banner {
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* FONDO EN MOVIMIENTO */
+.home-menu-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%; /* 🔥 doble ancho para animación */
+    height: 100%;
+
+    background: url("images/collage.jpg") repeat-x;
+    background-size: contain;
+
+    animation: scrollBackground 20s linear infinite;
+    z-index: 0;
+}
+
+/* ANIMACIÓN */
+@keyframes scrollBackground {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* OVERLAY OSCURO */
+.home-menu-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 1;
+}
+
+/* BOTÓN */
+.home-menu-button {
+    position: relative;
+    z-index: 2;
+
+    background-color: #c50101;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.home-menu-button:hover {
+    background-color: #990808;
+    transform: scale(1.05);
 }
