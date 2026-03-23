@@ -49,3 +49,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+const form = document.getElementById("reservaForm");
+
+if (form) {
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+            method: "POST",
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                alert("Tu reserva se ha enviado correctamente ✅");
+                form.reset();
+            } else {
+                alert("Error al enviar la reserva ❌");
+            }
+        })
+        .catch(() => {
+            alert("Error de conexión ❌");
+        });
+    });
+}

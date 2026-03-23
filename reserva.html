@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto | Cal Silvino</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -25,15 +26,31 @@
 
             <!-- FORMULARIO -->
             <div class="contact-form-box">
-                <form class="contact-form">
+                <form 
+                    class="contact-form"
+                    action="https://formsubmit.co/ajax/armenia180924@gmail.com"
+                    method="POST"
+                    id="reservaForm"
+                >
+
                     <h2>Reservar mesa</h2>
 
-                    <input type="text" placeholder="Nombre y apellidos" required>
-                    <input type="tel" placeholder="Móvil" required>
-                    <input type="number" placeholder="Cantidad de personas" required>
-                    <input type="email" placeholder="Correo (opcional)">
+                    <input type="text" name="nombre" placeholder="Nombre y apellidos" required>
+                    <input type="tel" name="telefono" placeholder="Móvil" required>
+                    <input type="email" name="email" placeholder="Correo (opcional)">
+                    
+                    <input type="number" name="personas" placeholder="Cantidad de personas" required>
+                    
+                    <div class="date-time-group">
+                        <input type="date" name="fecha" required>
+                        <input type="time" name="hora" required>
+                    </div>
 
                     <button type="submit">Reservar</button>
+
+                    <!-- CONFIG -->
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
                 </form>
             </div>
 
