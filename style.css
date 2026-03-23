@@ -572,7 +572,7 @@ footer {
 
 /* ── MENÚ PAGE ── */
 .menu-section {
-    min-height: calc(100vh - 100px);
+    min-height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -636,4 +636,50 @@ footer {
     .menu-img {
         width: 220px;
     }
+}
+
+/* ── SECCIÓN MEJORES RECETAS ── */
+.menu-recipes {
+    background-color: #c50101;
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.recipes-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+/* ── CARRUSEL ── */
+.carousel {
+    overflow: hidden;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    animation: scroll-left 20s linear infinite;
+    width: max-content;
+}
+
+.carousel-track:hover {
+    animation-play-state: paused;
+}
+
+.carousel-img {
+    width: 280px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 16px;
+    flex-shrink: 0;
+}
+
+@keyframes scroll-left {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
