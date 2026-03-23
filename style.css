@@ -88,12 +88,8 @@ nav .btn {
 }
 
 nav .btn:hover {
-<<<<<<< HEAD
-    background-color: #5a0a0a;
-=======
     background-color: #ae1c1c;
     opacity: 1;
->>>>>>> 8412555ab4fc2c2b59006513dbae70061e5d257b
 }
 
 /* BANNER */
