@@ -18,11 +18,15 @@
     <header>
         <img src="/images/logo.png" class="logo" alt="Logo Cal Silvino">
 
-        <nav>
+        <nav id="mainNav">
             <a href="#" class="active">Inicio</a>
             <a href="#">Menú</a>
+            <a href="#" class="nav-reservar-mobile">Reservar ahora</a>
         </nav>
         <a href="#" class="nav-btn">Reservar ahora</a>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </button>
     </header>
 
     <!-- ================= MAIN ================= -->
@@ -61,22 +65,24 @@
                 </div>
 
                 <!-- CARRUSEL -->
-                <div class="home-about-carousel">
-                    <div class="about-carousel-track">
-                        <img src="images/uno.jpg" class="about-carousel-img" alt="">
-                        <img src="images/dos.jpg" class="about-carousel-img" alt="">
-                        <img src="images/tres.jpg" class="about-carousel-img" alt="">
-                        <img src="images/cuatro.jpg" class="about-carousel-img" alt="">
-                    </div>
+                <div class="home-about-carousel-wrapper">
+                    <div class="home-about-carousel">
+                        <div class="about-carousel-track">
+                            <img src="images/uno.jpg" class="about-carousel-img" alt="">
+                            <img src="images/dos.jpg" class="about-carousel-img" alt="">
+                            <img src="images/tres.jpg" class="about-carousel-img" alt="">
+                            <img src="images/cuatro.jpg" class="about-carousel-img" alt="">
+                        </div>
 
-                    <button class="carousel-btn prev">&#10094;</button>
-                    <button class="carousel-btn next">&#10095;</button>
-                </div>
-                <div class="carousel-dots">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
+                        <button class="carousel-btn prev">&#10094;</button>
+                        <button class="carousel-btn next">&#10095;</button>
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
                 </div>
 
             </div>

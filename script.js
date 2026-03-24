@@ -1,6 +1,26 @@
 // Espera a que cargue el DOM
 document.addEventListener("DOMContentLoaded", () => {
 
+    // HAMBURGER MENU
+    const hamburger = document.getElementById("hamburger");
+    const mainNav   = document.getElementById("mainNav");
+
+    if (hamburger && mainNav) {
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("open");
+            mainNav.classList.toggle("open");
+            document.body.style.overflow = mainNav.classList.contains("open") ? "hidden" : "";
+        });
+    }
+
+    function closeNav() {
+        if (hamburger && mainNav) {
+            hamburger.classList.remove("open");
+            mainNav.classList.remove("open");
+            document.body.style.overflow = "";
+        }
+    }
+
     // LINKS DEL NAV
     const links = document.querySelectorAll("nav a");
 
@@ -9,24 +29,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (text === "inicio") {
             link.addEventListener("click", () => {
+                closeNav();
                 window.location.href = "index.html";
             });
         }
 
         if (text === "menú" || text === "menu") {
             link.addEventListener("click", () => {
+                closeNav();
                 window.location.href = "menu.html";
             });
         }
 
         if (text === "contacto") {
             link.addEventListener("click", () => {
+                closeNav();
+                window.location.href = "contacto.html";
+            });
+        }
+
+        if (link.classList.contains("nav-reservar-mobile")) {
+            link.addEventListener("click", () => {
+                closeNav();
                 window.location.href = "contacto.html";
             });
         }
     });
 
-    // BOTÓN NAV (Reservar ahora)
+    // BOTÓN NAV (Reservar ahora) — versión desktop
     const navBtn = document.querySelector(".nav-btn");
     if (navBtn) {
         navBtn.addEventListener("click", () => {
@@ -47,6 +77,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (menuBtn) {
         menuBtn.addEventListener("click", () => {
             window.location.href = "menu.html";
+        });
+    }
+
+    // BOTÓN CTA RESERVA (menú)
+    const ctaBtn = document.querySelector(".menu-cta-btn");
+    if (ctaBtn) {
+        ctaBtn.addEventListener("click", () => {
+            window.location.href = "contacto.html";
         });
     }
 

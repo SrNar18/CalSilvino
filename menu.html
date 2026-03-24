@@ -12,14 +12,20 @@
     <header>
         <img src="/images/logo.png" class="logo">
 
-        <nav>
+        <nav id="mainNav">
             <a href="#">Inicio</a>
             <a href="#" class="active">Menú</a>
+            <a href="#" class="nav-reservar-mobile">Reservar ahora</a>
         </nav>
         <a href="#" class="nav-btn">Reservar ahora</a>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </button>
     </header>
 
     <main>
+
+        <!-- ===== CARTA (descarga) ===== -->
         <section class="menu-section">
             <div class="menu-header">
                 <h1 class="menu-title">Nuestro Menú</h1>
@@ -38,35 +44,130 @@
             </div>
         </section>
 
-        <section class="menu-recipes">
-            <h2 class="recipes-title">Mejores Recetas</h2>
+        <!-- ===== ESPECIALIDADES ===== -->
+        <section class="menu-specialties">
+            <div class="menu-specialties-container">
 
-            <div class="recipes-carousel">
-                <div class="recipes-carousel-track">
-                    <img src="/images/carrusel/calsilvinoComida.jpeg" alt="Receta 1" class="recipes-carousel-img">
-                    <img src="/images/carrusel/calsilvinoComida2.jpeg" alt="Receta 2" class="recipes-carousel-img">
-                    <img src="/images/carrusel/calsilvinoComida3.jpeg" alt="Receta 3" class="recipes-carousel-img">
-                    <img src="/images/carrusel/calsilvinoComida4.jpeg" alt="Receta 4" class="recipes-carousel-img">
-                    <img src="/images/carrusel/calsilvinoComida5.jpeg" alt="Receta 5" class="recipes-carousel-img">
-                    <img src="/images/carrusel/calsilvinoComida6.jpeg" alt="Receta 6" class="recipes-carousel-img">
-                    <img src="/images/carrusel/calsilvinoComida7.jpeg" alt="Receta 7" class="recipes-carousel-img">
-                    <img src="/images/carrusel/calsilvinoComida8.jpeg" alt="Receta 8" class="recipes-carousel-img">
-                    <img src="/images/carrusel/calsilvinoComida9.jpeg" alt="Receta 9" class="recipes-carousel-img">
-                    <img src="/images/carrusel/calsilvinoComida10.jpeg" alt="Receta 10" class="recipes-carousel-img">
-                    <!-- Duplicadas para el loop infinito -->
-                    <img src="/images/carrusel/calsilvinoComida.jpeg" alt="Receta 1" class="recipes-carousel-img">
-                    <img src="/images/carrusel/calsilvinoComida2.jpeg" alt="Receta 2" class="recipes-carousel-img">
-                    <img src="/images/carrusel/calsilvinoComida3.jpeg" alt="Receta 3" class="recipes-carousel-img">
-                    <img src="/images/carrusel/calsilvinoComida4.jpeg" alt="Receta 4" class="recipes-carousel-img">
-                    <img src="/images/carrusel/calsilvinoComida5.jpeg" alt="Receta 5" class="recipes-carousel-img">
-                    <img src="/images/carrusel/calsilvinoComida6.jpeg" alt="Receta 6" class="recipes-carousel-img">
-                    <img src="/images/carrusel/calsilvinoComida7.jpeg" alt="Receta 7" class="recipes-carousel-img">
-                    <img src="/images/carrusel/calsilvinoComida8.jpeg" alt="Receta 8" class="recipes-carousel-img">
-                    <img src="/images/carrusel/calsilvinoComida9.jpeg" alt="Receta 9" class="recipes-carousel-img">
-                    <img src="/images/carrusel/calsilvinoComida10.jpeg" alt="Receta 10" class="recipes-carousel-img">
+                <div class="menu-section-header">
+                    <p class="menu-section-eyebrow">Lo mejor de Cal Silvino</p>
+                    <h2 class="menu-section-title">Especialidades de la casa</h2>
+                </div>
+
+                <div class="menu-specialties-grid">
+
+                    <div class="specialty-card">
+                        <span class="specialty-tag">Mar</span>
+                        <h3 class="specialty-name">Bacalao a la llauna</h3>
+                        <p class="specialty-desc">El plato estrella de la casa. Bacalao confitado en aceite de oliva virgen extra con ajo dorado y pimentón dulce.</p>
+                    </div>
+
+                    <div class="specialty-card">
+                        <span class="specialty-tag">Brasa</span>
+                        <h3 class="specialty-name">Pulpo a la brasa</h3>
+                        <p class="specialty-desc">Pulpo gallego braseado al fuego vivo, acompañado de patata aplastada, aceite de pimentón y flor de sal.</p>
+                    </div>
+
+                    <div class="specialty-card">
+                        <span class="specialty-tag">Tradición</span>
+                        <h3 class="specialty-name">Callos a la madrileña</h3>
+                        <p class="specialty-desc">Guiso tradicional de callos con chorizo, morcilla y especias, cocinado a fuego lento durante horas.</p>
+                    </div>
+
+                    <div class="specialty-card">
+                        <span class="specialty-tag">Mar</span>
+                        <h3 class="specialty-name">Tartar de atún</h3>
+                        <p class="specialty-desc">Atún rojo cortado a cuchillo con aguacate cremoso, sésamo tostado, soja y un toque de wasabi.</p>
+                    </div>
+
+                    <div class="specialty-card">
+                        <span class="specialty-tag">Brasa</span>
+                        <h3 class="specialty-name">Carne a la brasa</h3>
+                        <p class="specialty-desc">Selección de cortes premium braseados sobre leña de encina. Servidos con guarnición de temporada.</p>
+                    </div>
+
+                    <div class="specialty-card">
+                        <span class="specialty-tag">Tradición</span>
+                        <h3 class="specialty-name">Canelones caseros</h3>
+                        <p class="specialty-desc">Canelones rellenos de carne braseada y verduras, cubiertos de bechamel casera y queso gratinado.</p>
+                    </div>
+
                 </div>
             </div>
         </section>
+
+        <!-- ===== PILARES ===== -->
+        <section class="menu-features">
+            <div class="menu-features-grid">
+
+                <div class="menu-feature">
+                    <span class="menu-feature-icon">🏠</span>
+                    <p class="menu-feature-title">Negocio familiar</p>
+                    <p class="menu-feature-text">Más de 12 años en La Massana</p>
+                </div>
+
+                <div class="menu-feature">
+                    <span class="menu-feature-icon">🌊</span>
+                    <p class="menu-feature-title">Cocina de mar</p>
+                    <p class="menu-feature-text">Bacalao, pulpo y marisco fresco</p>
+                </div>
+
+                <div class="menu-feature">
+                    <span class="menu-feature-icon">🔥</span>
+                    <p class="menu-feature-title">Fuego y brasa</p>
+                    <p class="menu-feature-text">Carnes y pescados al fuego vivo</p>
+                </div>
+
+                <div class="menu-feature">
+                    <span class="menu-feature-icon">🎉</span>
+                    <p class="menu-feature-title">Celebraciones</p>
+                    <p class="menu-feature-text">Eventos y comidas de empresa</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== GALERÍA DE PLATOS ===== -->
+        <section class="menu-recipes">
+            <div class="menu-section-header" style="margin-bottom: 0;">
+                <p class="menu-section-eyebrow" style="color: rgba(255,255,255,0.65);">Nuestra cocina en imágenes</p>
+                <h2 class="recipes-title">Galería de platos</h2>
+            </div>
+
+            <div class="recipes-carousel">
+                <div class="recipes-carousel-track">
+                    <img src="/images/carrusel/calsilvinoComida.jpeg" alt="Plato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida2.jpeg" alt="Plato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida3.jpeg" alt="Plato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida4.jpeg" alt="Plato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida5.jpeg" alt="Plato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida6.jpeg" alt="Plato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida7.jpeg" alt="Plato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida8.jpeg" alt="Plato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida9.jpeg" alt="Plato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida10.jpeg" alt="Plato Cal Silvino" class="recipes-carousel-img">
+                    <!-- Duplicadas para el loop infinito -->
+                    <img src="/images/carrusel/calsilvinoComida.jpeg" alt="Plato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida2.jpeg" alt="Plato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida3.jpeg" alt="Plato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida4.jpeg" alt="Plato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida5.jpeg" alt="Plato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida6.jpeg" alt="Plato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida7.jpeg" alt="Plato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida8.jpeg" alt="Plato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida9.jpeg" alt="Plato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida10.jpeg" alt="Plato Cal Silvino" class="recipes-carousel-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA RESERVA ===== -->
+        <section class="menu-cta">
+            <p class="menu-section-eyebrow">¿Todo listo?</p>
+            <h2 class="menu-cta-title">Reserva tu mesa</h2>
+            <p class="menu-cta-text">Ven a disfrutar de nuestra cocina tradicional en un ambiente cálido y familiar. Te esperamos en La Massana.</p>
+            <button class="menu-cta-btn">Reservar ahora</button>
+        </section>
+
     </main>
 
     <footer>
