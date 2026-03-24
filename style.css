@@ -50,7 +50,7 @@ nav {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    
+
     display: flex;
     align-items: center;
     gap: 70px;
@@ -75,21 +75,19 @@ nav a.active {
 }
 
 /* BOTÓN NAV */
-nav .btn {
-    position: absolute;
-    right: -530px;
-
+.nav-btn {
     background-color: #c71f1f;
     color: #fff;
     padding: 10px 18px;
     border-radius: 12px;
     font-size: 16px;
     font-weight: 600;
-    transition: 0.3s;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-nav .btn:hover {
-    opacity: 1;
+.nav-btn:hover {
     background-color: #990808;
     transform: scale(1.05);
 }
@@ -108,12 +106,34 @@ nav .btn:hover {
     color: white;
     margin-left: 60px;
     max-width: 500px;
+    animation: fadeInUp 0.9s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.home-banner-subtitle {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0 0 12px 0;
 }
 
 .home-banner-title {
     font-size: 64px;
     font-weight: 700;
     margin-bottom: 40px;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
 
 /* BOTÓN BANNER */
@@ -126,6 +146,7 @@ nav .btn:hover {
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
+    font-family: 'Poppins', sans-serif;
     transition: 0.3s;
 }
 
@@ -148,6 +169,7 @@ footer {
     align-items: flex-start;
     padding: 40px 60px;
     gap: 40px;
+    border-top: 3px solid #c50101;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.08);
 }
 
@@ -261,15 +283,31 @@ footer {
     gap: 15px;
 }
 
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.contact-form label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #666;
+}
+
 .contact-form input {
     padding: 14px;
     border-radius: 12px;
     border: 1px solid #ddd;
     font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .contact-form input:focus {
     border-color: #c50101;
+    box-shadow: 0 0 0 3px rgba(197, 1, 1, 0.1);
+    outline: none;
 }
 
 /* BOTÓN FORM */
@@ -283,6 +321,7 @@ footer {
     font-weight: 600;
     cursor: pointer;
     margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
     transition: 0.3s;
 }
 
@@ -327,7 +366,7 @@ footer {
     gap: 10px;
 }
 
-.date-time-group input {
+.date-time-group .form-group {
     flex: 1;
 }
 
@@ -355,6 +394,19 @@ footer {
     font-weight: 700;
     margin-bottom: 25px;
     letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 18px;
+}
+
+.home-about-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 55px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
 }
 
 .home-about-text p {
@@ -362,6 +414,15 @@ footer {
     line-height: 1.7;
     margin-bottom: 15px;
     opacity: 0.95;
+}
+
+/* Platos destacados */
+.dish {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1px 9px;
+    border-radius: 20px;
+    font-weight: 600;
+    white-space: nowrap;
 }
 
 /* ── CARRUSEL HOME (manual con botones) ── */
@@ -409,6 +470,28 @@ footer {
 
 .carousel-btn:hover {
     background: rgba(0,0,0,0.8);
+}
+
+/* Dots del carrusel */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.dot.active {
+    background: #fff;
+    transform: scale(1.35);
 }
 
 /* HORARIO ABOUT */
@@ -482,6 +565,24 @@ footer {
     z-index: 1;
 }
 
+.home-menu-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.home-menu-eyebrow {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
 .home-menu-button {
     position: relative;
     z-index: 2;
@@ -493,6 +594,7 @@ footer {
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
+    font-family: 'Poppins', sans-serif;
     transition: transform 0.3s ease, background 0.3s ease;
 }
 
@@ -533,6 +635,12 @@ footer {
     border-radius: 15px;
     min-width: 200px;
     backdrop-filter: blur(6px);
+    transition: background 0.3s, transform 0.3s;
+}
+
+.home-schedule-item:hover {
+    background: rgba(255,255,255,0.18);
+    transform: translateY(-3px);
 }
 
 .home-schedule-item .day {
@@ -581,6 +689,7 @@ footer {
     justify-content: center;
     align-items: center;
     text-align: center;
+    gap: 30px;
 }
 
 .home-social {
@@ -633,6 +742,14 @@ footer {
     line-height: 1.2;
 }
 
+.menu-subtitle {
+    font-size: 16px;
+    color: #999;
+    margin: 10px 0 0 0;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+}
+
 .menu-cards {
     display: flex;
     gap: 60px;
@@ -643,6 +760,7 @@ footer {
 
 .menu-img-link {
     display: inline-block;
+    text-decoration: none;
     transition: transform 0.25s ease, filter 0.25s ease;
 }
 
@@ -656,6 +774,14 @@ footer {
     height: auto;
     display: block;
     border-radius: 20px;
+}
+
+.menu-card-label {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
 }
 
 /* ── SECCIÓN MEJORES RECETAS ── */

@@ -24,13 +24,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.location.href = "contacto.html";
             });
         }
-
-        if (link.classList.contains("btn")) {
-            link.addEventListener("click", () => {
-                window.location.href = "contacto.html";
-            });
-        }
     });
+
+    // BOTÓN NAV (Reservar ahora)
+    const navBtn = document.querySelector(".nav-btn");
+    if (navBtn) {
+        navBtn.addEventListener("click", () => {
+            window.location.href = "contacto.html";
+        });
+    }
 
     // BOTÓN DEL BANNER (Reservar mesa)
     const bannerBtn = document.querySelector(".home-banner-button");
@@ -90,9 +92,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (track && slides.length > 0 && nextBtn && prevBtn) {
         let index = 0;
+        const dots = document.querySelectorAll(".dot");
 
         function updateCarousel() {
             track.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
         }
 
         nextBtn.addEventListener("click", () => {
@@ -103,6 +107,13 @@ document.addEventListener("DOMContentLoaded", () => {
         prevBtn.addEventListener("click", () => {
             index = (index - 1 + slides.length) % slides.length;
             updateCarousel();
+        });
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener("click", () => {
+                index = i;
+                updateCarousel();
+            });
         });
 
         setInterval(() => {
