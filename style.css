@@ -728,6 +728,156 @@ footer {
     margin: 0 auto;
 }
 
+/* ── MODAL PDF ── */
+.pdf-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.72);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.pdf-modal-overlay.active {
+    display: flex;
+}
+
+.pdf-modal-box {
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    width: 92vw;
+    max-width: 960px;
+    height: 88vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+    animation: modalIn 0.22s ease;
+}
+
+@keyframes modalIn {
+    from { opacity: 0; transform: scale(0.95) translateY(16px); }
+    to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+.pdf-modal-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: #f5e4ce;
+    border-bottom: 1px solid #e4cdb0;
+    flex-shrink: 0;
+    gap: 12px;
+}
+
+.pdf-modal-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: #2c1810;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pdf-modal-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.pdf-modal-download {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: #c71f1f;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.pdf-modal-download:hover {
+    background: #a51a1a;
+}
+
+.pdf-modal-close {
+    background: none;
+    border: 1.5px solid rgba(44, 24, 16, 0.25);
+    font-size: 18px;
+    cursor: pointer;
+    color: #2c1810;
+    line-height: 1;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: background 0.2s, border-color 0.2s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.pdf-modal-close:hover {
+    background: rgba(0, 0, 0, 0.08);
+    border-color: rgba(44, 24, 16, 0.45);
+}
+
+.pdf-modal-body {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.pdf-modal-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.pdf-fallback {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 18px;
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.pdf-fallback p {
+    font-family: 'Poppins', sans-serif;
+    color: #666;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.pdf-fallback-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #c71f1f;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 14px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.pdf-fallback-link:hover {
+    background: #a51a1a;
+}
+
 /* ── MENÚ PAGE ── */
 .menu-section {
     min-height: auto;

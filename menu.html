@@ -33,12 +33,12 @@
             </div>
 
             <div class="menu-cards">
-                <a href="pdfs/carta-es-ca.pdf" target="_blank" class="menu-img-link">
-                    <img src="/images/MenuCatEsp.png" alt="Descargar carta Español / Català" class="menu-img">
+                <a href="pdfs/carta-es-ca.pdf" class="menu-img-link" onclick="openPdfModal('pdfs/carta-es-ca.pdf', 'Español / Català'); return false;">
+                    <img src="/images/MenuCatEsp.png" alt="Ver carta Español / Català" class="menu-img">
                     <p class="menu-card-label">Español / Català</p>
                 </a>
-                <a href="pdfs/carta-fr-en.pdf" target="_blank" class="menu-img-link">
-                    <img src="/images/MenuFrEn.png" alt="Download menu Français / English" class="menu-img">
+                <a href="pdfs/carta-fr-en.pdf" class="menu-img-link" onclick="openPdfModal('pdfs/carta-fr-en.pdf', 'Français / English'); return false;">
+                    <img src="/images/MenuFrEn.png" alt="Voir menu Français / English" class="menu-img">
                     <p class="menu-card-label">Français / English</p>
                 </a>
             </div>
@@ -202,6 +202,30 @@
             </div>
         </div>
     </footer>
+
+    <!-- ===== MODAL VISTA PREVIA PDF ===== -->
+    <div id="pdfModal" class="pdf-modal-overlay" onclick="handleModalOverlayClick(event)">
+        <div class="pdf-modal-box">
+            <div class="pdf-modal-toolbar">
+                <span class="pdf-modal-title" id="pdfModalTitle"></span>
+                <div class="pdf-modal-actions">
+                    <a id="pdfDownloadBtn" class="pdf-modal-download" download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Descargar
+                    </a>
+                    <button class="pdf-modal-close" onclick="closePdfModal()" aria-label="Cerrar">✕</button>
+                </div>
+            </div>
+            <div class="pdf-modal-body">
+                <iframe id="pdfFrame" class="pdf-modal-iframe" title="Vista previa del menú"></iframe>
+                <div id="pdfFallback" class="pdf-fallback">
+                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#c71f1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                    <p>La vista previa no está disponible en móvil.<br>Descarga la carta para verla.</p>
+                    <a id="pdfFallbackLink" class="pdf-fallback-link" download>Descargar carta</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

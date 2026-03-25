@@ -1,3 +1,53 @@
+// ── MODAL PDF ──
+function openPdfModal(pdfPath, title) {
+    const modal       = document.getElementById("pdfModal");
+    const frame       = document.getElementById("pdfFrame");
+    const downloadBtn = document.getElementById("pdfDownloadBtn");
+    const titleEl     = document.getElementById("pdfModalTitle");
+    const fallback    = document.getElementById("pdfFallback");
+    const fallbackLink = document.getElementById("pdfFallbackLink");
+
+    titleEl.textContent = title;
+    downloadBtn.href     = pdfPath;
+    downloadBtn.setAttribute("download", pdfPath.split("/").pop());
+
+    const isMobile = /iPhone|iPad|Android|Mobile/i.test(navigator.userAgent);
+
+    if (isMobile) {
+        frame.style.display    = "none";
+        fallback.style.display = "flex";
+        fallbackLink.href = pdfPath;
+        fallbackLink.setAttribute("download", pdfPath.split("/").pop());
+        frame.src = "";
+    } else {
+        frame.style.display    = "block";
+        fallback.style.display = "none";
+        frame.src = pdfPath;
+    }
+
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+}
+
+function closePdfModal() {
+    const modal = document.getElementById("pdfModal");
+    const frame = document.getElementById("pdfFrame");
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+    // Pequeño delay para que la animación termine antes de vaciar el iframe
+    setTimeout(() => { frame.src = ""; }, 250);
+}
+
+function handleModalOverlayClick(e) {
+    if (e.target === document.getElementById("pdfModal")) {
+        closePdfModal();
+    }
+}
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closePdfModal();
+});
+
 // Espera a que cargue el DOM
 document.addEventListener("DOMContentLoaded", () => {
 
