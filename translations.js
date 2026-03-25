@@ -43,12 +43,10 @@ const TRANSLATIONS = {
     'menu-btn':     'Ver menú completo',
 
     // Testimonios
-    'test-eyebrow':  'Lo que dicen nuestros clientes',
-    'test-title':    'Opiniones reales de Google',
-    'global-count':  '· Muy valorado en Google',
-    'test-1':        '"El mejor bacalao que he probado en Andorra, sin duda. Ambiente cálido, trato familiar y una carta espectacular. Volvemos siempre que podemos."',
-    'test-2':        '"Llevamos años viniendo y nunca nos decepciona. El pulpo a la brasa es increíble y el servicio siempre atento y cercano. Totalmente recomendado."',
-    'test-3':        '"Fuimos a celebrar un aniversario y fue perfecto. Cocina de producto, local con encanto y una atención impecable. Sin duda el mejor restaurante de La Massana."',
+    'test-eyebrow':    'Lo que dicen nuestros clientes',
+    'test-title':      'Opiniones reales de Google',
+    'global-count':    '· Muy valorado en Google',
+    'test-google-cta': 'Ver todas las reseñas en Google',
 
     // Horario
     'schedule-eyebrow': 'Cuando quieras visitarnos',
@@ -170,12 +168,10 @@ const TRANSLATIONS = {
     'menu-desc':    'Plats de temporada, especialitats de la casa i una selecció de vins pensada per acompanyar cada mos.',
     'menu-btn':     'Veure el menú complet',
 
-    'test-eyebrow': 'El que diuen els nostres clients',
-    'test-title':   'Opinions reals de Google',
-    'global-count': '· Molt valorat a Google',
-    'test-1':       '"El millor bacallà que he tastat a Andorra, sens dubte. Ambient càlid, tracte familiar i una carta espectacular. Hi tornem sempre que podem."',
-    'test-2':       '"Portem anys venint i mai ens decepciona. El pop a la brasa és increïble i el servei sempre atent i proper. Totalment recomanat."',
-    'test-3':       '"Vam anar a celebrar un aniversari i va ser perfecte. Cuina de producte, local amb encant i una atenció impecable. Sens dubte el millor restaurant de La Massana."',
+    'test-eyebrow':    'El que diuen els nostres clients',
+    'test-title':      'Opinions reals de Google',
+    'global-count':    '· Molt valorat a Google',
+    'test-google-cta': 'Veure totes les ressenyes a Google',
 
     'schedule-eyebrow': 'Quan vulguis visitar-nos',
     'schedule-h2':      'Horari',
@@ -286,12 +282,10 @@ const TRANSLATIONS = {
     'menu-desc':    'Pratos de época, especialidades da casa e uma seleção de vinhos pensada para acompanhar cada garfada.',
     'menu-btn':     'Ver menu completo',
 
-    'test-eyebrow': 'O que dizem os nossos clientes',
-    'test-title':   'Opiniões reais do Google',
-    'global-count': '· Muito valorizado no Google',
-    'test-1':       '"O melhor bacalhau que já provei em Andorra, sem dúvida. Ambiente acolhedor, trato familiar e uma carta espetacular. Voltamos sempre que podemos."',
-    'test-2':       '"Há anos que vimos e nunca nos decepciona. O polvo à brasa é incrível e o serviço sempre atento e próximo. Totalmente recomendado."',
-    'test-3':       '"Fomos celebrar um aniversário e foi perfeito. Cozinha de produto, local com encanto e uma atenção impecável. Sem dúvida o melhor restaurante de La Massana."',
+    'test-eyebrow':    'O que dizem os nossos clientes',
+    'test-title':      'Opiniões reais do Google',
+    'global-count':    '· Muito valorizado no Google',
+    'test-google-cta': 'Ver todas as avaliações no Google',
 
     'schedule-eyebrow': 'Quando quiser visitar-nos',
     'schedule-h2':      'Horário',
@@ -402,12 +396,10 @@ const TRANSLATIONS = {
     'menu-desc':    'Seasonal dishes, house specialities and a wine selection crafted to accompany every bite.',
     'menu-btn':     'View full menu',
 
-    'test-eyebrow': 'What our guests say',
-    'test-title':   'Real Google reviews',
-    'global-count': '· Highly rated on Google',
-    'test-1':       '"The best bacalao I\'ve had in Andorra, without question. Warm atmosphere, family service and an amazing menu. We come back every chance we get."',
-    'test-2':       '"We\'ve been coming for years and it never disappoints. The grilled octopus is incredible and the staff are always attentive. Highly recommended."',
-    'test-3':       '"We went to celebrate an anniversary and it was perfect. Great produce, charming place and impeccable service. Undoubtedly the best restaurant in La Massana."',
+    'test-eyebrow':    'What our guests say',
+    'test-title':      'Real Google reviews',
+    'global-count':    '· Highly rated on Google',
+    'test-google-cta': 'See all reviews on Google',
 
     'schedule-eyebrow': 'Whenever you\'d like to visit',
     'schedule-h2':      'Opening hours',
