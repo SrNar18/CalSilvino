@@ -182,11 +182,11 @@ nav a.active {
 
 /* BOTÓN BANNER */
 .home-banner-button {
-    background-color: #c50101;
+    background-color: #c71f1f;
     color: white;
     border: none;
     padding: 14px 24px;
-    border-radius: 25px;
+    border-radius: 12px;
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
