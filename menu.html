@@ -3,21 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú | Cal Silvino</title>
+
+    <!-- ═══ SEO ═══ -->
+    <title>Carta y Menú | Cal Silvino — Restaurante en La Massana, Andorra</title>
+    <meta name="description" content="Descubre la carta de Cal Silvino: bacalao a la llauna, pulpo a la brasa, carnes, tapas y cocina tradicional andorrana. Disponible en español, català, français y English. Restaurante en La Massana, Andorra.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://restaurantcalsilvino.com/menu.html">
+    <meta property="og:title" content="Carta y Menú | Cal Silvino — Restaurante La Massana">
+    <meta property="og:description" content="Especialidades de la casa: bacalao a la llauna, pulpo a la brasa, carnes al fuego, canelones caseros y mucho más.">
+    <meta property="og:url" content="https://restaurantcalsilvino.com/menu.html">
+    <meta property="og:image" content="https://restaurantcalsilvino.com/images/fondo.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header>
-        <img src="/images/logo.png" class="logo">
+        <img src="/images/logo.png" class="logo" alt="Cal Silvino">
 
         <nav id="mainNav">
-            <a href="#">Inicio</a>
-            <a href="#" class="active">Menú</a>
-            <a href="#" class="nav-reservar-mobile">Reservar ahora</a>
+            <a href="index.html" data-i18n="nav-inicio">Inicio</a>
+            <a href="#" class="active" data-i18n="nav-menu">Menú</a>
+            <a href="#" class="nav-reservar-mobile" data-i18n="nav-reservar">Reservar ahora</a>
         </nav>
-        <a href="#" class="nav-btn">Reservar ahora</a>
+
+        <div class="header-right">
+            <div class="lang-switcher" id="langSwitcher">
+                <button class="lang-btn" id="langBtn" aria-label="Cambiar idioma">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <span id="langCurrent">ES</span>
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="lang-dropdown" id="langDropdown">
+                    <button class="lang-option" data-lang="es"><span class="lang-flag">🇪🇸</span> Español</button>
+                    <button class="lang-option" data-lang="ca"><span class="lang-flag">🇦🇩</span> Català</button>
+                    <button class="lang-option" data-lang="pt"><span class="lang-flag">🇵🇹</span> Português</button>
+                    <button class="lang-option" data-lang="en"><span class="lang-flag">🇬🇧</span> English</button>
+                </div>
+            </div>
+
+            <a href="#" class="nav-btn" data-i18n="nav-reservar">Reservar ahora</a>
+        </div>
+
         <button class="hamburger" id="hamburger" aria-label="Abrir menú">
             <span></span><span></span><span></span>
         </button>
@@ -28,8 +56,8 @@
         <!-- ===== CARTA (descarga) ===== -->
         <section class="menu-section">
             <div class="menu-header">
-                <h1 class="menu-title">Nuestro Menú</h1>
-                <p class="menu-subtitle">Descarga nuestra carta en tu idioma</p>
+                <h1 class="menu-title" data-i18n="menu-page-h1">Nuestra Carta</h1>
+                <p class="menu-subtitle" data-i18n="menu-page-subtitle">Consulta o descarga el menú completo en tu idioma</p>
             </div>
 
             <div class="menu-cards">
@@ -49,46 +77,46 @@
             <div class="menu-specialties-container">
 
                 <div class="menu-section-header">
-                    <p class="menu-section-eyebrow">Lo mejor de Cal Silvino</p>
-                    <h2 class="menu-section-title">Especialidades de la casa</h2>
+                    <p class="menu-section-eyebrow" data-i18n="spec-eyebrow">Lo mejor de Cal Silvino</p>
+                    <h2 class="menu-section-title" data-i18n="spec-h2">Especialidades de la casa</h2>
                 </div>
 
                 <div class="menu-specialties-grid">
 
                     <div class="specialty-card">
                         <span class="specialty-tag">Mar</span>
-                        <h3 class="specialty-name">Bacalao a la llauna</h3>
-                        <p class="specialty-desc">El plato estrella de la casa. Bacalao confitado en aceite de oliva virgen extra con ajo dorado y pimentón dulce.</p>
+                        <h3 class="specialty-name" data-i18n="spec-1-name">Bacalao a la llauna</h3>
+                        <p class="specialty-desc" data-i18n="spec-1-desc">El plato estrella de la casa. Bacalao confitado en aceite de oliva virgen extra con ajo dorado y pimentón dulce.</p>
                     </div>
 
                     <div class="specialty-card">
                         <span class="specialty-tag">Brasa</span>
-                        <h3 class="specialty-name">Pulpo a la brasa</h3>
-                        <p class="specialty-desc">Pulpo gallego braseado al fuego vivo, acompañado de patata aplastada, aceite de pimentón y flor de sal.</p>
+                        <h3 class="specialty-name" data-i18n="spec-2-name">Pulpo a la brasa</h3>
+                        <p class="specialty-desc" data-i18n="spec-2-desc">Pulpo gallego braseado al fuego vivo, acompañado de patata aplastada, aceite de pimentón y flor de sal.</p>
                     </div>
 
                     <div class="specialty-card">
                         <span class="specialty-tag">Tradición</span>
-                        <h3 class="specialty-name">Callos a la madrileña</h3>
-                        <p class="specialty-desc">Guiso tradicional de callos con chorizo, morcilla y especias, cocinado a fuego lento durante horas.</p>
+                        <h3 class="specialty-name" data-i18n="spec-3-name">Callos a la madrileña</h3>
+                        <p class="specialty-desc" data-i18n="spec-3-desc">Guiso tradicional de callos con chorizo, morcilla y especias, cocinado a fuego lento durante horas.</p>
                     </div>
 
                     <div class="specialty-card">
                         <span class="specialty-tag">Mar</span>
-                        <h3 class="specialty-name">Tartar de atún</h3>
-                        <p class="specialty-desc">Atún rojo cortado a cuchillo con aguacate cremoso, sésamo tostado, soja y un toque de wasabi.</p>
+                        <h3 class="specialty-name" data-i18n="spec-4-name">Tartar de atún</h3>
+                        <p class="specialty-desc" data-i18n="spec-4-desc">Atún rojo cortado a cuchillo con aguacate cremoso, sésamo tostado, soja y un toque de wasabi.</p>
                     </div>
 
                     <div class="specialty-card">
                         <span class="specialty-tag">Brasa</span>
-                        <h3 class="specialty-name">Carne a la brasa</h3>
-                        <p class="specialty-desc">Selección de cortes premium braseados sobre leña de encina. Servidos con guarnición de temporada.</p>
+                        <h3 class="specialty-name" data-i18n="spec-5-name">Carne a la brasa</h3>
+                        <p class="specialty-desc" data-i18n="spec-5-desc">Selección de cortes premium braseados sobre leña de encina. Servidos con guarnición de temporada.</p>
                     </div>
 
                     <div class="specialty-card">
                         <span class="specialty-tag">Tradición</span>
-                        <h3 class="specialty-name">Canelones caseros</h3>
-                        <p class="specialty-desc">Canelones rellenos de carne braseada y verduras, cubiertos de bechamel casera y queso gratinado.</p>
+                        <h3 class="specialty-name" data-i18n="spec-6-name">Canelones caseros</h3>
+                        <p class="specialty-desc" data-i18n="spec-6-desc">Canelones rellenos de carne braseada y verduras, cubiertos de bechamel casera y queso gratinado.</p>
                     </div>
 
                 </div>
@@ -101,26 +129,26 @@
 
                 <div class="menu-feature">
                     <span class="menu-feature-icon">🏠</span>
-                    <p class="menu-feature-title">Negocio familiar</p>
-                    <p class="menu-feature-text">Más de 12 años en La Massana</p>
+                    <p class="menu-feature-title" data-i18n="feat-1-title">Negocio familiar</p>
+                    <p class="menu-feature-text" data-i18n="feat-1-text">Más de 12 años en La Massana</p>
                 </div>
 
                 <div class="menu-feature">
                     <span class="menu-feature-icon">🌊</span>
-                    <p class="menu-feature-title">Cocina de mar</p>
-                    <p class="menu-feature-text">Bacalao, pulpo y marisco fresco</p>
+                    <p class="menu-feature-title" data-i18n="feat-2-title">Cocina de mar</p>
+                    <p class="menu-feature-text" data-i18n="feat-2-text">Bacalao, pulpo y marisco fresco</p>
                 </div>
 
                 <div class="menu-feature">
                     <span class="menu-feature-icon">🔥</span>
-                    <p class="menu-feature-title">Fuego y brasa</p>
-                    <p class="menu-feature-text">Carnes y pescados al fuego vivo</p>
+                    <p class="menu-feature-title" data-i18n="feat-3-title">Fuego y brasa</p>
+                    <p class="menu-feature-text" data-i18n="feat-3-text">Carnes y pescados al fuego vivo</p>
                 </div>
 
                 <div class="menu-feature">
                     <span class="menu-feature-icon">🎉</span>
-                    <p class="menu-feature-title">Celebraciones</p>
-                    <p class="menu-feature-text">Eventos y comidas de empresa</p>
+                    <p class="menu-feature-title" data-i18n="feat-4-title">Celebraciones</p>
+                    <p class="menu-feature-text" data-i18n="feat-4-text">Eventos y comidas de empresa</p>
                 </div>
 
             </div>
@@ -129,8 +157,8 @@
         <!-- ===== GALERÍA DE PLATOS ===== -->
         <section class="menu-recipes">
             <div class="menu-section-header" style="margin-bottom: 0;">
-                <p class="menu-section-eyebrow" style="color: rgba(255,255,255,0.65);">Nuestra cocina en imágenes</p>
-                <h2 class="recipes-title">Galería de platos</h2>
+                <p class="menu-section-eyebrow" style="color: rgba(255,255,255,0.65);" data-i18n="gallery-eyebrow">Nuestra cocina en imágenes</p>
+                <h2 class="recipes-title" data-i18n="gallery-title">Galería de platos</h2>
             </div>
 
             <div class="recipes-carousel">
@@ -162,10 +190,10 @@
 
         <!-- ===== CTA RESERVA ===== -->
         <section class="menu-cta">
-            <p class="menu-section-eyebrow">¿Todo listo?</p>
-            <h2 class="menu-cta-title">Reserva tu mesa</h2>
-            <p class="menu-cta-text">Ven a disfrutar de nuestra cocina tradicional en un ambiente cálido y familiar. Te esperamos en La Massana.</p>
-            <button class="menu-cta-btn">Reservar ahora</button>
+            <p class="menu-section-eyebrow" data-i18n="cta-eyebrow">¿Todo listo?</p>
+            <h2 class="menu-cta-title" data-i18n="cta-h2">Reserva tu mesa</h2>
+            <p class="menu-cta-text" data-i18n="cta-text">Ven a disfrutar de nuestra cocina tradicional en un ambiente cálido y familiar. Te esperamos en La Massana.</p>
+            <button class="menu-cta-btn" data-i18n="cta-btn">Reservar ahora</button>
         </section>
 
     </main>
@@ -184,18 +212,18 @@
         <div class="footer-right">
             <div class="footer-schedule">
                 <div class="schedule-block">
-                    <p><strong>Dilluns i dimarts</strong></p>
-                    <p>Tancat</p>
+                    <p><strong data-i18n="footer-days-1">Lunes y martes</strong></p>
+                    <p data-i18n="footer-closed">Cerrado</p>
                 </div>
 
                 <div class="schedule-block">
-                    <p><strong>Dimecres, dijous i divendres</strong></p>
+                    <p><strong data-i18n="footer-days-2">Miércoles a viernes</strong></p>
                     <p>10.00 - 16.00</p>
                     <p>20.00 - 23.00</p>
                 </div>
 
                 <div class="schedule-block">
-                    <p><strong>Dissabte, diumenge i festius</strong></p>
+                    <p><strong data-i18n="footer-days-3">Sábado y domingo y festivos</strong></p>
                     <p>11.00 - 16.30</p>
                     <p>20.00 - 23.30</p>
                 </div>
@@ -211,7 +239,7 @@
                 <div class="pdf-modal-actions">
                     <a id="pdfDownloadBtn" class="pdf-modal-download" download>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                        Descargar
+                        <span data-i18n="pdf-download-btn">Descargar</span>
                     </a>
                     <button class="pdf-modal-close" onclick="closePdfModal()" aria-label="Cerrar">✕</button>
                 </div>
@@ -220,13 +248,14 @@
                 <iframe id="pdfFrame" class="pdf-modal-iframe" title="Vista previa del menú"></iframe>
                 <div id="pdfFallback" class="pdf-fallback">
                     <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#c71f1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
-                    <p>La vista previa no está disponible en móvil.<br>Descarga la carta para verla.</p>
-                    <a id="pdfFallbackLink" class="pdf-fallback-link" download>Descargar carta</a>
+                    <p data-i18n-html="pdf-fallback-p">La vista previa no está disponible en móvil.<br>Descarga la carta para verla.</p>
+                    <a id="pdfFallbackLink" class="pdf-fallback-link" data-i18n="pdf-fallback-link" download>Descargar carta</a>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

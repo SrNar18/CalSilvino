@@ -3,79 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio | Cal Silvino</title>
 
-    <!-- Fuente -->
+    <title>Cal Silvino | Restaurante en La Massana, Andorra — Cocina Tradicional y de Brasa</title>
+    <meta name="description" content="Cal Silvino, restaurante familiar en La Massana, Andorra. Disfruta del mejor bacalao a la llauna, pulpo a la brasa, carnes y cocina tradicional andorrana. Más de 12 años de historia. Reserva tu mesa ahora.">
+    <meta name="keywords" content="restaurante La Massana, restaurante Andorra, mejor restaurante Andorra, bacalao a la llauna, pulpo a la brasa, cocina tradicional andorrana, Cal Silvino, restaurante familiar Andorra">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://restaurantcalsilvino.com/">
+    <meta property="og:type" content="restaurant">
+    <meta property="og:title" content="Cal Silvino | Restaurante en La Massana, Andorra">
+    <meta property="og:description" content="Cocina tradicional andorrana y de brasa en el corazón de La Massana. Bacalao, pulpo, carnes y mucho más. Más de 12 años con pasión.">
+    <meta property="og:url" content="https://restaurantcalsilvino.com/">
+    <meta property="og:image" content="https://restaurantcalsilvino.com/images/fondo.png">
+    <meta property="og:locale" content="es_AD">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cal Silvino | Restaurante en La Massana, Andorra">
+    <meta name="twitter:image" content="https://restaurantcalsilvino.com/images/fondo.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Estilos -->
     <link rel="stylesheet" href="style.css">
+    <script src="schema.js" defer></script>
 </head>
 
 <body>
 
-    <!-- ================= HEADER ================= -->
     <header>
-        <img src="/images/logo.png" class="logo" alt="Logo Cal Silvino">
+        <img src="/images/logoWhite.png" class="logo" alt="Cal Silvino — Restaurante La Massana Andorra">
 
         <nav id="mainNav">
-            <a href="#" class="active">Inicio</a>
-            <a href="#">Menú</a>
-            <a href="#" class="nav-reservar-mobile">Reservar ahora</a>
+            <a href="#" class="active" data-i18n="nav-inicio">Inicio</a>
+            <a href="#" data-i18n="nav-menu">Menú</a>
+            <a href="#" class="nav-reservar-mobile" data-i18n="nav-reservar">Reservar ahora</a>
         </nav>
-        <a href="#" class="nav-btn">Reservar ahora</a>
+
+        <div class="header-right">
+            <!-- SELECTOR DE IDIOMA -->
+            <div class="lang-switcher" id="langSwitcher">
+                <button class="lang-btn" id="langBtn" aria-label="Cambiar idioma">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <span id="langCurrent">ES</span>
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="lang-dropdown" id="langDropdown">
+                    <button class="lang-option" data-lang="es"><span class="lang-flag">🇪🇸</span> Español</button>
+                    <button class="lang-option" data-lang="ca"><span class="lang-flag">🇦🇩</span> Català</button>
+                    <button class="lang-option" data-lang="pt"><span class="lang-flag">🇵🇹</span> Português</button>
+                    <button class="lang-option" data-lang="en"><span class="lang-flag">🇬🇧</span> English</button>
+                </div>
+            </div>
+
+            <a href="#" class="nav-btn" data-i18n="nav-reservar">Reservar ahora</a>
+        </div>
+
         <button class="hamburger" id="hamburger" aria-label="Abrir menú">
             <span></span><span></span><span></span>
         </button>
     </header>
 
-    <!-- ================= MAIN ================= -->
     <main>
 
-        <!-- ===== BANNER PRINCIPAL ===== -->
-        <section class="home-banner">
+        <!-- ═══ HERO ═══ -->
+        <section class="home-banner" aria-label="Bienvenida a Cal Silvino">
+            <div class="home-banner-overlay"></div>
             <div class="home-banner-content">
-                <p class="home-banner-subtitle">La Massana, Andorra</p>
-                <h1 class="home-banner-title">Cal Silvino</h1>
-                <button class="home-banner-button">Reservar mesa</button>
+                <div class="home-banner-badge">
+                    <span class="badge-stars">★★★★★</span>
+                    <span class="badge-text" data-i18n="banner-badge">El restaurante favorito de La Massana</span>
+                </div>
+                <p class="home-banner-subtitle">La Massana · Andorra</p>
+                <h1 class="home-banner-title" data-i18n-html="banner-title">El sabor de Andorra<br>nace en La Massana</h1>
+                <p class="home-banner-desc" data-i18n-html="banner-desc">Cocina de mar, brasa y tradición familiar.<br>Más de 12 años haciendo que cada comida sea memorable.</p>
+                <div class="home-banner-actions">
+                    <button class="home-banner-button" data-i18n="banner-btn">Reservar mesa</button>
+                    <a href="menu.html" class="home-banner-secondary" data-i18n="banner-secondary">Ver nuestra carta →</a>
+                </div>
             </div>
         </section>
 
-        <!-- ===== SOBRE EL RESTAURANTE ===== -->
+        <!-- ═══ SOBRE NOSOTROS ═══ -->
         <section class="home-about">
             <div class="home-about-container">
-
-                <!-- TEXTO -->
                 <div class="home-about-text">
-                    <h2>NUESTRO RESTAURANTE</h2>
-
-                    <p>
-                        Hace más de 12 años abrimos Cal Silvino en La Massana, un negocio familiar que ha pasado de padres a hijos. Ofrecemos una cocina tradicional andorrana y portuguesa en un ambiente cálido y cercano.
-                    </p>
-
-                    <p>
-                        Entre los platos más destacados se encuentran el <span class="dish">bacalao</span>, el <span class="dish">pulpo a la brasa</span>, los <span class="dish">callos</span> o el <span class="dish">tartar</span>. También elaboramos platos tradicionales como los caracoles a la llauna, los canelones o la carne a la brasa.
-                    </p>
-
-                    <p>
-                        Disponemos de una amplia carta de tapas y organizamos celebraciones, aniversarios y comidas de empresa.
-                    </p>
-
-                   
+                    <p class="about-eyebrow" data-i18n="about-eyebrow">Nuestra historia</p>
+                    <h2 data-i18n-html="about-h2">Un restaurante familiar<br>con alma andorrana</h2>
+                    <p data-i18n-html="about-p1">Hace más de 12 años que abrimos Cal Silvino en La Massana, y desde el primer día nuestra filosofía ha sido la misma: <strong>producto de calidad, cocina honesta y trato familiar</strong>.</p>
+                    <p data-i18n-html="about-p2">En nuestra carta encontrarás los platos que nos han convertido en referencia gastronómica del Principado: el <span class="dish">bacalao a la llauna</span>, el <span class="dish">pulpo a la brasa</span>, los <span class="dish">callos</span>, el <span class="dish">tartar de atún</span> y la <span class="dish">carne a la brasa</span>, junto a clásicos como los <span class="dish">canelones caseros</span> o los <span class="dish">caracoles a la llauna</span>.</p>
+                    <p data-i18n-html="about-p3">También organizamos <strong>celebraciones, aniversarios y comidas de empresa</strong>. Contáctanos y nos encargamos de que solo tengas que disfrutar.</p>
+                    <a href="menu.html" class="about-cta-link" data-i18n="about-cta">Explorar la carta completa →</a>
                 </div>
 
-                <!-- CARRUSEL -->
                 <div class="home-about-carousel-wrapper">
                     <div class="home-about-carousel">
                         <div class="about-carousel-track">
-                            <img src="images/uno.jpg" class="about-carousel-img" alt="">
-                            <img src="images/dos.jpg" class="about-carousel-img" alt="">
-                            <img src="images/tres.jpg" class="about-carousel-img" alt="">
-                            <img src="images/cuatro.jpg" class="about-carousel-img" alt="">
+                            <img src="images/uno.jpg" class="about-carousel-img" alt="Platos del restaurante Cal Silvino">
+                            <img src="images/dos.jpg" class="about-carousel-img" alt="Ambiente del restaurante Cal Silvino">
+                            <img src="images/tres.jpg" class="about-carousel-img" alt="Cocina tradicional andorrana">
+                            <img src="images/cuatro.jpg" class="about-carousel-img" alt="Cal Silvino, restaurante familiar">
                         </div>
-
-                        <button class="carousel-btn prev">&#10094;</button>
-                        <button class="carousel-btn next">&#10095;</button>
+                        <button class="carousel-btn prev" aria-label="Imagen anterior">&#10094;</button>
+                        <button class="carousel-btn next" aria-label="Imagen siguiente">&#10095;</button>
                     </div>
                     <div class="carousel-dots">
                         <span class="dot active"></span>
@@ -84,140 +109,194 @@
                         <span class="dot"></span>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- ===== SECCIÓN MENÚ ===== -->
+        <!-- ═══ TRUST BAR ═══ -->
+        <section class="trust-bar" aria-label="Por qué elegirnos">
+            <div class="trust-bar-item">
+                <strong data-i18n="trust-1-strong">+12 años</strong>
+                <span data-i18n="trust-1-span">de historia familiar</span>
+            </div>
+            <div class="trust-bar-divider"></div>
+            <div class="trust-bar-item">
+                <strong>★ 4.8</strong>
+                <span data-i18n="trust-2-span">valoración en Google</span>
+            </div>
+            <div class="trust-bar-divider"></div>
+            <div class="trust-bar-item">
+                <strong data-i18n="trust-3-strong">Cocina de mar</strong>
+                <span data-i18n="trust-3-span">bacalao, pulpo y marisco</span>
+            </div>
+            <div class="trust-bar-divider"></div>
+            <div class="trust-bar-item">
+                <strong data-i18n="trust-4-strong">Celebraciones</strong>
+                <span data-i18n="trust-4-span">eventos y grupos</span>
+            </div>
+        </section>
+
+        <!-- ═══ MENÚ BANNER ═══ -->
         <section class="home-menu-banner">
             <div class="home-menu-content">
-                <p class="home-menu-eyebrow">¿Tienes hambre?</p>
-                <button class="home-menu-button">Ver menú</button>
+                <p class="home-menu-eyebrow" data-i18n="menu-eyebrow">¿Te apetece algo bueno?</p>
+                <h2 class="home-menu-title" data-i18n="menu-title">Descubre nuestra carta</h2>
+                <p class="home-menu-desc" data-i18n="menu-desc">Platos de temporada, especialidades de la casa y una selección de vinos pensada para acompañar cada bocado.</p>
+                <button class="home-menu-button" data-i18n="menu-btn">Ver menú completo</button>
             </div>
         </section>
 
+        <!-- ═══ TESTIMONIOS ═══ -->
+        <section class="home-testimonials">
+            <div class="home-testimonials-container">
+                <div class="testimonials-header">
+                    <p class="testimonials-eyebrow" data-i18n="test-eyebrow">Lo que dicen nuestros clientes</p>
+                    <h2 class="testimonials-title" data-i18n="test-title">Opiniones reales de Google</h2>
+                    <div class="testimonials-global-rating">
+                        <span class="global-stars">★★★★★</span>
+                        <span class="global-score">4.8</span>
+                        <span class="global-count" data-i18n="global-count">· Muy valorado en Google</span>
+                    </div>
+                </div>
+
+                <div class="testimonials-grid">
+                    <article class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <blockquote class="testimonial-text" data-i18n="test-1">"El mejor bacalao que he probado en Andorra, sin duda. Ambiente cálido, trato familiar y una carta espectacular. Volvemos siempre que podemos."</blockquote>
+                        <footer class="testimonial-author">
+                            <div class="testimonial-avatar">M</div>
+                            <div class="testimonial-info"><strong>María G.</strong><span>Barcelona</span></div>
+                        </footer>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <blockquote class="testimonial-text" data-i18n="test-2">"Llevamos años viniendo y nunca nos decepciona. El pulpo a la brasa es increíble y el servicio siempre atento y cercano. Totalmente recomendado."</blockquote>
+                        <footer class="testimonial-author">
+                            <div class="testimonial-avatar">P</div>
+                            <div class="testimonial-info"><strong>Pierre D.</strong><span>Toulouse</span></div>
+                        </footer>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <blockquote class="testimonial-text" data-i18n="test-3">"Fuimos a celebrar un aniversario y fue perfecto. Cocina de producto, local con encanto y una atención impecable. Sin duda el mejor restaurante de La Massana."</blockquote>
+                        <footer class="testimonial-author">
+                            <div class="testimonial-avatar">A</div>
+                            <div class="testimonial-info"><strong>Anna M.</strong><span>Andorra la Vella</span></div>
+                        </footer>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ HORARIO ═══ -->
         <section class="home-schedule">
-
             <div class="home-schedule-container">
-
-                <h2>Horario</h2>
-
+                <p class="schedule-eyebrow" data-i18n="schedule-eyebrow">Cuando quieras visitarnos</p>
+                <h2 data-i18n="schedule-h2">Horario</h2>
                 <div class="home-schedule-grid">
 
                     <div class="home-schedule-item">
-                        <p class="day">Lunes - Martes</p>
-                        <p class="time closed">Cerrado</p>
+                        <p class="schedule-day" data-i18n="schedule-day-1">Lunes · Martes</p>
+                        <div class="schedule-divider"></div>
+                        <div class="schedule-hours">
+                            <span class="schedule-closed-badge" data-i18n="schedule-closed">Cerrado</span>
+                        </div>
                     </div>
 
                     <div class="home-schedule-item">
-                        <p class="day">Miércoles - Viernes</p>
-                        <p class="time">10:00 - 16:00</p>
-                        <p class="time">20:00 - 23:00</p>
+                        <p class="schedule-day" data-i18n="schedule-day-2">Miércoles · Jueves · Viernes</p>
+                        <div class="schedule-divider"></div>
+                        <div class="schedule-hours">
+                            <div class="schedule-slot">
+                                <span class="slot-label" data-i18n="slot-lunch">Mediodía</span>
+                                <span class="slot-time">10:00 – 16:00</span>
+                            </div>
+                            <div class="schedule-slot">
+                                <span class="slot-label" data-i18n="slot-dinner">Noche</span>
+                                <span class="slot-time">20:00 – 23:00</span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="home-schedule-item">
-                        <p class="day">Sábado - Domingo</p>
-                        <p class="time">11:00 - 16:30</p>
-                        <p class="time">20:00 - 23:30</p>
+                        <p class="schedule-day" data-i18n="schedule-day-3">Sábado · Domingo y festivos</p>
+                        <div class="schedule-divider"></div>
+                        <div class="schedule-hours">
+                            <div class="schedule-slot">
+                                <span class="slot-label" data-i18n="slot-lunch">Mediodía</span>
+                                <span class="slot-time">11:00 – 16:30</span>
+                            </div>
+                            <div class="schedule-slot">
+                                <span class="slot-label" data-i18n="slot-dinner">Noche</span>
+                                <span class="slot-time">20:00 – 23:30</span>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
-
             </div>
-
         </section>
 
-        <!-- ===== CONTACTO + MAPA ===== -->
+        <!-- ═══ CONTACTO + MAPA ═══ -->
         <section class="home-contact">
             <div class="home-contact-container">
-
-                <!-- MAPA -->
                 <div class="home-contact-map">
-                    <iframe 
-                        src="https://www.google.com/maps?q=42.5458333,1.5172222&hl=es&z=17&output=embed"
-                        loading="lazy">
-                    </iframe>
+                    <iframe src="https://www.google.com/maps?q=42.5458333,1.5172222&hl=es&z=17&output=embed"
+                        loading="lazy" title="Ubicación Cal Silvino — La Massana, Andorra"></iframe>
                 </div>
-
-                <!-- INFO -->
                 <div class="home-contact-info">
-
-                    <!-- TEXTO -->
                     <div class="home-contact-text">
-                        <h3>Ven a disfrutar de una experiencia única</h3>
-                        <p>
-                            Descubre nuestra cocina tradicional en un ambiente acogedor, donde cada plato está preparado con pasión y calidad.
-                        </p>
+                        <p class="contact-eyebrow" data-i18n="contact-eyebrow">Estamos aquí</p>
+                        <h3 data-i18n="contact-h3">Ven a vivir una experiencia gastronómica en La Massana</h3>
+                        <p data-i18n="contact-address">Av. el Través, 21 · AD400 La Massana, Andorra</p>
+                        <p><span data-i18n="contact-tel-label">Tel:</span> <a href="tel:+376840720" class="contact-phone-link">+376 840 720</a></p>
                     </div>
-
                     <div class="home-social">
-
-                        <!-- TELÉFONO -->
-                        <a href="#" class="social-btn" id="phoneBtn">
-                            <img src="images/phone.png" alt="Teléfono">
+                        <a href="#" class="social-btn" id="phoneBtn" aria-label="Llamar a Cal Silvino">
+                            <img src="images/phone.png" alt="Teléfono Cal Silvino">
                         </a>
-
-                        <!-- INSTAGRAM -->
-                        <a href="https://instagram.com/calsilvino/" target="_blank" class="social-btn">
-                            <img src="images/instagram.png" alt="Instagram">
+                        <a href="https://instagram.com/calsilvino/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram Cal Silvino">
+                            <img src="images/instagram.png" alt="Instagram Cal Silvino">
                         </a>
-
-                        <!-- FACEBOOK -->
-                        <a href="https://facebook.com/calsilvino/" target="_blank" class="social-btn">
-                            <img src="images/facebook.png" alt="Facebook">
+                        <a href="https://facebook.com/calsilvino/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook Cal Silvino">
+                            <img src="images/facebook.png" alt="Facebook Cal Silvino">
                         </a>
-
                     </div>
-
                 </div>
-
             </div>
         </section>
 
     </main>
 
-    <!-- ================= FOOTER ================= -->
     <footer>
-
-        <!-- IZQUIERDA -->
         <div class="footer-left">
-            <img src="/images/logo.png" class="footer-logo" alt="Logo">
-
+            <img src="/images/logo.png" class="footer-logo" alt="Cal Silvino restaurante La Massana">
             <div class="footer-info">
                 <p>Av. el Través, 21, AD400 La Massana</p>
-                <p>Teléfono: +376 840 720</p>
+                <p>Telèfon: +376 840 720</p>
                 <p>info@restaurantcalsilvino.com</p>
             </div>
         </div>
-
-        <!-- DERECHA -->
         <div class="footer-right">
             <div class="footer-schedule">
-
                 <div class="schedule-block">
-                    <p><strong>Lunes y martes</strong></p>
-                    <p>Cerrado</p>
+                    <p><strong data-i18n="footer-days-1">Lunes y martes</strong></p>
+                    <p data-i18n="footer-closed">Cerrado</p>
                 </div>
-
                 <div class="schedule-block">
-                    <p><strong>Miércoles a viernes</strong></p>
-                    <p>10:00 - 16:00</p>
-                    <p>20:00 - 23:00</p>
+                    <p><strong data-i18n="footer-days-2">Miércoles a viernes</strong></p>
+                    <p>10.00 - 16.00</p>
+                    <p>20.00 - 23.00</p>
                 </div>
-
                 <div class="schedule-block">
-                    <p><strong>Sábado y domingo</strong></p>
-                    <p>11:00 - 16:30</p>
-                    <p>20:00 - 23:30</p>
+                    <p><strong data-i18n="footer-days-3">Sábado y domingo y festivos</strong></p>
+                    <p>11.00 - 16.30</p>
+                    <p>20.00 - 23.30</p>
                 </div>
-
             </div>
         </div>
-
     </footer>
 
-    <!-- JS -->
+    <script src="translations.js"></script>
     <script src="script.js"></script>
-
 </body>
 </html>

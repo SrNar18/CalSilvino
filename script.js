@@ -51,6 +51,58 @@ document.addEventListener("keydown", (e) => {
 // Espera a que cargue el DOM
 document.addEventListener("DOMContentLoaded", () => {
 
+    // ── SELECTOR DE IDIOMA ──
+    const langBtn      = document.getElementById("langBtn");
+    const langDropdown = document.getElementById("langDropdown");
+
+    if (langBtn && langDropdown) {
+        // Abrir / cerrar dropdown
+        langBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle("open");
+        });
+
+        // Cerrar al hacer click fuera
+        document.addEventListener("click", () => {
+            langDropdown.classList.remove("open");
+        });
+
+        // Seleccionar idioma
+        langDropdown.querySelectorAll(".lang-option").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const lang = btn.dataset.lang;
+                localStorage.setItem("calsilvinoLang", lang);
+                applyTranslations(lang);
+                langDropdown.classList.remove("open");
+            });
+        });
+
+        // Marcar el idioma activo al cargar
+        const currentLang = localStorage.getItem("calsilvinoLang") || "es";
+        langDropdown.querySelectorAll(".lang-option").forEach(btn => {
+            btn.classList.toggle("active", btn.dataset.lang === currentLang);
+        });
+    }
+
+    // TRANSPARENT HERO HEADER
+    const headerEl = document.querySelector("header");
+    const bannerEl = document.querySelector(".home-banner");
+
+    if (headerEl && bannerEl) {
+        headerEl.classList.add("hero-mode");
+
+        const onScroll = () => {
+            const bannerBottom = bannerEl.getBoundingClientRect().bottom;
+            if (bannerBottom <= headerEl.offsetHeight) {
+                headerEl.classList.remove("hero-mode");
+            } else {
+                headerEl.classList.add("hero-mode");
+            }
+        };
+
+        window.addEventListener("scroll", onScroll, { passive: true });
+    }
+
     // HAMBURGER MENU
     const hamburger = document.getElementById("hamburger");
     const mainNav   = document.getElementById("mainNav");

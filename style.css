@@ -37,6 +37,36 @@ header {
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    transition: background 0.45s ease, box-shadow 0.45s ease;
+}
+
+/* ── HERO MODE: header transparente sobre el banner ── */
+header.hero-mode {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.42), transparent);
+    box-shadow: none;
+}
+
+@media (min-width: 769px) {
+    header.hero-mode nav a {
+        color: #fff;
+    }
+
+    header.hero-mode nav a.active {
+        border-bottom-color: rgba(255, 255, 255, 0.75);
+    }
+}
+
+header.hero-mode .lang-btn {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.45);
+}
+
+header.hero-mode .lang-btn svg {
+    stroke: #fff;
+}
+
+header.hero-mode .hamburger span {
+    background: #fff;
 }
 
 /* Logo */
@@ -78,6 +108,14 @@ nav a.active {
     cursor: default;
 }
 
+/* GRUPO DERECHO DEL HEADER (lang + reservar) */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
 /* BOTÓN NAV */
 .nav-btn {
     background-color: #c71f1f;
@@ -98,7 +136,8 @@ nav a.active {
 
 /* BANNER */
 .home-banner {
-    height: 90vh;
+    height: 100vh;
+    margin-top: -100px;   /* sube el banner detrás del header sticky (100px = alto del header desktop) */
     background-image: url("images/fondo.png");
     background-size: cover;
     background-position: center;
@@ -134,10 +173,11 @@ nav a.active {
 }
 
 .home-banner-title {
-    font-size: 64px;
+    font-size: 56px;
     font-weight: 700;
-    margin-bottom: 40px;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+    margin-bottom: 20px;
+    line-height: 1.15;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
 }
 
 /* BOTÓN BANNER */
@@ -617,13 +657,13 @@ footer {
 /* SECCIÓN HORARIO HOME */
 .home-schedule {
     background: linear-gradient(135deg, #c50101, #8b0000);
-    padding: 50px 40px 80px 40px;
+    padding: 70px 40px;
     color: white;
     text-align: center;
 }
 
 .home-schedule-container {
-    max-width: 1200px;
+    max-width: 960px;
     margin: 0 auto;
 }
 
@@ -634,39 +674,92 @@ footer {
 }
 
 .home-schedule-grid {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
 }
 
 .home-schedule-item {
     background: rgba(255,255,255,0.1);
-    padding: 20px 25px;
-    border-radius: 15px;
-    min-width: 200px;
-    backdrop-filter: blur(6px);
-    transition: background 0.3s, transform 0.3s;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 16px;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.25s, transform 0.25s;
 }
 
 .home-schedule-item:hover {
-    background: rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.17);
     transform: translateY(-3px);
 }
 
-.home-schedule-item .day {
+/* Sin variantes — todos los cards idénticos */
+
+/* Nombre del día */
+.schedule-day {
+    font-size: 12px;
     font-weight: 600;
-    margin-bottom: 10px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.72);
+    margin: 0 0 12px 0;
 }
 
-.home-schedule-item .time {
-    font-size: 14px;
-    opacity: 0.9;
+/* Línea separadora */
+.schedule-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.18);
+    margin-bottom: 16px;
 }
 
-.home-schedule-item .closed {
-    color: #ffd1d1;
+/* Contenedor de horas */
+.schedule-hours {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Badge "Cerrado" */
+.schedule-closed-badge {
+    display: inline-block;
+    align-self: center;
+    background: rgba(255,150,150,0.12);
+    color: rgba(255,200,200,0.9);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 18px;
+    border-radius: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,150,150,0.22);
+}
+
+/* Fila etiqueta + hora */
+.schedule-slot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.slot-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.48);
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+}
+
+.slot-time {
+    font-size: 15px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.95);
+    font-variant-numeric: tabular-nums;
 }
 
 /* SECCIÓN CONTACTO HOME */
@@ -876,6 +969,352 @@ footer {
 
 .pdf-fallback-link:hover {
     background: #a51a1a;
+}
+
+/* ══════════════════════════════════════════════
+   HERO — Overlay + nuevos elementos
+═══════════════════════════════════════════════ */
+.home-banner {
+    position: relative;
+}
+
+.home-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        rgba(0,0,0,0.62) 0%,
+        rgba(0,0,0,0.30) 60%,
+        rgba(0,0,0,0.10) 100%
+    );
+    pointer-events: none;
+}
+
+/* Badge de rating en el hero */
+.home-banner-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.35);
+    backdrop-filter: blur(8px);
+    padding: 7px 16px;
+    border-radius: 30px;
+    margin-bottom: 18px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.badge-stars {
+    color: #ffd557;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.badge-text {
+    color: rgba(255,255,255,0.92);
+}
+
+/* Descripción bajo el H1 */
+.home-banner-desc {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.88);
+    margin: 0 0 32px 0;
+}
+
+/* Contenedor doble CTA */
+.home-banner-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* CTA secundario (Ver carta) */
+.home-banner-secondary {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    padding-bottom: 2px;
+    transition: border-color 0.2s, opacity 0.2s;
+}
+
+.home-banner-secondary:hover {
+    border-color: #fff;
+    opacity: 0.85;
+}
+
+/* ══════════════════════════════════════════════
+   TRUST BAR
+═══════════════════════════════════════════════ */
+.trust-bar {
+    background: #fff;
+    border-bottom: 1px solid #ede8e3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+    padding: 22px 40px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.055);
+}
+
+.trust-bar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 0 44px;
+    text-align: center;
+}
+
+.trust-bar-item strong {
+    font-size: 17px;
+    font-weight: 700;
+    color: #c50101;
+    letter-spacing: 0.2px;
+}
+
+.trust-bar-item span {
+    font-size: 12px;
+    color: #777;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+}
+
+.trust-bar-divider {
+    width: 1px;
+    height: 36px;
+    background: #ddd;
+    flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════
+   ABOUT — Eyebrow + CTA link
+═══════════════════════════════════════════════ */
+.about-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin: 0 0 10px 0;
+}
+
+.about-cta-link {
+    display: inline-block;
+    margin-top: 8px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1.5px solid rgba(255,255,255,0.5);
+    padding-bottom: 2px;
+    transition: border-color 0.2s, opacity 0.2s;
+}
+
+.about-cta-link:hover {
+    border-color: #fff;
+    opacity: 0.82;
+}
+
+/* ══════════════════════════════════════════════
+   MENÚ BANNER — Título y descripción
+═══════════════════════════════════════════════ */
+.home-menu-title {
+    color: #fff;
+    font-size: 34px;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+}
+
+.home-menu-desc {
+    color: rgba(255,255,255,0.82);
+    font-size: 15px;
+    font-weight: 300;
+    text-align: center;
+    max-width: 480px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ══════════════════════════════════════════════
+   TESTIMONIOS
+═══════════════════════════════════════════════ */
+.home-testimonials {
+    background: #faf7f4;
+    padding: 80px 40px;
+    border-top: 1px solid #ede8e3;
+}
+
+.home-testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonials-header {
+    text-align: center;
+    margin-bottom: 52px;
+}
+
+.testimonials-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c50101;
+    margin: 0 0 10px 0;
+}
+
+.testimonials-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 16px 0;
+    line-height: 1.2;
+}
+
+.testimonials-global-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 15px;
+}
+
+.global-stars {
+    color: #f5a623;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.global-score {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.global-count {
+    color: #888;
+    font-size: 14px;
+}
+
+/* Grid de tarjetas */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.testimonial-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 30px 28px 26px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border: 1px solid #f0ebe5;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 36px rgba(0,0,0,0.11);
+}
+
+.testimonial-stars {
+    color: #f5a623;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.testimonial-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #444;
+    margin: 0;
+    font-style: italic;
+    flex: 1;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    border-top: 1px solid #f0ebe5;
+    padding-top: 16px;
+}
+
+.testimonial-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #c50101, #8b0000);
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.testimonial-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-info strong {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.testimonial-info span {
+    font-size: 12px;
+    color: #999;
+}
+
+/* ══════════════════════════════════════════════
+   HORARIO — Eyebrow
+═══════════════════════════════════════════════ */
+.schedule-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin: 0 0 6px 0;
+}
+
+/* ══════════════════════════════════════════════
+   CONTACTO — Eyebrow + teléfono
+═══════════════════════════════════════════════ */
+.contact-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c50101;
+    margin: 0 0 8px 0;
+}
+
+.contact-phone-link {
+    color: #c50101;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.contact-phone-link:hover {
+    opacity: 0.75;
 }
 
 /* ── MENÚ PAGE ── */
@@ -1154,6 +1593,98 @@ footer {
     transform: scale(1.05);
 }
 
+/* ══════════════════════════════════════════════
+   SELECTOR DE IDIOMA
+═══════════════════════════════════════════════ */
+.lang-switcher {
+    position: relative;
+    z-index: 1100;
+}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: 1.5px solid rgba(0,0,0,0.18);
+    border-radius: 9px;
+    padding: 7px 11px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    transition: border-color 0.2s, background 0.2s;
+    white-space: nowrap;
+}
+
+.lang-btn:hover {
+    border-color: #c50101;
+    background: rgba(197,1,1,0.05);
+    color: #c50101;
+}
+
+.lang-btn svg {
+    flex-shrink: 0;
+    color: currentColor;
+}
+
+.lang-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 36px rgba(0,0,0,0.14);
+    overflow: hidden;
+    min-width: 155px;
+    z-index: 1500;
+    border: 1px solid #ede8e3;
+    animation: dropIn 0.15s ease;
+}
+
+@keyframes dropIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.lang-dropdown.open {
+    display: block;
+}
+
+.lang-option {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 11px 16px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #333;
+    transition: background 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lang-option:hover {
+    background: #fdf5f0;
+}
+
+.lang-option.active {
+    background: #fef0ec;
+    color: #c50101;
+    font-weight: 700;
+}
+
+.lang-option .lang-flag {
+    font-size: 18px;
+    line-height: 1;
+}
+
 /* ── HAMBURGER ── */
 .hamburger {
     display: none;
@@ -1200,6 +1731,11 @@ footer {
 
     .nav-btn {
         display: none;
+    }
+
+    /* En mobile, el header-right solo muestra el lang switcher */
+    .header-right {
+        gap: 0;
     }
 
     /* --- Nav overlay --- */
@@ -1269,7 +1805,9 @@ footer {
 
     /* --- Banner --- */
     .home-banner {
-        height: 80vh;
+        height: 100vh;
+        min-height: 580px;
+        margin-top: -80px;   /* header móvil ~80px (logo 60px + padding 20px) */
     }
 
     .home-banner-content {
@@ -1278,12 +1816,69 @@ footer {
     }
 
     .home-banner-title {
-        font-size: 42px;
-        margin-bottom: 26px;
+        font-size: 38px;
+        margin-bottom: 18px;
     }
 
     .home-banner-subtitle {
         letter-spacing: 2px;
+    }
+
+    .home-banner-badge {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .home-banner-desc {
+        font-size: 14px;
+    }
+
+    .home-banner-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    /* --- Trust bar --- */
+    .trust-bar {
+        gap: 14px 0;
+        padding: 18px 20px;
+    }
+
+    .trust-bar-item {
+        padding: 8px 18px;
+    }
+
+    .trust-bar-divider {
+        display: none;
+    }
+
+    /* --- Testimonios --- */
+    .home-testimonials {
+        padding: 60px 20px;
+    }
+
+    .testimonials-title {
+        font-size: 26px;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    /* --- Menu banner --- */
+    .home-menu-banner {
+        height: auto;
+        padding: 50px 24px;
+    }
+
+    .home-menu-title {
+        font-size: 26px;
+    }
+
+    .home-menu-desc {
+        font-size: 14px;
     }
 
     /* --- About --- */
@@ -1315,21 +1910,29 @@ footer {
 
     /* --- Schedule --- */
     .home-schedule {
-        padding: 40px 24px 55px;
+        padding: 50px 20px;
     }
 
     .home-schedule h2 {
-        font-size: 24px;
+        font-size: 26px;
     }
 
     .home-schedule-grid {
+        grid-template-columns: 1fr;
         gap: 14px;
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .home-schedule-item {
-        min-width: 0;
-        width: 100%;
-        max-width: 300px;
+        padding: 20px 18px;
+    }
+
+    /* --- Lang switcher mobile --- */
+    .lang-btn {
+        padding: 6px 9px;
+        font-size: 12px;
     }
 
     /* --- Contact home --- */

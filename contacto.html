@@ -3,21 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto | Cal Silvino</title>
+
+    <!-- ═══ SEO ═══ -->
+    <title>Reservar Mesa | Cal Silvino — Restaurante en La Massana, Andorra</title>
+    <meta name="description" content="Reserva tu mesa en Cal Silvino, restaurante familiar en La Massana, Andorra. Fácil y rápido. También puedes llamarnos al +376 840 720. Te esperamos.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://restaurantcalsilvino.com/contacto.html">
+    <meta property="og:title" content="Reservar Mesa | Cal Silvino — Restaurante La Massana">
+    <meta property="og:description" content="Reserva tu mesa en Cal Silvino, restaurante familiar en La Massana, Andorra. Cocina tradicional andorrana y mediterránea.">
+    <meta property="og:url" content="https://restaurantcalsilvino.com/contacto.html">
+    <meta property="og:image" content="https://restaurantcalsilvino.com/images/fondo.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header>
-        <img src="/images/logo.png" class="logo">
+        <img src="/images/logo.png" class="logo" alt="Cal Silvino">
 
         <nav id="mainNav">
-            <a href="#">Inicio</a>
-            <a href="#">Menú</a>
-            <a href="#" class="nav-reservar-mobile">Reservar ahora</a>
+            <a href="index.html" data-i18n="nav-inicio">Inicio</a>
+            <a href="#" data-i18n="nav-menu">Menú</a>
+            <a href="#" class="nav-reservar-mobile" data-i18n="nav-reservar">Reservar ahora</a>
         </nav>
-        <a href="#" class="nav-btn">Reservar ahora</a>
+
+        <div class="header-right">
+            <div class="lang-switcher" id="langSwitcher">
+                <button class="lang-btn" id="langBtn" aria-label="Cambiar idioma">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <span id="langCurrent">ES</span>
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="lang-dropdown" id="langDropdown">
+                    <button class="lang-option" data-lang="es"><span class="lang-flag">🇪🇸</span> Español</button>
+                    <button class="lang-option" data-lang="ca"><span class="lang-flag">🇦🇩</span> Català</button>
+                    <button class="lang-option" data-lang="pt"><span class="lang-flag">🇵🇹</span> Português</button>
+                    <button class="lang-option" data-lang="en"><span class="lang-flag">🇬🇧</span> English</button>
+                </div>
+            </div>
+
+            <a href="#" class="nav-btn" data-i18n="nav-reservar">Reservar ahora</a>
+        </div>
+
         <button class="hamburger" id="hamburger" aria-label="Abrir menú">
             <span></span><span></span><span></span>
         </button>
@@ -39,36 +67,37 @@
                     id="reservaForm"
                 >
 
-                    <h2>Reservar mesa</h2>
+                    <h2 data-i18n="form-h2">Reserva tu mesa</h2>
+                    <p style="text-align:center;font-size:13px;color:#888;margin:-10px 0 8px;" data-i18n="form-subtitle">Rellena el formulario y te confirmamos la reserva en breve</p>
 
                     <div class="form-group">
-                        <label>Nombre y apellidos</label>
-                        <input type="text" name="nombre" placeholder="Tu nombre" required>
+                        <label data-i18n="form-label-name">Nombre y apellidos</label>
+                        <input type="text" name="nombre" data-i18n-placeholder="form-ph-name" placeholder="Tu nombre" required>
                     </div>
                     <div class="form-group">
-                        <label>Móvil</label>
-                        <input type="tel" name="telefono" placeholder="+376 000 000" required>
+                        <label data-i18n="form-label-phone">Móvil</label>
+                        <input type="tel" name="telefono" data-i18n-placeholder="form-ph-phone" placeholder="+376 000 000" required>
                     </div>
                     <div class="form-group">
-                        <label>Correo electrónico <span style="color:#aaa;font-weight:400">(opcional)</span></label>
-                        <input type="email" name="email" placeholder="correo@ejemplo.com">
+                        <label><span data-i18n="form-label-email">Correo electrónico</span> <span style="color:#aaa;font-weight:400" data-i18n="form-label-email-optional">(opcional)</span></label>
+                        <input type="email" name="email" data-i18n-placeholder="form-ph-email" placeholder="correo@ejemplo.com">
                     </div>
                     <div class="form-group">
-                        <label>Cantidad de personas</label>
-                        <input type="number" name="personas" placeholder="2" required>
+                        <label data-i18n="form-label-people">Cantidad de personas</label>
+                        <input type="number" name="personas" data-i18n-placeholder="form-ph-people" placeholder="2" required>
                     </div>
                     <div class="date-time-group">
                         <div class="form-group">
-                            <label>Fecha</label>
+                            <label data-i18n="form-label-date">Fecha</label>
                             <input type="date" name="fecha" required>
                         </div>
                         <div class="form-group">
-                            <label>Hora</label>
+                            <label data-i18n="form-label-time">Hora</label>
                             <input type="time" name="hora" required>
                         </div>
                     </div>
 
-                    <button type="submit">Reservar</button>
+                    <button type="submit" data-i18n="form-submit">Reservar</button>
 
                     <!-- CONFIG -->
                     <input type="hidden" name="_captcha" value="false">
@@ -78,7 +107,7 @@
 
             <!-- HORARIO -->
             <div class="contact-schedule-box">
-                <h2>Horario</h2>
+                <h2 data-i18n="contact-schedule-h2">Horario</h2>
 
                 <!-- REDES -->
                 <div class="contact-social">
@@ -97,18 +126,18 @@
 
                 <div class="schedule-grid">
                     <div>
-                        <p><strong>Dilluns i dimarts</strong></p>
-                        <p>Tancat</p>
+                        <p><strong data-i18n="footer-days-1">Lunes y martes</strong></p>
+                        <p data-i18n="footer-closed">Cerrado</p>
                     </div>
 
                     <div>
-                        <p><strong>Dimecres, dijous i divendres</strong></p>
+                        <p><strong data-i18n="footer-days-2">Miércoles a viernes</strong></p>
                         <p>10.00 - 16.00</p>
                         <p>20.00 - 23.00</p>
                     </div>
 
                     <div>
-                        <p><strong>Dissabte, diumenge i festius</strong></p>
+                        <p><strong data-i18n="footer-days-3">Sábado y domingo y festivos</strong></p>
                         <p>11.00 - 16.30</p>
                         <p>20.00 - 23.30</p>
                     </div>
@@ -120,7 +149,7 @@
         
 
         <section class="contact-map">
-            <h2>Ubicación</h2>
+            <h2 data-i18n="contact-map-h2">Ubicación</h2>
             <iframe 
                 src="https://www.google.com/maps?q=42.5458333,1.5172222&hl=es&z=17&output=embed"
                 allowfullscreen=""
@@ -145,18 +174,18 @@
 
         <div class="footer-schedule">
             <div class="schedule-block">
-                <p><strong>Dilluns i dimarts</strong></p>
-                <p>Tancat</p>
+                <p><strong data-i18n="footer-days-1">Lunes y martes</strong></p>
+                <p data-i18n="footer-closed">Cerrado</p>
             </div>
 
             <div class="schedule-block">
-                <p><strong>Dimecres, dijous i divendres</strong></p>
+                <p><strong data-i18n="footer-days-2">Miércoles a viernes</strong></p>
                 <p>10.00 - 16.00</p>
                 <p>20.00 - 23.00</p>
             </div>
 
             <div class="schedule-block">
-                <p><strong>Dissabte, diumenge i festius</strong></p>
+                <p><strong data-i18n="footer-days-3">Sábado y domingo y festivos</strong></p>
                 <p>11.00 - 16.30</p>
                 <p>20.00 - 23.30</p>
             </div>
@@ -164,6 +193,7 @@
     </div>
     </footer>
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
