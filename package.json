@@ -1,5 +1,26 @@
 {
   "dependencies": {
-    "@netlify/blobs": "^10.7.4"
-  }
+    "@netlify/blobs": "^10.7.4",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "nodemailer": "^8.0.4"
+  },
+  "name": "calsilvino",
+  "version": "1.0.0",
+  "main": "schema.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SrNar18/CalSilvino.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SrNar18/CalSilvino/issues"
+  },
+  "homepage": "https://github.com/SrNar18/CalSilvino#readme",
+  "description": ""
 }

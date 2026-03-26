@@ -441,3 +441,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+
+document.getElementById("reservaForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const data = {
+        nombre: this.nombre.value,
+        telefono: this.telefono.value,
+        email: this.email.value,
+        personas: this.personas.value,
+        fecha: this.fecha.value,
+        hora: this.hora.value
+    };
+
+    await fetch("https://script.google.com/macros/s/AKfycby-Og4AB23xxdxfpoue1Ujfjv5uBrOx_RTZ-vgyaaYfIQbbu_KAJaWqzQG2zJGwdjfR/exec", {
+        method: "POST",
+        body: JSON.stringify(data)
+    });
+
+    alert("Reserva enviada correctamente ✅");
+    this.reset();
+});
