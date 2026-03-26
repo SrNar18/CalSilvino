@@ -2,7 +2,7 @@ import crypto from 'node:crypto';
 import { getStore } from '@netlify/blobs';
 
 const ALLOWED       = ['carta-es-ca', 'carta-fr-en'];
-const MAX_SIZE_BYTES = 10 * 1024 * 1024; // 10 MB
+const MAX_SIZE_BYTES = 4 * 1024 * 1024; // 4 MB
 
 function validateToken(token) {
     const secret = process.env.ADMIN_SECRET || '';
@@ -59,7 +59,7 @@ export default async (req) => {
         );
     }
 
-    const store = getStore('pdfs');
+    const store = getStore({ name: 'pdfs', consistency: 'strong' });
     await store.set(name, pdfBuffer, {
         metadata: { contentType: 'application/pdf', uploadedAt: new Date().toISOString() }
     });

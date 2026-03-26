@@ -1,28 +1,28 @@
 // ── MODAL PDF ──
 function openPdfModal(pdfPath, title) {
-    const modal       = document.getElementById("pdfModal");
-    const frame       = document.getElementById("pdfFrame");
+    const modal = document.getElementById("pdfModal");
+    const frame = document.getElementById("pdfFrame");
     const downloadBtn = document.getElementById("pdfDownloadBtn");
-    const titleEl     = document.getElementById("pdfModalTitle");
-    const fallback    = document.getElementById("pdfFallback");
+    const titleEl = document.getElementById("pdfModalTitle");
+    const fallback = document.getElementById("pdfFallback");
     const fallbackLink = document.getElementById("pdfFallbackLink");
 
+    const freshPdfPath = `${pdfPath}${pdfPath.includes("?") ? "&" : "?"}v=${Date.now()}`;
+
     titleEl.textContent = title;
-    downloadBtn.href     = pdfPath;
-    downloadBtn.setAttribute("download", pdfPath.split("/").pop());
+    downloadBtn.href = freshPdfPath;
+    fallbackLink.href = freshPdfPath;
 
     const isMobile = /iPhone|iPad|Android|Mobile/i.test(navigator.userAgent);
 
     if (isMobile) {
-        frame.style.display    = "none";
+        frame.style.display = "none";
         fallback.style.display = "flex";
-        fallbackLink.href = pdfPath;
-        fallbackLink.setAttribute("download", pdfPath.split("/").pop());
         frame.src = "";
     } else {
-        frame.style.display    = "block";
+        frame.style.display = "block";
         fallback.style.display = "none";
-        frame.src = pdfPath;
+        frame.src = freshPdfPath;
     }
 
     modal.classList.add("active");
