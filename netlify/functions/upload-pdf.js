@@ -1,10 +1,7 @@
-// ── Upload PDF Function ──
-// Recibe el PDF en base64, valida el token de sesión y lo guarda en Netlify Blobs.
-// El nombre del PDF debe ser 'carta-es-ca' o 'carta-fr-en'.
+import crypto from 'node:crypto';
+import { getStore } from '@netlify/blobs';
 
-const crypto = require('crypto');
-
-const ALLOWED = ['carta-es-ca', 'carta-fr-en'];
+const ALLOWED       = ['carta-es-ca', 'carta-fr-en'];
 const MAX_SIZE_BYTES = 10 * 1024 * 1024; // 10 MB
 
 function validateToken(token) {
@@ -16,71 +13,56 @@ function validateToken(token) {
         const payload   = Buffer.from(payloadB64, 'base64').toString();
         const timestamp = parseInt(payload, 10);
         if (isNaN(timestamp)) return false;
-        // Token válido por 4 horas
-        if (Date.now() - timestamp > 4 * 60 * 60 * 1000) return false;
+        if (Date.now() - timestamp > 4 * 60 * 60 * 1000) return false; // 4 horas
         const expected = crypto.createHmac('sha256', secret).update(payload).digest('hex');
         if (sig.length !== expected.length) return false;
         return crypto.timingSafeEqual(Buffer.from(sig), Buffer.from(expected));
     } catch { return false; }
 }
 
-exports.handler = async (event) => {
-    if (event.httpMethod !== 'POST') {
-        return { statusCode: 405, body: 'Method not allowed' };
+export default async (req) => {
+    if (req.method !== 'POST') {
+        return new Response('Method not allowed', { status: 405 });
     }
 
-    const auth  = event.headers['authorization'] || '';
+    const auth  = req.headers.get('authorization') || '';
     const token = auth.startsWith('Bearer ') ? auth.slice(7) : '';
 
     if (!validateToken(token)) {
-        return {
-            statusCode: 401,
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ error: 'No autorizado. Inicia sesión de nuevo.' })
-        };
+        return Response.json({ error: 'No autorizado. Inicia sesión de nuevo.' }, { status: 401 });
     }
 
     let body;
     try {
-        body = JSON.parse(event.body);
+        body = await req.json();
     } catch {
-        return { statusCode: 400, body: JSON.stringify({ error: 'Petición inválida' }) };
+        return Response.json({ error: 'Petición inválida' }, { status: 400 });
     }
 
     const { name, data } = body;
 
     if (!ALLOWED.includes(name)) {
-        return {
-            statusCode: 400,
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ error: 'Nombre de archivo no permitido' })
-        };
+        return Response.json({ error: 'Nombre de archivo no permitido' }, { status: 400 });
     }
 
     let pdfBuffer;
     try {
         pdfBuffer = Buffer.from(data, 'base64');
     } catch {
-        return { statusCode: 400, body: JSON.stringify({ error: 'Datos de archivo inválidos' }) };
+        return Response.json({ error: 'Datos de archivo inválidos' }, { status: 400 });
     }
 
     if (pdfBuffer.length === 0 || pdfBuffer.length > MAX_SIZE_BYTES) {
-        return {
-            statusCode: 400,
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ error: `El archivo debe tener entre 1 byte y ${MAX_SIZE_BYTES / 1024 / 1024} MB` })
-        };
+        return Response.json(
+            { error: `El archivo debe tener entre 1 byte y ${MAX_SIZE_BYTES / 1024 / 1024} MB` },
+            { status: 400 }
+        );
     }
 
-    const { getStore } = await import('@netlify/blobs');
     const store = getStore('pdfs');
     await store.set(name, pdfBuffer, {
         metadata: { contentType: 'application/pdf', uploadedAt: new Date().toISOString() }
     });
 
-    return {
-        statusCode: 200,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ success: true, message: 'PDF subido y actualizado correctamente.' })
-    };
+    return Response.json({ success: true, message: 'PDF subido y actualizado correctamente.' });
 };
