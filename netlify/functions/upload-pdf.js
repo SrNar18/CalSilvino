@@ -2,8 +2,7 @@
 // Recibe el PDF en base64, valida el token de sesión y lo guarda en Netlify Blobs.
 // El nombre del PDF debe ser 'carta-es-ca' o 'carta-fr-en'.
 
-const crypto  = require('crypto');
-const { getStore } = require('@netlify/blobs');
+const crypto = require('crypto');
 
 const ALLOWED = ['carta-es-ca', 'carta-fr-en'];
 const MAX_SIZE_BYTES = 10 * 1024 * 1024; // 10 MB
@@ -73,6 +72,7 @@ exports.handler = async (event) => {
         };
     }
 
+    const { getStore } = await import('@netlify/blobs');
     const store = getStore('pdfs');
     await store.set(name, pdfBuffer, {
         metadata: { contentType: 'application/pdf', uploadedAt: new Date().toISOString() }

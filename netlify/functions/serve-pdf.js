@@ -3,8 +3,6 @@
 // Si no hay versión subida, redirige al PDF estático en /pdfs/.
 // URL: /.netlify/functions/serve-pdf?name=carta-es-ca
 
-const { getStore } = require('@netlify/blobs');
-
 const ALLOWED = ['carta-es-ca', 'carta-fr-en'];
 
 exports.handler = async (event) => {
@@ -15,6 +13,7 @@ exports.handler = async (event) => {
     }
 
     try {
+        const { getStore } = await import('@netlify/blobs');
         const store = getStore({ name: 'pdfs', consistency: 'strong' });
         const blob  = await store.get(name, { type: 'arrayBuffer' });
 
