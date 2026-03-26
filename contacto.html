@@ -24,11 +24,17 @@
 
         <nav id="mainNav">
             <a href="index.html" data-i18n="nav-inicio">Inicio</a>
-            <a href="#" data-i18n="nav-menu">Menú</a>
+            <a href="menu.html" data-i18n="nav-menu">Cartas</a>
             <a href="#" class="nav-reservar-mobile" data-i18n="nav-reservar">Reservar</a>
         </nav>
 
         <div class="header-right">
+            <!-- INDICADOR DE ESTADO EN TIEMPO REAL -->
+            <div class="header-status" id="headerStatus">
+                <span class="status-dot" id="statusDot"></span>
+                <span id="statusText" class="status-text">Verificando...</span>
+            </div>
+
             <div class="lang-switcher" id="langSwitcher">
                 <button class="lang-btn" id="langBtn" aria-label="Cambiar idioma">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -43,7 +49,7 @@
                 </div>
             </div>
 
-            <a href="#" class="nav-btn" data-i18n="nav-reservar">Reservar ahora</a>
+            <a href="contacto.html" class="nav-btn" data-i18n="nav-reservar" title="Reservar mesa en Cal Silvino">Reservar</a>
         </div>
 
         <button class="hamburger" id="hamburger" aria-label="Abrir menú">
@@ -53,21 +59,19 @@
 
     <main class="contact-main">
 
-        
-
         <!-- TOP (FORM + HORARIO) -->
         <section class="contact-top">
 
             <!-- FORMULARIO -->
             <div class="contact-form-box">
-                <form 
+                <form
                     class="contact-form"
                     action="https://formsubmit.co/ajax/armenia180924@gmail.com"
                     method="POST"
                     id="reservaForm"
                 >
 
-                    <h2 data-i18n="form-h2">Reserva tu mesa</h2>
+                    <h2>📅 <span data-i18n="form-h2">Reserva tu mesa</span></h2>
                     <p style="text-align:center;font-size:13px;color:#888;margin:-10px 0 8px;" data-i18n="form-subtitle">Rellena el formulario y te confirmamos la reserva en breve</p>
 
                     <div class="form-group">
@@ -97,6 +101,11 @@
                         </div>
                     </div>
 
+                    <div class="form-legal">
+                        <input type="checkbox" id="legalCheck" checked tabindex="-1" aria-checked="true" readonly>
+                        <label for="legalCheck" data-i18n="form-legal">Los datos que nos facilitas serán utilizados exclusivamente para gestionar tu reserva. No los compartiremos ni usaremos para ningún otro fin.</label>
+                    </div>
+
                     <button type="submit" data-i18n="form-submit">Reservar</button>
 
                     <!-- CONFIG -->
@@ -105,92 +114,116 @@
                 </form>
             </div>
 
-            <!-- HORARIO -->
+            <!-- CONTACTO INFO -->
             <div class="contact-schedule-box">
-                <h2 data-i18n="contact-schedule-h2">Horario</h2>
-
-                <!-- REDES -->
+                <h2>📍 <span data-i18n="contact-eyebrow">Estamos aquí</span></h2>
                 <div class="contact-social">
                     <a href="#" class="social-btn" id="phoneBtn">
                         <img src="images/phone.png" alt="Teléfono">
                     </a>
-
                     <a href="https://www.instagram.com/calsilvino/" target="_blank" class="social-btn">
                         <img src="images/instagram.png" alt="Instagram">
                     </a>
-
                     <a href="https://www.facebook.com/calsilvino/" target="_blank" class="social-btn">
                         <img src="images/facebook.png" alt="Facebook">
                     </a>
                 </div>
-
-                <div class="schedule-grid">
-                    <div>
-                        <p><strong data-i18n="footer-days-1">Lunes y martes</strong></p>
-                        <p data-i18n="footer-closed">Cerrado</p>
-                    </div>
-
-                    <div>
-                        <p><strong data-i18n="footer-days-2">Miércoles a viernes</strong></p>
-                        <p>10.00 - 16.00</p>
-                        <p>20.00 - 23.00</p>
-                    </div>
-
-                    <div>
-                        <p><strong data-i18n="footer-days-3">Sábado y domingo y festivos</strong></p>
-                        <p>11.00 - 16.30</p>
-                        <p>20.00 - 23.30</p>
-                    </div>
+                <div class="contact-address-info">
+                    <p data-i18n="contact-address">Av. el Través, 21 · AD400 La Massana, Andorra</p>
+                    <p><span data-i18n="contact-tel-label">Tel:</span> <a href="tel:+376840720" class="contact-phone-link">+376 840 720</a></p>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=42.5468,1.5175" target="_blank" rel="noopener noreferrer" class="parking-link" title="Parking gratuito Pàrquing Comunal La Massana">
+                        🅿️ Parking gratuito — Pàrquing Comunal, a 2 min
+                    </a>
                 </div>
+                <iframe
+                    class="contact-sidebar-map"
+                    src="https://www.google.com/maps?q=42.5458333,1.5172222&hl=es&z=17&output=embed"
+                    allowfullscreen=""
+                    loading="lazy"
+                    title="Ubicación Cal Silvino — La Massana, Andorra">
+                </iframe>
             </div>
 
-        </section>
-
-        
-
-        <section class="contact-map">
-            <h2 data-i18n="contact-map-h2">Ubicación</h2>
-            <iframe 
-                src="https://www.google.com/maps?q=42.5458333,1.5172222&hl=es&z=17&output=embed"
-                allowfullscreen=""
-                loading="lazy">
-            </iframe>
         </section>
 
     </main>
 
+    <!-- ═══ HORARIO (sección completa igual que inicio) ═══ -->
+    <section class="home-schedule">
+        <div class="home-schedule-container">
+            <p class="schedule-eyebrow" data-i18n="schedule-eyebrow">Cuando quieras visitarnos</p>
+            <h2>🕐 <span data-i18n="schedule-h2">Horario</span></h2>
+            <div class="home-schedule-grid">
+                <div class="home-schedule-item">
+                    <p class="schedule-day" data-i18n="schedule-day-1">Lunes · Martes</p>
+                    <div class="schedule-divider"></div>
+                    <div class="schedule-hours">
+                        <span class="schedule-closed-badge" data-i18n="schedule-closed">Cerrado</span>
+                    </div>
+                </div>
+                <div class="home-schedule-item">
+                    <p class="schedule-day" data-i18n="schedule-day-2">Miércoles · Jueves · Viernes</p>
+                    <div class="schedule-divider"></div>
+                    <div class="schedule-hours">
+                        <div class="schedule-slot">
+                            <span class="slot-label" data-i18n="slot-lunch">Mediodía</span>
+                            <span class="slot-time">10:00 – 16:00</span>
+                        </div>
+                        <div class="schedule-slot">
+                            <span class="slot-label" data-i18n="slot-dinner">Noche</span>
+                            <span class="slot-time">20:00 – 23:00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="home-schedule-item">
+                    <p class="schedule-day" data-i18n="schedule-day-3">Sábado · Domingo y festivos</p>
+                    <div class="schedule-divider"></div>
+                    <div class="schedule-hours">
+                        <div class="schedule-slot">
+                            <span class="slot-label" data-i18n="slot-lunch">Mediodía</span>
+                            <span class="slot-time">11:00 – 16:30</span>
+                        </div>
+                        <div class="schedule-slot">
+                            <span class="slot-label" data-i18n="slot-dinner">Noche</span>
+                            <span class="slot-time">20:00 – 23:30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
-    <div class="footer-left">
-        <img src="/images/logo.png" class="footer-logo">
+        <div class="footer-left">
+            <img src="/images/logo.png" class="footer-logo">
 
-        <div class="footer-info">
-            <p>Av. el Través, 21, AD400 La Massana</p>
-            <p>Telèfon: +376 840 720</p>
-            <p>info@restaurantcalsilvino.com</p>
-        </div>
-    </div>
-
-    <div class="footer-right">
-
-        <div class="footer-schedule">
-            <div class="schedule-block">
-                <p><strong data-i18n="footer-days-1">Lunes y martes</strong></p>
-                <p data-i18n="footer-closed">Cerrado</p>
-            </div>
-
-            <div class="schedule-block">
-                <p><strong data-i18n="footer-days-2">Miércoles a viernes</strong></p>
-                <p>10.00 - 16.00</p>
-                <p>20.00 - 23.00</p>
-            </div>
-
-            <div class="schedule-block">
-                <p><strong data-i18n="footer-days-3">Sábado y domingo y festivos</strong></p>
-                <p>11.00 - 16.30</p>
-                <p>20.00 - 23.30</p>
+            <div class="footer-info">
+                <p>Av. el Través, 21, AD400 La Massana</p>
+                <p>Telèfon: +376 840 720</p>
+                <p>info@restaurantcalsilvino.com</p>
             </div>
         </div>
-    </div>
+
+        <div class="footer-right">
+            <div class="footer-schedule">
+                <div class="schedule-block">
+                    <p><strong data-i18n="footer-days-1">Lunes y martes</strong></p>
+                    <p data-i18n="footer-closed">Cerrado</p>
+                </div>
+
+                <div class="schedule-block">
+                    <p><strong data-i18n="footer-days-2">Miércoles a viernes</strong></p>
+                    <p>10.00 - 16.00</p>
+                    <p>20.00 - 23.00</p>
+                </div>
+
+                <div class="schedule-block">
+                    <p><strong data-i18n="footer-days-3">Sábado y domingo y festivos</strong></p>
+                    <p>11.00 - 16.30</p>
+                    <p>20.00 - 23.30</p>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="translations.js"></script>

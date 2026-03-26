@@ -24,11 +24,17 @@
 
         <nav id="mainNav">
             <a href="index.html" data-i18n="nav-inicio">Inicio</a>
-            <a href="#" class="active" data-i18n="nav-menu">Menú</a>
-            <a href="#" class="nav-reservar-mobile" data-i18n="nav-reservar">Reservar</a>
+            <a href="#" class="active" data-i18n="nav-menu">Cartas</a>
+            <a href="contacto.html" class="nav-reservar-mobile" data-i18n="nav-reservar">Reservar</a>
         </nav>
 
         <div class="header-right">
+            <!-- INDICADOR DE ESTADO EN TIEMPO REAL -->
+            <div class="header-status" id="headerStatus">
+                <span class="status-dot" id="statusDot"></span>
+                <span id="statusText" class="status-text">Verificando...</span>
+            </div>
+
             <div class="lang-switcher" id="langSwitcher">
                 <button class="lang-btn" id="langBtn" aria-label="Cambiar idioma">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -43,7 +49,7 @@
                 </div>
             </div>
 
-            <a href="#" class="nav-btn" data-i18n="nav-reservar">Reservar ahora</a>
+            <a href="contacto.html" class="nav-btn" data-i18n="nav-reservar" title="Reservar mesa en Cal Silvino">Reservar</a>
         </div>
 
         <button class="hamburger" id="hamburger" aria-label="Abrir menú">
@@ -56,16 +62,16 @@
         <!-- ===== CARTA (descarga) ===== -->
         <section class="menu-section">
             <div class="menu-header">
-                <h1 class="menu-title" data-i18n="menu-page-h1">Nuestra Carta</h1>
-                <p class="menu-subtitle" data-i18n="menu-page-subtitle">Consulta o descarga el menú completo en tu idioma</p>
+                <h1 class="menu-title">📋 <span data-i18n="menu-page-h1">Nuestra Carta</span></h1>
+                <p class="menu-subtitle" data-i18n="menu-page-subtitle">Consulta o descarga las cartas en tu idioma</p>
             </div>
 
             <div class="menu-cards">
-                <a href="pdfs/carta-es-ca.pdf" class="menu-img-link" onclick="openPdfModal('pdfs/carta-es-ca.pdf', 'Español / Català'); return false;">
+                <a href="/.netlify/functions/serve-pdf?name=carta-es-ca" class="menu-img-link" onclick="openPdfModal('/.netlify/functions/serve-pdf?name=carta-es-ca', 'Español / Català'); return false;">
                     <img src="/images/MenuCatEsp.png" alt="Ver carta Español / Català" class="menu-img">
                     <p class="menu-card-label">Español / Català</p>
                 </a>
-                <a href="pdfs/carta-fr-en.pdf" class="menu-img-link" onclick="openPdfModal('pdfs/carta-fr-en.pdf', 'Français / English'); return false;">
+                <a href="/.netlify/functions/serve-pdf?name=carta-fr-en" class="menu-img-link" onclick="openPdfModal('/.netlify/functions/serve-pdf?name=carta-fr-en', 'Français / English'); return false;">
                     <img src="/images/MenuFrEn.png" alt="Voir menu Français / English" class="menu-img">
                     <p class="menu-card-label">Français / English</p>
                 </a>
@@ -78,7 +84,7 @@
 
                 <div class="menu-section-header">
                     <p class="menu-section-eyebrow" data-i18n="spec-eyebrow">Lo mejor de Cal Silvino</p>
-                    <h2 class="menu-section-title" data-i18n="spec-h2">Especialidades de la casa</h2>
+                    <h2 class="menu-section-title">⭐ <span data-i18n="spec-h2">Especialidades de la casa</span></h2>
                 </div>
 
                 <div class="menu-specialties-grid">
@@ -158,7 +164,7 @@
         <section class="menu-recipes">
             <div class="menu-section-header" style="margin-bottom: 0;">
                 <p class="menu-section-eyebrow" style="color: rgba(255,255,255,0.65);" data-i18n="gallery-eyebrow">Nuestra cocina en imágenes</p>
-                <h2 class="recipes-title" data-i18n="gallery-title">Galería de platos</h2>
+                <h2 class="recipes-title">📸 <span data-i18n="gallery-title">Galería de platos</span></h2>
             </div>
 
             <div class="recipes-carousel">
@@ -191,12 +197,36 @@
         <!-- ===== CTA RESERVA ===== -->
         <section class="menu-cta">
             <p class="menu-section-eyebrow" data-i18n="cta-eyebrow">¿Todo listo?</p>
-            <h2 class="menu-cta-title" data-i18n="cta-h2">Reserva tu mesa</h2>
+            <h2 class="menu-cta-title">🎉 <span data-i18n="cta-h2">Reserva tu mesa</span></h2>
             <p class="menu-cta-text" data-i18n="cta-text">Ven a disfrutar de nuestra cocina tradicional en un ambiente cálido y familiar. Te esperamos en La Massana.</p>
-            <button class="menu-cta-btn" data-i18n="cta-btn">Reservar ahora</button>
+            <a href="contacto.html" class="btn-primary" data-i18n="cta-btn" title="Reservar mesa en Cal Silvino">Reservar</a>
+            <a href="menu.html" class="cta-link" title="Ver carta completa de Cal Silvino">Ver la carta →</a>
         </section>
 
     </main>
+
+    <!-- ═══ DIRECTIONS ═══ -->
+    <section class="directions-section">
+        <div class="directions-container">
+            <p class="directions-eyebrow">¿Cómo llegar?</p>
+            <h2>🗺️ Ven a visitarnos</h2>
+            <p class="directions-desc">Disponemos de <strong>parking gratuito</strong> en el Pàrquing Comunal de La Massana, a 2 minutos a pie del restaurante.</p>
+            <div class="directions-btns">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=42.5458333,1.5172222&travelmode=driving"
+                   target="_blank" rel="noopener noreferrer"
+                   class="btn-primary directions-btn"
+                   title="Cómo llegar al Restaurante Cal Silvino en La Massana, Andorra">
+                    📍 Llegar al restaurante
+                </a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=42.5468,1.5175&travelmode=driving"
+                   target="_blank" rel="noopener noreferrer"
+                   class="btn-secondary directions-btn"
+                   title="Cómo llegar al parking gratuito de La Massana">
+                    🅿️ Llegar al parking
+                </a>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <div class="footer-left">

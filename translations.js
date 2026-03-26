@@ -9,12 +9,12 @@ const TRANSLATIONS = {
   es: {
     // Navegación
     'nav-inicio':   'Inicio',
-    'nav-menu':     'Menú',
-    'nav-reservar': 'Reservar ahora',
+    'nav-menu':     'Cartas',
+    'nav-reservar': 'Reservar',
 
     // Hero
     'banner-badge':     'El restaurante favorito de La Massana',
-    'banner-title':     'El sabor de Andorra<br>nace en La Massana',
+    'banner-title':     'Restaurante familiar<br>en La Massana, Andorra',
     'banner-desc':      'Cocina de mar, brasa y tradición familiar.<br>Más de 12 años haciendo que cada comida sea memorable.',
     'banner-btn':       'Reservar mesa',
     'banner-secondary': 'Ver nuestra carta →',
@@ -29,18 +29,19 @@ const TRANSLATIONS = {
     'trust-4-span':   'eventos y grupos',
 
     // Sobre nosotros
-    'about-eyebrow': 'Nuestra historia',
+    'about-eyebrow': 'Nuestro Restaurante',
     'about-h2':      'Un restaurante familiar<br>con alma andorrana',
     'about-p1':      'Hace más de 12 años que abrimos Cal Silvino en La Massana, y desde el primer día nuestra filosofía ha sido la misma: <strong>producto de calidad, cocina honesta y trato familiar</strong>.',
     'about-p2':      'En nuestra carta encontrarás los platos que nos han convertido en referencia gastronómica del Principado: el <span class="dish">bacalao a la llauna</span>, el <span class="dish">pulpo a la brasa</span>, los <span class="dish">callos</span>, el <span class="dish">tartar de atún</span> y la <span class="dish">carne a la brasa</span>, junto a clásicos como los <span class="dish">canelones caseros</span> o los <span class="dish">caracoles a la llauna</span>.',
     'about-p3':      'También organizamos <strong>celebraciones, aniversarios y comidas de empresa</strong>. Contáctanos y nos encargamos de que solo tengas que disfrutar.',
     'about-cta':     'Explorar la carta completa →',
+    'about-parking': 'Parking gratuito disponible — Pàrquing Comunal de La Massana, a 2 min a pie',
 
     // Banner menú
     'menu-eyebrow': '¿Te apetece algo bueno?',
     'menu-title':   'Descubre nuestra carta',
     'menu-desc':    'Platos de temporada, especialidades de la casa y una selección de vinos pensada para acompañar cada bocado.',
-    'menu-btn':     'Ver menú completo',
+    'menu-btn':     'Ver carta completa',
 
     // Testimonios
     'test-eyebrow':    'Lo que dicen nuestros clientes',
@@ -72,7 +73,7 @@ const TRANSLATIONS = {
 
     // Página menú — cabecera
     'menu-page-h1':       'Nuestra Carta',
-    'menu-page-subtitle': 'Consulta o descarga el menú completo en tu idioma',
+    'menu-page-subtitle': 'Consulta o descarga las cartas en tu idioma',
 
     // Especialidades
     'spec-eyebrow': 'Lo mejor de Cal Silvino',
@@ -108,7 +109,7 @@ const TRANSLATIONS = {
     'cta-eyebrow': '¿Todo listo?',
     'cta-h2':      'Reserva tu mesa',
     'cta-text':    'Ven a disfrutar de nuestra cocina tradicional en un ambiente cálido y familiar. Te esperamos en La Massana.',
-    'cta-btn':     'Reservar ahora',
+    'cta-btn':     'Reservar',
 
     // Formulario reserva
     'form-h2':                  'Reserva tu mesa',
@@ -125,6 +126,7 @@ const TRANSLATIONS = {
     'form-label-date':          'Fecha',
     'form-label-time':          'Hora',
     'form-submit':              'Reservar',
+    'form-legal':               'Los datos que nos facilitas serán utilizados exclusivamente para gestionar tu reserva. No los compartiremos ni usaremos para ningún otro fin.',
 
     // Contacto page
     'contact-schedule-h2': 'Horario',
@@ -139,11 +141,11 @@ const TRANSLATIONS = {
   // ─────────────────── CATALÀ ───────────────────
   ca: {
     'nav-inicio':   'Inici',
-    'nav-menu':     'Menú',
-    'nav-reservar': 'Reservar ara',
+    'nav-menu':     'Cartas',
+    'nav-reservar': 'Reservar',
 
     'banner-badge':     'El restaurant favorit de La Massana',
-    'banner-title':     'El sabor d\'Andorra<br>neix a La Massana',
+    'banner-title':     'Restaurant familiar<br>a La Massana, Andorra',
     'banner-desc':      'Cuina de mar, brasa i tradició familiar.<br>Més de 12 anys fent que cada àpat sigui memorable.',
     'banner-btn':       'Reservar taula',
     'banner-secondary': 'Veure la nostra carta →',
@@ -156,17 +158,18 @@ const TRANSLATIONS = {
     'trust-4-strong': 'Celebracions',
     'trust-4-span':   'esdeveniments i grups',
 
-    'about-eyebrow': 'La nostra història',
+    'about-eyebrow': 'El Nostre Restaurant',
     'about-h2':      'Un restaurant familiar<br>amb ànima andorrana',
     'about-p1':      'Fa més de 12 anys que vam obrir Cal Silvino a La Massana, i des del primer dia la nostra filosofia ha estat la mateixa: <strong>producte de qualitat, cuina honesta i tracte familiar</strong>.',
     'about-p2':      'A la nostra carta trobaràs els plats que ens han convertit en referència gastronòmica del Principat: el <span class="dish">bacallà a la llauna</span>, el <span class="dish">pop a la brasa</span>, els <span class="dish">callos</span>, el <span class="dish">tàrtar de tonyina</span> i la <span class="dish">carn a la brasa</span>, juntament amb clàssics com els <span class="dish">canelons casolans</span> o els <span class="dish">cargols a la llauna</span>.',
     'about-p3':      'També organitzem <strong>celebracions, aniversaris i dinars d\'empresa</strong>. Contacta\'ns i ens encarreguem de tot perquè només hagis de gaudir.',
     'about-cta':     'Explorar la carta completa →',
+    'about-parking': 'Pàrquing gratuït disponible — Pàrquing Comunal de La Massana, a 2 min a peu',
 
     'menu-eyebrow': 'T\'apeteix alguna cosa bona?',
     'menu-title':   'Descobreix la nostra carta',
     'menu-desc':    'Plats de temporada, especialitats de la casa i una selecció de vins pensada per acompanyar cada mos.',
-    'menu-btn':     'Veure el menú complet',
+    'menu-btn':     'Veure la carta completa',
 
     'test-eyebrow':    'El que diuen els nostres clients',
     'test-title':      'Opinions reals de Google',
@@ -193,7 +196,7 @@ const TRANSLATIONS = {
     'footer-days-3': 'Dissabte, diumenge i festius',
 
     'menu-page-h1':       'La Nostra Carta',
-    'menu-page-subtitle': 'Consulta o descarrega el menú complet en el teu idioma',
+    'menu-page-subtitle': 'Consulta o descarrega les cartes en el teu idioma',
 
     'spec-eyebrow': 'El millor de Cal Silvino',
     'spec-h2':      'Especialitats de la casa',
@@ -225,7 +228,7 @@ const TRANSLATIONS = {
     'cta-eyebrow': 'Tot llest?',
     'cta-h2':      'Reserva la teva taula',
     'cta-text':    'Vine a gaudir de la nostra cuina tradicional en un ambient càlid i familiar. T\'esperem a La Massana.',
-    'cta-btn':     'Reservar ara',
+    'cta-btn':     'Reservar',
 
     'form-h2':                  'Reserva la teva taula',
     'form-subtitle':            'Omple el formulari i et confirmarem la reserva aviat',
@@ -241,6 +244,7 @@ const TRANSLATIONS = {
     'form-label-date':          'Data',
     'form-label-time':          'Hora',
     'form-submit':              'Reservar',
+    'form-legal':               'Les dades que ens facilites seran utilitzades exclusivament per gestionar la teva reserva. No les compartirem ni les farem servir per a cap altre fi.',
 
     'contact-schedule-h2': 'Horari',
     'contact-map-h2':      'Ubicació',
@@ -253,11 +257,11 @@ const TRANSLATIONS = {
   // ─────────────────── PORTUGUÊS ───────────────────
   pt: {
     'nav-inicio':   'Início',
-    'nav-menu':     'Menu',
-    'nav-reservar': 'Reservar agora',
+    'nav-menu':     'Cartas',
+    'nav-reservar': 'Reservar',
 
     'banner-badge':     'O restaurante favorito de La Massana',
-    'banner-title':     'O sabor de Andorra<br>nasce em La Massana',
+    'banner-title':     'Restaurante familiar<br>em La Massana, Andorra',
     'banner-desc':      'Cozinha de mar, brasa e tradição familiar.<br>Mais de 12 anos a tornar cada refeição memorável.',
     'banner-btn':       'Reservar mesa',
     'banner-secondary': 'Ver a nossa carta →',
@@ -270,17 +274,18 @@ const TRANSLATIONS = {
     'trust-4-strong': 'Celebrações',
     'trust-4-span':   'eventos e grupos',
 
-    'about-eyebrow': 'A nossa história',
+    'about-eyebrow': 'O Nosso Restaurante',
     'about-h2':      'Um restaurante familiar<br>com alma andorrana',
     'about-p1':      'Há mais de 12 anos que abrimos Cal Silvino em La Massana, e desde o primeiro dia a nossa filosofia tem sido a mesma: <strong>produto de qualidade, cozinha honesta e trato familiar</strong>.',
     'about-p2':      'Na nossa carta encontrará os pratos que nos tornaram referência gastronómica do Principado: o <span class="dish">bacalhau à llauna</span>, o <span class="dish">polvo à brasa</span>, os <span class="dish">callos</span>, o <span class="dish">tartar de atum</span> e a <span class="dish">carne à brasa</span>, junto com clássicos como os <span class="dish">canelinhos caseiros</span> ou os <span class="dish">caracóis à llauna</span>.',
     'about-p3':      'Também organizamos <strong>celebrações, aniversários e jantares de empresa</strong>. Contacte-nos e tratamos de tudo para que só tenha de desfrutar.',
     'about-cta':     'Explorar a carta completa →',
+    'about-parking': 'Estacionamento gratuito disponível — Pàrquing Comunal de La Massana, a 2 min a pé',
 
     'menu-eyebrow': 'Apetece-lhe algo bom?',
     'menu-title':   'Descubra a nossa carta',
     'menu-desc':    'Pratos de época, especialidades da casa e uma seleção de vinhos pensada para acompanhar cada garfada.',
-    'menu-btn':     'Ver menu completo',
+    'menu-btn':     'Ver carta completa',
 
     'test-eyebrow':    'O que dizem os nossos clientes',
     'test-title':      'Opiniões reais do Google',
@@ -307,7 +312,7 @@ const TRANSLATIONS = {
     'footer-days-3': 'Sábado e domingo e feriados',
 
     'menu-page-h1':       'A Nossa Carta',
-    'menu-page-subtitle': 'Consulte ou descarregue o menu completo no seu idioma',
+    'menu-page-subtitle': 'Consulte ou descarregue as cartas no seu idioma',
 
     'spec-eyebrow': 'O melhor de Cal Silvino',
     'spec-h2':      'Especialidades da casa',
@@ -339,7 +344,7 @@ const TRANSLATIONS = {
     'cta-eyebrow': 'Tudo pronto?',
     'cta-h2':      'Reserve a sua mesa',
     'cta-text':    'Venha desfrutar da nossa cozinha tradicional num ambiente acolhedor e familiar. Esperamos por si em La Massana.',
-    'cta-btn':     'Reservar agora',
+    'cta-btn':     'Reservar',
 
     'form-h2':                  'Reserve a sua mesa',
     'form-subtitle':            'Preencha o formulário e confirmamos a reserva em breve',
@@ -355,6 +360,7 @@ const TRANSLATIONS = {
     'form-label-date':          'Data',
     'form-label-time':          'Hora',
     'form-submit':              'Reservar',
+    'form-legal':               'Os dados que nos fornece serão utilizados exclusivamente para gerir a sua reserva. Não os partilharemos nem usaremos para nenhum outro fim.',
 
     'contact-schedule-h2': 'Horário',
     'contact-map-h2':      'Localização',
@@ -368,10 +374,10 @@ const TRANSLATIONS = {
   en: {
     'nav-inicio':   'Home',
     'nav-menu':     'Menu',
-    'nav-reservar': 'Book now',
+    'nav-reservar': 'Book',
 
     'banner-badge':     'La Massana\'s favourite restaurant',
-    'banner-title':     'The taste of Andorra<br>born in La Massana',
+    'banner-title':     'Family Restaurant<br>in La Massana, Andorra',
     'banner-desc':      'Seafood, grill and family tradition.<br>Over 12 years making every meal memorable.',
     'banner-btn':       'Book a table',
     'banner-secondary': 'See our menu →',
@@ -384,12 +390,13 @@ const TRANSLATIONS = {
     'trust-4-strong': 'Celebrations',
     'trust-4-span':   'events and groups',
 
-    'about-eyebrow': 'Our story',
+    'about-eyebrow': 'Our Restaurant',
     'about-h2':      'A family restaurant<br>with Andorran soul',
     'about-p1':      'Over 12 years ago we opened Cal Silvino in La Massana, and from day one our philosophy has been the same: <strong>quality produce, honest cooking and a family welcome</strong>.',
     'about-p2':      'Our menu features the dishes that have made us a gastronomic landmark of the Principality: <span class="dish">bacalao a la llauna</span>, <span class="dish">grilled octopus</span>, <span class="dish">callos</span>, <span class="dish">tuna tartar</span> and <span class="dish">grilled meat</span>, alongside classics like <span class="dish">homemade cannelloni</span> or <span class="dish">snails a la llauna</span>.',
     'about-p3':      'We also host <strong>celebrations, anniversaries and corporate dinners</strong>. Get in touch and we\'ll take care of everything so you can just enjoy.',
     'about-cta':     'Explore the full menu →',
+    'about-parking': 'Free parking available — Pàrquing Comunal de La Massana, 2 min walk',
 
     'menu-eyebrow': 'Feeling hungry?',
     'menu-title':   'Discover our menu',
@@ -421,7 +428,7 @@ const TRANSLATIONS = {
     'footer-days-3': 'Saturday, Sunday & holidays',
 
     'menu-page-h1':       'Our Menu',
-    'menu-page-subtitle': 'View or download the full menu in your language',
+    'menu-page-subtitle': 'View or download the menus in your language',
 
     'spec-eyebrow': 'The best of Cal Silvino',
     'spec-h2':      'House specialities',
@@ -453,7 +460,7 @@ const TRANSLATIONS = {
     'cta-eyebrow': 'Ready?',
     'cta-h2':      'Book your table',
     'cta-text':    'Come and enjoy our traditional cuisine in a warm, family atmosphere. We look forward to seeing you in La Massana.',
-    'cta-btn':     'Book now',
+    'cta-btn':     'Book',
 
     'form-h2':                  'Book your table',
     'form-subtitle':            'Fill in the form and we\'ll confirm your booking shortly',
@@ -469,6 +476,7 @@ const TRANSLATIONS = {
     'form-label-date':          'Date',
     'form-label-time':          'Time',
     'form-submit':              'Book',
+    'form-legal':               'The data you provide will be used exclusively to manage your booking. We will not share or use it for any other purpose.',
 
     'contact-schedule-h2': 'Opening hours',
     'contact-map-h2':      'Location',

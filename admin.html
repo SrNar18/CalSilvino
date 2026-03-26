@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — Cal Silvino</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #1a0a0a;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .admin-card {
+            background: #2a0f0f;
+            border: 1px solid rgba(197,1,1,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 480px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .admin-logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .admin-logo img {
+            height: 60px;
+            filter: brightness(0) invert(1);
+        }
+        .admin-logo h1 {
+            font-size: 15px;
+            color: rgba(255,255,255,0.4);
+            font-weight: 400;
+            margin: 8px 0 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 0 24px;
+            color: #fff;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.55);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.06);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: #c50101;
+        }
+        .form-group input[type="file"] {
+            padding: 10px 16px;
+            cursor: pointer;
+        }
+        .form-group select option {
+            background: #2a0f0f;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: #c50101;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .btn-submit:hover:not(:disabled) {
+            background: #a10000;
+            transform: translateY(-1px);
+        }
+        .btn-submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .message {
+            margin-top: 16px;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-size: 13px;
+            text-align: center;
+            display: none;
+        }
+        .message.success {
+            background: rgba(34,197,94,0.15);
+            border: 1px solid rgba(34,197,94,0.3);
+            color: #86efac;
+            display: block;
+        }
+        .message.error {
+            background: rgba(239,68,68,0.15);
+            border: 1px solid rgba(239,68,68,0.3);
+            color: #fca5a5;
+            display: block;
+        }
+
+        #loginSection, #uploadSection { display: none; }
+        #loginSection.active, #uploadSection.active { display: block; }
+
+        .logout-btn {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.35);
+            font-size: 12px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+            text-align: center;
+            transition: color 0.2s;
+        }
+        .logout-btn:hover { color: rgba(255,255,255,0.7); }
+
+        .pdf-info {
+            font-size: 12px;
+            color: rgba(255,255,255,0.35);
+            margin-top: 6px;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            margin: 24px 0;
+        }
+
+        .current-status {
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.55);
+        }
+    </style>
+</head>
+<body>
+
+<div class="admin-card">
+    <div class="admin-logo">
+        <img src="/images/logo.png" alt="Cal Silvino">
+        <h1>Panel de administración</h1>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="loginSection" class="active">
+        <h2>Acceder</h2>
+        <form id="loginForm" autocomplete="off">
+            <div class="form-group">
+                <label>Usuario</label>
+                <input type="text" id="loginUser" placeholder="Usuario" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" id="loginPass" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn-submit" id="loginBtn">Entrar</button>
+        </form>
+        <div id="loginMsg" class="message"></div>
+    </div>
+
+    <!-- SUBIR PDF -->
+    <div id="uploadSection">
+        <h2>Actualizar carta</h2>
+
+        <div class="current-status" id="statusInfo">
+            Selecciona qué carta quieres reemplazar y sube el nuevo PDF.
+        </div>
+
+        <form id="uploadForm">
+            <div class="form-group">
+                <label>Carta a reemplazar</label>
+                <select id="pdfName">
+                    <option value="carta-es-ca">Español / Català</option>
+                    <option value="carta-fr-en">Français / English</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Nuevo archivo PDF</label>
+                <input type="file" id="pdfFile" accept=".pdf,application/pdf" required>
+                <p class="pdf-info">Máximo 10 MB · Solo formato PDF</p>
+            </div>
+            <button type="submit" class="btn-submit" id="uploadBtn">Subir carta</button>
+        </form>
+        <div id="uploadMsg" class="message"></div>
+
+        <hr class="divider">
+        <button class="logout-btn" id="logoutBtn">Cerrar sesión</button>
+    </div>
+</div>
+
+<script>
+(function () {
+    const TOKEN_KEY = 'cs_admin_token';
+
+    const loginSection  = document.getElementById('loginSection');
+    const uploadSection = document.getElementById('uploadSection');
+    const loginForm     = document.getElementById('loginForm');
+    const uploadForm    = document.getElementById('uploadForm');
+    const loginMsg      = document.getElementById('loginMsg');
+    const uploadMsg     = document.getElementById('uploadMsg');
+    const loginBtn      = document.getElementById('loginBtn');
+    const uploadBtn     = document.getElementById('uploadBtn');
+    const logoutBtn     = document.getElementById('logoutBtn');
+
+    function showMsg(el, text, type) {
+        el.textContent = text;
+        el.className   = 'message ' + type;
+    }
+
+    function setSection(section) {
+        loginSection.classList.toggle('active', section === 'login');
+        uploadSection.classList.toggle('active', section === 'upload');
+    }
+
+    // Si ya hay token en sessionStorage, mostrar directamente el panel de subida
+    if (sessionStorage.getItem(TOKEN_KEY)) {
+        setSection('upload');
+    } else {
+        setSection('login');
+    }
+
+    // LOGIN
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        loginBtn.disabled  = true;
+        loginBtn.textContent = 'Verificando...';
+        loginMsg.className = 'message';
+
+        const username = document.getElementById('loginUser').value.trim();
+        const password = document.getElementById('loginPass').value;
+
+        try {
+            const res  = await fetch('/.netlify/functions/auth', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+            const data = await res.json();
+
+            if (res.ok && data.token) {
+                sessionStorage.setItem(TOKEN_KEY, data.token);
+                setSection('upload');
+            } else {
+                showMsg(loginMsg, data.error || 'Error al iniciar sesión', 'error');
+            }
+        } catch {
+            showMsg(loginMsg, 'No se pudo conectar con el servidor. ¿Estás en Netlify?', 'error');
+        } finally {
+            loginBtn.disabled    = false;
+            loginBtn.textContent = 'Entrar';
+        }
+    });
+
+    // SUBIR PDF
+    uploadForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const token   = sessionStorage.getItem(TOKEN_KEY);
+        const name    = document.getElementById('pdfName').value;
+        const fileEl  = document.getElementById('pdfFile');
+        const file    = fileEl.files[0];
+
+        if (!file) {
+            showMsg(uploadMsg, 'Selecciona un archivo PDF', 'error');
+            return;
+        }
+        if (file.type !== 'application/pdf' && !file.name.endsWith('.pdf')) {
+            showMsg(uploadMsg, 'El archivo debe ser un PDF', 'error');
+            return;
+        }
+        if (file.size > 10 * 1024 * 1024) {
+            showMsg(uploadMsg, 'El archivo supera los 10 MB', 'error');
+            return;
+        }
+
+        uploadBtn.disabled    = true;
+        uploadBtn.textContent = 'Subiendo...';
+        uploadMsg.className   = 'message';
+
+        // Leer el PDF como base64
+        const base64 = await new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload  = () => resolve(reader.result.split(',')[1]);
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+        });
+
+        try {
+            const res  = await fetch('/.netlify/functions/upload-pdf', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+                body: JSON.stringify({ name, data: base64 })
+            });
+            const data = await res.json();
+
+            if (res.ok && data.success) {
+                showMsg(uploadMsg, '✓ ' + data.message, 'success');
+                fileEl.value = '';
+            } else if (res.status === 401) {
+                sessionStorage.removeItem(TOKEN_KEY);
+                showMsg(uploadMsg, 'Sesión expirada. Recarga la página e inicia sesión de nuevo.', 'error');
+            } else {
+                showMsg(uploadMsg, data.error || 'Error al subir el PDF', 'error');
+            }
+        } catch {
+            showMsg(uploadMsg, 'Error de conexión', 'error');
+        } finally {
+            uploadBtn.disabled    = false;
+            uploadBtn.textContent = 'Subir carta';
+        }
+    });
+
+    // CERRAR SESIÓN
+    logoutBtn.addEventListener('click', () => {
+        sessionStorage.removeItem(TOKEN_KEY);
+        setSection('login');
+    });
+})();
+</script>
+
+</body>
+</html>

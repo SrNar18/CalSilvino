@@ -34,7 +34,6 @@ function closePdfModal() {
     const frame = document.getElementById("pdfFrame");
     modal.classList.remove("active");
     document.body.style.overflow = "";
-    // Pequeño delay para que la animación termine antes de vaciar el iframe
     setTimeout(() => { frame.src = ""; }, 250);
 }
 
@@ -48,6 +47,174 @@ document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closePdfModal();
 });
 
+// ── REAL-TIME STATUS: Andorra holidays + schedule ──
+(function() {
+    // Meeus/Jones/Butcher algorithm for Easter Sunday
+    function getEaster(year) {
+        const a = year % 19;
+        const b = Math.floor(year / 100);
+        const c = year % 100;
+        const d = Math.floor(b / 4);
+        const e = b % 4;
+        const f = Math.floor((b + 8) / 25);
+        const g = Math.floor((b - f + 1) / 3);
+        const h = (19 * a + b - d - g + 15) % 30;
+        const i = Math.floor(c / 4);
+        const k = c % 4;
+        const l = (32 + 2 * e + 2 * i - h - k) % 7;
+        const m = Math.floor((a + 11 * h + 22 * l) / 451);
+        const month = Math.floor((h + l - 7 * m + 114) / 31); // 1-based
+        const day   = ((h + l - 7 * m + 114) % 31) + 1;
+        return new Date(year, month - 1, day);
+    }
+
+    function addDays(date, n) {
+        const d = new Date(date);
+        d.setDate(d.getDate() + n);
+        return d;
+    }
+
+    function isAndorraHoliday(date) {
+        const m = date.getMonth() + 1; // 1-based
+        const d = date.getDate();
+        const y = date.getFullYear();
+
+        // Fixed holidays (month, day)
+        const fixed = [
+            [1,  1],  // New Year
+            [1,  6],  // Epiphany
+            [3, 14],  // Constitution Day
+            [5,  1],  // Labour Day
+            [8, 15],  // Assumption
+            [9,  8],  // Meritxell
+            [11, 1],  // All Saints
+            [12, 8],  // Immaculate Conception
+            [12, 25], // Christmas
+            [12, 26], // Sant Esteve
+        ];
+
+        for (const [fm, fd] of fixed) {
+            if (m === fm && d === fd) return true;
+        }
+
+        // Variable Easter-based holidays
+        const easter = getEaster(y);
+        const goodFriday    = addDays(easter, -2);
+        const easterMonday  = addDays(easter,  1);
+        const whitMonday    = addDays(easter, 50);
+
+        const targets = [goodFriday, easterMonday, whitMonday];
+        for (const t of targets) {
+            if (t.getMonth() === date.getMonth() && t.getDate() === date.getDate()) return true;
+        }
+
+        return false;
+    }
+
+    function getAndorraNow() {
+        const now = new Date();
+        return new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Andorra' }));
+    }
+
+    function pad2(n) { return String(n).padStart(2, '0'); }
+
+    function updateStatus() {
+        const dotEl  = document.getElementById('statusDot');
+        const textEl = document.getElementById('statusText');
+        if (!dotEl || !textEl) return;
+
+        const now     = getAndorraNow();
+        const dow     = now.getDay(); // 0=Sun, 1=Mon, ..., 6=Sat
+        const holiday = isAndorraHoliday(now);
+        const hm      = now.getHours() * 60 + now.getMinutes();
+
+        // Determine schedule type
+        // Mon(1) or Tue(2) and NOT a holiday → closed all day
+        const isClosedDay = (dow === 1 || dow === 2) && !holiday;
+        // Weekend or holiday schedule: 11:00-16:30, 20:00-23:30
+        const isWeekendSched = dow === 0 || dow === 6 || holiday;
+        // Wed-Fri (not holiday override): 10:00-16:00, 20:00-23:00
+        // (holiday overrides to weekend schedule even on weekdays)
+
+        let openNow = false;
+        let closesAt = null;  // "HH:MM"
+        let nextOpenAt = null; // "HH:MM"
+        let nextOpenTomorrow = false;
+
+        if (isClosedDay) {
+            // Closed all day — next open: Wed 10:00 (or check tomorrow if Tue→Wed)
+            openNow = false;
+            nextOpenAt = "10:00";
+            nextOpenTomorrow = true;
+        } else if (isWeekendSched) {
+            // 11:00–16:30 and 20:00–23:30
+            if (hm >= 660 && hm < 990) {
+                // 11:00–16:30 open
+                openNow = true;
+                closesAt = "16:30";
+            } else if (hm >= 1200 && hm < 1410) {
+                // 20:00–23:30 open
+                openNow = true;
+                closesAt = "23:30";
+            } else {
+                openNow = false;
+                if (hm < 660) {
+                    nextOpenAt = "11:00";
+                    nextOpenTomorrow = false;
+                } else if (hm < 1200) {
+                    nextOpenAt = "20:00";
+                    nextOpenTomorrow = false;
+                } else {
+                    // after 23:30 — next day
+                    nextOpenAt = "11:00";
+                    nextOpenTomorrow = true;
+                }
+            }
+        } else {
+            // Wed–Fri: 10:00–16:00 and 20:00–23:00
+            if (hm >= 600 && hm < 960) {
+                // 10:00–16:00 open
+                openNow = true;
+                closesAt = "16:00";
+            } else if (hm >= 1200 && hm < 1380) {
+                // 20:00–23:00 open
+                openNow = true;
+                closesAt = "23:00";
+            } else {
+                openNow = false;
+                if (hm < 600) {
+                    nextOpenAt = "10:00";
+                    nextOpenTomorrow = false;
+                } else if (hm < 1200) {
+                    nextOpenAt = "20:00";
+                    nextOpenTomorrow = false;
+                } else {
+                    // after 23:00 — next day
+                    nextOpenAt = "10:00";
+                    nextOpenTomorrow = true;
+                }
+            }
+        }
+
+        const holidayPrefix = holiday ? "🎉 Festivo · " : "";
+
+        dotEl.className = 'status-dot ' + (openNow ? 'open' : 'closed');
+
+        if (openNow) {
+            textEl.textContent = holidayPrefix + "Abierto · Cierra a las " + closesAt;
+        } else {
+            const whenStr = nextOpenTomorrow ? "Mañana · " : "";
+            textEl.textContent = holidayPrefix + "Cerrado · Abre " + whenStr + "a las " + nextOpenAt;
+        }
+    }
+
+    // Run once immediately and then every 60 seconds
+    document.addEventListener('DOMContentLoaded', function() {
+        updateStatus();
+        setInterval(updateStatus, 60000);
+    });
+})();
+
 // Espera a que cargue el DOM
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -56,18 +223,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const langDropdown = document.getElementById("langDropdown");
 
     if (langBtn && langDropdown) {
-        // Abrir / cerrar dropdown
         langBtn.addEventListener("click", (e) => {
             e.stopPropagation();
             langDropdown.classList.toggle("open");
         });
 
-        // Cerrar al hacer click fuera
         document.addEventListener("click", () => {
             langDropdown.classList.remove("open");
         });
 
-        // Seleccionar idioma
         langDropdown.querySelectorAll(".lang-option").forEach(btn => {
             btn.addEventListener("click", () => {
                 const lang = btn.dataset.lang;
@@ -77,7 +241,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
-        // Marcar el idioma activo al cargar
         const currentLang = localStorage.getItem("calsilvinoLang") || "es";
         langDropdown.querySelectorAll(".lang-option").forEach(btn => {
             btn.classList.toggle("active", btn.dataset.lang === currentLang);
@@ -129,14 +292,14 @@ document.addEventListener("DOMContentLoaded", () => {
     links.forEach(link => {
         const text = link.textContent.trim().toLowerCase();
 
-        if (text === "inicio") {
+        if (text === "inicio" || text === "inici" || text === "início" || text === "home") {
             link.addEventListener("click", () => {
                 closeNav();
                 window.location.href = "index.html";
             });
         }
 
-        if (text === "menú" || text === "menu") {
+        if (text === "menú" || text === "menu" || text === "carta") {
             link.addEventListener("click", () => {
                 closeNav();
                 window.location.href = "menu.html";
@@ -158,7 +321,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // BOTÓN NAV (Reservar ahora) — versión desktop
+    // BOTÓN NAV (Reservar) — versión desktop
     const navBtn = document.querySelector(".nav-btn");
     if (navBtn) {
         navBtn.addEventListener("click", () => {
@@ -166,25 +329,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // BOTÓN DEL BANNER (Reservar mesa)
-    const bannerBtn = document.querySelector(".home-banner-button");
-    if (bannerBtn) {
-        bannerBtn.addEventListener("click", () => {
-            window.location.href = "contacto.html";
-        });
-    }
-
-    // BOTÓN VER MENÚ
+    // BOTÓN VER MENÚ (now an anchor, kept for backwards compat)
     const menuBtn = document.querySelector(".home-menu-button");
-    if (menuBtn) {
+    if (menuBtn && menuBtn.tagName === "BUTTON") {
         menuBtn.addEventListener("click", () => {
             window.location.href = "menu.html";
         });
     }
 
-    // BOTÓN CTA RESERVA (menú)
+    // BOTÓN CTA RESERVA (menú) — now an anchor, kept for backwards compat
     const ctaBtn = document.querySelector(".menu-cta-btn");
-    if (ctaBtn) {
+    if (ctaBtn && ctaBtn.tagName === "BUTTON") {
         ctaBtn.addEventListener("click", () => {
             window.location.href = "contacto.html";
         });
@@ -222,6 +377,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("Error de conexión ❌");
             });
         });
+    }
+
+    // LEGAL CHECKBOX — prevent unchecking
+    const legalCheck = document.getElementById('legalCheck');
+    if (legalCheck) {
+        legalCheck.addEventListener('click', e => e.preventDefault());
+        legalCheck.addEventListener('change', e => { legalCheck.checked = true; });
     }
 
     // CARRUSEL HOME (manual con botones)
@@ -279,25 +441,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
-
-document.getElementById("reservaForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
-
-    const data = {
-        nombre: this.nombre.value,
-        telefono: this.telefono.value,
-        email: this.email.value,
-        personas: this.personas.value,
-        fecha: this.fecha.value,
-        hora: this.hora.value
-    };
-
-    await fetch("https://script.google.com/macros/s/AKfycby-Og4AB23xxdxfpoue1Ujfjv5uBrOx_RTZ-vgyaaYfIQbbu_KAJaWqzQG2zJGwdjfR/exec", {
-        method: "POST",
-        body: JSON.stringify(data)
-    });
-
-    alert("Reserva enviada correctamente ✅");
-    this.reset();
-});
-
