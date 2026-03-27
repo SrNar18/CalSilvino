@@ -1,14 +1,5 @@
 import nodemailer from 'nodemailer';
-import { initializeApp, cert, getApps } from 'firebase-admin/app';
-import { getFirestore } from 'firebase-admin/firestore';
-
-function initFirebase() {
-    if (getApps().length === 0) {
-        const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
-        initializeApp({ credential: cert(serviceAccount) });
-    }
-    return getFirestore();
-}
+import { initFirebase } from './lib/utils.js';
 
 export default async (req) => {
     if (req.method !== 'POST') {
