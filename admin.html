@@ -15,7 +15,7 @@
             color: #fff;
             min-height: 100vh;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             padding: 20px;
         }
@@ -28,6 +28,10 @@
             width: 100%;
             max-width: 480px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            transition: max-width 0.3s ease;
+        }
+        .admin-card.wide {
+            max-width: 900px;
         }
 
         .admin-logo {
@@ -54,9 +58,7 @@
             color: #fff;
         }
 
-        .form-group {
-            margin-bottom: 16px;
-        }
+        .form-group { margin-bottom: 16px; }
         .form-group label {
             display: block;
             font-size: 12px;
@@ -78,16 +80,9 @@
             outline: none;
             transition: border-color 0.2s;
         }
-        .form-group input:focus, .form-group select:focus {
-            border-color: #c50101;
-        }
-        .form-group input[type="file"] {
-            padding: 10px 16px;
-            cursor: pointer;
-        }
-        .form-group select option {
-            background: #2a0f0f;
-        }
+        .form-group input:focus, .form-group select:focus { border-color: #c50101; }
+        .form-group input[type="file"] { padding: 10px 16px; cursor: pointer; }
+        .form-group select option { background: #2a0f0f; }
 
         .btn-submit {
             width: 100%;
@@ -103,14 +98,8 @@
             margin-top: 8px;
             transition: background 0.2s, transform 0.15s;
         }
-        .btn-submit:hover:not(:disabled) {
-            background: #a10000;
-            transform: translateY(-1px);
-        }
-        .btn-submit:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
+        .btn-submit:hover:not(:disabled) { background: #a10000; transform: translateY(-1px); }
+        .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
 
         .message {
             margin-top: 16px;
@@ -133,8 +122,8 @@
             display: block;
         }
 
-        #loginSection, #uploadSection { display: none; }
-        #loginSection.active, #uploadSection.active { display: block; }
+        #loginSection, #panelSection { display: none; }
+        #loginSection.active, #panelSection.active { display: block; }
 
         .logout-btn {
             background: none;
@@ -151,11 +140,7 @@
         }
         .logout-btn:hover { color: rgba(255,255,255,0.7); }
 
-        .pdf-info {
-            font-size: 12px;
-            color: rgba(255,255,255,0.35);
-            margin-top: 6px;
-        }
+        .pdf-info { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 6px; }
 
         .divider {
             border: none;
@@ -171,11 +156,193 @@
             font-size: 13px;
             color: rgba(255,255,255,0.55);
         }
+
+        /* TABS */
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 28px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 12px;
+            padding: 4px;
+        }
+        .tab-btn {
+            flex: 1;
+            padding: 10px;
+            background: none;
+            border: none;
+            border-radius: 9px;
+            color: rgba(255,255,255,0.45);
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .tab-btn.active {
+            background: #c50101;
+            color: #fff;
+        }
+        .tab-btn:hover:not(.active) { color: rgba(255,255,255,0.75); }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* RESERVAS */
+        .reservas-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .reservas-header h2 { margin: 0; }
+
+        .filter-btns {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: none;
+            color: rgba(255,255,255,0.5);
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            border-color: #c50101;
+            color: #fff;
+            background: rgba(197,1,1,0.15);
+        }
+
+        .reservas-list { display: flex; flex-direction: column; gap: 12px; }
+
+        .reserva-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 18px 20px;
+            transition: border-color 0.2s;
+        }
+        .reserva-card:hover { border-color: rgba(255,255,255,0.15); }
+        .reserva-card.pendiente { border-left: 3px solid #f59e0b; }
+        .reserva-card.aceptada  { border-left: 3px solid #22c55e; }
+        .reserva-card.rechazada { border-left: 3px solid #ef4444; }
+
+        .reserva-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .reserva-nombre {
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            margin: 0 0 4px;
+        }
+        .reserva-meta {
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            margin: 0;
+        }
+
+        .estado-badge {
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        .estado-badge.pendiente { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
+        .estado-badge.aceptada  { background: rgba(34,197,94,0.12);  color: #4ade80; border: 1px solid rgba(34,197,94,0.25); }
+        .estado-badge.rechazada { background: rgba(239,68,68,0.12);  color: #f87171; border: 1px solid rgba(239,68,68,0.25); }
+
+        .reserva-details {
+            display: flex;
+            gap: 16px;
+            margin: 12px 0 0;
+            flex-wrap: wrap;
+        }
+        .reserva-detail {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+        }
+        .reserva-detail strong { color: #fff; }
+
+        .reserva-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 14px;
+        }
+        .btn-aceptar, .btn-rechazar {
+            padding: 7px 16px;
+            border-radius: 20px;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-aceptar {
+            background: rgba(34,197,94,0.15);
+            color: #4ade80;
+            border: 1px solid rgba(34,197,94,0.3);
+        }
+        .btn-aceptar:hover:not(:disabled) {
+            background: rgba(34,197,94,0.25);
+        }
+        .btn-rechazar {
+            background: rgba(239,68,68,0.12);
+            color: #f87171;
+            border: 1px solid rgba(239,68,68,0.25);
+        }
+        .btn-rechazar:hover:not(:disabled) {
+            background: rgba(239,68,68,0.22);
+        }
+        .btn-aceptar:disabled, .btn-rechazar:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        .reservas-empty {
+            text-align: center;
+            color: rgba(255,255,255,0.3);
+            font-size: 14px;
+            padding: 40px 0;
+        }
+
+        .reservas-loading {
+            text-align: center;
+            color: rgba(255,255,255,0.4);
+            font-size: 14px;
+            padding: 30px 0;
+        }
+
+        .refresh-btn {
+            background: none;
+            border: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.5);
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .refresh-btn:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
     </style>
 </head>
 <body>
 
-<div class="admin-card">
+<div class="admin-card" id="adminCard">
     <div class="admin-logo">
         <img src="/images/logo.png" alt="Cal Silvino">
         <h1>Panel de administración</h1>
@@ -198,30 +365,59 @@
         <div id="loginMsg" class="message"></div>
     </div>
 
-    <!-- SUBIR PDF -->
-    <div id="uploadSection">
-        <h2>Actualizar carta</h2>
+    <!-- PANEL PRINCIPAL -->
+    <div id="panelSection">
 
-        <div class="current-status" id="statusInfo">
-            Selecciona qué carta quieres reemplazar y sube el nuevo PDF.
+        <!-- TABS -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="reservas">📋 Reservas</button>
+            <button class="tab-btn" data-tab="carta">📄 Carta</button>
         </div>
 
-        <form id="uploadForm">
-            <div class="form-group">
-                <label>Carta a reemplazar</label>
-                <select id="pdfName">
-                    <option value="carta-es-ca">Español / Català</option>
-                    <option value="carta-fr-en">Français / English</option>
-                </select>
+        <!-- TAB: RESERVAS -->
+        <div class="tab-content active" id="tab-reservas">
+            <div class="reservas-header">
+                <h2>Reservas</h2>
+                <button class="refresh-btn" id="refreshBtn">↺ Actualizar</button>
             </div>
-            <div class="form-group">
-                <label>Nuevo archivo PDF</label>
-                <input type="file" id="pdfFile" accept=".pdf,application/pdf" required>
-                <p class="pdf-info">Máximo 4 MB · Solo formato PDF</p>
+
+            <div class="filter-btns" id="filterBtns">
+                <button class="filter-btn active" data-filter="todas">Todas</button>
+                <button class="filter-btn" data-filter="pendiente">Pendientes</button>
+                <button class="filter-btn" data-filter="aceptada">Aceptadas</button>
+                <button class="filter-btn" data-filter="rechazada">Rechazadas</button>
             </div>
-            <button type="submit" class="btn-submit" id="uploadBtn">Subir carta</button>
-        </form>
-        <div id="uploadMsg" class="message"></div>
+
+            <div id="reservasList" class="reservas-list" style="margin-top:16px;">
+                <div class="reservas-loading">Cargando reservas...</div>
+            </div>
+        </div>
+
+        <!-- TAB: CARTA -->
+        <div class="tab-content" id="tab-carta">
+            <h2>Actualizar carta</h2>
+
+            <div class="current-status" id="statusInfo">
+                Selecciona qué carta quieres reemplazar y sube el nuevo PDF.
+            </div>
+
+            <form id="uploadForm">
+                <div class="form-group">
+                    <label>Carta a reemplazar</label>
+                    <select id="pdfName">
+                        <option value="carta-es-ca">Español / Català</option>
+                        <option value="carta-fr-en">Français / English</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Nuevo archivo PDF</label>
+                    <input type="file" id="pdfFile" accept=".pdf,application/pdf" required>
+                    <p class="pdf-info">Máximo 4 MB · Solo formato PDF</p>
+                </div>
+                <button type="submit" class="btn-submit" id="uploadBtn">Subir carta</button>
+            </form>
+            <div id="uploadMsg" class="message"></div>
+        </div>
 
         <hr class="divider">
         <button class="logout-btn" id="logoutBtn">Cerrar sesión</button>
@@ -233,7 +429,7 @@
     const TOKEN_KEY = 'cs_admin_token';
 
     const loginSection  = document.getElementById('loginSection');
-    const uploadSection = document.getElementById('uploadSection');
+    const panelSection  = document.getElementById('panelSection');
     const loginForm     = document.getElementById('loginForm');
     const uploadForm    = document.getElementById('uploadForm');
     const loginMsg      = document.getElementById('loginMsg');
@@ -241,6 +437,10 @@
     const loginBtn      = document.getElementById('loginBtn');
     const uploadBtn     = document.getElementById('uploadBtn');
     const logoutBtn     = document.getElementById('logoutBtn');
+    const adminCard     = document.getElementById('adminCard');
+
+    let allReservas  = [];
+    let activeFilter = 'todas';
 
     function showMsg(el, text, type) {
         el.textContent = text;
@@ -249,22 +449,45 @@
 
     function setSection(section) {
         loginSection.classList.toggle('active', section === 'login');
-        uploadSection.classList.toggle('active', section === 'upload');
+        panelSection.classList.toggle('active', section === 'panel');
+        adminCard.classList.toggle('wide', section === 'panel');
     }
 
-    // Si ya hay token en sessionStorage, mostrar directamente el panel de subida
     if (sessionStorage.getItem(TOKEN_KEY)) {
-        setSection('upload');
+        setSection('panel');
+        loadReservas();
     } else {
         setSection('login');
     }
 
-    // LOGIN
+    // ── TABS ──
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+    });
+
+    // ── FILTROS ──
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeFilter = btn.dataset.filter;
+            renderReservas();
+        });
+    });
+
+    document.getElementById('refreshBtn').addEventListener('click', loadReservas);
+
+    // ── LOGIN ──
     loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        loginBtn.disabled  = true;
+        loginBtn.disabled    = true;
         loginBtn.textContent = 'Verificando...';
-        loginMsg.className = 'message';
+        loginMsg.className   = 'message';
 
         const username = document.getElementById('loginUser').value.trim();
         const password = document.getElementById('loginPass').value;
@@ -279,19 +502,121 @@
 
             if (res.ok && data.token) {
                 sessionStorage.setItem(TOKEN_KEY, data.token);
-                setSection('upload');
+                setSection('panel');
+                loadReservas();
             } else {
                 showMsg(loginMsg, data.error || 'Error al iniciar sesión', 'error');
             }
         } catch {
-            showMsg(loginMsg, 'No se pudo conectar con el servidor. ¿Estás en Netlify?', 'error');
+            showMsg(loginMsg, 'No se pudo conectar con el servidor.', 'error');
         } finally {
             loginBtn.disabled    = false;
             loginBtn.textContent = 'Entrar';
         }
     });
 
-    // SUBIR PDF
+    // ── CARGAR RESERVAS ──
+    async function loadReservas() {
+        const token = sessionStorage.getItem(TOKEN_KEY);
+        const list  = document.getElementById('reservasList');
+        list.innerHTML = '<div class="reservas-loading">Cargando reservas...</div>';
+
+        try {
+            const res  = await fetch('/.netlify/functions/get-reservas', {
+                headers: { 'Authorization': 'Bearer ' + token }
+            });
+            if (res.status === 401) {
+                sessionStorage.removeItem(TOKEN_KEY);
+                setSection('login');
+                return;
+            }
+            const data = await res.json();
+            allReservas = data.reservas || [];
+            renderReservas();
+        } catch {
+            list.innerHTML = '<div class="reservas-empty">Error al cargar reservas.</div>';
+        }
+    }
+
+    // ── RENDERIZAR RESERVAS ──
+    function renderReservas() {
+        const list = document.getElementById('reservasList');
+        const filtered = activeFilter === 'todas'
+            ? allReservas
+            : allReservas.filter(r => r.estado === activeFilter);
+
+        if (filtered.length === 0) {
+            list.innerHTML = '<div class="reservas-empty">No hay reservas' + (activeFilter !== 'todas' ? ' en este estado' : '') + '.</div>';
+            return;
+        }
+
+        list.innerHTML = filtered.map(r => `
+            <div class="reserva-card ${r.estado}" data-id="${r.id}">
+                <div class="reserva-top">
+                    <div>
+                        <p class="reserva-nombre">${escHtml(r.nombre)}</p>
+                        <p class="reserva-meta">${escHtml(r.email)} · ${escHtml(r.telefono)}</p>
+                    </div>
+                    <span class="estado-badge ${r.estado}">${estadoLabel(r.estado)}</span>
+                </div>
+                <div class="reserva-details">
+                    <span class="reserva-detail">📅 <strong>${escHtml(r.fecha)}</strong></span>
+                    <span class="reserva-detail">🕐 <strong>${escHtml(r.hora)}</strong></span>
+                    <span class="reserva-detail">👥 <strong>${r.personas} persona${r.personas !== 1 ? 's' : ''}</strong></span>
+                </div>
+                ${r.estado === 'pendiente' ? `
+                <div class="reserva-actions">
+                    <button class="btn-aceptar" onclick="handleDecision('${r.id}', 'aceptada', this)">✓ Aceptar</button>
+                    <button class="btn-rechazar" onclick="handleDecision('${r.id}', 'rechazada', this)">✗ Rechazar</button>
+                </div>` : ''}
+            </div>
+        `).join('');
+    }
+
+    function estadoLabel(estado) {
+        return { pendiente: '⏳ Pendiente', aceptada: '✅ Aceptada', rechazada: '❌ Rechazada' }[estado] || estado;
+    }
+
+    function escHtml(str) {
+        return String(str ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // ── ACEPTAR / RECHAZAR ──
+    window.handleDecision = async function(id, estado, btnEl) {
+        const token = sessionStorage.getItem(TOKEN_KEY);
+        const card  = btnEl.closest('.reserva-card');
+        const btns  = card.querySelectorAll('button');
+        btns.forEach(b => b.disabled = true);
+        btnEl.textContent = 'Enviando...';
+
+        try {
+            const res  = await fetch('/.netlify/functions/update-reserva', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                },
+                body: JSON.stringify({ id, estado }),
+            });
+            const data = await res.json();
+
+            if (res.ok && data.success) {
+                const r = allReservas.find(r => r.id === id);
+                if (r) r.estado = estado;
+                renderReservas();
+            } else {
+                btns.forEach(b => b.disabled = false);
+                btnEl.textContent = estado === 'aceptada' ? '✓ Aceptar' : '✗ Rechazar';
+                alert(data.error || 'Error al actualizar la reserva.');
+            }
+        } catch {
+            btns.forEach(b => b.disabled = false);
+            btnEl.textContent = estado === 'aceptada' ? '✓ Aceptar' : '✗ Rechazar';
+            alert('Error de conexión.');
+        }
+    };
+
+    // ── SUBIR PDF ──
     uploadForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const token   = sessionStorage.getItem(TOKEN_KEY);
@@ -299,24 +624,18 @@
         const fileEl  = document.getElementById('pdfFile');
         const file    = fileEl.files[0];
 
-        if (!file) {
-            showMsg(uploadMsg, 'Selecciona un archivo PDF', 'error');
-            return;
-        }
+        if (!file) { showMsg(uploadMsg, 'Selecciona un archivo PDF', 'error'); return; }
         if (file.type !== 'application/pdf' && !file.name.endsWith('.pdf')) {
-            showMsg(uploadMsg, 'El archivo debe ser un PDF', 'error');
-            return;
+            showMsg(uploadMsg, 'El archivo debe ser un PDF', 'error'); return;
         }
         if (file.size > 4 * 1024 * 1024) {
-            showMsg(uploadMsg, 'El archivo supera los 4 MB', 'error');
-            return;
+            showMsg(uploadMsg, 'El archivo supera los 4 MB', 'error'); return;
         }
 
         uploadBtn.disabled    = true;
         uploadBtn.textContent = 'Subiendo...';
         uploadMsg.className   = 'message';
 
-        // Leer el PDF como base64
         const base64 = await new Promise((resolve, reject) => {
             const reader = new FileReader();
             reader.onload  = () => resolve(reader.result.split(',')[1]);
@@ -327,10 +646,7 @@
         try {
             const res  = await fetch('/.netlify/functions/upload-pdf', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + token
-                },
+                headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
                 body: JSON.stringify({ name, data: base64 })
             });
             const data = await res.json();
@@ -340,7 +656,7 @@
                 fileEl.value = '';
             } else if (res.status === 401) {
                 sessionStorage.removeItem(TOKEN_KEY);
-                showMsg(uploadMsg, 'Sesión expirada. Recarga la página e inicia sesión de nuevo.', 'error');
+                showMsg(uploadMsg, 'Sesión expirada. Recarga e inicia sesión.', 'error');
             } else {
                 showMsg(uploadMsg, data.error || 'Error al subir el PDF', 'error');
             }
@@ -352,9 +668,10 @@
         }
     });
 
-    // CERRAR SESIÓN
+    // ── CERRAR SESIÓN ──
     logoutBtn.addEventListener('click', () => {
         sessionStorage.removeItem(TOKEN_KEY);
+        allReservas = [];
         setSection('login');
     });
 })();

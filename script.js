@@ -356,26 +356,50 @@ document.addEventListener("DOMContentLoaded", () => {
     // FORMULARIO DE RESERVA
     const form = document.getElementById("reservaForm");
     if (form) {
-        form.addEventListener("submit", function(e) {
+        form.addEventListener("submit", async function(e) {
             e.preventDefault();
 
-            const formData = new FormData(form);
+            const btn     = form.querySelector('button[type="submit"]');
+            const msgEl   = document.getElementById("reservaMsg");
+            const original = btn ? btn.textContent : '';
 
-            fetch(form.action, {
-                method: "POST",
-                body: formData
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert("Tu reserva se ha enviado correctamente ✅");
+            if (btn) { btn.disabled = true; btn.textContent = '⏳ Enviando...'; }
+
+            try {
+                const res  = await fetch('/.netlify/functions/submit-reserva', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        nombre:   this.nombre.value.trim(),
+                        telefono: this.telefono.value.trim(),
+                        email:    this.email.value.trim(),
+                        personas: this.personas.value,
+                        fecha:    this.fecha.value,
+                        hora:     this.hora.value,
+                    }),
+                });
+                const data = await res.json();
+
+                if (res.ok && data.success) {
+                    if (msgEl) {
+                        msgEl.textContent = '✅ ¡Reserva enviada! Recibirás un correo de confirmación en breve.';
+                        msgEl.className   = 'reserva-msg success';
+                    }
                     form.reset();
                 } else {
-                    alert("Error al enviar la reserva ❌");
+                    if (msgEl) {
+                        msgEl.textContent = '❌ ' + (data.error || 'Error al enviar la reserva.');
+                        msgEl.className   = 'reserva-msg error';
+                    }
                 }
-            })
-            .catch(() => {
-                alert("Error de conexión ❌");
-            });
+            } catch {
+                if (msgEl) {
+                    msgEl.textContent = '❌ Error de conexión. Inténtalo de nuevo.';
+                    msgEl.className   = 'reserva-msg error';
+                }
+            } finally {
+                if (btn) { btn.disabled = false; btn.textContent = original; }
+            }
         });
     }
 
@@ -442,24 +466,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-
-document.getElementById("reservaForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
-
-    const data = {
-        nombre: this.nombre.value,
-        telefono: this.telefono.value,
-        email: this.email.value,
-        personas: this.personas.value,
-        fecha: this.fecha.value,
-        hora: this.hora.value
-    };
-
-    await fetch("https://script.google.com/macros/s/AKfycby-Og4AB23xxdxfpoue1Ujfjv5uBrOx_RTZ-vgyaaYfIQbbu_KAJaWqzQG2zJGwdjfR/exec", {
-        method: "POST",
-        body: JSON.stringify(data)
-    });
-
-    alert("Reserva enviada correctamente ✅");
-    this.reset();
-});
