@@ -136,18 +136,20 @@ document.addEventListener("keydown", (e) => {
         // Sun(0): 13:00–16:00, 20:00–23:00
         // Holidays: treated as Sunday schedule
 
-        const effectiveDow = holiday && dow === 2 ? 0 : (holiday ? 0 : dow);
+        const effectiveDow = holiday ? (dow === 2 ? 0 : dow) : dow;
 
+        // Schedule:
+        // Mon(1), Sun(0): 11:00–16:00 only
+        // Tue(2): Cerrado
+        // Wed(3),Thu(4),Fri(5),Sat(6): 11:00–16:00, 20:00–23:00
         let slots = [];
         if (effectiveDow === 2) {
             slots = []; // Cerrado
-        } else if (effectiveDow === 6) {
-            slots = [{ open: 780, close: 990, closeStr: "16:30" }, { open: 1200, close: 1410, closeStr: "23:30" }];
-        } else if (effectiveDow === 1) {
-            slots = [{ open: 780, close: 960, closeStr: "16:00" }];
+        } else if (effectiveDow === 1 || effectiveDow === 0) {
+            slots = [{ open: 660, close: 960, closeStr: "16:00" }];
         } else {
-            // Wed,Thu,Fri,Sun (and holidays)
-            slots = [{ open: 780, close: 960, closeStr: "16:00" }, { open: 1200, close: 1380, closeStr: "23:00" }];
+            // Wed,Thu,Fri,Sat
+            slots = [{ open: 660, close: 960, closeStr: "16:00" }, { open: 1200, close: 1380, closeStr: "23:00" }];
         }
 
         let openNow    = false;
@@ -353,8 +355,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const horaHint    = document.getElementById('horaHint');
 
     const TURNO_CONFIG = {
-        mediodia: { min: '13:00', max: '16:30', label: 'Horario mediodía: 13:00–16:30' },
-        noche:    { min: '20:00', max: '23:30', label: 'Horario noche: 20:00–23:30' },
+        mediodia: { min: '11:00', max: '16:00', label: 'Horario mediodía: 11:00–16:00' },
+        noche:    { min: '20:00', max: '23:00', label: 'Horario noche: 20:00–23:00' },
     };
 
     if (turnoSelect) {

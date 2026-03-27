@@ -46,43 +46,19 @@ RESTAURANT_SCHEMA = {
     "openingHoursSpecification": [
         {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday"],
-            "opens": "13:00",
+            "dayOfWeek": ["Monday", "Sunday"],
+            "opens": "11:00",
             "closes": "16:00"
         },
         {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Wednesday", "Thursday", "Friday"],
-            "opens": "13:00",
+            "dayOfWeek": ["Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "11:00",
             "closes": "16:00"
         },
         {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Wednesday", "Thursday", "Friday"],
-            "opens": "20:00",
-            "closes": "23:00"
-        },
-        {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Saturday"],
-            "opens": "13:00",
-            "closes": "16:30"
-        },
-        {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Saturday"],
-            "opens": "20:00",
-            "closes": "23:30"
-        },
-        {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Sunday"],
-            "opens": "13:00",
-            "closes": "16:00"
-        },
-        {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Sunday"],
+            "dayOfWeek": ["Wednesday", "Thursday", "Friday", "Saturday"],
             "opens": "20:00",
             "closes": "23:00"
         }
