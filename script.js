@@ -353,17 +353,70 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // FORMULARIO DE RESERVA — selector de turno
+    const turnoSelect = document.getElementById('turnoSelect');
+    const horaGroup   = document.getElementById('horaGroup');
+    const horaInput   = document.getElementById('horaInput');
+    const horaHint    = document.getElementById('horaHint');
+
+    const TURNO_CONFIG = {
+        mediodia: { min: '10:00', max: '16:30', label: 'Horario mediodía: 10:00–16:30' },
+        noche:    { min: '20:00', max: '23:30', label: 'Horario noche: 20:00–23:30' },
+    };
+
+    if (turnoSelect) {
+        turnoSelect.addEventListener('change', function () {
+            const cfg = TURNO_CONFIG[this.value];
+            if (cfg) {
+                horaGroup.style.display = 'block';
+                horaInput.min     = cfg.min;
+                horaInput.max     = cfg.max;
+                horaInput.value   = '';
+                horaInput.required = true;
+                horaHint.textContent = cfg.label;
+            } else {
+                horaGroup.style.display = 'none';
+                horaInput.required = false;
+            }
+        });
+    }
+
+    // Validación de personas > 8
+    const personasInput = document.getElementById('personasInput');
+    const personasHint  = document.getElementById('personasHint');
+    if (personasInput && personasHint) {
+        personasInput.addEventListener('input', function () {
+            personasHint.style.display = Number(this.value) > 8 ? 'block' : 'none';
+        });
+        personasHint.style.display = 'none';
+    }
+
     // FORMULARIO DE RESERVA
     const form = document.getElementById("reservaForm");
     if (form) {
         form.addEventListener("submit", async function(e) {
             e.preventDefault();
 
-            const btn     = form.querySelector('button[type="submit"]');
-            const msgEl   = document.getElementById("reservaMsg");
+            const btn      = form.querySelector('button[type="submit"]');
+            const msgEl    = document.getElementById("reservaMsg");
             const original = btn ? btn.textContent : '';
 
+            // Validar hora dentro del rango del turno
+            if (horaInput && horaInput.value) {
+                const turno = turnoSelect ? turnoSelect.value : '';
+                const cfg   = TURNO_CONFIG[turno];
+                if (cfg && (horaInput.value < cfg.min || horaInput.value > cfg.max)) {
+                    if (msgEl) {
+                        msgEl.textContent = `❌ La hora debe estar entre ${cfg.min} y ${cfg.max} para el turno seleccionado.`;
+                        msgEl.className   = 'reserva-msg error';
+                    }
+                    return;
+                }
+            }
+
             if (btn) { btn.disabled = true; btn.textContent = '⏳ Enviando...'; }
+
+            const turnoLabel = turnoSelect && turnoSelect.value === 'noche' ? 'Noche' : 'Mediodía';
 
             try {
                 const res  = await fetch('/.netlify/functions/submit-reserva', {
@@ -375,17 +428,20 @@ document.addEventListener("DOMContentLoaded", () => {
                         email:    this.email.value.trim(),
                         personas: this.personas.value,
                         fecha:    this.fecha.value,
-                        hora:     this.hora.value,
+                        turno:    turnoLabel,
+                        hora:     horaInput ? horaInput.value : '',
                     }),
                 });
                 const data = await res.json();
 
                 if (res.ok && data.success) {
                     if (msgEl) {
-                        msgEl.textContent = '✅ ¡Reserva enviada! Recibirás un correo de confirmación en breve.';
-                        msgEl.className   = 'reserva-msg success';
+                        msgEl.innerHTML = '✅ ¡Reserva enviada! Te confirmaremos en menos de 24 horas.<br><small>¿No recibes respuesta? Llámanos al <a href="tel:+376840720" style="color:#16a34a;">+376 840 720</a></small>';
+                        msgEl.className = 'reserva-msg success';
                     }
                     form.reset();
+                    horaGroup.style.display = 'none';
+                    if (personasHint) personasHint.style.display = 'none';
                 } else {
                     if (msgEl) {
                         msgEl.textContent = '❌ ' + (data.error || 'Error al enviar la reserva.');

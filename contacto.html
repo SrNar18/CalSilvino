@@ -86,7 +86,8 @@
                     </div>
                     <div class="form-group">
                         <label data-i18n="form-label-people">Cantidad de personas</label>
-                        <input type="number" name="personas" data-i18n-placeholder="form-ph-people" placeholder="2" required>
+                        <input type="number" name="personas" id="personasInput" data-i18n-placeholder="form-ph-people" placeholder="2" min="1" max="8" required>
+                        <p class="form-field-hint" id="personasHint">Para grupos de más de 8 personas, contacta directamente al <a href="tel:+376840720">+376 840 720</a></p>
                     </div>
                     <div class="date-time-group">
                         <div class="form-group">
@@ -94,9 +95,18 @@
                             <input type="date" name="fecha" required>
                         </div>
                         <div class="form-group">
-                            <label data-i18n="form-label-time">Hora</label>
-                            <input type="time" name="hora" required>
+                            <label>Turno</label>
+                            <select name="turno" id="turnoSelect" required>
+                                <option value="" disabled selected>Selecciona turno</option>
+                                <option value="mediodia">🌞 Mediodía</option>
+                                <option value="noche">🌙 Noche</option>
+                            </select>
                         </div>
+                    </div>
+                    <div class="form-group" id="horaGroup" style="display:none;">
+                        <label data-i18n="form-label-time">Hora preferida</label>
+                        <input type="time" name="hora" id="horaInput">
+                        <p class="form-field-hint" id="horaHint"></p>
                     </div>
 
                     <div class="form-legal">

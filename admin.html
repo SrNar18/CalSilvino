@@ -580,7 +580,7 @@
                 </div>
                 <div class="reserva-details">
                     <span class="reserva-detail">📅 <strong>${escHtml(r.fecha)}</strong></span>
-                    <span class="reserva-detail">🕐 <strong>${escHtml(r.hora)}</strong></span>
+                    <span class="reserva-detail">🌐 <strong>${escHtml(r.turno || '')}${r.hora ? ` · ${escHtml(r.hora)}` : ''}</strong></span>
                     <span class="reserva-detail">👥 <strong>${r.personas} persona${r.personas !== 1 ? 's' : ''}</strong></span>
                 </div>
                 <div class="reserva-actions">

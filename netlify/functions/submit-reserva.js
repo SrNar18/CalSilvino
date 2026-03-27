@@ -22,9 +22,9 @@ export default async (req) => {
         return Response.json({ error: 'Petición inválida' }, { status: 400 });
     }
 
-    const { nombre, telefono, email, personas, fecha, hora } = body;
+    const { nombre, telefono, email, personas, fecha, turno, hora } = body;
 
-    if (!nombre || !telefono || !email || !personas || !fecha || !hora) {
+    if (!nombre || !telefono || !email || !personas || !fecha || !turno) {
         return Response.json({ error: 'Faltan campos obligatorios' }, { status: 400 });
     }
 
@@ -36,7 +36,8 @@ export default async (req) => {
             email,
             personas: Number(personas),
             fecha,
-            hora,
+            turno,
+            hora: hora || '',
             estado: 'pendiente',
             creadoEn: new Date().toISOString(),
         });
@@ -69,10 +70,11 @@ export default async (req) => {
               <p style="margin:0;color:rgba(255,255,255,0.45);font-size:11px;text-transform:uppercase;letter-spacing:1px;">Detalles de tu reserva</p>
             </td></tr>
             <tr><td style="padding:4px 0;color:#fff;font-size:14px;">📅 <strong>Fecha:</strong> ${fecha}</td></tr>
-            <tr><td style="padding:4px 0;color:#fff;font-size:14px;">🕐 <strong>Hora:</strong> ${hora}</td></tr>
+            <tr><td style="padding:4px 0;color:#fff;font-size:14px;">🌐 <strong>Turno:</strong> ${turno}${hora ? ` · ${hora}` : ''}</td></tr>
             <tr><td style="padding:4px 0;color:#fff;font-size:14px;">👥 <strong>Personas:</strong> ${personas}</td></tr>
           </table>
-          <p style="color:rgba(255,255,255,0.45);font-size:13px;">¿Tienes alguna pregunta? Llámanos al <a href="tel:+376840720" style="color:#c50101;text-decoration:none;">+376 840 720</a></p>
+          <p style="color:rgba(255,255,255,0.8);font-size:14px;margin:0 0 8px;">Te confirmaremos en <strong>menos de 24 horas</strong>.</p>
+          <p style="color:rgba(255,255,255,0.45);font-size:13px;">¿No recibes respuesta? Llámanos al <a href="tel:+376840720" style="color:#c50101;text-decoration:none;">+376 840 720</a></p>
         </td></tr>
         <tr><td style="background:rgba(255,255,255,0.04);padding:16px;text-align:center;">
           <p style="margin:0;color:rgba(255,255,255,0.3);font-size:12px;">Av. el Través, 21 · AD400 La Massana, Andorra</p>
