@@ -124,84 +124,65 @@ document.addEventListener("keydown", (e) => {
         if (!dotEl || !textEl) return;
 
         const now     = getAndorraNow();
-        const dow     = now.getDay(); // 0=Sun, 1=Mon, ..., 6=Sat
+        const dow     = now.getDay(); // 0=Sun,1=Mon,2=Tue,3=Wed,4=Thu,5=Fri,6=Sat
         const holiday = isAndorraHoliday(now);
         const hm      = now.getHours() * 60 + now.getMinutes();
 
-        // Determine schedule type
-        // Mon(1) or Tue(2) and NOT a holiday → closed all day
-        const isClosedDay = (dow === 1 || dow === 2) && !holiday;
-        // Weekend or holiday schedule: 11:00-16:30, 20:00-23:30
-        const isWeekendSched = dow === 0 || dow === 6 || holiday;
-        // Wed-Fri (not holiday override): 10:00-16:00, 20:00-23:00
-        // (holiday overrides to weekend schedule even on weekdays)
+        // Schedule per day (Google hours):
+        // Mon(1): 13:00–16:00
+        // Tue(2): Cerrado
+        // Wed(3),Thu(4),Fri(5): 13:00–16:00, 20:00–23:00
+        // Sat(6): 13:00–16:30, 20:00–23:30
+        // Sun(0): 13:00–16:00, 20:00–23:00
+        // Holidays: treated as Sunday schedule
 
-        let openNow = false;
-        let closesAt = null;  // "HH:MM"
-        let nextOpenAt = null; // "HH:MM"
+        const effectiveDow = holiday && dow === 2 ? 0 : (holiday ? 0 : dow);
+
+        let slots = [];
+        if (effectiveDow === 2) {
+            slots = []; // Cerrado
+        } else if (effectiveDow === 6) {
+            slots = [{ open: 780, close: 990, closeStr: "16:30" }, { open: 1200, close: 1410, closeStr: "23:30" }];
+        } else if (effectiveDow === 1) {
+            slots = [{ open: 780, close: 960, closeStr: "16:00" }];
+        } else {
+            // Wed,Thu,Fri,Sun (and holidays)
+            slots = [{ open: 780, close: 960, closeStr: "16:00" }, { open: 1200, close: 1380, closeStr: "23:00" }];
+        }
+
+        let openNow    = false;
+        let closesAt   = null;
+        let nextOpenAt = null;
         let nextOpenTomorrow = false;
 
-        if (isClosedDay) {
-            // Closed all day — next open: Wed 10:00 (or check tomorrow if Tue→Wed)
-            openNow = false;
-            nextOpenAt = "10:00";
-            nextOpenTomorrow = true;
-        } else if (isWeekendSched) {
-            // 11:00–16:30 and 20:00–23:30
-            if (hm >= 660 && hm < 990) {
-                // 11:00–16:30 open
-                openNow = true;
-                closesAt = "16:30";
-            } else if (hm >= 1200 && hm < 1410) {
-                // 20:00–23:30 open
-                openNow = true;
-                closesAt = "23:30";
-            } else {
-                openNow = false;
-                if (hm < 660) {
-                    nextOpenAt = "11:00";
-                    nextOpenTomorrow = false;
-                } else if (hm < 1200) {
-                    nextOpenAt = "20:00";
-                    nextOpenTomorrow = false;
-                } else {
-                    // after 23:30 — next day
-                    nextOpenAt = "11:00";
-                    nextOpenTomorrow = true;
-                }
+        for (const slot of slots) {
+            if (hm >= slot.open && hm < slot.close) {
+                openNow  = true;
+                closesAt = slot.closeStr;
+                break;
             }
-        } else {
-            // Wed–Fri: 10:00–16:00 and 20:00–23:00
-            if (hm >= 600 && hm < 960) {
-                // 10:00–16:00 open
-                openNow = true;
-                closesAt = "16:00";
-            } else if (hm >= 1200 && hm < 1380) {
-                // 20:00–23:00 open
-                openNow = true;
-                closesAt = "23:00";
+        }
+
+        if (!openNow) {
+            // Find next opening time today
+            const upcoming = slots.find(s => hm < s.open);
+            if (upcoming) {
+                nextOpenAt = pad2(Math.floor(upcoming.open / 60)) + ":" + pad2(upcoming.open % 60);
+                nextOpenTomorrow = false;
             } else {
-                openNow = false;
-                if (hm < 600) {
-                    nextOpenAt = "10:00";
-                    nextOpenTomorrow = false;
-                } else if (hm < 1200) {
-                    nextOpenAt = "20:00";
-                    nextOpenTomorrow = false;
-                } else {
-                    // after 23:00 — next day
-                    nextOpenAt = "10:00";
-                    nextOpenTomorrow = true;
-                }
+                // No more slots today — find next day's first slot
+                nextOpenAt = "13:00";
+                nextOpenTomorrow = true;
             }
         }
 
         const holidayPrefix = holiday ? "🎉 Festivo · " : "";
-
         dotEl.className = 'status-dot ' + (openNow ? 'open' : 'closed');
 
         if (openNow) {
             textEl.textContent = holidayPrefix + "Abierto · Cierra a las " + closesAt;
+        } else if (effectiveDow === 2) {
+            textEl.textContent = "Cerrado · Abre mañana a las 13:00";
         } else {
             const whenStr = nextOpenTomorrow ? "Mañana · " : "";
             textEl.textContent = holidayPrefix + "Cerrado · Abre " + whenStr + "a las " + nextOpenAt;
@@ -353,6 +334,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // FECHA — bloquear fechas pasadas
+    const fechaInput = document.getElementById('fechaInput');
+    if (fechaInput) {
+        const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Europe/Andorra' });
+        fechaInput.min = today;
+        fechaInput.addEventListener('change', function () {
+            if (this.value < today) {
+                this.value = today;
+            }
+        });
+    }
+
     // FORMULARIO DE RESERVA — selector de turno
     const turnoSelect = document.getElementById('turnoSelect');
     const horaGroup   = document.getElementById('horaGroup');
@@ -360,7 +353,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const horaHint    = document.getElementById('horaHint');
 
     const TURNO_CONFIG = {
-        mediodia: { min: '10:00', max: '16:30', label: 'Horario mediodía: 10:00–16:30' },
+        mediodia: { min: '13:00', max: '16:30', label: 'Horario mediodía: 13:00–16:30' },
         noche:    { min: '20:00', max: '23:30', label: 'Horario noche: 20:00–23:30' },
     };
 

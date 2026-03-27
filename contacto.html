@@ -92,7 +92,7 @@
                     <div class="date-time-group">
                         <div class="form-group">
                             <label data-i18n="form-label-date">Fecha</label>
-                            <input type="date" name="fecha" required>
+                            <input type="date" name="fecha" id="fechaInput" required>
                         </div>
                         <div class="form-group">
                             <label>Turno</label>
@@ -160,19 +160,29 @@
             <h2>🕐 <span data-i18n="schedule-h2">Horario</span></h2>
             <div class="home-schedule-grid">
                 <div class="home-schedule-item">
-                    <p class="schedule-day" data-i18n="schedule-day-1">Lunes · Martes</p>
+                    <p class="schedule-day">Lunes</p>
+                    <div class="schedule-divider"></div>
+                    <div class="schedule-hours">
+                        <div class="schedule-slot">
+                            <span class="slot-label" data-i18n="slot-lunch">Mediodía</span>
+                            <span class="slot-time">13:00 – 16:00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="home-schedule-item">
+                    <p class="schedule-day">Martes</p>
                     <div class="schedule-divider"></div>
                     <div class="schedule-hours">
                         <span class="schedule-closed-badge" data-i18n="schedule-closed">Cerrado</span>
                     </div>
                 </div>
                 <div class="home-schedule-item">
-                    <p class="schedule-day" data-i18n="schedule-day-2">Miércoles · Jueves · Viernes</p>
+                    <p class="schedule-day">Miércoles · Jueves · Viernes</p>
                     <div class="schedule-divider"></div>
                     <div class="schedule-hours">
                         <div class="schedule-slot">
                             <span class="slot-label" data-i18n="slot-lunch">Mediodía</span>
-                            <span class="slot-time">10:00 – 16:00</span>
+                            <span class="slot-time">13:00 – 16:00</span>
                         </div>
                         <div class="schedule-slot">
                             <span class="slot-label" data-i18n="slot-dinner">Noche</span>
@@ -181,16 +191,30 @@
                     </div>
                 </div>
                 <div class="home-schedule-item">
-                    <p class="schedule-day" data-i18n="schedule-day-3">Sábado · Domingo y festivos</p>
+                    <p class="schedule-day">Sábado</p>
                     <div class="schedule-divider"></div>
                     <div class="schedule-hours">
                         <div class="schedule-slot">
                             <span class="slot-label" data-i18n="slot-lunch">Mediodía</span>
-                            <span class="slot-time">11:00 – 16:30</span>
+                            <span class="slot-time">13:00 – 16:30</span>
                         </div>
                         <div class="schedule-slot">
                             <span class="slot-label" data-i18n="slot-dinner">Noche</span>
                             <span class="slot-time">20:00 – 23:30</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="home-schedule-item">
+                    <p class="schedule-day">Domingo</p>
+                    <div class="schedule-divider"></div>
+                    <div class="schedule-hours">
+                        <div class="schedule-slot">
+                            <span class="slot-label" data-i18n="slot-lunch">Mediodía</span>
+                            <span class="slot-time">13:00 – 16:00</span>
+                        </div>
+                        <div class="schedule-slot">
+                            <span class="slot-label" data-i18n="slot-dinner">Noche</span>
+                            <span class="slot-time">20:00 – 23:00</span>
                         </div>
                     </div>
                 </div>
@@ -212,20 +236,27 @@
         <div class="footer-right">
             <div class="footer-schedule">
                 <div class="schedule-block">
-                    <p><strong data-i18n="footer-days-1">Lunes y martes</strong></p>
+                    <p><strong>Lunes</strong></p>
+                    <p>13.00 - 16.00</p>
+                </div>
+                <div class="schedule-block">
+                    <p><strong>Martes</strong></p>
                     <p data-i18n="footer-closed">Cerrado</p>
                 </div>
-
                 <div class="schedule-block">
-                    <p><strong data-i18n="footer-days-2">Miércoles a viernes</strong></p>
-                    <p>10.00 - 16.00</p>
+                    <p><strong>Miércoles · Jueves · Viernes</strong></p>
+                    <p>13.00 - 16.00</p>
                     <p>20.00 - 23.00</p>
                 </div>
-
                 <div class="schedule-block">
-                    <p><strong data-i18n="footer-days-3">Sábado y domingo y festivos</strong></p>
-                    <p>11.00 - 16.30</p>
+                    <p><strong>Sábado</strong></p>
+                    <p>13.00 - 16.30</p>
                     <p>20.00 - 23.30</p>
+                </div>
+                <div class="schedule-block">
+                    <p><strong>Domingo</strong></p>
+                    <p>13.00 - 16.00</p>
+                    <p>20.00 - 23.00</p>
                 </div>
             </div>
         </div>
