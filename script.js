@@ -235,14 +235,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const bannerEl = document.querySelector(".home-banner");
 
     if (headerEl && bannerEl) {
+        const logoImg = headerEl.querySelector('.logo');
+        const setLogo = (heroMode) => {
+            if (!logoImg) return;
+            logoImg.src = heroMode ? '/images/logoWhite.png' : '/images/logo.png';
+        };
+
         headerEl.classList.add("hero-mode");
+        setLogo(true);
 
         const onScroll = () => {
             const bannerBottom = bannerEl.getBoundingClientRect().bottom;
             if (bannerBottom <= headerEl.offsetHeight) {
                 headerEl.classList.remove("hero-mode");
+                setLogo(false);
             } else {
                 headerEl.classList.add("hero-mode");
+                setLogo(true);
             }
         };
 

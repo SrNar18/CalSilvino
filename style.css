@@ -85,6 +85,30 @@ header.hero-mode .hamburger span {
     background: #fff;
 }
 
+/* Header brand (logo + phone side by side) */
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Header phone */
+.header-phone {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #c50101;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+}
+.header-phone:hover {
+    opacity: 0.75;
+}
+header.hero-mode .header-phone {
+    color: #fff;
+}
+
 /* Logo */
 .logo {
     height: 80px;
@@ -2215,6 +2239,11 @@ footer {
 
 /* ── RESPONSIVE 768px ── */
 @media (max-width: 768px) {
+
+    /* --- Header phone (hide on small screens to avoid clutter) --- */
+    .header-phone {
+        display: none;
+    }
 
     /* --- Hamburger --- */
     .hamburger {
