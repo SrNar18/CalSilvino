@@ -310,7 +310,26 @@
         .btn-rechazar:hover:not(:disabled) {
             background: rgba(239,68,68,0.22);
         }
-        .btn-aceptar:disabled, .btn-rechazar:disabled { opacity: 0.4; cursor: not-allowed; }
+        .btn-aceptar:disabled, .btn-rechazar:disabled, .btn-eliminar:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        .btn-eliminar {
+            padding: 7px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: none;
+            color: rgba(255,255,255,0.35);
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-left: auto;
+        }
+        .btn-eliminar:hover:not(:disabled) {
+            border-color: rgba(239,68,68,0.4);
+            color: #f87171;
+            background: rgba(239,68,68,0.08);
+        }
 
         .reservas-empty {
             text-align: center;
@@ -564,11 +583,13 @@
                     <span class="reserva-detail">🕐 <strong>${escHtml(r.hora)}</strong></span>
                     <span class="reserva-detail">👥 <strong>${r.personas} persona${r.personas !== 1 ? 's' : ''}</strong></span>
                 </div>
-                ${r.estado === 'pendiente' ? `
                 <div class="reserva-actions">
+                    ${r.estado === 'pendiente' ? `
                     <button class="btn-aceptar" onclick="handleDecision('${r.id}', 'aceptada', this)">✓ Aceptar</button>
                     <button class="btn-rechazar" onclick="handleDecision('${r.id}', 'rechazada', this)">✗ Rechazar</button>
-                </div>` : ''}
+                    ` : ''}
+                    <button class="btn-eliminar" onclick="handleDelete('${r.id}', this)">🗑 Eliminar</button>
+                </div>
             </div>
         `).join('');
     }
@@ -612,6 +633,42 @@
         } catch {
             btns.forEach(b => b.disabled = false);
             btnEl.textContent = estado === 'aceptada' ? '✓ Aceptar' : '✗ Rechazar';
+            alert('Error de conexión.');
+        }
+    };
+
+    // ── ELIMINAR RESERVA ──
+    window.handleDelete = async function(id, btnEl) {
+        if (!confirm('¿Seguro que quieres eliminar esta reserva? Esta acción no se puede deshacer.')) return;
+
+        const token = sessionStorage.getItem(TOKEN_KEY);
+        const card  = btnEl.closest('.reserva-card');
+        const btns  = card.querySelectorAll('button');
+        btns.forEach(b => b.disabled = true);
+        btnEl.textContent = 'Eliminando...';
+
+        try {
+            const res  = await fetch('/.netlify/functions/delete-reserva', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                },
+                body: JSON.stringify({ id }),
+            });
+            const data = await res.json();
+
+            if (res.ok && data.success) {
+                allReservas = allReservas.filter(r => r.id !== id);
+                renderReservas();
+            } else {
+                btns.forEach(b => b.disabled = false);
+                btnEl.textContent = '🗑 Eliminar';
+                alert(data.error || 'Error al eliminar la reserva.');
+            }
+        } catch {
+            btns.forEach(b => b.disabled = false);
+            btnEl.textContent = '🗑 Eliminar';
             alert('Error de conexión.');
         }
     };
