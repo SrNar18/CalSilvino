@@ -35,7 +35,7 @@ const TRANSLATIONS = {
     'about-p2':      'En nuestra carta encontrarás los platos que nos han convertido en referencia gastronómica del Principado: el <span class="dish">bacalao a la llauna</span>, el <span class="dish">pulpo a la brasa</span>, los <span class="dish">callos</span>, el <span class="dish">tartar de atún</span> y la <span class="dish">carne a la brasa</span>, junto a clásicos como los <span class="dish">canelones caseros</span> o los <span class="dish">caracoles a la llauna</span>.',
     'about-p3':      'También organizamos <strong>celebraciones, aniversarios y comidas de empresa</strong>. Contáctanos y nos encargamos de que solo tengas que disfrutar.',
     'about-cta':     'Explorar la carta completa →',
-    'about-parking': 'Parking gratuito disponible — Pàrquing Comunal de La Massana, a 2 min a pie',
+    'about-parking': 'Parking propio gratuito — a 1 min a pie',
 
     // Banner menú
     'menu-eyebrow': '¿Te apetece algo bueno?',
@@ -164,7 +164,7 @@ const TRANSLATIONS = {
     'about-p2':      'A la nostra carta trobaràs els plats que ens han convertit en referència gastronòmica del Principat: el <span class="dish">bacallà a la llauna</span>, el <span class="dish">pop a la brasa</span>, els <span class="dish">callos</span>, el <span class="dish">tàrtar de tonyina</span> i la <span class="dish">carn a la brasa</span>, juntament amb clàssics com els <span class="dish">canelons casolans</span> o els <span class="dish">cargols a la llauna</span>.',
     'about-p3':      'També organitzem <strong>celebracions, aniversaris i dinars d\'empresa</strong>. Contacta\'ns i ens encarreguem de tot perquè només hagis de gaudir.',
     'about-cta':     'Explorar la carta completa →',
-    'about-parking': 'Pàrquing gratuït disponible — Pàrquing Comunal de La Massana, a 2 min a peu',
+    'about-parking': 'Pàrquing propi gratuït — a 1 min a peu',
 
     'menu-eyebrow': 'T\'apeteix alguna cosa bona?',
     'menu-title':   'Descobreix la nostra carta',
@@ -280,7 +280,7 @@ const TRANSLATIONS = {
     'about-p2':      'Na nossa carta encontrará os pratos que nos tornaram referência gastronómica do Principado: o <span class="dish">bacalhau à llauna</span>, o <span class="dish">polvo à brasa</span>, os <span class="dish">callos</span>, o <span class="dish">tartar de atum</span> e a <span class="dish">carne à brasa</span>, junto com clássicos como os <span class="dish">canelinhos caseiros</span> ou os <span class="dish">caracóis à llauna</span>.',
     'about-p3':      'Também organizamos <strong>celebrações, aniversários e jantares de empresa</strong>. Contacte-nos e tratamos de tudo para que só tenha de desfrutar.',
     'about-cta':     'Explorar a carta completa →',
-    'about-parking': 'Estacionamento gratuito disponível — Pàrquing Comunal de La Massana, a 2 min a pé',
+    'about-parking': 'Estacionamento próprio gratuito — a 1 min a pé',
 
     'menu-eyebrow': 'Apetece-lhe algo bom?',
     'menu-title':   'Descubra a nossa carta',
@@ -396,7 +396,7 @@ const TRANSLATIONS = {
     'about-p2':      'Our menu features the dishes that have made us a gastronomic landmark of the Principality: <span class="dish">bacalao a la llauna</span>, <span class="dish">grilled octopus</span>, <span class="dish">callos</span>, <span class="dish">tuna tartar</span> and <span class="dish">grilled meat</span>, alongside classics like <span class="dish">homemade cannelloni</span> or <span class="dish">snails a la llauna</span>.',
     'about-p3':      'We also host <strong>celebrations, anniversaries and corporate dinners</strong>. Get in touch and we\'ll take care of everything so you can just enjoy.',
     'about-cta':     'Explore the full menu →',
-    'about-parking': 'Free parking available — Pàrquing Comunal de La Massana, 2 min walk',
+    'about-parking': 'Free private parking — 1 min walk',
 
     'menu-eyebrow': 'Feeling hungry?',
     'menu-title':   'Discover our menu',

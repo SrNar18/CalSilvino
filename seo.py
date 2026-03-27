@@ -6,7 +6,8 @@ Genera / actualiza:
   1. sitemap.xml
   2. robots.txt
   3. JSON-LD (Schema.org Restaurant) inyectado en cada página HTML
-  4. Informe de auditoría SEO (seo_report.txt)
+  4. JSON-LD (Schema.org FAQPage) inyectado en index.html y contacto.html
+  5. Informe de auditoría SEO (seo_report.txt)
 """
 
 import os
@@ -68,6 +69,80 @@ RESTAURANT_SCHEMA = {
         "https://www.facebook.com/calsilvino/"
     ]
 }
+
+FAQ_SCHEMA = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "¿Dónde está Cal Silvino?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Cal Silvino está en la Av. el Través, 21, AD400 La Massana, Andorra. Dispone de parking propio gratuito a 1 minuto a pie del restaurante."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Cuál es el horario del restaurante Cal Silvino?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Lunes y domingo: mediodía de 11:00 a 16:00. Martes: cerrado. Miércoles a sábado: mediodía de 11:00 a 16:00 y noche de 20:00 a 23:00."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Cómo puedo reservar mesa en Cal Silvino?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Puedes reservar mesa a través del formulario online en nuestra web (restaurantcalsilvino.com/contacto.html) o llamando directamente al +376 840 720. Te confirmamos la reserva en menos de 24 horas."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Qué tipo de cocina sirve Cal Silvino?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Cal Silvino ofrece cocina tradicional andorrana y mediterránea: bacallà a la llauna, pulpo a la brasa, callos, tartar de atún, carne a la brasa, canelones caseros y caracoles a la llauna, entre otros platos de temporada."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Cal Silvino tiene parking?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí, Cal Silvino dispone de parking propio gratuito a tan solo 1 minuto a pie del restaurante."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Admiten grupos y celebraciones en Cal Silvino?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí, en Cal Silvino organizamos celebraciones, aniversarios y comidas de empresa. Para grupos de más de 8 personas, contacta directamente al +376 840 720 para coordinar los detalles."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Cuánto cuesta comer en Cal Silvino?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Cal Silvino es un restaurante de precio medio (€€). Ofrecemos menú del día y carta. Consulta los precios actualizados en nuestra carta online."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Cal Silvino está en La Massana, Andorra?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí, Cal Silvino se encuentra en La Massana, en el Principado de Andorra. Llevamos más de 12 años siendo un referente de la gastronomía local."
+            }
+        }
+    ]
+}
+
+# Páginas donde se inyecta el FAQ schema
+FAQ_PAGES = ["index.html", "contacto.html"]
 
 # Prioridades y frecuencias de cambio por página
 PAGE_META = {
@@ -206,10 +281,44 @@ def inject_schema():
             print(f"  ⚠ No se encontró </head> en {page}")
 
 
-# ─── 4. AUDITORÍA SEO ─────────────────────────────────────────────────────────
+# ─── 4. INYECTAR FAQ JSON-LD ──────────────────────────────────────────────────
+
+def inject_faq():
+    import json
+    print("\n[4/5] Inyectando JSON-LD FAQPage en páginas seleccionadas...")
+    faq_block = (
+        '\n  <script type="application/ld+json" id="faq-schema">\n'
+        + json.dumps(FAQ_SCHEMA, ensure_ascii=False, indent=2)
+        + '\n  </script>'
+    )
+
+    for page in FAQ_PAGES:
+        path = os.path.join(SITE_DIR, page)
+        if not os.path.exists(path):
+            print(f"  ⚠ No encontrado: {page}")
+            continue
+
+        html = read_file(path)
+
+        # Eliminar bloque FAQ existente si lo hay
+        html = re.sub(
+            r'\s*<script type="application/ld\+json" id="faq-schema">.*?</script>',
+            '',
+            html,
+            flags=re.DOTALL
+        )
+
+        if "</head>" in html:
+            html = html.replace("</head>", faq_block + "\n</head>", 1)
+            write_file(path, html)
+        else:
+            print(f"  ⚠ No se encontró </head> en {page}")
+
+
+# ─── 5. AUDITORÍA SEO ─────────────────────────────────────────────────────────
 
 def audit_seo():
-    print("\n[4/4] Generando informe de auditoría SEO...")
+    print("\n[5/5] Generando informe de auditoría SEO...")
     report = [
         "=" * 60,
         "  INFORME SEO — Cal Silvino",
@@ -296,7 +405,8 @@ def audit_seo():
         "  Archivos generados/actualizados:",
         "  • sitemap.xml",
         "  • robots.txt",
-        "  • JSON-LD inyectado en index.html, menu.html, contacto.html",
+        "  • JSON-LD Restaurant inyectado en index.html, menu.html, contacto.html",
+        "  • JSON-LD FAQPage inyectado en index.html, contacto.html",
         "=" * 60,
     ]
 

@@ -1018,6 +1018,86 @@ footer {
 }
 
 /* ── SEPARADOR SECCIÓN ── */
+/* ═══ CTA RESERVA ═══ */
+.home-reserve-cta {
+    background: #c50101;
+    padding: 80px 24px;
+    text-align: center;
+}
+
+.home-reserve-cta-inner {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.reserve-cta-eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin: 0 0 12px;
+}
+
+.reserve-cta-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 16px;
+    line-height: 1.15;
+}
+
+.reserve-cta-desc {
+    font-size: 16px;
+    color: rgba(255,255,255,0.8);
+    margin: 0 0 36px;
+    line-height: 1.6;
+}
+
+.reserve-cta-actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.reserve-cta-btn-primary {
+    background: #fff;
+    color: #c50101;
+    padding: 15px 36px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.reserve-cta-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+}
+
+.reserve-cta-btn-secondary {
+    background: transparent;
+    color: #fff;
+    padding: 15px 32px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.5);
+    transition: border-color 0.2s, background 0.2s;
+}
+.reserve-cta-btn-secondary:hover {
+    border-color: #fff;
+    background: rgba(255,255,255,0.1);
+}
+
+@media (max-width: 768px) {
+    .reserve-cta-title { font-size: 30px; }
+    .home-reserve-cta { padding: 60px 20px; }
+}
+
 .separador {
     background: #c50101;
     height: 5px;
