@@ -324,22 +324,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // BOTÓN VER MENÚ (now an anchor, kept for backwards compat)
-    const menuBtn = document.querySelector(".home-menu-button");
-    if (menuBtn && menuBtn.tagName === "BUTTON") {
-        menuBtn.addEventListener("click", () => {
-            window.location.href = "menu.html";
-        });
-    }
-
-    // BOTÓN CTA RESERVA (menú) — now an anchor, kept for backwards compat
-    const ctaBtn = document.querySelector(".menu-cta-btn");
-    if (ctaBtn && ctaBtn.tagName === "BUTTON") {
-        ctaBtn.addEventListener("click", () => {
-            window.location.href = "contacto.html";
-        });
-    }
-
     // LOGO → index
     const logo = document.querySelector(".logo");
     if (logo) {
