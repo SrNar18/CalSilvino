@@ -540,5 +540,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // ── AUTO-GROW TEXTAREA ──
+    const textarea = document.getElementById('mensajeTextarea');
+    if (textarea) {
+        textarea.addEventListener('input', function () {
+            this.style.height = 'auto';
+            this.style.height = this.scrollHeight + 'px';
+        });
+    }
+
 });
 
