@@ -75,22 +75,26 @@
                     <h2>📅 <span data-i18n="form-h2">Reserva tu mesa</span></h2>
                     <p style="text-align:center;font-size:13px;color:#888;margin:-10px 0 8px;" data-i18n="form-subtitle">Rellena el formulario y te confirmamos la reserva en breve</p>
 
-                    <div class="form-group">
-                        <label data-i18n="form-label-name">Nombre y apellidos</label>
-                        <input type="text" name="nombre" data-i18n-placeholder="form-ph-name" placeholder="Tu nombre" required>
+                    <div class="date-time-group">
+                        <div class="form-group">
+                            <label data-i18n="form-label-name">Nombre y apellidos</label>
+                            <input type="text" name="nombre" data-i18n-placeholder="form-ph-name" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="form-label-phone">Móvil</label>
+                            <input type="tel" name="telefono" data-i18n-placeholder="form-ph-phone" placeholder="+376 000 000" required>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label data-i18n="form-label-phone">Móvil</label>
-                        <input type="tel" name="telefono" data-i18n-placeholder="form-ph-phone" placeholder="+376 000 000" required>
-                    </div>
-                    <div class="form-group">
-                        <label><span data-i18n="form-label-email">Correo electrónico</span></label>
-                        <input type="email" name="email" data-i18n-placeholder="form-ph-email" placeholder="correo@ejemplo.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label data-i18n="form-label-people">Cantidad de personas</label>
-                        <input type="number" name="personas" id="personasInput" data-i18n-placeholder="form-ph-people" placeholder="2" min="1" max="8" required>
-                        <p class="form-field-hint" id="personasHint" data-i18n-html="form-people-hint-html">Para grupos de más de 8 personas, contacta directamente al <a href="tel:+376840720">+376 840 720</a></p>
+                    <div class="date-time-group">
+                        <div class="form-group">
+                            <label><span data-i18n="form-label-email">Correo electrónico</span></label>
+                            <input type="email" name="email" data-i18n-placeholder="form-ph-email" placeholder="correo@ejemplo.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="form-label-people">Personas</label>
+                            <input type="number" name="personas" id="personasInput" data-i18n-placeholder="form-ph-people" placeholder="2" min="1" max="8" required>
+                            <p class="form-field-hint" id="personasHint" data-i18n-html="form-people-hint-html">Para grupos de más de 8 personas, contacta directamente al <a href="tel:+376840720">+376 840 720</a></p>
+                        </div>
                     </div>
                     <div class="date-time-group">
                         <div class="form-group">
@@ -113,7 +117,7 @@
                     </div>
                     <div class="form-group">
                         <label><span data-i18n="form-label-message">Comentarios</span> <span style="color:#888;font-weight:400;" data-i18n="form-label-email-optional">(opcional)</span></label>
-                        <textarea name="mensaje" rows="3" data-i18n-placeholder="form-ph-message" placeholder="Alergias, silla de ruedas, celebración especial..." style="resize:vertical;"></textarea>
+                        <textarea name="mensaje" rows="3" id="mensajeTextarea" data-i18n-placeholder="form-ph-message" placeholder="Alergias, silla de ruedas, celebración especial..."></textarea>
                     </div>
 
                     <div class="form-legal">

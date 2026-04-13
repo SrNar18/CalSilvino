@@ -518,6 +518,11 @@ footer {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
+.contact-schedule-box {
+    display: flex;
+    flex-direction: column;
+}
+
 /* TITLES */
 .contact-form h2,
 .contact-schedule-box h2 {
@@ -547,7 +552,8 @@ footer {
     color: #666;
 }
 
-.contact-form input {
+.contact-form input,
+.contact-form textarea {
     width: 100%;
     box-sizing: border-box;
     padding: 12px 14px;
@@ -558,7 +564,14 @@ footer {
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.contact-form input:focus {
+.contact-form textarea {
+    resize: none;
+    overflow: hidden;
+    min-height: 48px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
     border-color: #c50101;
     box-shadow: 0 0 0 3px rgba(197, 1, 1, 0.1);
     outline: none;
@@ -721,7 +734,8 @@ footer {
 /* MAPA EN SIDEBAR */
 .contact-sidebar-map {
     width: 100%;
-    height: 260px;
+    flex: 1;
+    min-height: 200px;
     border-radius: 14px;
     border: none;
     margin-top: 20px;
