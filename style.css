@@ -2124,6 +2124,10 @@ footer {
 .hamburger.open span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
 }
+header.hero-mode .hamburger.open span,
+.hamburger.open span {
+    background: #222;
+}
 
 /* Link "Reservar" que solo aparece en el menú móvil */
 .nav-reservar-mobile {
@@ -2281,7 +2285,7 @@ footer {
     .home-banner {
         height: 100vh;
         min-height: 580px;
-        margin-top: -80px;
+        margin-top: -100px;
     }
 
     .home-banner-content {
@@ -2355,6 +2359,11 @@ footer {
         font-size: 14px;
     }
 
+    .home-menu-banner .btn-primary {
+        margin-top: 4px;
+        text-align: center;
+    }
+
     /* --- About --- */
     .home-about {
         padding: 50px 24px;
@@ -2377,9 +2386,10 @@ footer {
         gap: 12px;
     }
 
-    /* --- Menu banner (duplicate override) --- */
+    /* --- Menu banner --- */
     .home-menu-banner {
-        height: 220px;
+        height: auto;
+        min-height: 220px;
     }
 
     /* --- Schedule --- */
