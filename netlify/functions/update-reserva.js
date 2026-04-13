@@ -26,8 +26,9 @@ export default async (req) => {
         return Response.json({ error: 'Datos inválidos' }, { status: 400 });
     }
 
+    let db, reserva;
     try {
-        const db     = initFirebase();
+        db = initFirebase();
         const docRef = db.collection('reservaciones').doc(id);
         const doc    = await docRef.get();
 
@@ -35,9 +36,15 @@ export default async (req) => {
             return Response.json({ error: 'Reserva no encontrada' }, { status: 404 });
         }
 
-        const reserva = doc.data();
+        reserva = doc.data();
         await docRef.update({ estado, actualizadoEn: new Date().toISOString() });
+    } catch (err) {
+        console.error('update-reserva Firestore error:', err);
+        return Response.json({ error: 'Error al actualizar la reserva' }, { status: 500 });
+    }
 
+    // Enviar email — no bloquea la respuesta si falla
+    try {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: { user: process.env.GMAIL_USER, pass: process.env.GMAIL_PASS },
@@ -116,10 +123,10 @@ export default async (req) => {
 </body>
 </html>`,
         });
-
-        return Response.json({ success: true });
     } catch (err) {
-        console.error('update-reserva error:', err);
-        return Response.json({ error: 'Error al actualizar la reserva' }, { status: 500 });
+        console.error('update-reserva email error:', err);
+        // La reserva ya se actualizó en Firestore, no fallar por el email
     }
+
+    return Response.json({ success: true });
 };
