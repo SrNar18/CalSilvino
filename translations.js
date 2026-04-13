@@ -125,7 +125,7 @@ const TRANSLATIONS = {
     'day-wed-thu-fri-sat': 'Miércoles · Jueves · Viernes · Sábado',
     'day-sunday': 'Domingo',
 
-    // CTA Reserva (home)
+    // CTA WhatsApp (home)
     'reserve-eyebrow': '¿Listo para vivir la experiencia?',
     'reserve-title': 'Escríbenos por WhatsApp',
     'reserve-desc': 'Más de 12 años sirviendo cocina tradicional andorrana. Respuesta rápida y directa — te confirmamos al momento.',
@@ -531,8 +531,26 @@ const TRANSLATIONS = {
     'cta-eyebrow': 'Ready?',
     'cta-h2':      'Message us on WhatsApp',
     'cta-text':    'Come and enjoy our traditional cuisine in a warm, family atmosphere. We look forward to seeing you in La Massana.',
-    'cta-btn':     'Chat with us on WhatsApp',
+    'cta-btn':     'Book',
 
+    'form-h2':                  'Book your table',
+    'form-subtitle':            'Fill in the form and we\'ll confirm your booking shortly',
+    'form-label-name':          'Full name',
+    'form-ph-name':             'Your name',
+    'form-label-phone':         'Mobile',
+    'form-ph-phone':            '+376 000 000',
+    'form-label-email':         'Email address',
+    'form-label-email-optional':'(optional)',
+    'form-ph-email':            'email@example.com',
+    'form-label-people':        'Number of guests',
+    'form-ph-people':           '2',
+    'form-label-date':          'Date',
+    'form-label-time':          'Time',
+    'form-submit':              'Book',
+    'form-legal':               'The data you provide will be used exclusively to manage your booking. We will not share or use it for any other purpose.',
+
+    'contact-schedule-h2': 'Opening hours',
+    'contact-map-h2':      'Location',
 
     'pdf-download-btn':  'Download',
     'pdf-fallback-p':    'Preview is not available on mobile.<br>Download the menu to view it.',
@@ -546,9 +564,9 @@ const TRANSLATIONS = {
     'day-sunday': 'Sunday',
 
     'reserve-eyebrow': 'Ready to enjoy the experience?',
-    'reserve-title': 'Message us on WhatsApp',
-    'reserve-desc': 'Over 12 years serving traditional Andorran cuisine. Quick and direct response via WhatsApp.',
-    'reserve-btn': 'Chat with us on WhatsApp',
+    'reserve-title': 'Book your table now',
+    'reserve-desc': 'Over 12 years serving traditional Andorran cuisine. Tables fill up fast — secure yours.',
+    'reserve-btn': 'Book a table',
 
     'parking-link-short': 'Free private parking — 1 min walk',
 
@@ -564,6 +582,13 @@ const TRANSLATIONS = {
 
     'cta-link': 'View the menu →',
 
+    'form-label-turno': 'Service',
+    'form-turno-placeholder': 'Select service',
+    'form-turno-lunch': '🌞 Lunch',
+    'form-turno-dinner': '🌙 Dinner',
+    'form-people-hint-html': 'For groups larger than 8, please contact us directly at <a href="tel:+376840720">+376 840 720</a>',
+    'form-label-message': 'Comments',
+    'form-ph-message': 'Allergies, wheelchair access, special celebration...',
 
     'status-checking': 'Checking...',
     'status-open': 'Open',
@@ -573,6 +598,11 @@ const TRANSLATIONS = {
     'status-opens-tomorrow-at': 'Opens tomorrow at',
     'status-holiday': 'Holiday',
 
+    'form-sending': '⏳ Sending...',
+    'form-success-html': '✅ Booking sent! We\'ll confirm within 24 hours.<br><small>No reply? Call us at <a href="tel:+376840720" style="color:#16a34a;">+376 840 720</a></small>',
+    'form-error-time': '❌ The time must be between %min% and %max% for the selected service.',
+    'form-error-generic': '❌ Error sending the booking.',
+    'form-error-connection': '❌ Connection error. Please try again.',
 
     'review-1': '"Without a doubt, one of the best culinary experiences I\'ve had in a long time. We liked it so much we had to come back, even though on the first day we couldn\'t eat because it was full. I highly recommend the beef menu, although everything was excellent. As for the service, I can only say it was outstanding. We\'ll definitely be back."',
     'review-2': '"Great place for breakfast in La Massana: Racó d\'en Silvino offers a simple and tasty breakfast, with reasonable prices and generous portions. They usually have deals and affordable options, ideal for starting the day without spending too much. Quiet atmosphere, fast service and good coffee. A reliable and practical choice."',

@@ -95,7 +95,7 @@ FAQ_SCHEMA = {
             "name": "¿Cómo puedo reservar mesa en Cal Silvino?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Puedes reservar mesa escribiéndonos por WhatsApp al +376 840 720 o llamando directamente. Respuesta rápida y directa."
+                "text": "Puedes reservar mesa a través del formulario online en nuestra web (restaurantcalsilvino.com/contacto.html) o llamando directamente al +376 840 720. Te confirmamos la reserva en menos de 24 horas."
             }
         },
         {
