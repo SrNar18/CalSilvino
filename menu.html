@@ -264,7 +264,24 @@
                 </div>
             </div>
         </div>
+        <div class="footer-legal">
+            <a href="#" class="legal-link" data-i18n="legal-privacy" onclick="showLegalPopup(event)">Política de privacidad</a>
+            <span class="legal-sep">·</span>
+            <a href="#" class="legal-link" data-i18n="legal-terms" onclick="showLegalPopup(event)">Términos y condiciones</a>
+            <span class="legal-sep">·</span>
+            <a href="#" class="legal-link" data-i18n="legal-cookies" onclick="showLegalPopup(event)">Política de cookies</a>
+            <span class="legal-sep">·</span>
+            <a href="#" class="legal-link" data-i18n="legal-notice" onclick="showLegalPopup(event)">Aviso legal</a>
+        </div>
     </footer>
+
+    <!-- MODAL LEGAL -->
+    <div id="legalModal" class="legal-modal-overlay" onclick="if(event.target===this)closeLegalModal()">
+        <div class="legal-modal-box">
+            <p data-i18n="legal-wip">Estamos trabajando en esta sección. Pronto estará disponible.</p>
+            <button onclick="closeLegalModal()" data-i18n="legal-close">Entendido</button>
+        </div>
+    </div>
 
     <!-- ===== MODAL VISTA PREVIA PDF ===== -->
     <div id="pdfModal" class="pdf-modal-overlay" onclick="handleModalOverlayClick(event)">

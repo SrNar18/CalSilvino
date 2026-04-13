@@ -165,6 +165,14 @@ const TRANSLATIONS = {
 
     // Alerta teléfono
     'phone-alert': 'Utiliza tu teléfono móvil para llamar 📞\n\nNúmero: +376 840 720',
+
+    // Legal
+    'legal-privacy': 'Política de privacidad',
+    'legal-terms': 'Términos y condiciones',
+    'legal-cookies': 'Política de cookies',
+    'legal-notice': 'Aviso legal',
+    'legal-wip': 'Estamos trabajando en esta sección. Pronto estará disponible.',
+    'legal-close': 'Entendido',
   },
 
   // ─────────────────── CATALÀ ───────────────────
@@ -302,6 +310,14 @@ const TRANSLATIONS = {
     'review-3': '"Restaurant recomanat tant la carta, el menú com les tapes. Familiar i dels de sempre. Garantit i recomanat."',
 
     'phone-alert': 'Utilitza el teu telèfon mòbil per trucar 📞\n\nNúmero: +376 840 720',
+
+    // Legal
+    'legal-privacy': 'Política de privacitat',
+    'legal-terms': 'Termes i condicions',
+    'legal-cookies': 'Política de galetes',
+    'legal-notice': 'Avís legal',
+    'legal-wip': 'Estem treballant en aquesta secció. Aviat estarà disponible.',
+    'legal-close': 'Entès',
   },
 
   // ─────────────────── PORTUGUÊS ───────────────────
@@ -439,6 +455,14 @@ const TRANSLATIONS = {
     'review-3': '"Restaurante recomendado, tanto a carta, o menu como as tapas. Familiar e daqueles de sempre. Garantido e recomendado."',
 
     'phone-alert': 'Use o seu telemóvel para ligar 📞\n\nNúmero: +376 840 720',
+
+    // Legal
+    'legal-privacy': 'Política de privacidade',
+    'legal-terms': 'Termos e condições',
+    'legal-cookies': 'Política de cookies',
+    'legal-notice': 'Aviso legal',
+    'legal-wip': 'Estamos a trabalhar nesta secção. Em breve estará disponível.',
+    'legal-close': 'Entendido',
   },
 
   // ─────────────────── ENGLISH ───────────────────
@@ -609,6 +633,14 @@ const TRANSLATIONS = {
     'review-3': '"Highly recommended restaurant — the à la carte, the set menu and the tapas are all great. Family-run and timeless. Guaranteed and recommended."',
 
     'phone-alert': 'Use your mobile phone to call 📞\n\nNumber: +376 840 720',
+
+    // Legal
+    'legal-privacy': 'Privacy policy',
+    'legal-terms': 'Terms & conditions',
+    'legal-cookies': 'Cookie policy',
+    'legal-notice': 'Legal notice',
+    'legal-wip': 'We\'re working on this section. It will be available soon.',
+    'legal-close': 'Got it',
   },
 };
 

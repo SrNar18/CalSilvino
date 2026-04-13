@@ -1,3 +1,19 @@
+// ── MODAL LEGAL ──
+function showLegalPopup(e) {
+    e.preventDefault();
+    document.getElementById("legalModal").classList.add("active");
+    document.body.style.overflow = "hidden";
+}
+
+function closeLegalModal() {
+    document.getElementById("legalModal").classList.remove("active");
+    document.body.style.overflow = "";
+}
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeLegalModal();
+});
+
 // ── MODAL PDF ──
 function openPdfModal(pdfPath, title) {
     const modal = document.getElementById("pdfModal");
