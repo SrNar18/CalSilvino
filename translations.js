@@ -176,6 +176,8 @@ const TRANSLATIONS = {
     'form-turno-lunch': '🌞 Mediodía',
     'form-turno-dinner': '🌙 Noche',
     'form-people-hint-html': 'Para grupos de más de 8 personas, contacta directamente al <a href="tel:+376840720">+376 840 720</a>',
+    'form-label-message': 'Comentarios',
+    'form-ph-message': 'Alergias, silla de ruedas, celebración especial...',
 
     // Estado en tiempo real
     'status-checking': 'Verificando...',
@@ -192,6 +194,11 @@ const TRANSLATIONS = {
     'form-error-time': '❌ La hora debe estar entre %min% y %max% para el turno seleccionado.',
     'form-error-generic': '❌ Error al enviar la reserva.',
     'form-error-connection': '❌ Error de conexión. Inténtalo de nuevo.',
+
+    // Reseñas
+    'review-1': '"Sin duda, una de las mejores experiencias culinarias que he tenido en mucho tiempo. Nos gustó tanto que tuvimos que repetir y eso que el primer dia no pudimos comer porque estaba lleno. Recomiendo encarecidamente el menú de buey aunque todo estaba muy bueno. En cuanto a la atención, solo puedo decir que fue formidable. Sin duda, volveremos."',
+    'review-2': '"Buen sitio para desayunar en La Massana: el Racó d\'en Silvino ofrece un desayuno sencillo y rico, con precios razonables y raciones generosas. Suelen tener ofertas y opciones económicas, ideal para empezar el día sin gastar demasiado. Ambiente tranquilo, servicio rápido y buen café. Una opción práctica y de confianza."',
+    'review-3': '"Restaurante recomendado tanto la carta, el menú o las tapas. Familiar y de los de siempre. Garantizado y recomendado."',
 
     // Alerta teléfono
     'phone-alert': 'Utiliza tu teléfono móvil para llamar 📞\n\nNúmero: +376 840 720',
@@ -343,6 +350,8 @@ const TRANSLATIONS = {
     'form-turno-lunch': '🌞 Migdia',
     'form-turno-dinner': '🌙 Nit',
     'form-people-hint-html': 'Per a grups de més de 8 persones, contacta directament al <a href="tel:+376840720">+376 840 720</a>',
+    'form-label-message': 'Comentaris',
+    'form-ph-message': 'Al·lèrgies, cadira de rodes, celebració especial...',
 
     'status-checking': 'Verificant...',
     'status-open': 'Obert',
@@ -357,6 +366,10 @@ const TRANSLATIONS = {
     'form-error-time': '❌ L\'hora ha de ser entre %min% i %max% per al torn seleccionat.',
     'form-error-generic': '❌ Error en enviar la reserva.',
     'form-error-connection': '❌ Error de connexió. Torna-ho a intentar.',
+
+    'review-1': '"Sens dubte, una de les millors experiències culinàries que he tingut en molt de temps. Ens va agradar tant que vam haver de repetir, tot i que el primer dia no vam poder menjar perquè estava ple. Recomano molt el menú de bou, tot i que tot estava molt bo. Pel que fa a l\'atenció, només puc dir que va ser formidable. Sens dubte, tornarem."',
+    'review-2': '"Bon lloc per esmorzar a La Massana: el Racó d\'en Silvino ofereix un esmorzar senzill i bo, amb preus raonables i racions generoses. Solen tenir ofertes i opcions econòmiques, ideal per començar el dia sense gastar massa. Ambient tranquil, servei ràpid i bon cafè. Una opció pràctica i de confiança."',
+    'review-3': '"Restaurant recomanat tant la carta, el menú com les tapes. Familiar i dels de sempre. Garantit i recomanat."',
 
     'phone-alert': 'Utilitza el teu telèfon mòbil per trucar 📞\n\nNúmero: +376 840 720',
   },
@@ -507,6 +520,8 @@ const TRANSLATIONS = {
     'form-turno-lunch': '🌞 Almoço',
     'form-turno-dinner': '🌙 Jantar',
     'form-people-hint-html': 'Para grupos de mais de 8 pessoas, contacte diretamente o <a href="tel:+376840720">+376 840 720</a>',
+    'form-label-message': 'Comentários',
+    'form-ph-message': 'Alergias, cadeira de rodas, celebração especial...',
 
     'status-checking': 'A verificar...',
     'status-open': 'Aberto',
@@ -521,6 +536,10 @@ const TRANSLATIONS = {
     'form-error-time': '❌ A hora deve estar entre %min% e %max% para o turno selecionado.',
     'form-error-generic': '❌ Erro ao enviar a reserva.',
     'form-error-connection': '❌ Erro de ligação. Tente novamente.',
+
+    'review-1': '"Sem dúvida, uma das melhores experiências culinárias que tive em muito tempo. Gostámos tanto que tivemos de repetir, apesar de no primeiro dia não termos conseguido comer porque estava cheio. Recomendo vivamente o menu de boi, embora tudo estivesse muito bom. Quanto ao atendimento, só posso dizer que foi formidável. Sem dúvida, voltaremos."',
+    'review-2': '"Bom sítio para tomar o pequeno-almoço em La Massana: o Racó d\'en Silvino oferece um pequeno-almoço simples e saboroso, com preços razoáveis e porções generosas. Costumam ter ofertas e opções económicas, ideal para começar o dia sem gastar demasiado. Ambiente tranquilo, serviço rápido e bom café. Uma opção prática e de confiança."',
+    'review-3': '"Restaurante recomendado, tanto a carta, o menu como as tapas. Familiar e daqueles de sempre. Garantido e recomendado."',
 
     'phone-alert': 'Use o seu telemóvel para ligar 📞\n\nNúmero: +376 840 720',
   },
@@ -671,6 +690,8 @@ const TRANSLATIONS = {
     'form-turno-lunch': '🌞 Lunch',
     'form-turno-dinner': '🌙 Dinner',
     'form-people-hint-html': 'For groups larger than 8, please contact us directly at <a href="tel:+376840720">+376 840 720</a>',
+    'form-label-message': 'Comments',
+    'form-ph-message': 'Allergies, wheelchair access, special celebration...',
 
     'status-checking': 'Checking...',
     'status-open': 'Open',
@@ -685,6 +706,10 @@ const TRANSLATIONS = {
     'form-error-time': '❌ The time must be between %min% and %max% for the selected service.',
     'form-error-generic': '❌ Error sending the booking.',
     'form-error-connection': '❌ Connection error. Please try again.',
+
+    'review-1': '"Without a doubt, one of the best culinary experiences I\'ve had in a long time. We liked it so much we had to come back, even though on the first day we couldn\'t eat because it was full. I highly recommend the beef menu, although everything was excellent. As for the service, I can only say it was outstanding. We\'ll definitely be back."',
+    'review-2': '"Great place for breakfast in La Massana: Racó d\'en Silvino offers a simple and tasty breakfast, with reasonable prices and generous portions. They usually have deals and affordable options, ideal for starting the day without spending too much. Quiet atmosphere, fast service and good coffee. A reliable and practical choice."',
+    'review-3': '"Highly recommended restaurant — the à la carte, the set menu and the tapas are all great. Family-run and timeless. Guaranteed and recommended."',
 
     'phone-alert': 'Use your mobile phone to call 📞\n\nNumber: +376 840 720',
   },

@@ -13,7 +13,7 @@ export default async (req) => {
         return Response.json({ error: 'Petición inválida' }, { status: 400 });
     }
 
-    const { nombre, telefono, email, personas, fecha, turno, hora } = body;
+    const { nombre, telefono, email, personas, fecha, turno, hora, mensaje } = body;
 
     if (!nombre || !telefono || !email || !personas || !fecha || !turno) {
         return Response.json({ error: 'Faltan campos obligatorios' }, { status: 400 });
@@ -29,6 +29,7 @@ export default async (req) => {
             fecha,
             turno,
             hora: hora || '',
+            mensaje: mensaje || '',
             estado: 'pendiente',
             creadoEn: new Date().toISOString(),
         });
@@ -63,6 +64,7 @@ export default async (req) => {
             <tr><td style="padding:4px 0;color:#fff;font-size:14px;">📅 <strong>Fecha:</strong> ${fecha}</td></tr>
             <tr><td style="padding:4px 0;color:#fff;font-size:14px;">🌐 <strong>Turno:</strong> ${turno}${hora ? ` · ${hora}` : ''}</td></tr>
             <tr><td style="padding:4px 0;color:#fff;font-size:14px;">👥 <strong>Personas:</strong> ${personas}</td></tr>
+            ${mensaje ? `<tr><td style="padding:4px 0;color:#fff;font-size:14px;">💬 <strong>Comentarios:</strong> ${mensaje}</td></tr>` : ''}
           </table>
           <p style="color:rgba(255,255,255,0.8);font-size:14px;margin:0 0 8px;">Te confirmaremos en <strong>menos de 24 horas</strong>.</p>
           <p style="color:rgba(255,255,255,0.45);font-size:13px;">¿No recibes respuesta? Llámanos al <a href="tel:+376840720" style="color:#c50101;text-decoration:none;">+376 840 720</a></p>

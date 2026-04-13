@@ -429,6 +429,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const turnoLabel = turnoSelect && turnoSelect.value === 'noche' ? 'Noche' : 'Mediodía';
 
             try {
+                const mensajeInput = form.querySelector('textarea[name="mensaje"]');
                 const res  = await fetch('/.netlify/functions/submit-reserva', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -440,9 +441,16 @@ document.addEventListener("DOMContentLoaded", () => {
                         fecha:    this.fecha.value,
                         turno:    turnoLabel,
                         hora:     horaInput ? horaInput.value : '',
+                        mensaje:  mensajeInput ? mensajeInput.value.trim() : '',
                     }),
                 });
-                const data = await res.json();
+
+                let data;
+                try {
+                    data = await res.json();
+                } catch {
+                    data = {};
+                }
 
                 if (res.ok && data.success) {
                     if (msgEl) {
