@@ -426,6 +426,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         turno:    turnoLabel,
                         hora:     horaInput ? horaInput.value : '',
                         mensaje:  mensajeInput ? mensajeInput.value.trim() : '',
+                        lang:     lang,
                     }),
                 });
 
