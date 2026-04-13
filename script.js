@@ -123,18 +123,13 @@ document.addEventListener("keydown", (e) => {
         const textEl = document.getElementById('statusText');
         if (!dotEl || !textEl) return;
 
+        const lang = localStorage.getItem('calsilvinoLang') || 'es';
+        const t = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[lang]) ? TRANSLATIONS[lang] : {};
+
         const now     = getAndorraNow();
         const dow     = now.getDay(); // 0=Sun,1=Mon,2=Tue,3=Wed,4=Thu,5=Fri,6=Sat
         const holiday = isAndorraHoliday(now);
         const hm      = now.getHours() * 60 + now.getMinutes();
-
-        // Schedule per day (Google hours):
-        // Mon(1): 13:00–16:00
-        // Tue(2): Cerrado
-        // Wed(3),Thu(4),Fri(5): 13:00–16:00, 20:00–23:00
-        // Sat(6): 13:00–16:30, 20:00–23:30
-        // Sun(0): 13:00–16:00, 20:00–23:00
-        // Holidays: treated as Sunday schedule
 
         const effectiveDow = holiday ? (dow === 2 ? 0 : dow) : dow;
 
@@ -144,11 +139,10 @@ document.addEventListener("keydown", (e) => {
         // Wed(3),Thu(4),Fri(5),Sat(6): 11:00–16:00, 20:00–23:00
         let slots = [];
         if (effectiveDow === 2) {
-            slots = []; // Cerrado
+            slots = [];
         } else if (effectiveDow === 1 || effectiveDow === 0) {
             slots = [{ open: 660, close: 960, closeStr: "16:00" }];
         } else {
-            // Wed,Thu,Fri,Sat
             slots = [{ open: 660, close: 960, closeStr: "16:00" }, { open: 1200, close: 1380, closeStr: "23:00" }];
         }
 
@@ -166,30 +160,38 @@ document.addEventListener("keydown", (e) => {
         }
 
         if (!openNow) {
-            // Find next opening time today
             const upcoming = slots.find(s => hm < s.open);
             if (upcoming) {
                 nextOpenAt = pad2(Math.floor(upcoming.open / 60)) + ":" + pad2(upcoming.open % 60);
                 nextOpenTomorrow = false;
             } else {
-                // No more slots today — find next day's first slot
                 nextOpenAt = "13:00";
                 nextOpenTomorrow = true;
             }
         }
 
-        const holidayPrefix = holiday ? "🎉 Festivo · " : "";
+        const sOpen      = t['status-open']              || 'Abierto';
+        const sClosed    = t['status-closed']             || 'Cerrado';
+        const sClosesAt  = t['status-closes-at']          || 'Cierra a las';
+        const sOpensAt   = t['status-opens-at']           || 'Abre a las';
+        const sOpensTmrw = t['status-opens-tomorrow-at']  || 'Abre mañana a las';
+        const sHoliday   = t['status-holiday']            || 'Festivo';
+
+        const holidayPrefix = holiday ? "🎉 " + sHoliday + " · " : "";
         dotEl.className = 'status-dot ' + (openNow ? 'open' : 'closed');
 
         if (openNow) {
-            textEl.textContent = holidayPrefix + "Abierto · Cierra a las " + closesAt;
+            textEl.textContent = holidayPrefix + sOpen + " · " + sClosesAt + " " + closesAt;
         } else if (effectiveDow === 2) {
-            textEl.textContent = "Cerrado · Abre mañana a las 13:00";
+            textEl.textContent = sClosed + " · " + sOpensTmrw + " 13:00";
         } else {
-            const whenStr = nextOpenTomorrow ? "Mañana · " : "";
-            textEl.textContent = holidayPrefix + "Cerrado · Abre " + whenStr + "a las " + nextOpenAt;
+            const whenStr = nextOpenTomorrow ? sOpensTmrw : sOpensAt;
+            textEl.textContent = holidayPrefix + sClosed + " · " + whenStr + " " + nextOpenAt;
         }
     }
+
+    // Expose globally so language switch can refresh it
+    window.updateStatus = updateStatus;
 
     // Run once immediately and then every 60 seconds
     document.addEventListener('DOMContentLoaded', function() {
@@ -220,6 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const lang = btn.dataset.lang;
                 localStorage.setItem("calsilvinoLang", lang);
                 applyTranslations(lang);
+                if (typeof window.updateStatus === 'function') window.updateStatus();
                 langDropdown.classList.remove("open");
             });
         });
@@ -405,20 +408,23 @@ document.addEventListener("DOMContentLoaded", () => {
             const msgEl    = document.getElementById("reservaMsg");
             const original = btn ? btn.textContent : '';
 
+            const lang = localStorage.getItem('calsilvinoLang') || 'es';
+            const tr = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[lang]) ? TRANSLATIONS[lang] : {};
+
             // Validar hora dentro del rango del turno
             if (horaInput && horaInput.value) {
                 const turno = turnoSelect ? turnoSelect.value : '';
                 const cfg   = TURNO_CONFIG[turno];
                 if (cfg && (horaInput.value < cfg.min || horaInput.value > cfg.max)) {
                     if (msgEl) {
-                        msgEl.textContent = `❌ La hora debe estar entre ${cfg.min} y ${cfg.max} para el turno seleccionado.`;
+                        msgEl.textContent = (tr['form-error-time'] || '❌ La hora debe estar entre %min% y %max% para el turno seleccionado.').replace('%min%', cfg.min).replace('%max%', cfg.max);
                         msgEl.className   = 'reserva-msg error';
                     }
                     return;
                 }
             }
 
-            if (btn) { btn.disabled = true; btn.textContent = '⏳ Enviando...'; }
+            if (btn) { btn.disabled = true; btn.textContent = tr['form-sending'] || '⏳ Enviando...'; }
 
             const turnoLabel = turnoSelect && turnoSelect.value === 'noche' ? 'Noche' : 'Mediodía';
 
@@ -440,7 +446,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (res.ok && data.success) {
                     if (msgEl) {
-                        msgEl.innerHTML = '✅ ¡Reserva enviada! Te confirmaremos en menos de 24 horas.<br><small>¿No recibes respuesta? Llámanos al <a href="tel:+376840720" style="color:#16a34a;">+376 840 720</a></small>';
+                        msgEl.innerHTML = tr['form-success-html'] || '✅ ¡Reserva enviada! Te confirmaremos en menos de 24 horas.<br><small>¿No recibes respuesta? Llámanos al <a href="tel:+376840720" style="color:#16a34a;">+376 840 720</a></small>';
                         msgEl.className = 'reserva-msg success';
                     }
                     form.reset();
@@ -448,13 +454,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (personasHint) personasHint.style.display = 'none';
                 } else {
                     if (msgEl) {
-                        msgEl.textContent = '❌ ' + (data.error || 'Error al enviar la reserva.');
+                        msgEl.textContent = data.error ? ('❌ ' + data.error) : (tr['form-error-generic'] || '❌ Error al enviar la reserva.');
                         msgEl.className   = 'reserva-msg error';
                     }
                 }
             } catch {
                 if (msgEl) {
-                    msgEl.textContent = '❌ Error de conexión. Inténtalo de nuevo.';
+                    msgEl.textContent = tr['form-error-connection'] || '❌ Error de conexión. Inténtalo de nuevo.';
                     msgEl.className   = 'reserva-msg error';
                 }
             } finally {
@@ -519,7 +525,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if (isMobile) {
                 window.location.href = "tel:+376840720";
             } else {
-                alert("Utiliza tu teléfono móvil para llamar 📞\n\nNúmero: +376 840 720");
+                const lang = localStorage.getItem('calsilvinoLang') || 'es';
+                const tr = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[lang]) ? TRANSLATIONS[lang] : {};
+                alert(tr['phone-alert'] || 'Utiliza tu teléfono móvil para llamar 📞\n\nNúmero: +376 840 720');
             }
         });
     }

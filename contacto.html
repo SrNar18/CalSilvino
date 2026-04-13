@@ -35,7 +35,7 @@
             <!-- INDICADOR DE ESTADO EN TIEMPO REAL -->
             <div class="header-status" id="headerStatus">
                 <span class="status-dot" id="statusDot"></span>
-                <span id="statusText" class="status-text">Verificando...</span>
+                <span id="statusText" class="status-text" data-i18n="status-checking">Verificando...</span>
             </div>
 
             <div class="lang-switcher" id="langSwitcher">
@@ -90,7 +90,7 @@
                     <div class="form-group">
                         <label data-i18n="form-label-people">Cantidad de personas</label>
                         <input type="number" name="personas" id="personasInput" data-i18n-placeholder="form-ph-people" placeholder="2" min="1" max="8" required>
-                        <p class="form-field-hint" id="personasHint">Para grupos de más de 8 personas, contacta directamente al <a href="tel:+376840720">+376 840 720</a></p>
+                        <p class="form-field-hint" id="personasHint" data-i18n-html="form-people-hint-html">Para grupos de más de 8 personas, contacta directamente al <a href="tel:+376840720">+376 840 720</a></p>
                     </div>
                     <div class="date-time-group">
                         <div class="form-group">
@@ -98,11 +98,11 @@
                             <input type="date" name="fecha" id="fechaInput" required>
                         </div>
                         <div class="form-group">
-                            <label>Turno</label>
+                            <label data-i18n="form-label-turno">Turno</label>
                             <select name="turno" id="turnoSelect" required>
-                                <option value="" disabled selected>Selecciona turno</option>
-                                <option value="mediodia">🌞 Mediodía</option>
-                                <option value="noche">🌙 Noche</option>
+                                <option value="" disabled selected data-i18n="form-turno-placeholder">Selecciona turno</option>
+                                <option value="mediodia" data-i18n="form-turno-lunch">🌞 Mediodía</option>
+                                <option value="noche" data-i18n="form-turno-dinner">🌙 Noche</option>
                             </select>
                         </div>
                     </div>
@@ -140,7 +140,7 @@
                     <p data-i18n="contact-address">Av. el Través, 21 · AD400 La Massana, Andorra</p>
                     <p><span data-i18n="contact-tel-label">Tel:</span> <a href="tel:+376840720" class="contact-phone-link">+376 840 720</a></p>
                     <a href="https://maps.app.goo.gl/KgLBh4SZVhFojGUUA" target="_blank" rel="noopener noreferrer" class="parking-link" title="Parking propio gratuito Cal Silvino">
-                        🅿️ Parking propio gratuito — a 1 min
+                        🅿️ <span data-i18n="parking-link-short">Parking propio gratuito — a 1 min</span>
                     </a>
                 </div>
                 <iframe
@@ -163,7 +163,7 @@
             <h2>🕐 <span data-i18n="schedule-h2">Horario</span></h2>
             <div class="home-schedule-grid">
                 <div class="home-schedule-item">
-                    <p class="schedule-day">Lunes</p>
+                    <p class="schedule-day" data-i18n="day-monday">Lunes</p>
                     <div class="schedule-divider"></div>
                     <div class="schedule-hours">
                         <div class="schedule-slot">
@@ -173,14 +173,14 @@
                     </div>
                 </div>
                 <div class="home-schedule-item">
-                    <p class="schedule-day">Martes</p>
+                    <p class="schedule-day" data-i18n="day-tuesday">Martes</p>
                     <div class="schedule-divider"></div>
                     <div class="schedule-hours">
                         <span class="schedule-closed-badge" data-i18n="schedule-closed">Cerrado</span>
                     </div>
                 </div>
                 <div class="home-schedule-item">
-                    <p class="schedule-day">Miércoles · Jueves · Viernes · Sábado</p>
+                    <p class="schedule-day" data-i18n="day-wed-thu-fri-sat">Miércoles · Jueves · Viernes · Sábado</p>
                     <div class="schedule-divider"></div>
                     <div class="schedule-hours">
                         <div class="schedule-slot">
@@ -194,7 +194,7 @@
                     </div>
                 </div>
                 <div class="home-schedule-item">
-                    <p class="schedule-day">Domingo</p>
+                    <p class="schedule-day" data-i18n="day-sunday">Domingo</p>
                     <div class="schedule-divider"></div>
                     <div class="schedule-hours">
                         <div class="schedule-slot">
@@ -221,20 +221,20 @@
         <div class="footer-right">
             <div class="footer-schedule">
                 <div class="schedule-block">
-                    <p><strong>Lunes</strong></p>
+                    <p><strong data-i18n="day-monday">Lunes</strong></p>
                     <p>11.00 - 16.00</p>
                 </div>
                 <div class="schedule-block">
-                    <p><strong>Martes</strong></p>
+                    <p><strong data-i18n="day-tuesday">Martes</strong></p>
                     <p data-i18n="footer-closed">Cerrado</p>
                 </div>
                 <div class="schedule-block">
-                    <p><strong>Miércoles · Jueves · Viernes · Sábado</strong></p>
+                    <p><strong data-i18n="day-wed-thu-fri-sat">Miércoles · Jueves · Viernes · Sábado</strong></p>
                     <p>11.00 - 16.00</p>
                     <p>20.00 - 23.00</p>
                 </div>
                 <div class="schedule-block">
-                    <p><strong>Domingo</strong></p>
+                    <p><strong data-i18n="day-sunday">Domingo</strong></p>
                     <p>11.00 - 16.00</p>
                 </div>
             </div>

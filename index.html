@@ -43,7 +43,7 @@
             <!-- INDICADOR DE ESTADO EN TIEMPO REAL -->
             <div class="header-status" id="headerStatus">
                 <span class="status-dot" id="statusDot"></span>
-                <span id="statusText" class="status-text">Verificando...</span>
+                <span id="statusText" class="status-text" data-i18n="status-checking">Verificando...</span>
             </div>
 
             <!-- SELECTOR DE IDIOMA -->
@@ -79,7 +79,7 @@
                     <span class="badge-stars">★★★★★</span>
                     <span class="badge-text" data-i18n="banner-badge">El restaurante favorito de La Massana</span>
                 </div>
-                <p class="home-banner-subtitle">RESTAURANTE EN LA MASSANA · ANDORRA</p>
+                <p class="home-banner-subtitle" data-i18n="banner-subtitle">RESTAURANTE EN LA MASSANA · ANDORRA</p>
                 <h1 class="home-banner-title" data-i18n-html="banner-title">Restaurante familiar<br>en La Massana, Andorra</h1>
                 <p class="home-banner-desc" data-i18n-html="banner-desc">Cocina de mar, brasa y tradición familiar.<br>Más de 12 años haciendo que cada comida sea memorable.</p>
                 <div class="home-banner-actions">
@@ -157,7 +157,7 @@
                 <div class="home-schedule-grid">
 
                     <div class="home-schedule-item">
-                        <p class="schedule-day">Lunes</p>
+                        <p class="schedule-day" data-i18n="day-monday">Lunes</p>
                         <div class="schedule-divider"></div>
                         <div class="schedule-hours">
                             <div class="schedule-slot">
@@ -168,7 +168,7 @@
                     </div>
 
                     <div class="home-schedule-item">
-                        <p class="schedule-day">Martes</p>
+                        <p class="schedule-day" data-i18n="day-tuesday">Martes</p>
                         <div class="schedule-divider"></div>
                         <div class="schedule-hours">
                             <span class="schedule-closed-badge" data-i18n="schedule-closed">Cerrado</span>
@@ -176,7 +176,7 @@
                     </div>
 
                     <div class="home-schedule-item">
-                        <p class="schedule-day">Miércoles · Jueves · Viernes · Sábado</p>
+                        <p class="schedule-day" data-i18n="day-wed-thu-fri-sat">Miércoles · Jueves · Viernes · Sábado</p>
                         <div class="schedule-divider"></div>
                         <div class="schedule-hours">
                             <div class="schedule-slot">
@@ -191,7 +191,7 @@
                     </div>
 
                     <div class="home-schedule-item">
-                        <p class="schedule-day">Domingo</p>
+                        <p class="schedule-day" data-i18n="day-sunday">Domingo</p>
                         <div class="schedule-divider"></div>
                         <div class="schedule-hours">
                             <div class="schedule-slot">
@@ -276,11 +276,11 @@
         <!-- ═══ CTA RESERVA ═══ -->
         <section class="home-reserve-cta">
             <div class="home-reserve-cta-inner">
-                <p class="reserve-cta-eyebrow">¿Listo para vivir la experiencia?</p>
-                <h2 class="reserve-cta-title">Reserva tu mesa ahora</h2>
-                <p class="reserve-cta-desc">Más de 12 años sirviendo cocina tradicional andorrana. Las mesas se llenan rápido — asegura la tuya.</p>
+                <p class="reserve-cta-eyebrow" data-i18n="reserve-eyebrow">¿Listo para vivir la experiencia?</p>
+                <h2 class="reserve-cta-title" data-i18n="reserve-title">Reserva tu mesa ahora</h2>
+                <p class="reserve-cta-desc" data-i18n="reserve-desc">Más de 12 años sirviendo cocina tradicional andorrana. Las mesas se llenan rápido — asegura la tuya.</p>
                 <div class="reserve-cta-actions">
-                    <a href="contacto.html" class="reserve-cta-btn-primary">Reservar mesa</a>
+                    <a href="contacto.html" class="reserve-cta-btn-primary" data-i18n="reserve-btn">Reservar mesa</a>
                     <a href="tel:+376840720" class="reserve-cta-btn-secondary">📞 +376 840 720</a>
                 </div>
             </div>
@@ -303,7 +303,7 @@
                         <h3>📍 <span data-i18n="contact-h3">Ven a vivir una experiencia gastronómica en La Massana</span></h3>
                         <p data-i18n="contact-address">Av. el Través, 21 · AD400 La Massana, Andorra</p>
                         <a href="https://maps.app.goo.gl/KgLBh4SZVhFojGUUA" target="_blank" rel="noopener noreferrer" class="parking-link" title="Parking propio gratuito Cal Silvino">
-                            🅿️ Parking propio gratuito — a 1 min
+                            🅿️ <span data-i18n="parking-link-short">Parking propio gratuito — a 1 min</span>
                         </a>
                         <p><span data-i18n="contact-tel-label">Tel:</span> <a href="tel:+376840720" class="contact-phone-link">+376 840 720</a></p>
                     </div>
@@ -327,21 +327,21 @@
     <!-- ═══ DIRECTIONS ═══ -->
     <section class="directions-section">
         <div class="directions-container">
-            <p class="directions-eyebrow">¿Cómo llegar?</p>
-            <h2>🗺️ Ven a visitarnos</h2>
-            <p class="directions-desc">Disponemos de <strong>parking propio gratuito</strong> a tan solo 1 minuto a pie del restaurante.</p>
+            <p class="directions-eyebrow" data-i18n="directions-eyebrow">¿Cómo llegar?</p>
+            <h2>🗺️ <span data-i18n="directions-title">Ven a visitarnos</span></h2>
+            <p class="directions-desc" data-i18n-html="directions-desc">Disponemos de <strong>parking propio gratuito</strong> a tan solo 1 minuto a pie del restaurante.</p>
             <div class="directions-btns">
                 <a href="https://www.google.com/maps/dir/?api=1&destination=42.5458333,1.5172222&travelmode=driving"
                    target="_blank" rel="noopener noreferrer"
                    class="btn-primary directions-btn"
                    title="Cómo llegar al Restaurante Cal Silvino en La Massana, Andorra">
-                    📍 Llegar al restaurante
+                    📍 <span data-i18n="directions-btn-restaurant">Llegar al restaurante</span>
                 </a>
                 <a href="https://maps.app.goo.gl/KgLBh4SZVhFojGUUA"
                    target="_blank" rel="noopener noreferrer"
                    class="btn-secondary directions-btn"
                    title="Cómo llegar al parking gratuito de La Massana">
-                    🅿️ Llegar al parking
+                    🅿️ <span data-i18n="directions-btn-parking">Llegar al parking</span>
                 </a>
             </div>
         </div>
@@ -359,20 +359,20 @@
         <div class="footer-right">
             <div class="footer-schedule">
                 <div class="schedule-block">
-                    <p><strong>Lunes</strong></p>
+                    <p><strong data-i18n="day-monday">Lunes</strong></p>
                     <p>11.00 - 16.00</p>
                 </div>
                 <div class="schedule-block">
-                    <p><strong>Martes</strong></p>
+                    <p><strong data-i18n="day-tuesday">Martes</strong></p>
                     <p data-i18n="footer-closed">Cerrado</p>
                 </div>
                 <div class="schedule-block">
-                    <p><strong>Miércoles · Jueves · Viernes · Sábado</strong></p>
+                    <p><strong data-i18n="day-wed-thu-fri-sat">Miércoles · Jueves · Viernes · Sábado</strong></p>
                     <p>11.00 - 16.00</p>
                     <p>20.00 - 23.00</p>
                 </div>
                 <div class="schedule-block">
-                    <p><strong>Domingo</strong></p>
+                    <p><strong data-i18n="day-sunday">Domingo</strong></p>
                     <p>11.00 - 16.00</p>
                 </div>
             </div>

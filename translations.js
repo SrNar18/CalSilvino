@@ -136,6 +136,65 @@ const TRANSLATIONS = {
     'pdf-download-btn':  'Descargar',
     'pdf-fallback-p':    'La vista previa no está disponible en móvil.<br>Descarga la carta para verla.',
     'pdf-fallback-link': 'Descargar carta',
+
+    // Banner subtitle
+    'banner-subtitle': 'RESTAURANTE EN LA MASSANA · ANDORRA',
+
+    // Días de la semana
+    'day-monday': 'Lunes',
+    'day-tuesday': 'Martes',
+    'day-wed-thu-fri-sat': 'Miércoles · Jueves · Viernes · Sábado',
+    'day-sunday': 'Domingo',
+
+    // CTA Reserva (home)
+    'reserve-eyebrow': '¿Listo para vivir la experiencia?',
+    'reserve-title': 'Reserva tu mesa ahora',
+    'reserve-desc': 'Más de 12 años sirviendo cocina tradicional andorrana. Las mesas se llenan rápido — asegura la tuya.',
+    'reserve-btn': 'Reservar mesa',
+
+    // Parking link
+    'parking-link-short': 'Parking propio gratuito — a 1 min',
+
+    // Directions
+    'directions-eyebrow': '¿Cómo llegar?',
+    'directions-title': 'Ven a visitarnos',
+    'directions-desc': 'Disponemos de <strong>parking propio gratuito</strong> a tan solo 1 minuto a pie del restaurante.',
+    'directions-btn-restaurant': 'Llegar al restaurante',
+    'directions-btn-parking': 'Llegar al parking',
+
+    // Tags especialidades
+    'spec-tag-sea': 'Mar',
+    'spec-tag-grill': 'Brasa',
+    'spec-tag-tradition': 'Tradición',
+
+    // Link CTA menú
+    'cta-link': 'Ver la carta →',
+
+    // Formulario - turno
+    'form-label-turno': 'Turno',
+    'form-turno-placeholder': 'Selecciona turno',
+    'form-turno-lunch': '🌞 Mediodía',
+    'form-turno-dinner': '🌙 Noche',
+    'form-people-hint-html': 'Para grupos de más de 8 personas, contacta directamente al <a href="tel:+376840720">+376 840 720</a>',
+
+    // Estado en tiempo real
+    'status-checking': 'Verificando...',
+    'status-open': 'Abierto',
+    'status-closed': 'Cerrado',
+    'status-closes-at': 'Cierra a las',
+    'status-opens-at': 'Abre a las',
+    'status-opens-tomorrow-at': 'Abre mañana a las',
+    'status-holiday': 'Festivo',
+
+    // Mensajes formulario
+    'form-sending': '⏳ Enviando...',
+    'form-success-html': '✅ ¡Reserva enviada! Te confirmaremos en menos de 24 horas.<br><small>¿No recibes respuesta? Llámanos al <a href="tel:+376840720" style="color:#16a34a;">+376 840 720</a></small>',
+    'form-error-time': '❌ La hora debe estar entre %min% y %max% para el turno seleccionado.',
+    'form-error-generic': '❌ Error al enviar la reserva.',
+    'form-error-connection': '❌ Error de conexión. Inténtalo de nuevo.',
+
+    // Alerta teléfono
+    'phone-alert': 'Utiliza tu teléfono móvil para llamar 📞\n\nNúmero: +376 840 720',
   },
 
   // ─────────────────── CATALÀ ───────────────────
@@ -252,6 +311,54 @@ const TRANSLATIONS = {
     'pdf-download-btn':  'Descarregar',
     'pdf-fallback-p':    'La previsualització no està disponible al mòbil.<br>Descarrega la carta per veure-la.',
     'pdf-fallback-link': 'Descarregar carta',
+
+    'banner-subtitle': 'RESTAURANT A LA MASSANA · ANDORRA',
+
+    'day-monday': 'Dilluns',
+    'day-tuesday': 'Dimarts',
+    'day-wed-thu-fri-sat': 'Dimecres · Dijous · Divendres · Dissabte',
+    'day-sunday': 'Diumenge',
+
+    'reserve-eyebrow': 'Llest per viure l\'experiència?',
+    'reserve-title': 'Reserva la teva taula ara',
+    'reserve-desc': 'Més de 12 anys servint cuina tradicional andorrana. Les taules s\'omplen ràpid — assegura la teva.',
+    'reserve-btn': 'Reservar taula',
+
+    'parking-link-short': 'Pàrquing propi gratuït — a 1 min',
+
+    'directions-eyebrow': 'Com arribar?',
+    'directions-title': 'Vine a visitar-nos',
+    'directions-desc': 'Disposem de <strong>pàrquing propi gratuït</strong> a tan sols 1 minut a peu del restaurant.',
+    'directions-btn-restaurant': 'Arribar al restaurant',
+    'directions-btn-parking': 'Arribar al pàrquing',
+
+    'spec-tag-sea': 'Mar',
+    'spec-tag-grill': 'Brasa',
+    'spec-tag-tradition': 'Tradició',
+
+    'cta-link': 'Veure la carta →',
+
+    'form-label-turno': 'Torn',
+    'form-turno-placeholder': 'Selecciona torn',
+    'form-turno-lunch': '🌞 Migdia',
+    'form-turno-dinner': '🌙 Nit',
+    'form-people-hint-html': 'Per a grups de més de 8 persones, contacta directament al <a href="tel:+376840720">+376 840 720</a>',
+
+    'status-checking': 'Verificant...',
+    'status-open': 'Obert',
+    'status-closed': 'Tancat',
+    'status-closes-at': 'Tanca a les',
+    'status-opens-at': 'Obre a les',
+    'status-opens-tomorrow-at': 'Obre demà a les',
+    'status-holiday': 'Festiu',
+
+    'form-sending': '⏳ Enviant...',
+    'form-success-html': '✅ Reserva enviada! Et confirmarem en menys de 24 hores.<br><small>No reps resposta? Truca\'ns al <a href="tel:+376840720" style="color:#16a34a;">+376 840 720</a></small>',
+    'form-error-time': '❌ L\'hora ha de ser entre %min% i %max% per al torn seleccionat.',
+    'form-error-generic': '❌ Error en enviar la reserva.',
+    'form-error-connection': '❌ Error de connexió. Torna-ho a intentar.',
+
+    'phone-alert': 'Utilitza el teu telèfon mòbil per trucar 📞\n\nNúmero: +376 840 720',
   },
 
   // ─────────────────── PORTUGUÊS ───────────────────
@@ -368,6 +475,54 @@ const TRANSLATIONS = {
     'pdf-download-btn':  'Descarregar',
     'pdf-fallback-p':    'A pré-visualização não está disponível no telemóvel.<br>Descarregue a carta para a ver.',
     'pdf-fallback-link': 'Descarregar carta',
+
+    'banner-subtitle': 'RESTAURANTE EM LA MASSANA · ANDORRA',
+
+    'day-monday': 'Segunda-feira',
+    'day-tuesday': 'Terça-feira',
+    'day-wed-thu-fri-sat': 'Quarta · Quinta · Sexta · Sábado',
+    'day-sunday': 'Domingo',
+
+    'reserve-eyebrow': 'Pronto para viver a experiência?',
+    'reserve-title': 'Reserve a sua mesa agora',
+    'reserve-desc': 'Mais de 12 anos a servir cozinha tradicional andorrana. As mesas esgotam rápido — garanta a sua.',
+    'reserve-btn': 'Reservar mesa',
+
+    'parking-link-short': 'Estacionamento próprio gratuito — a 1 min',
+
+    'directions-eyebrow': 'Como chegar?',
+    'directions-title': 'Venha visitar-nos',
+    'directions-desc': 'Dispomos de <strong>estacionamento próprio gratuito</strong> a apenas 1 minuto a pé do restaurante.',
+    'directions-btn-restaurant': 'Chegar ao restaurante',
+    'directions-btn-parking': 'Chegar ao estacionamento',
+
+    'spec-tag-sea': 'Mar',
+    'spec-tag-grill': 'Brasa',
+    'spec-tag-tradition': 'Tradição',
+
+    'cta-link': 'Ver a carta →',
+
+    'form-label-turno': 'Turno',
+    'form-turno-placeholder': 'Selecione turno',
+    'form-turno-lunch': '🌞 Almoço',
+    'form-turno-dinner': '🌙 Jantar',
+    'form-people-hint-html': 'Para grupos de mais de 8 pessoas, contacte diretamente o <a href="tel:+376840720">+376 840 720</a>',
+
+    'status-checking': 'A verificar...',
+    'status-open': 'Aberto',
+    'status-closed': 'Fechado',
+    'status-closes-at': 'Fecha às',
+    'status-opens-at': 'Abre às',
+    'status-opens-tomorrow-at': 'Abre amanhã às',
+    'status-holiday': 'Feriado',
+
+    'form-sending': '⏳ A enviar...',
+    'form-success-html': '✅ Reserva enviada! Confirmamos em menos de 24 horas.<br><small>Não recebe resposta? Ligue-nos para o <a href="tel:+376840720" style="color:#16a34a;">+376 840 720</a></small>',
+    'form-error-time': '❌ A hora deve estar entre %min% e %max% para o turno selecionado.',
+    'form-error-generic': '❌ Erro ao enviar a reserva.',
+    'form-error-connection': '❌ Erro de ligação. Tente novamente.',
+
+    'phone-alert': 'Use o seu telemóvel para ligar 📞\n\nNúmero: +376 840 720',
   },
 
   // ─────────────────── ENGLISH ───────────────────
@@ -484,6 +639,54 @@ const TRANSLATIONS = {
     'pdf-download-btn':  'Download',
     'pdf-fallback-p':    'Preview is not available on mobile.<br>Download the menu to view it.',
     'pdf-fallback-link': 'Download menu',
+
+    'banner-subtitle': 'RESTAURANT IN LA MASSANA · ANDORRA',
+
+    'day-monday': 'Monday',
+    'day-tuesday': 'Tuesday',
+    'day-wed-thu-fri-sat': 'Wednesday · Thursday · Friday · Saturday',
+    'day-sunday': 'Sunday',
+
+    'reserve-eyebrow': 'Ready to enjoy the experience?',
+    'reserve-title': 'Book your table now',
+    'reserve-desc': 'Over 12 years serving traditional Andorran cuisine. Tables fill up fast — secure yours.',
+    'reserve-btn': 'Book a table',
+
+    'parking-link-short': 'Free private parking — 1 min walk',
+
+    'directions-eyebrow': 'How to get here?',
+    'directions-title': 'Come visit us',
+    'directions-desc': 'We have <strong>free private parking</strong> just 1 minute walk from the restaurant.',
+    'directions-btn-restaurant': 'Get to the restaurant',
+    'directions-btn-parking': 'Get to the parking',
+
+    'spec-tag-sea': 'Sea',
+    'spec-tag-grill': 'Grill',
+    'spec-tag-tradition': 'Tradition',
+
+    'cta-link': 'View the menu →',
+
+    'form-label-turno': 'Service',
+    'form-turno-placeholder': 'Select service',
+    'form-turno-lunch': '🌞 Lunch',
+    'form-turno-dinner': '🌙 Dinner',
+    'form-people-hint-html': 'For groups larger than 8, please contact us directly at <a href="tel:+376840720">+376 840 720</a>',
+
+    'status-checking': 'Checking...',
+    'status-open': 'Open',
+    'status-closed': 'Closed',
+    'status-closes-at': 'Closes at',
+    'status-opens-at': 'Opens at',
+    'status-opens-tomorrow-at': 'Opens tomorrow at',
+    'status-holiday': 'Holiday',
+
+    'form-sending': '⏳ Sending...',
+    'form-success-html': '✅ Booking sent! We\'ll confirm within 24 hours.<br><small>No reply? Call us at <a href="tel:+376840720" style="color:#16a34a;">+376 840 720</a></small>',
+    'form-error-time': '❌ The time must be between %min% and %max% for the selected service.',
+    'form-error-generic': '❌ Error sending the booking.',
+    'form-error-connection': '❌ Connection error. Please try again.',
+
+    'phone-alert': 'Use your mobile phone to call 📞\n\nNumber: +376 840 720',
   },
 };
 
