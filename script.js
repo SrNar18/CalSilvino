@@ -301,44 +301,12 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        if (text === "contacto") {
-            link.addEventListener("click", () => {
-                closeNav();
-                window.location.href = "contacto.html";
-            });
-        }
-
         if (link.classList.contains("nav-reservar-mobile")) {
             link.addEventListener("click", () => {
                 closeNav();
-                window.location.href = "contacto.html";
             });
         }
     });
-
-    // BOTÓN NAV (Reservar) — versión desktop
-    const navBtn = document.querySelector(".nav-btn");
-    if (navBtn) {
-        navBtn.addEventListener("click", () => {
-            window.location.href = "contacto.html";
-        });
-    }
-
-    // BOTÓN VER MENÚ (now an anchor, kept for backwards compat)
-    const menuBtn = document.querySelector(".home-menu-button");
-    if (menuBtn && menuBtn.tagName === "BUTTON") {
-        menuBtn.addEventListener("click", () => {
-            window.location.href = "menu.html";
-        });
-    }
-
-    // BOTÓN CTA RESERVA (menú) — now an anchor, kept for backwards compat
-    const ctaBtn = document.querySelector(".menu-cta-btn");
-    if (ctaBtn && ctaBtn.tagName === "BUTTON") {
-        ctaBtn.addEventListener("click", () => {
-            window.location.href = "contacto.html";
-        });
-    }
 
     // LOGO → index
     const logo = document.querySelector(".logo");
@@ -346,143 +314,6 @@ document.addEventListener("DOMContentLoaded", () => {
         logo.addEventListener("click", () => {
             window.location.href = "index.html";
         });
-    }
-
-    // FECHA — bloquear fechas pasadas
-    const fechaInput = document.getElementById('fechaInput');
-    if (fechaInput) {
-        const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Europe/Andorra' });
-        fechaInput.min = today;
-        fechaInput.addEventListener('change', function () {
-            if (this.value < today) {
-                this.value = today;
-            }
-        });
-    }
-
-    // FORMULARIO DE RESERVA — selector de turno
-    const turnoSelect = document.getElementById('turnoSelect');
-    const horaGroup   = document.getElementById('horaGroup');
-    const horaInput   = document.getElementById('horaInput');
-    const horaHint    = document.getElementById('horaHint');
-
-    const TURNO_CONFIG = {
-        mediodia: { min: '11:00', max: '16:00', label: 'Horario mediodía: 11:00–16:00' },
-        noche:    { min: '20:00', max: '23:00', label: 'Horario noche: 20:00–23:00' },
-    };
-
-    if (turnoSelect) {
-        turnoSelect.addEventListener('change', function () {
-            const cfg = TURNO_CONFIG[this.value];
-            if (cfg) {
-                horaGroup.style.display = 'block';
-                horaInput.min     = cfg.min;
-                horaInput.max     = cfg.max;
-                horaInput.value   = '';
-                horaInput.required = true;
-                horaHint.textContent = cfg.label;
-            } else {
-                horaGroup.style.display = 'none';
-                horaInput.required = false;
-            }
-        });
-    }
-
-    // Validación de personas > 8
-    const personasInput = document.getElementById('personasInput');
-    const personasHint  = document.getElementById('personasHint');
-    if (personasInput && personasHint) {
-        personasInput.addEventListener('input', function () {
-            personasHint.style.display = Number(this.value) > 8 ? 'block' : 'none';
-        });
-        personasHint.style.display = 'none';
-    }
-
-    // FORMULARIO DE RESERVA
-    const form = document.getElementById("reservaForm");
-    if (form) {
-        form.addEventListener("submit", async function(e) {
-            e.preventDefault();
-
-            const btn      = form.querySelector('button[type="submit"]');
-            const msgEl    = document.getElementById("reservaMsg");
-            const original = btn ? btn.textContent : '';
-
-            const lang = localStorage.getItem('calsilvinoLang') || 'es';
-            const tr = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[lang]) ? TRANSLATIONS[lang] : {};
-
-            // Validar hora dentro del rango del turno
-            if (horaInput && horaInput.value) {
-                const turno = turnoSelect ? turnoSelect.value : '';
-                const cfg   = TURNO_CONFIG[turno];
-                if (cfg && (horaInput.value < cfg.min || horaInput.value > cfg.max)) {
-                    if (msgEl) {
-                        msgEl.textContent = (tr['form-error-time'] || '❌ La hora debe estar entre %min% y %max% para el turno seleccionado.').replace('%min%', cfg.min).replace('%max%', cfg.max);
-                        msgEl.className   = 'reserva-msg error';
-                    }
-                    return;
-                }
-            }
-
-            if (btn) { btn.disabled = true; btn.textContent = tr['form-sending'] || '⏳ Enviando...'; }
-
-            const turnoLabel = turnoSelect && turnoSelect.value === 'noche' ? 'Noche' : 'Mediodía';
-
-            try {
-                const mensajeInput = form.querySelector('textarea[name="mensaje"]');
-                const res  = await fetch('/.netlify/functions/submit-reserva', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        nombre:   this.nombre.value.trim(),
-                        telefono: this.telefono.value.trim(),
-                        email:    this.email.value.trim(),
-                        personas: this.personas.value,
-                        fecha:    this.fecha.value,
-                        turno:    turnoLabel,
-                        hora:     horaInput ? horaInput.value : '',
-                        mensaje:  mensajeInput ? mensajeInput.value.trim() : '',
-                        lang:     lang,
-                    }),
-                });
-
-                let data;
-                try {
-                    data = await res.json();
-                } catch {
-                    data = {};
-                }
-
-                if (res.ok && data.success) {
-                    if (msgEl) {
-                        msgEl.innerHTML = tr['form-success-html'] || '✅ ¡Reserva enviada! Te confirmaremos en menos de 24 horas.<br><small>¿No recibes respuesta? Llámanos al <a href="tel:+376840720" style="color:#16a34a;">+376 840 720</a></small>';
-                        msgEl.className = 'reserva-msg success';
-                    }
-                    form.reset();
-                    horaGroup.style.display = 'none';
-                    if (personasHint) personasHint.style.display = 'none';
-                } else {
-                    if (msgEl) {
-                        msgEl.textContent = data.error ? ('❌ ' + data.error) : (tr['form-error-generic'] || '❌ Error al enviar la reserva.');
-                        msgEl.className   = 'reserva-msg error';
-                    }
-                }
-            } catch {
-                if (msgEl) {
-                    msgEl.textContent = tr['form-error-connection'] || '❌ Error de conexión. Inténtalo de nuevo.';
-                    msgEl.className   = 'reserva-msg error';
-                }
-            } finally {
-                if (btn) { btn.disabled = false; btn.textContent = original; }
-            }
-        });
-    }
-
-    // LEGAL CHECKBOX — prevent unchecking
-    const legalCheck = document.getElementById('legalCheck');
-    if (legalCheck) {
-        legalCheck.addEventListener('click', e => e.preventDefault());
-        legalCheck.addEventListener('change', e => { legalCheck.checked = true; });
     }
 
     // CARRUSEL HOME (manual con botones)
@@ -538,15 +369,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 const tr = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[lang]) ? TRANSLATIONS[lang] : {};
                 alert(tr['phone-alert'] || 'Utiliza tu teléfono móvil para llamar 📞\n\nNúmero: +376 840 720');
             }
-        });
-    }
-
-    // ── AUTO-GROW TEXTAREA ──
-    const textarea = document.getElementById('mensajeTextarea');
-    if (textarea) {
-        textarea.addEventListener('input', function () {
-            this.style.height = 'auto';
-            this.style.height = this.scrollHeight + 'px';
         });
     }
 

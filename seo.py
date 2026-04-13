@@ -6,7 +6,7 @@ Genera / actualiza:
   1. sitemap.xml
   2. robots.txt
   3. JSON-LD (Schema.org Restaurant) inyectado en cada página HTML
-  4. JSON-LD (Schema.org FAQPage) inyectado en index.html y contacto.html
+  4. JSON-LD (Schema.org FAQPage) inyectado en index.html
   5. Informe de auditoría SEO (seo_report.txt)
 """
 
@@ -18,7 +18,7 @@ from html.parser import HTMLParser
 # ─── CONFIGURACIÓN ────────────────────────────────────────────────────────────
 BASE_URL    = "https://restaurantcalsilvino.com"
 SITE_DIR    = os.path.dirname(os.path.abspath(__file__))
-HTML_FILES  = ["index.html", "menu.html", "contacto.html"]
+HTML_FILES  = ["index.html", "menu.html"]
 
 RESTAURANT_SCHEMA = {
     "@context": "https://schema.org",
@@ -95,7 +95,7 @@ FAQ_SCHEMA = {
             "name": "¿Cómo puedo reservar mesa en Cal Silvino?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Puedes reservar mesa a través del formulario online en nuestra web (restaurantcalsilvino.com/contacto.html) o llamando directamente al +376 840 720. Te confirmamos la reserva en menos de 24 horas."
+                "text": "Puedes reservar mesa escribiéndonos por WhatsApp al +376 840 720 o llamando directamente. Respuesta rápida y directa."
             }
         },
         {
@@ -142,13 +142,12 @@ FAQ_SCHEMA = {
 }
 
 # Páginas donde se inyecta el FAQ schema
-FAQ_PAGES = ["index.html", "contacto.html"]
+FAQ_PAGES = ["index.html"]
 
 # Prioridades y frecuencias de cambio por página
 PAGE_META = {
     "index.html":    {"priority": "1.0", "changefreq": "weekly"},
     "menu.html":     {"priority": "0.9", "changefreq": "monthly"},
-    "contacto.html": {"priority": "0.8", "changefreq": "monthly"},
 }
 
 # ─── UTILIDADES ───────────────────────────────────────────────────────────────
@@ -405,8 +404,8 @@ def audit_seo():
         "  Archivos generados/actualizados:",
         "  • sitemap.xml",
         "  • robots.txt",
-        "  • JSON-LD Restaurant inyectado en index.html, menu.html, contacto.html",
-        "  • JSON-LD FAQPage inyectado en index.html, contacto.html",
+        "  • JSON-LD Restaurant inyectado en index.html, menu.html",
+        "  • JSON-LD FAQPage inyectado en index.html",
         "=" * 60,
     ]
 
