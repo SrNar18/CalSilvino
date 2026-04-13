@@ -19,9 +19,26 @@ export default async (req) => {
         return Response.json({ error: 'Faltan campos obligatorios' }, { status: 400 });
     }
 
+    // Verificar variables de entorno
+    if (!process.env.FIREBASE_SERVICE_ACCOUNT) {
+        console.error('submit-reserva: FIREBASE_SERVICE_ACCOUNT no configurada');
+        return Response.json({ error: 'Error de configuración del servidor (FB)' }, { status: 500 });
+    }
+    if (!process.env.GMAIL_USER || !process.env.GMAIL_PASS) {
+        console.error('submit-reserva: GMAIL_USER o GMAIL_PASS no configuradas');
+        return Response.json({ error: 'Error de configuración del servidor (MAIL)' }, { status: 500 });
+    }
+
+    let db, docRef;
     try {
-        const db = initFirebase();
-        const docRef = await db.collection('reservaciones').add({
+        db = initFirebase();
+    } catch (err) {
+        console.error('submit-reserva Firebase init error:', err);
+        return Response.json({ error: 'Error al conectar con la base de datos' }, { status: 500 });
+    }
+
+    try {
+        docRef = await db.collection('reservaciones').add({
             nombre,
             telefono,
             email,
@@ -33,11 +50,18 @@ export default async (req) => {
             estado: 'pendiente',
             creadoEn: new Date().toISOString(),
         });
+    } catch (err) {
+        console.error('submit-reserva Firestore error:', err);
+        return Response.json({ error: 'Error al guardar la reserva' }, { status: 500 });
+    }
 
+    try {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: { user: process.env.GMAIL_USER, pass: process.env.GMAIL_PASS },
         });
+
+        const safeMensaje = (mensaje || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
         await transporter.sendMail({
             from: `"Cal Silvino" <${process.env.GMAIL_USER}>`,
@@ -64,7 +88,7 @@ export default async (req) => {
             <tr><td style="padding:4px 0;color:#fff;font-size:14px;">📅 <strong>Fecha:</strong> ${fecha}</td></tr>
             <tr><td style="padding:4px 0;color:#fff;font-size:14px;">🌐 <strong>Turno:</strong> ${turno}${hora ? ` · ${hora}` : ''}</td></tr>
             <tr><td style="padding:4px 0;color:#fff;font-size:14px;">👥 <strong>Personas:</strong> ${personas}</td></tr>
-            ${mensaje ? `<tr><td style="padding:4px 0;color:#fff;font-size:14px;">💬 <strong>Comentarios:</strong> ${mensaje}</td></tr>` : ''}
+            ${safeMensaje ? `<tr><td style="padding:4px 0;color:#fff;font-size:14px;">💬 <strong>Comentarios:</strong> ${safeMensaje}</td></tr>` : ''}
           </table>
           <p style="color:rgba(255,255,255,0.8);font-size:14px;margin:0 0 8px;">Te confirmaremos en <strong>menos de 24 horas</strong>.</p>
           <p style="color:rgba(255,255,255,0.45);font-size:13px;">¿No recibes respuesta? Llámanos al <a href="tel:+376840720" style="color:#c50101;text-decoration:none;">+376 840 720</a></p>
@@ -78,10 +102,10 @@ export default async (req) => {
 </body>
 </html>`,
         });
-
-        return Response.json({ success: true, id: docRef.id });
     } catch (err) {
-        console.error('submit-reserva error:', err);
-        return Response.json({ error: 'Error al procesar la reserva' }, { status: 500 });
+        console.error('submit-reserva email error:', err);
+        // La reserva ya se guardó en Firestore, no fallar por el email
     }
+
+    return Response.json({ success: true, id: docRef.id });
 };
