@@ -308,11 +308,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+<<<<<<< HEAD
     // BOTÓN VER MENÚ (now an anchor, kept for backwards compat)
     const menuBtn = document.querySelector(".home-menu-button");
     if (menuBtn && menuBtn.tagName === "BUTTON") {
         menuBtn.addEventListener("click", () => {
             window.location.href = "menu.html";
+=======
+    // BOTÓN NAV (Reservar) — versión desktop
+    const navBtn = document.querySelector(".nav-btn");
+    if (navBtn) {
+        navBtn.addEventListener("click", () => {
+            window.location.href = "contacto.html";
+>>>>>>> 650c1f2b3539f4938e4a26fd21c8329ad3d9d4dc
         });
     }
 
