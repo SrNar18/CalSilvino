@@ -157,206 +157,7 @@
             color: rgba(255,255,255,0.55);
         }
 
-        /* TABS */
-        .tabs {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 28px;
-            background: rgba(255,255,255,0.04);
-            border-radius: 12px;
-            padding: 4px;
-        }
-        .tab-btn {
-            flex: 1;
-            padding: 10px;
-            background: none;
-            border: none;
-            border-radius: 9px;
-            color: rgba(255,255,255,0.45);
-            font-family: 'Poppins', sans-serif;
-            font-size: 13px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .tab-btn.active {
-            background: #c50101;
-            color: #fff;
-        }
-        .tab-btn:hover:not(.active) { color: rgba(255,255,255,0.75); }
 
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-
-        /* RESERVAS */
-        .reservas-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .reservas-header h2 { margin: 0; }
-
-        .filter-btns {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-        .filter-btn {
-            padding: 5px 12px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.15);
-            background: none;
-            color: rgba(255,255,255,0.5);
-            font-family: 'Poppins', sans-serif;
-            font-size: 12px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .filter-btn.active, .filter-btn:hover {
-            border-color: #c50101;
-            color: #fff;
-            background: rgba(197,1,1,0.15);
-        }
-
-        .reservas-list { display: flex; flex-direction: column; gap: 12px; }
-
-        .reserva-card {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 14px;
-            padding: 18px 20px;
-            transition: border-color 0.2s;
-        }
-        .reserva-card:hover { border-color: rgba(255,255,255,0.15); }
-        .reserva-card.pendiente { border-left: 3px solid #f59e0b; }
-        .reserva-card.aceptada  { border-left: 3px solid #22c55e; }
-        .reserva-card.rechazada { border-left: 3px solid #ef4444; }
-
-        .reserva-top {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        .reserva-nombre {
-            font-size: 15px;
-            font-weight: 600;
-            color: #fff;
-            margin: 0 0 4px;
-        }
-        .reserva-meta {
-            font-size: 13px;
-            color: rgba(255,255,255,0.5);
-            margin: 0;
-        }
-
-        .estado-badge {
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
-        }
-        .estado-badge.pendiente { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
-        .estado-badge.aceptada  { background: rgba(34,197,94,0.12);  color: #4ade80; border: 1px solid rgba(34,197,94,0.25); }
-        .estado-badge.rechazada { background: rgba(239,68,68,0.12);  color: #f87171; border: 1px solid rgba(239,68,68,0.25); }
-
-        .reserva-details {
-            display: flex;
-            gap: 16px;
-            margin: 12px 0 0;
-            flex-wrap: wrap;
-        }
-        .reserva-detail {
-            font-size: 13px;
-            color: rgba(255,255,255,0.6);
-        }
-        .reserva-detail strong { color: #fff; }
-
-        .reserva-actions {
-            display: flex;
-            gap: 8px;
-            margin-top: 14px;
-        }
-        .btn-aceptar, .btn-rechazar {
-            padding: 7px 16px;
-            border-radius: 20px;
-            border: none;
-            font-family: 'Poppins', sans-serif;
-            font-size: 13px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .btn-aceptar {
-            background: rgba(34,197,94,0.15);
-            color: #4ade80;
-            border: 1px solid rgba(34,197,94,0.3);
-        }
-        .btn-aceptar:hover:not(:disabled) {
-            background: rgba(34,197,94,0.25);
-        }
-        .btn-rechazar {
-            background: rgba(239,68,68,0.12);
-            color: #f87171;
-            border: 1px solid rgba(239,68,68,0.25);
-        }
-        .btn-rechazar:hover:not(:disabled) {
-            background: rgba(239,68,68,0.22);
-        }
-        .btn-aceptar:disabled, .btn-rechazar:disabled, .btn-eliminar:disabled { opacity: 0.4; cursor: not-allowed; }
-
-        .btn-eliminar {
-            padding: 7px 16px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
-            background: none;
-            color: rgba(255,255,255,0.35);
-            font-family: 'Poppins', sans-serif;
-            font-size: 13px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-            margin-left: auto;
-        }
-        .btn-eliminar:hover:not(:disabled) {
-            border-color: rgba(239,68,68,0.4);
-            color: #f87171;
-            background: rgba(239,68,68,0.08);
-        }
-
-        .reservas-empty {
-            text-align: center;
-            color: rgba(255,255,255,0.3);
-            font-size: 14px;
-            padding: 40px 0;
-        }
-
-        .reservas-loading {
-            text-align: center;
-            color: rgba(255,255,255,0.4);
-            font-size: 14px;
-            padding: 30px 0;
-        }
-
-        .refresh-btn {
-            background: none;
-            border: 1px solid rgba(255,255,255,0.15);
-            color: rgba(255,255,255,0.5);
-            border-radius: 8px;
-            padding: 6px 12px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 12px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .refresh-btn:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
     </style>
 </head>
 <body>
@@ -387,33 +188,8 @@
     <!-- PANEL PRINCIPAL -->
     <div id="panelSection">
 
-        <!-- TABS -->
-        <div class="tabs">
-            <button class="tab-btn active" data-tab="reservas">📋 Reservas</button>
-            <button class="tab-btn" data-tab="carta">📄 Carta</button>
-        </div>
-
-        <!-- TAB: RESERVAS -->
-        <div class="tab-content active" id="tab-reservas">
-            <div class="reservas-header">
-                <h2>Reservas</h2>
-                <button class="refresh-btn" id="refreshBtn">↺ Actualizar</button>
-            </div>
-
-            <div class="filter-btns" id="filterBtns">
-                <button class="filter-btn active" data-filter="todas">Todas</button>
-                <button class="filter-btn" data-filter="pendiente">Pendientes</button>
-                <button class="filter-btn" data-filter="aceptada">Aceptadas</button>
-                <button class="filter-btn" data-filter="rechazada">Rechazadas</button>
-            </div>
-
-            <div id="reservasList" class="reservas-list" style="margin-top:16px;">
-                <div class="reservas-loading">Cargando reservas...</div>
-            </div>
-        </div>
-
-        <!-- TAB: CARTA -->
-        <div class="tab-content" id="tab-carta">
+        <!-- CARTA -->
+        <div>
             <h2>Actualizar carta</h2>
 
             <div class="current-status" id="statusInfo">
@@ -458,9 +234,6 @@
     const logoutBtn     = document.getElementById('logoutBtn');
     const adminCard     = document.getElementById('adminCard');
 
-    let allReservas  = [];
-    let activeFilter = 'todas';
-
     function showMsg(el, text, type) {
         el.textContent = text;
         el.className   = 'message ' + type;
@@ -474,32 +247,9 @@
 
     if (sessionStorage.getItem(TOKEN_KEY)) {
         setSection('panel');
-        loadReservas();
     } else {
         setSection('login');
     }
-
-    // ── TABS ──
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            btn.classList.add('active');
-            document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
-        });
-    });
-
-    // ── FILTROS ──
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            activeFilter = btn.dataset.filter;
-            renderReservas();
-        });
-    });
-
-    document.getElementById('refreshBtn').addEventListener('click', loadReservas);
 
     // ── LOGIN ──
     loginForm.addEventListener('submit', async (e) => {
@@ -522,7 +272,6 @@
             if (res.ok && data.token) {
                 sessionStorage.setItem(TOKEN_KEY, data.token);
                 setSection('panel');
-                loadReservas();
             } else {
                 showMsg(loginMsg, data.error || 'Error al iniciar sesión', 'error');
             }
@@ -533,145 +282,6 @@
             loginBtn.textContent = 'Entrar';
         }
     });
-
-    // ── CARGAR RESERVAS ──
-    async function loadReservas() {
-        const token = sessionStorage.getItem(TOKEN_KEY);
-        const list  = document.getElementById('reservasList');
-        list.innerHTML = '<div class="reservas-loading">Cargando reservas...</div>';
-
-        try {
-            const res  = await fetch('/.netlify/functions/get-reservas', {
-                headers: { 'Authorization': 'Bearer ' + token }
-            });
-            if (res.status === 401) {
-                sessionStorage.removeItem(TOKEN_KEY);
-                setSection('login');
-                return;
-            }
-            const data = await res.json();
-            allReservas = data.reservas || [];
-            renderReservas();
-        } catch {
-            list.innerHTML = '<div class="reservas-empty">Error al cargar reservas.</div>';
-        }
-    }
-
-    // ── RENDERIZAR RESERVAS ──
-    function renderReservas() {
-        const list = document.getElementById('reservasList');
-        const filtered = activeFilter === 'todas'
-            ? allReservas
-            : allReservas.filter(r => r.estado === activeFilter);
-
-        if (filtered.length === 0) {
-            list.innerHTML = '<div class="reservas-empty">No hay reservas' + (activeFilter !== 'todas' ? ' en este estado' : '') + '.</div>';
-            return;
-        }
-
-        list.innerHTML = filtered.map(r => `
-            <div class="reserva-card ${r.estado}" data-id="${r.id}">
-                <div class="reserva-top">
-                    <div>
-                        <p class="reserva-nombre">${escHtml(r.nombre)}</p>
-                        <p class="reserva-meta">${escHtml(r.email)} · ${escHtml(r.telefono)}</p>
-                    </div>
-                    <span class="estado-badge ${r.estado}">${estadoLabel(r.estado)}</span>
-                </div>
-                <div class="reserva-details">
-                    <span class="reserva-detail">📅 <strong>${escHtml(r.fecha)}</strong></span>
-                    <span class="reserva-detail">🌐 <strong>${escHtml(r.turno || '')}${r.hora ? ` · ${escHtml(r.hora)}` : ''}</strong></span>
-                    <span class="reserva-detail">👥 <strong>${r.personas} persona${r.personas !== 1 ? 's' : ''}</strong></span>
-                </div>
-                <div class="reserva-actions">
-                    ${r.estado === 'pendiente' ? `
-                    <button class="btn-aceptar" onclick="handleDecision('${r.id}', 'aceptada', this)">✓ Aceptar</button>
-                    <button class="btn-rechazar" onclick="handleDecision('${r.id}', 'rechazada', this)">✗ Rechazar</button>
-                    ` : ''}
-                    <button class="btn-eliminar" onclick="handleDelete('${r.id}', this)">🗑 Eliminar</button>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    function estadoLabel(estado) {
-        return { pendiente: '⏳ Pendiente', aceptada: '✅ Aceptada', rechazada: '❌ Rechazada' }[estado] || estado;
-    }
-
-    function escHtml(str) {
-        return String(str ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-    }
-
-    // ── ACEPTAR / RECHAZAR ──
-    window.handleDecision = async function(id, estado, btnEl) {
-        const token = sessionStorage.getItem(TOKEN_KEY);
-        const card  = btnEl.closest('.reserva-card');
-        const btns  = card.querySelectorAll('button');
-        btns.forEach(b => b.disabled = true);
-        btnEl.textContent = 'Enviando...';
-
-        try {
-            const res  = await fetch('/.netlify/functions/update-reserva', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + token,
-                },
-                body: JSON.stringify({ id, estado }),
-            });
-            const data = await res.json();
-
-            if (res.ok && data.success) {
-                const r = allReservas.find(r => r.id === id);
-                if (r) r.estado = estado;
-                renderReservas();
-            } else {
-                btns.forEach(b => b.disabled = false);
-                btnEl.textContent = estado === 'aceptada' ? '✓ Aceptar' : '✗ Rechazar';
-                alert(data.error || 'Error al actualizar la reserva.');
-            }
-        } catch {
-            btns.forEach(b => b.disabled = false);
-            btnEl.textContent = estado === 'aceptada' ? '✓ Aceptar' : '✗ Rechazar';
-            alert('Error de conexión.');
-        }
-    };
-
-    // ── ELIMINAR RESERVA ──
-    window.handleDelete = async function(id, btnEl) {
-        if (!confirm('¿Seguro que quieres eliminar esta reserva? Esta acción no se puede deshacer.')) return;
-
-        const token = sessionStorage.getItem(TOKEN_KEY);
-        const card  = btnEl.closest('.reserva-card');
-        const btns  = card.querySelectorAll('button');
-        btns.forEach(b => b.disabled = true);
-        btnEl.textContent = 'Eliminando...';
-
-        try {
-            const res  = await fetch('/.netlify/functions/delete-reserva', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + token,
-                },
-                body: JSON.stringify({ id }),
-            });
-            const data = await res.json();
-
-            if (res.ok && data.success) {
-                allReservas = allReservas.filter(r => r.id !== id);
-                renderReservas();
-            } else {
-                btns.forEach(b => b.disabled = false);
-                btnEl.textContent = '🗑 Eliminar';
-                alert(data.error || 'Error al eliminar la reserva.');
-            }
-        } catch {
-            btns.forEach(b => b.disabled = false);
-            btnEl.textContent = '🗑 Eliminar';
-            alert('Error de conexión.');
-        }
-    };
 
     // ── SUBIR PDF ──
     uploadForm.addEventListener('submit', async (e) => {
@@ -728,7 +338,6 @@
     // ── CERRAR SESIÓN ──
     logoutBtn.addEventListener('click', () => {
         sessionStorage.removeItem(TOKEN_KEY);
-        allReservas = [];
         setSection('login');
     });
 })();

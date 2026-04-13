@@ -10,13 +10,13 @@ const TRANSLATIONS = {
     // Navegación
     'nav-inicio':   'Inicio',
     'nav-menu':     'Cartas',
-    'nav-reservar': 'Reservar',
+    'nav-reservar': 'WhatsApp',
 
     // Hero
     'banner-badge':     'El restaurante favorito de La Massana',
     'banner-title':     'Restaurante familiar<br>en La Massana, Andorra',
     'banner-desc':      'Cocina de mar, brasa y tradición familiar.<br>Más de 12 años haciendo que cada comida sea memorable.',
-    'banner-btn':       'Reservar mesa',
+    'banner-btn':       'Pide tu mesa por WhatsApp',
     'banner-secondary': 'Ver nuestra carta →',
 
     // Trust bar
@@ -107,30 +107,9 @@ const TRANSLATIONS = {
 
     // CTA menú
     'cta-eyebrow': '¿Todo listo?',
-    'cta-h2':      'Reserva tu mesa',
+    'cta-h2':      'Escríbenos por WhatsApp',
     'cta-text':    'Ven a disfrutar de nuestra cocina tradicional en un ambiente cálido y familiar. Te esperamos en La Massana.',
-    'cta-btn':     'Reservar',
-
-    // Formulario reserva
-    'form-h2':                  'Reserva tu mesa',
-    'form-subtitle':            'Rellena el formulario y te confirmamos la reserva en breve',
-    'form-label-name':          'Nombre y apellidos',
-    'form-ph-name':             'Tu nombre',
-    'form-label-phone':         'Móvil',
-    'form-ph-phone':            '+376 000 000',
-    'form-label-email':         'Correo electrónico',
-    'form-label-email-optional':'(opcional)',
-    'form-ph-email':            'correo@ejemplo.com',
-    'form-label-people':        'Cantidad de personas',
-    'form-ph-people':           '2',
-    'form-label-date':          'Fecha',
-    'form-label-time':          'Hora',
-    'form-submit':              'Reservar',
-    'form-legal':               'Los datos que nos facilitas serán utilizados exclusivamente para gestionar tu reserva. No los compartiremos ni usaremos para ningún otro fin.',
-
-    // Contacto page
-    'contact-schedule-h2': 'Horario',
-    'contact-map-h2':      'Ubicación',
+    'cta-btn':     'Háblanos por WhatsApp',
 
     // Modal PDF
     'pdf-download-btn':  'Descargar',
@@ -146,11 +125,11 @@ const TRANSLATIONS = {
     'day-wed-thu-fri-sat': 'Miércoles · Jueves · Viernes · Sábado',
     'day-sunday': 'Domingo',
 
-    // CTA Reserva (home)
+    // CTA WhatsApp (home)
     'reserve-eyebrow': '¿Listo para vivir la experiencia?',
-    'reserve-title': 'Reserva tu mesa ahora',
-    'reserve-desc': 'Más de 12 años sirviendo cocina tradicional andorrana. Las mesas se llenan rápido — asegura la tuya.',
-    'reserve-btn': 'Reservar mesa',
+    'reserve-title': 'Escríbenos por WhatsApp',
+    'reserve-desc': 'Más de 12 años sirviendo cocina tradicional andorrana. Respuesta rápida y directa — te confirmamos al momento.',
+    'reserve-btn': 'Háblanos por WhatsApp',
 
     // Parking link
     'parking-link-short': 'Parking propio gratuito — a 1 min',
@@ -170,15 +149,6 @@ const TRANSLATIONS = {
     // Link CTA menú
     'cta-link': 'Ver la carta →',
 
-    // Formulario - turno
-    'form-label-turno': 'Turno',
-    'form-turno-placeholder': 'Selecciona turno',
-    'form-turno-lunch': '🌞 Mediodía',
-    'form-turno-dinner': '🌙 Noche',
-    'form-people-hint-html': 'Para grupos de más de 8 personas, contacta directamente al <a href="tel:+376840720">+376 840 720</a>',
-    'form-label-message': 'Comentarios',
-    'form-ph-message': 'Alergias, silla de ruedas, celebración especial...',
-
     // Estado en tiempo real
     'status-checking': 'Verificando...',
     'status-open': 'Abierto',
@@ -187,13 +157,6 @@ const TRANSLATIONS = {
     'status-opens-at': 'Abre a las',
     'status-opens-tomorrow-at': 'Abre mañana a las',
     'status-holiday': 'Festivo',
-
-    // Mensajes formulario
-    'form-sending': '⏳ Enviando...',
-    'form-success-html': '✅ ¡Reserva enviada! Te confirmaremos en menos de 24 horas.<br><small>¿No recibes respuesta? Llámanos al <a href="tel:+376840720" style="color:#16a34a;">+376 840 720</a></small>',
-    'form-error-time': '❌ La hora debe estar entre %min% y %max% para el turno seleccionado.',
-    'form-error-generic': '❌ Error al enviar la reserva.',
-    'form-error-connection': '❌ Error de conexión. Inténtalo de nuevo.',
 
     // Reseñas
     'review-1': '"Sin duda, una de las mejores experiencias culinarias que he tenido en mucho tiempo. Nos gustó tanto que tuvimos que repetir y eso que el primer dia no pudimos comer porque estaba lleno. Recomiendo encarecidamente el menú de buey aunque todo estaba muy bueno. En cuanto a la atención, solo puedo decir que fue formidable. Sin duda, volveremos."',
@@ -208,12 +171,12 @@ const TRANSLATIONS = {
   ca: {
     'nav-inicio':   'Inici',
     'nav-menu':     'Cartas',
-    'nav-reservar': 'Reservar',
+    'nav-reservar': 'WhatsApp',
 
     'banner-badge':     'El restaurant favorit de La Massana',
     'banner-title':     'Restaurant familiar<br>a La Massana, Andorra',
     'banner-desc':      'Cuina de mar, brasa i tradició familiar.<br>Més de 12 anys fent que cada àpat sigui memorable.',
-    'banner-btn':       'Reservar taula',
+    'banner-btn':       'Demana la teva taula per WhatsApp',
     'banner-secondary': 'Veure la nostra carta →',
 
     'trust-1-strong': '+12 anys',
@@ -292,28 +255,9 @@ const TRANSLATIONS = {
     'gallery-title':   'Galeria de plats',
 
     'cta-eyebrow': 'Tot llest?',
-    'cta-h2':      'Reserva la teva taula',
+    'cta-h2':      'Escriu-nos per WhatsApp',
     'cta-text':    'Vine a gaudir de la nostra cuina tradicional en un ambient càlid i familiar. T\'esperem a La Massana.',
-    'cta-btn':     'Reservar',
-
-    'form-h2':                  'Reserva la teva taula',
-    'form-subtitle':            'Omple el formulari i et confirmarem la reserva aviat',
-    'form-label-name':          'Nom i cognoms',
-    'form-ph-name':             'El teu nom',
-    'form-label-phone':         'Mòbil',
-    'form-ph-phone':            '+376 000 000',
-    'form-label-email':         'Correu electrònic',
-    'form-label-email-optional':'(opcional)',
-    'form-ph-email':            'correu@exemple.com',
-    'form-label-people':        'Nombre de persones',
-    'form-ph-people':           '2',
-    'form-label-date':          'Data',
-    'form-label-time':          'Hora',
-    'form-submit':              'Reservar',
-    'form-legal':               'Les dades que ens facilites seran utilitzades exclusivament per gestionar la teva reserva. No les compartirem ni les farem servir per a cap altre fi.',
-
-    'contact-schedule-h2': 'Horari',
-    'contact-map-h2':      'Ubicació',
+    'cta-btn':     'Parla\'ns per WhatsApp',
 
     'pdf-download-btn':  'Descarregar',
     'pdf-fallback-p':    'La previsualització no està disponible al mòbil.<br>Descarrega la carta per veure-la.',
@@ -327,9 +271,9 @@ const TRANSLATIONS = {
     'day-sunday': 'Diumenge',
 
     'reserve-eyebrow': 'Llest per viure l\'experiència?',
-    'reserve-title': 'Reserva la teva taula ara',
-    'reserve-desc': 'Més de 12 anys servint cuina tradicional andorrana. Les taules s\'omplen ràpid — assegura la teva.',
-    'reserve-btn': 'Reservar taula',
+    'reserve-title': 'Escriu-nos per WhatsApp',
+    'reserve-desc': 'Més de 12 anys servint cuina tradicional andorrana. Resposta ràpida i directa — et confirmem al moment.',
+    'reserve-btn': 'Parla\'ns per WhatsApp',
 
     'parking-link-short': 'Pàrquing propi gratuït — a 1 min',
 
@@ -345,14 +289,6 @@ const TRANSLATIONS = {
 
     'cta-link': 'Veure la carta →',
 
-    'form-label-turno': 'Torn',
-    'form-turno-placeholder': 'Selecciona torn',
-    'form-turno-lunch': '🌞 Migdia',
-    'form-turno-dinner': '🌙 Nit',
-    'form-people-hint-html': 'Per a grups de més de 8 persones, contacta directament al <a href="tel:+376840720">+376 840 720</a>',
-    'form-label-message': 'Comentaris',
-    'form-ph-message': 'Al·lèrgies, cadira de rodes, celebració especial...',
-
     'status-checking': 'Verificant...',
     'status-open': 'Obert',
     'status-closed': 'Tancat',
@@ -360,12 +296,6 @@ const TRANSLATIONS = {
     'status-opens-at': 'Obre a les',
     'status-opens-tomorrow-at': 'Obre demà a les',
     'status-holiday': 'Festiu',
-
-    'form-sending': '⏳ Enviant...',
-    'form-success-html': '✅ Reserva enviada! Et confirmarem en menys de 24 hores.<br><small>No reps resposta? Truca\'ns al <a href="tel:+376840720" style="color:#16a34a;">+376 840 720</a></small>',
-    'form-error-time': '❌ L\'hora ha de ser entre %min% i %max% per al torn seleccionat.',
-    'form-error-generic': '❌ Error en enviar la reserva.',
-    'form-error-connection': '❌ Error de connexió. Torna-ho a intentar.',
 
     'review-1': '"Sens dubte, una de les millors experiències culinàries que he tingut en molt de temps. Ens va agradar tant que vam haver de repetir, tot i que el primer dia no vam poder menjar perquè estava ple. Recomano molt el menú de bou, tot i que tot estava molt bo. Pel que fa a l\'atenció, només puc dir que va ser formidable. Sens dubte, tornarem."',
     'review-2': '"Bon lloc per esmorzar a La Massana: el Racó d\'en Silvino ofereix un esmorzar senzill i bo, amb preus raonables i racions generoses. Solen tenir ofertes i opcions econòmiques, ideal per començar el dia sense gastar massa. Ambient tranquil, servei ràpid i bon cafè. Una opció pràctica i de confiança."',
@@ -378,12 +308,12 @@ const TRANSLATIONS = {
   pt: {
     'nav-inicio':   'Início',
     'nav-menu':     'Cartas',
-    'nav-reservar': 'Reservar',
+    'nav-reservar': 'WhatsApp',
 
     'banner-badge':     'O restaurante favorito de La Massana',
     'banner-title':     'Restaurante familiar<br>em La Massana, Andorra',
     'banner-desc':      'Cozinha de mar, brasa e tradição familiar.<br>Mais de 12 anos a tornar cada refeição memorável.',
-    'banner-btn':       'Reservar mesa',
+    'banner-btn':       'Peça a sua mesa pelo WhatsApp',
     'banner-secondary': 'Ver a nossa carta →',
 
     'trust-1-strong': '+12 anos',
@@ -462,28 +392,9 @@ const TRANSLATIONS = {
     'gallery-title':   'Galeria de pratos',
 
     'cta-eyebrow': 'Tudo pronto?',
-    'cta-h2':      'Reserve a sua mesa',
+    'cta-h2':      'Fale connosco pelo WhatsApp',
     'cta-text':    'Venha desfrutar da nossa cozinha tradicional num ambiente acolhedor e familiar. Esperamos por si em La Massana.',
-    'cta-btn':     'Reservar',
-
-    'form-h2':                  'Reserve a sua mesa',
-    'form-subtitle':            'Preencha o formulário e confirmamos a reserva em breve',
-    'form-label-name':          'Nome e apelidos',
-    'form-ph-name':             'O seu nome',
-    'form-label-phone':         'Telemóvel',
-    'form-ph-phone':            '+376 000 000',
-    'form-label-email':         'Correio eletrónico',
-    'form-label-email-optional':'(opcional)',
-    'form-ph-email':            'correio@exemplo.com',
-    'form-label-people':        'Número de pessoas',
-    'form-ph-people':           '2',
-    'form-label-date':          'Data',
-    'form-label-time':          'Hora',
-    'form-submit':              'Reservar',
-    'form-legal':               'Os dados que nos fornece serão utilizados exclusivamente para gerir a sua reserva. Não os partilharemos nem usaremos para nenhum outro fim.',
-
-    'contact-schedule-h2': 'Horário',
-    'contact-map-h2':      'Localização',
+    'cta-btn':     'Fale connosco pelo WhatsApp',
 
     'pdf-download-btn':  'Descarregar',
     'pdf-fallback-p':    'A pré-visualização não está disponível no telemóvel.<br>Descarregue a carta para a ver.',
@@ -497,9 +408,9 @@ const TRANSLATIONS = {
     'day-sunday': 'Domingo',
 
     'reserve-eyebrow': 'Pronto para viver a experiência?',
-    'reserve-title': 'Reserve a sua mesa agora',
-    'reserve-desc': 'Mais de 12 anos a servir cozinha tradicional andorrana. As mesas esgotam rápido — garanta a sua.',
-    'reserve-btn': 'Reservar mesa',
+    'reserve-title': 'Fale connosco pelo WhatsApp',
+    'reserve-desc': 'Mais de 12 anos a servir cozinha tradicional andorrana. Resposta rápida e direta — confirmamos no momento.',
+    'reserve-btn': 'Fale connosco pelo WhatsApp',
 
     'parking-link-short': 'Estacionamento próprio gratuito — a 1 min',
 
@@ -515,14 +426,6 @@ const TRANSLATIONS = {
 
     'cta-link': 'Ver a carta →',
 
-    'form-label-turno': 'Turno',
-    'form-turno-placeholder': 'Selecione turno',
-    'form-turno-lunch': '🌞 Almoço',
-    'form-turno-dinner': '🌙 Jantar',
-    'form-people-hint-html': 'Para grupos de mais de 8 pessoas, contacte diretamente o <a href="tel:+376840720">+376 840 720</a>',
-    'form-label-message': 'Comentários',
-    'form-ph-message': 'Alergias, cadeira de rodas, celebração especial...',
-
     'status-checking': 'A verificar...',
     'status-open': 'Aberto',
     'status-closed': 'Fechado',
@@ -530,12 +433,6 @@ const TRANSLATIONS = {
     'status-opens-at': 'Abre às',
     'status-opens-tomorrow-at': 'Abre amanhã às',
     'status-holiday': 'Feriado',
-
-    'form-sending': '⏳ A enviar...',
-    'form-success-html': '✅ Reserva enviada! Confirmamos em menos de 24 horas.<br><small>Não recebe resposta? Ligue-nos para o <a href="tel:+376840720" style="color:#16a34a;">+376 840 720</a></small>',
-    'form-error-time': '❌ A hora deve estar entre %min% e %max% para o turno selecionado.',
-    'form-error-generic': '❌ Erro ao enviar a reserva.',
-    'form-error-connection': '❌ Erro de ligação. Tente novamente.',
 
     'review-1': '"Sem dúvida, uma das melhores experiências culinárias que tive em muito tempo. Gostámos tanto que tivemos de repetir, apesar de no primeiro dia não termos conseguido comer porque estava cheio. Recomendo vivamente o menu de boi, embora tudo estivesse muito bom. Quanto ao atendimento, só posso dizer que foi formidável. Sem dúvida, voltaremos."',
     'review-2': '"Bom sítio para tomar o pequeno-almoço em La Massana: o Racó d\'en Silvino oferece um pequeno-almoço simples e saboroso, com preços razoáveis e porções generosas. Costumam ter ofertas e opções económicas, ideal para começar o dia sem gastar demasiado. Ambiente tranquilo, serviço rápido e bom café. Uma opção prática e de confiança."',
@@ -548,12 +445,12 @@ const TRANSLATIONS = {
   en: {
     'nav-inicio':   'Home',
     'nav-menu':     'Menu',
-    'nav-reservar': 'Book',
+    'nav-reservar': 'WhatsApp',
 
     'banner-badge':     'La Massana\'s favourite restaurant',
     'banner-title':     'Family Restaurant<br>in La Massana, Andorra',
     'banner-desc':      'Seafood, grill and family tradition.<br>Over 12 years making every meal memorable.',
-    'banner-btn':       'Book a table',
+    'banner-btn':       'Book your table via WhatsApp',
     'banner-secondary': 'See our menu →',
 
     'trust-1-strong': '12+ years',
@@ -632,28 +529,9 @@ const TRANSLATIONS = {
     'gallery-title':   'Dish gallery',
 
     'cta-eyebrow': 'Ready?',
-    'cta-h2':      'Book your table',
+    'cta-h2':      'Message us on WhatsApp',
     'cta-text':    'Come and enjoy our traditional cuisine in a warm, family atmosphere. We look forward to seeing you in La Massana.',
-    'cta-btn':     'Book',
-
-    'form-h2':                  'Book your table',
-    'form-subtitle':            'Fill in the form and we\'ll confirm your booking shortly',
-    'form-label-name':          'Full name',
-    'form-ph-name':             'Your name',
-    'form-label-phone':         'Mobile',
-    'form-ph-phone':            '+376 000 000',
-    'form-label-email':         'Email address',
-    'form-label-email-optional':'(optional)',
-    'form-ph-email':            'email@example.com',
-    'form-label-people':        'Number of guests',
-    'form-ph-people':           '2',
-    'form-label-date':          'Date',
-    'form-label-time':          'Time',
-    'form-submit':              'Book',
-    'form-legal':               'The data you provide will be used exclusively to manage your booking. We will not share or use it for any other purpose.',
-
-    'contact-schedule-h2': 'Opening hours',
-    'contact-map-h2':      'Location',
+    'cta-btn':     'Chat with us on WhatsApp',
 
     'pdf-download-btn':  'Download',
     'pdf-fallback-p':    'Preview is not available on mobile.<br>Download the menu to view it.',
@@ -667,9 +545,9 @@ const TRANSLATIONS = {
     'day-sunday': 'Sunday',
 
     'reserve-eyebrow': 'Ready to enjoy the experience?',
-    'reserve-title': 'Book your table now',
-    'reserve-desc': 'Over 12 years serving traditional Andorran cuisine. Tables fill up fast — secure yours.',
-    'reserve-btn': 'Book a table',
+    'reserve-title': 'Message us on WhatsApp',
+    'reserve-desc': 'Over 12 years serving traditional Andorran cuisine. Quick and direct response — we confirm instantly.',
+    'reserve-btn': 'Chat with us on WhatsApp',
 
     'parking-link-short': 'Free private parking — 1 min walk',
 
@@ -685,14 +563,6 @@ const TRANSLATIONS = {
 
     'cta-link': 'View the menu →',
 
-    'form-label-turno': 'Service',
-    'form-turno-placeholder': 'Select service',
-    'form-turno-lunch': '🌞 Lunch',
-    'form-turno-dinner': '🌙 Dinner',
-    'form-people-hint-html': 'For groups larger than 8, please contact us directly at <a href="tel:+376840720">+376 840 720</a>',
-    'form-label-message': 'Comments',
-    'form-ph-message': 'Allergies, wheelchair access, special celebration...',
-
     'status-checking': 'Checking...',
     'status-open': 'Open',
     'status-closed': 'Closed',
@@ -700,12 +570,6 @@ const TRANSLATIONS = {
     'status-opens-at': 'Opens at',
     'status-opens-tomorrow-at': 'Opens tomorrow at',
     'status-holiday': 'Holiday',
-
-    'form-sending': '⏳ Sending...',
-    'form-success-html': '✅ Booking sent! We\'ll confirm within 24 hours.<br><small>No reply? Call us at <a href="tel:+376840720" style="color:#16a34a;">+376 840 720</a></small>',
-    'form-error-time': '❌ The time must be between %min% and %max% for the selected service.',
-    'form-error-generic': '❌ Error sending the booking.',
-    'form-error-connection': '❌ Connection error. Please try again.',
 
     'review-1': '"Without a doubt, one of the best culinary experiences I\'ve had in a long time. We liked it so much we had to come back, even though on the first day we couldn\'t eat because it was full. I highly recommend the beef menu, although everything was excellent. As for the service, I can only say it was outstanding. We\'ll definitely be back."',
     'review-2': '"Great place for breakfast in La Massana: Racó d\'en Silvino offers a simple and tasty breakfast, with reasonable prices and generous portions. They usually have deals and affordable options, ideal for starting the day without spending too much. Quiet atmosphere, fast service and good coffee. A reliable and practical choice."',
