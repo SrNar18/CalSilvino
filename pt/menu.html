@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/x-icon" href="/images/icon.png">
+    <title>Carta e Menu | Cal Silvino — Restaurante em La Massana, Andorra</title>
+    <meta name="description" content="Descubra a carta do Cal Silvino: bacalhau à llauna, polvo à brasa, carnes, tapas e cozinha tradicional andorrana. Disponível em português, català, español, français e English. Restaurante em La Massana, Andorra.">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://restaurantcalsilvino.com/pt/menu.html">
+    <link rel="alternate" hreflang="ca" href="https://restaurantcalsilvino.com/menu.html">
+    <link rel="alternate" hreflang="es" href="https://restaurantcalsilvino.com/es/menu.html">
+    <link rel="alternate" hreflang="pt" href="https://restaurantcalsilvino.com/pt/menu.html">
+    <link rel="alternate" hreflang="fr" href="https://restaurantcalsilvino.com/fr/menu.html">
+    <link rel="alternate" hreflang="en" href="https://restaurantcalsilvino.com/en/menu.html">
+    <link rel="alternate" hreflang="x-default" href="https://restaurantcalsilvino.com/menu.html">
+
+    <meta property="og:title" content="Carta e Menu | Cal Silvino — Restaurante La Massana">
+    <meta property="og:description" content="Especialidades da casa: bacalhau à llauna, polvo à brasa, carnes no fogo, canelinhos caseiros e muito mais.">
+    <meta property="og:url" content="https://restaurantcalsilvino.com/pt/menu.html">
+    <meta property="og:image" content="https://restaurantcalsilvino.com/images/fondo.png">
+    <meta property="og:locale" content="pt_PT">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-brand">
+            <img src="/images/logo.png" class="logo" alt="Cal Silvino">
+            <a href="tel:+376840720" class="header-phone">📞 +376 840 720</a>
+        </div>
+
+        <nav id="mainNav">
+            <a href="/pt/">Início</a>
+            <a href="/pt/menu.html" class="active">Cartas</a>
+            <a href="https://wa.me/376840720?text=Olá!%20Gostaria%20de%20reservar%20uma%20mesa%20no%20Cal%20Silvino" target="_blank" rel="noopener noreferrer" class="nav-reservar-mobile">WhatsApp</a>
+        </nav>
+
+        <div class="header-right">
+            <div class="header-status" id="headerStatus">
+                <span class="status-dot" id="statusDot"></span>
+                <span id="statusText" class="status-text"
+                      data-checking="A verificar..."
+                      data-open="Aberto"
+                      data-closed="Fechado"
+                      data-closes-at="Fecha às"
+                      data-opens-at="Abre às"
+                      data-opens-tomorrow-at="Abre amanhã às"
+                      data-holiday="Feriado">A verificar...</span>
+            </div>
+
+            <div class="lang-switcher" id="langSwitcher">
+                <button class="lang-btn" id="langBtn" aria-label="Mudar idioma">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <span id="langCurrent">PT</span>
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="lang-dropdown" id="langDropdown">
+                    <a href="/menu.html" class="lang-option" hreflang="ca"><span class="lang-flag">🇦🇩</span> Català</a>
+                    <a href="/es/menu.html" class="lang-option" hreflang="es"><span class="lang-flag">🇪🇸</span> Español</a>
+                    <a href="/pt/menu.html" class="lang-option active" hreflang="pt"><span class="lang-flag">🇵🇹</span> Português</a>
+                    <a href="/fr/menu.html" class="lang-option" hreflang="fr"><span class="lang-flag">🇫🇷</span> Français</a>
+                    <a href="/en/menu.html" class="lang-option" hreflang="en"><span class="lang-flag">🇬🇧</span> English</a>
+                </div>
+            </div>
+
+            <a href="https://wa.me/376840720?text=Olá!%20Gostaria%20de%20reservar%20uma%20mesa%20no%20Cal%20Silvino" target="_blank" rel="noopener noreferrer" class="nav-btn" title="Contacte-nos pelo WhatsApp para reservar mesa no Cal Silvino">WhatsApp</a>
+        </div>
+
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <main>
+
+        <section class="menu-section">
+            <div class="menu-header">
+                <h1 class="menu-title">📋 <span>A Nossa Carta</span></h1>
+                <p class="menu-subtitle">Consulte ou descarregue as cartas no seu idioma</p>
+            </div>
+
+            <div class="menu-cards">
+                <a href="/.netlify/functions/serve-pdf?name=carta-es-ca" class="menu-img-link" onclick="openPdfModal('/.netlify/functions/serve-pdf?name=carta-es-ca', 'Español / Català'); return false;">
+                    <img src="/images/MenuCatEsp.png" alt="Ver carta Español / Català" class="menu-img">
+                    <p class="menu-card-label">Español / Català</p>
+                </a>
+                <a href="/.netlify/functions/serve-pdf?name=carta-fr-en" class="menu-img-link" onclick="openPdfModal('/.netlify/functions/serve-pdf?name=carta-fr-en', 'Français / English'); return false;">
+                    <img src="/images/MenuFrEn.png" alt="Voir menu Français / English" class="menu-img">
+                    <p class="menu-card-label">Français / English</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="menu-specialties">
+            <div class="menu-specialties-container">
+
+                <div class="menu-section-header">
+                    <p class="menu-section-eyebrow">O melhor de Cal Silvino</p>
+                    <h2 class="menu-section-title">⭐ <span>Especialidades da casa</span></h2>
+                </div>
+
+                <div class="menu-specialties-grid">
+
+                    <div class="specialty-card">
+                        <span class="specialty-tag">Mar</span>
+                        <h3 class="specialty-name">Bacalhau à llauna</h3>
+                        <p class="specialty-desc">O prato estrela da casa. Bacalhau confitado em azeite virgem extra com alho dourado e pimentão doce.</p>
+                    </div>
+
+                    <div class="specialty-card">
+                        <span class="specialty-tag">Brasa</span>
+                        <h3 class="specialty-name">Polvo à brasa</h3>
+                        <p class="specialty-desc">Polvo galego grelhado no fogo vivo, acompanhado de batata esmagada, azeite de pimentão e flor de sal.</p>
+                    </div>
+
+                    <div class="specialty-card">
+                        <span class="specialty-tag">Tradição</span>
+                        <h3 class="specialty-name">Dobrada tradicional</h3>
+                        <p class="specialty-desc">Guisado tradicional de dobrada com chouriço, morcela e especiarias, cozido em lume brando durante horas.</p>
+                    </div>
+
+                    <div class="specialty-card">
+                        <span class="specialty-tag">Mar</span>
+                        <h3 class="specialty-name">Tartar de atum</h3>
+                        <p class="specialty-desc">Atum vermelho cortado à faca com abacate cremoso, sésamo tostado, molho de soja e um toque de wasabi.</p>
+                    </div>
+
+                    <div class="specialty-card">
+                        <span class="specialty-tag">Brasa</span>
+                        <h3 class="specialty-name">Carne à brasa</h3>
+                        <p class="specialty-desc">Seleção de cortes premium grelhados sobre lenha de azinheira. Servidos com guarnição de época.</p>
+                    </div>
+
+                    <div class="specialty-card">
+                        <span class="specialty-tag">Tradição</span>
+                        <h3 class="specialty-name">Canelinhos caseiros</h3>
+                        <p class="specialty-desc">Canelinhos recheados com carne grelhada e legumes, cobertos com bechamel caseiro e queijo gratinado.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-features">
+            <div class="menu-features-grid">
+
+                <div class="menu-feature">
+                    <span class="menu-feature-icon">🏠</span>
+                    <p class="menu-feature-title">Negócio familiar</p>
+                    <p class="menu-feature-text">Mais de 12 anos em La Massana</p>
+                </div>
+
+                <div class="menu-feature">
+                    <span class="menu-feature-icon">🌊</span>
+                    <p class="menu-feature-title">Cozinha do mar</p>
+                    <p class="menu-feature-text">Bacalhau, polvo e marisco fresco</p>
+                </div>
+
+                <div class="menu-feature">
+                    <span class="menu-feature-icon">🔥</span>
+                    <p class="menu-feature-title">Fogo e brasa</p>
+                    <p class="menu-feature-text">Carnes e peixes no fogo vivo</p>
+                </div>
+
+                <div class="menu-feature">
+                    <span class="menu-feature-icon">🎉</span>
+                    <p class="menu-feature-title">Celebrações</p>
+                    <p class="menu-feature-text">Eventos e jantares de empresa</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="menu-recipes">
+            <div class="menu-section-header" style="margin-bottom: 0;">
+                <p class="menu-section-eyebrow" style="color: rgba(255,255,255,0.65);">A nossa cozinha em imagens</p>
+                <h2 class="recipes-title">📸 <span>Galeria de pratos</span></h2>
+            </div>
+
+            <div class="recipes-carousel">
+                <div class="recipes-carousel-track">
+                    <img src="/images/carrusel/calsilvinoComida.jpeg" alt="Prato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida2.jpeg" alt="Prato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida3.jpeg" alt="Prato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida4.jpeg" alt="Prato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida5.jpeg" alt="Prato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida6.jpeg" alt="Prato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida7.jpeg" alt="Prato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida8.jpeg" alt="Prato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida9.jpeg" alt="Prato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida10.jpeg" alt="Prato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida.jpeg" alt="Prato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida2.jpeg" alt="Prato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida3.jpeg" alt="Prato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida4.jpeg" alt="Prato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida5.jpeg" alt="Prato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida6.jpeg" alt="Prato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida7.jpeg" alt="Prato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida8.jpeg" alt="Prato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida9.jpeg" alt="Prato Cal Silvino" class="recipes-carousel-img">
+                    <img src="/images/carrusel/calsilvinoComida10.jpeg" alt="Prato Cal Silvino" class="recipes-carousel-img">
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-cta">
+            <p class="menu-section-eyebrow">Tudo pronto?</p>
+            <h2 class="menu-cta-title">🎉 <span>Fale connosco pelo WhatsApp</span></h2>
+            <p class="menu-cta-text">Venha desfrutar da nossa cozinha tradicional num ambiente acolhedor e familiar. Esperamos por si em La Massana.</p>
+            <a href="https://wa.me/376840720?text=Olá!%20Gostaria%20de%20reservar%20uma%20mesa%20no%20Cal%20Silvino" target="_blank" rel="noopener noreferrer" class="btn-primary" title="Contactar por WhatsApp com Cal Silvino">Fale connosco pelo WhatsApp</a>
+            <a href="/pt/menu.html" class="cta-link" title="Ver carta completa do Cal Silvino">Ver a carta →</a>
+        </section>
+
+    </main>
+
+    <section class="directions-section">
+        <div class="directions-container">
+            <p class="directions-eyebrow">Como chegar?</p>
+            <h2>🗺️ <span>Venha visitar-nos</span></h2>
+            <p class="directions-desc">Dispomos de <strong>estacionamento próprio gratuito</strong> a apenas 1 minuto a pé do restaurante.</p>
+            <div class="directions-btns">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=42.5458333,1.5172222&travelmode=driving"
+                   target="_blank" rel="noopener noreferrer"
+                   class="btn-primary directions-btn"
+                   title="Como chegar ao Restaurante Cal Silvino em La Massana, Andorra">
+                    📍 <span>Chegar ao restaurante</span>
+                </a>
+                <a href="https://maps.app.goo.gl/KgLBh4SZVhFojGUUA"
+                   target="_blank" rel="noopener noreferrer"
+                   class="btn-secondary directions-btn"
+                   title="Como chegar ao estacionamento gratuito de La Massana">
+                    🅿️ <span>Chegar ao estacionamento</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-left">
+            <img src="/images/logo.png" class="footer-logo">
+
+            <div class="footer-info">
+                <p>Av. el Través, 21, AD400 La Massana</p>
+                <p>Telefone: +376 840 720</p>
+                <p>info@restaurantcalsilvino.com</p>
+            </div>
+        </div>
+
+        <div class="footer-right">
+            <div class="footer-schedule">
+                <div class="schedule-block">
+                    <p><strong>Segunda e terça</strong></p>
+                    <p>Fechado</p>
+                </div>
+
+                <div class="schedule-block">
+                    <p><strong>Quarta a sexta</strong></p>
+                    <p>10.00 - 16.00</p>
+                    <p>20.00 - 23.00</p>
+                </div>
+
+                <div class="schedule-block">
+                    <p><strong>Sábado, domingo e feriados</strong></p>
+                    <p>11.00 - 16.30</p>
+                    <p>20.00 - 23.30</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-legal">
+            <a href="#" class="legal-link" onclick="showLegalPopup(event)">Política de privacidade</a>
+            <span class="legal-sep">·</span>
+            <a href="#" class="legal-link" onclick="showLegalPopup(event)">Termos e condições</a>
+            <span class="legal-sep">·</span>
+            <a href="#" class="legal-link" onclick="showLegalPopup(event)">Política de cookies</a>
+            <span class="legal-sep">·</span>
+            <a href="#" class="legal-link" onclick="showLegalPopup(event)">Aviso legal</a>
+        </div>
+    </footer>
+
+    <div id="legalModal" class="legal-modal-overlay" onclick="if(event.target===this)closeLegalModal()">
+        <div class="legal-modal-box">
+            <p>Estamos a trabalhar nesta secção. Em breve estará disponível.</p>
+            <button onclick="closeLegalModal()">Entendido</button>
+        </div>
+    </div>
+
+    <div id="pdfModal" class="pdf-modal-overlay" onclick="handleModalOverlayClick(event)">
+        <div class="pdf-modal-box">
+            <div class="pdf-modal-toolbar">
+                <span class="pdf-modal-title" id="pdfModalTitle"></span>
+                <div class="pdf-modal-actions">
+                    <a id="pdfDownloadBtn" class="pdf-modal-download" download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        <span>Descarregar</span>
+                    </a>
+                    <button class="pdf-modal-close" onclick="closePdfModal()" aria-label="Fechar">✕</button>
+                </div>
+            </div>
+            <div class="pdf-modal-body">
+                <iframe id="pdfFrame" class="pdf-modal-iframe" title="Pré-visualização do menu"></iframe>
+                <div id="pdfFallback" class="pdf-fallback">
+                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#c71f1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                    <p>A pré-visualização não está disponível no telemóvel.<br>Descarregue a carta para a ver.</p>
+                    <a id="pdfFallbackLink" class="pdf-fallback-link" download>Descarregar carta</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>

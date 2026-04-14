@@ -65,7 +65,6 @@ document.addEventListener("keydown", (e) => {
 
 // ── REAL-TIME STATUS: Andorra holidays + schedule ──
 (function() {
-    // Meeus/Jones/Butcher algorithm for Easter Sunday
     function getEaster(year) {
         const a = year % 19;
         const b = Math.floor(year / 100);
@@ -79,7 +78,7 @@ document.addEventListener("keydown", (e) => {
         const k = c % 4;
         const l = (32 + 2 * e + 2 * i - h - k) % 7;
         const m = Math.floor((a + 11 * h + 22 * l) / 451);
-        const month = Math.floor((h + l - 7 * m + 114) / 31); // 1-based
+        const month = Math.floor((h + l - 7 * m + 114) / 31);
         const day   = ((h + l - 7 * m + 114) % 31) + 1;
         return new Date(year, month - 1, day);
     }
@@ -91,29 +90,27 @@ document.addEventListener("keydown", (e) => {
     }
 
     function isAndorraHoliday(date) {
-        const m = date.getMonth() + 1; // 1-based
+        const m = date.getMonth() + 1;
         const d = date.getDate();
         const y = date.getFullYear();
 
-        // Fixed holidays (month, day)
         const fixed = [
-            [1,  1],  // New Year
-            [1,  6],  // Epiphany
-            [3, 14],  // Constitution Day
-            [5,  1],  // Labour Day
-            [8, 15],  // Assumption
-            [9,  8],  // Meritxell
-            [11, 1],  // All Saints
-            [12, 8],  // Immaculate Conception
-            [12, 25], // Christmas
-            [12, 26], // Sant Esteve
+            [1,  1],
+            [1,  6],
+            [3, 14],
+            [5,  1],
+            [8, 15],
+            [9,  8],
+            [11, 1],
+            [12, 8],
+            [12, 25],
+            [12, 26],
         ];
 
         for (const [fm, fd] of fixed) {
             if (m === fm && d === fd) return true;
         }
 
-        // Variable Easter-based holidays
         const easter = getEaster(y);
         const goodFriday    = addDays(easter, -2);
         const easterMonday  = addDays(easter,  1);
@@ -139,20 +136,13 @@ document.addEventListener("keydown", (e) => {
         const textEl = document.getElementById('statusText');
         if (!dotEl || !textEl) return;
 
-        const lang = localStorage.getItem('calsilvinoLang') || 'es';
-        const t = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[lang]) ? TRANSLATIONS[lang] : {};
-
         const now     = getAndorraNow();
-        const dow     = now.getDay(); // 0=Sun,1=Mon,2=Tue,3=Wed,4=Thu,5=Fri,6=Sat
+        const dow     = now.getDay();
         const holiday = isAndorraHoliday(now);
         const hm      = now.getHours() * 60 + now.getMinutes();
 
         const effectiveDow = holiday ? (dow === 2 ? 0 : dow) : dow;
 
-        // Schedule:
-        // Mon(1), Sun(0): 11:00–16:00 only
-        // Tue(2): Cerrado
-        // Wed(3),Thu(4),Fri(5),Sat(6): 11:00–16:00, 20:00–23:00
         let slots = [];
         if (effectiveDow === 2) {
             slots = [];
@@ -186,12 +176,12 @@ document.addEventListener("keydown", (e) => {
             }
         }
 
-        const sOpen      = t['status-open']              || 'Abierto';
-        const sClosed    = t['status-closed']             || 'Cerrado';
-        const sClosesAt  = t['status-closes-at']          || 'Cierra a las';
-        const sOpensAt   = t['status-opens-at']           || 'Abre a las';
-        const sOpensTmrw = t['status-opens-tomorrow-at']  || 'Abre mañana a las';
-        const sHoliday   = t['status-holiday']            || 'Festivo';
+        const sOpen      = textEl.dataset.open            || 'Obert';
+        const sClosed    = textEl.dataset.closed          || 'Tancat';
+        const sClosesAt  = textEl.dataset.closesAt        || 'Tanca a les';
+        const sOpensAt   = textEl.dataset.opensAt         || 'Obre a les';
+        const sOpensTmrw = textEl.dataset.opensTomorrowAt || 'Obre demà a les';
+        const sHoliday   = textEl.dataset.holiday         || 'Festiu';
 
         const holidayPrefix = holiday ? "🎉 " + sHoliday + " · " : "";
         dotEl.className = 'status-dot ' + (openNow ? 'open' : 'closed');
@@ -206,17 +196,14 @@ document.addEventListener("keydown", (e) => {
         }
     }
 
-    // Expose globally so language switch can refresh it
     window.updateStatus = updateStatus;
 
-    // Run once immediately and then every 60 seconds
     document.addEventListener('DOMContentLoaded', function() {
         updateStatus();
         setInterval(updateStatus, 60000);
     });
 })();
 
-// Espera a que cargue el DOM
 document.addEventListener("DOMContentLoaded", () => {
 
     // ── SELECTOR DE IDIOMA ──
@@ -231,21 +218,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.addEventListener("click", () => {
             langDropdown.classList.remove("open");
-        });
-
-        langDropdown.querySelectorAll(".lang-option").forEach(btn => {
-            btn.addEventListener("click", () => {
-                const lang = btn.dataset.lang;
-                localStorage.setItem("calsilvinoLang", lang);
-                applyTranslations(lang);
-                if (typeof window.updateStatus === 'function') window.updateStatus();
-                langDropdown.classList.remove("open");
-            });
-        });
-
-        const currentLang = localStorage.getItem("calsilvinoLang") || "es";
-        langDropdown.querySelectorAll(".lang-option").forEach(btn => {
-            btn.classList.toggle("active", btn.dataset.lang === currentLang);
         });
     }
 
@@ -297,52 +269,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // LINKS DEL NAV
-    const links = document.querySelectorAll("nav a");
-
-    links.forEach(link => {
-        const text = link.textContent.trim().toLowerCase();
-
-        if (text === "inicio" || text === "inici" || text === "início" || text === "home") {
-            link.addEventListener("click", () => {
-                closeNav();
-                window.location.href = "index.html";
-            });
-        }
-
-        if (text === "menú" || text === "menu" || text === "carta") {
-            link.addEventListener("click", () => {
-                closeNav();
-                window.location.href = "menu.html";
-            });
-        }
-
-        if (link.classList.contains("nav-reservar-mobile")) {
-            link.addEventListener("click", () => {
-                closeNav();
-            });
-        }
+    document.querySelectorAll("nav a").forEach(link => {
+        link.addEventListener("click", closeNav);
     });
 
-
-    // BOTÓN VER MENÚ (now an anchor, kept for backwards compat)
-    const menuBtn = document.querySelector(".home-menu-button");
-    if (menuBtn && menuBtn.tagName === "BUTTON") {
-        menuBtn.addEventListener("click", () => {
-            window.location.href = "menu.html";
-        });
-    }
-
-
-    // LOGO → index
-    const logo = document.querySelector(".logo");
-    if (logo) {
-        logo.addEventListener("click", () => {
-            window.location.href = "index.html";
-        });
-    }
-
-    // CARRUSEL HOME (manual con botones)
+    // CARRUSEL HOME
     const track = document.querySelector(".about-carousel-track");
     const slides = document.querySelectorAll(".about-carousel-img");
     const nextBtn = document.querySelector(".carousel-btn.next");
@@ -391,12 +322,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if (isMobile) {
                 window.location.href = "tel:+376840720";
             } else {
-                const lang = localStorage.getItem('calsilvinoLang') || 'es';
-                const tr = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[lang]) ? TRANSLATIONS[lang] : {};
-                alert(tr['phone-alert'] || 'Utiliza tu teléfono móvil para llamar 📞\n\nNúmero: +376 840 720');
+                alert(phoneBtn.dataset.alert || 'Utilitza el teu telèfon mòbil per trucar 📞\n\nNúmero: +376 840 720');
             }
         });
     }
 
 });
-
