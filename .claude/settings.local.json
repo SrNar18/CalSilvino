@@ -1,7 +1,20 @@
 {
   "permissions": {
     "allow": [
-      "Bash(wc -l /c/Users/sopor/Desktop/CalSilvino/netlify/functions/*.js)"
+      "Bash(wc -l /c/Users/sopor/Desktop/CalSilvino/netlify/functions/*.js)",
+      "Bash(node -e ':*)",
+      "Bash(node _add_dims.cjs)",
+      "Bash(ls *.css)",
+      "Bash(sed -n '113,130p' style.css)",
+      "Bash(sed -n '365,380p' style.css)",
+      "Bash(sed -n '501,515p' style.css)",
+      "Bash(sed -n '834,855p' style.css)",
+      "Bash(sed -n '1667,1680p' style.css)",
+      "Bash(sed -n '813,840p' style.css)",
+      "Bash(sed -n '2278,2295p' style.css)",
+      "Bash(sed -n '2490,2500p' style.css)",
+      "Bash(sed -n '2538,2548p' style.css)",
+      "mcp__Claude_Preview__preview_start"
     ]
   }
 }

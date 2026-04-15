@@ -112,6 +112,7 @@ header.hero-mode .header-phone {
 /* Logo */
 .logo {
     height: 80px;
+    width: auto;
     cursor: pointer;
 }
 
@@ -302,11 +303,19 @@ header.hero-mode .header-status {
 .home-banner {
     height: 100vh;
     margin-top: -100px;
-    background-image: url("images/fondo.png");
-    background-size: cover;
-    background-position: center;
+    position: relative;
     display: flex;
     align-items: center;
+}
+
+.home-banner-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
 }
 
 .home-banner-content {
@@ -314,6 +323,8 @@ header.hero-mode .header-status {
     margin-left: 60px;
     max-width: 500px;
     animation: fadeInUp 0.9s ease forwards;
+    position: relative;
+    z-index: 3;
 }
 
 @keyframes fadeInUp {
@@ -364,6 +375,7 @@ footer {
 
 .footer-logo {
     height: 70px;
+    width: auto;
 }
 
 .footer-info p {
@@ -833,6 +845,7 @@ footer {
 
 .about-carousel-img {
     width: 100%;
+    height: auto;
     flex-shrink: 0;
     object-fit: cover;
     border-radius: 20px;
@@ -1361,6 +1374,7 @@ footer {
         rgba(0,0,0,0.10) 100%
     );
     pointer-events: none;
+    z-index: 2;
 }
 
 /* Badge de rating en el hero */
