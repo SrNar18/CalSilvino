@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const logoImg = headerEl.querySelector('.logo');
         const setLogo = (heroMode) => {
             if (!logoImg) return;
-            logoImg.src = heroMode ? '/images/logoWhite.webp' : '/images/logo.webp';
+            logoImg.src = heroMode ? '/images/logoWhite.png' : '/images/logo.png';
         };
 
         headerEl.classList.add("hero-mode");

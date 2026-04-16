@@ -31,7 +31,12 @@
       "Bash(node -e \"try{require\\('sharp'\\);console.log\\('sharp available'\\)}catch\\(e\\){console.log\\('sharp NOT available'\\)}\")",
       "Bash(npm install:*)",
       "Bash(node _convert_webp.cjs)",
-      "Bash(node _add_critical.cjs)"
+      "Bash(node _add_critical.cjs)",
+      "Bash(ls -lh logo* logoWhite*)",
+      "Bash(file logo.* logoWhite.*)",
+      "Bash(node _webp_to_png.cjs)",
+      "Bash(rm _webp_to_png.cjs)",
+      "Bash(ls -lh images/logo* images/logoWhite*)"
     ]
   }
 }
