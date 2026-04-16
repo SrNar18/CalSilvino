@@ -1,0 +1,10 @@
+# Imágenes: caché de 2 meses (5184000 segundos)
+/images/*
+  Cache-Control: public, max-age=5184000, immutable
+
+# CSS y JS: caché de 1 semana (reciben cambios más frecuentes)
+/*.css
+  Cache-Control: public, max-age=604800
+
+/*.js
+  Cache-Control: public, max-age=604800

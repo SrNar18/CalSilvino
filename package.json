@@ -21,5 +21,8 @@
     "url": "https://github.com/SrNar18/CalSilvino/issues"
   },
   "homepage": "https://github.com/SrNar18/CalSilvino#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "sharp": "^0.34.5"
+  }
 }

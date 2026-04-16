@@ -11,7 +11,7 @@
         "url": "https://restaurantcalsilvino.com",
         "telephone": "+376840720",
         "email": "info@restaurantcalsilvino.com",
-        "image": "https://restaurantcalsilvino.com/images/fondo.png",
+        "image": "https://restaurantcalsilvino.com/images/fondo.webp",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Av. el Través, 21",
@@ -32,6 +32,7 @@
         ],
         "servesCuisine": ["Andorrana", "Mediterránea", "Portuguesa", "Catalana"],
         "priceRange": "€€",
+        "hasMenu": "https://restaurantcalsilvino.com/menu",
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.8",

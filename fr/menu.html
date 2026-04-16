@@ -9,30 +9,46 @@
     <meta name="description" content="Découvrez la carte du Cal Silvino : morue a la llauna, poulpe à la braise, viandes, tapas et cuisine traditionnelle andorrane. Disponible en français, català, español, português et English. Restaurant à La Massana, Andorre.">
     <meta name="robots" content="index, follow">
 
-    <link rel="canonical" href="https://restaurantcalsilvino.com/fr/menu.html">
-    <link rel="alternate" hreflang="ca" href="https://restaurantcalsilvino.com/menu.html">
-    <link rel="alternate" hreflang="es" href="https://restaurantcalsilvino.com/es/menu.html">
-    <link rel="alternate" hreflang="pt" href="https://restaurantcalsilvino.com/pt/menu.html">
-    <link rel="alternate" hreflang="fr" href="https://restaurantcalsilvino.com/fr/menu.html">
-    <link rel="alternate" hreflang="en" href="https://restaurantcalsilvino.com/en/menu.html">
-    <link rel="alternate" hreflang="x-default" href="https://restaurantcalsilvino.com/menu.html">
+    <link rel="canonical" href="https://restaurantcalsilvino.com/fr/menu">
+    <link rel="alternate" hreflang="ca" href="https://restaurantcalsilvino.com/menu">
+    <link rel="alternate" hreflang="es" href="https://restaurantcalsilvino.com/es/menu">
+    <link rel="alternate" hreflang="pt" href="https://restaurantcalsilvino.com/pt/menu">
+    <link rel="alternate" hreflang="fr" href="https://restaurantcalsilvino.com/fr/menu">
+    <link rel="alternate" hreflang="en" href="https://restaurantcalsilvino.com/en/menu">
+    <link rel="alternate" hreflang="x-default" href="https://restaurantcalsilvino.com/menu">
 
     <meta property="og:title" content="Carte et Menu | Cal Silvino — Restaurant La Massana">
     <meta property="og:description" content="Spécialités de la maison : morue a la llauna, poulpe à la braise, viandes à la braise, cannellonis maison et bien plus.">
-    <meta property="og:url" content="https://restaurantcalsilvino.com/fr/menu.html">
-    <meta property="og:image" content="https://restaurantcalsilvino.com/images/fondo.png">
+    <meta property="og:url" content="https://restaurantcalsilvino.com/fr/menu">
+    <meta property="og:image" content="https://restaurantcalsilvino.com/images/fondo.webp">
     <meta property="og:locale" content="fr_FR">
 
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html{height:100%;scroll-behavior:smooth}body{min-height:100%;display:flex;flex-direction:column;margin:0;padding-top:100px;font-family:'Poppins',sans-serif;overflow-x:clip;color:#222}main{flex:1}
+header{background:linear-gradient(to bottom,#f5e4ce,#fff);display:flex;align-items:center;justify-content:space-between;padding:10px 20px;position:fixed;top:0;left:0;width:100%;z-index:1000;box-shadow:0 2px 5px rgba(0,0,0,.08);transition:background .45s ease,box-shadow .45s ease}
+.header-brand{display:flex;align-items:center;gap:16px}
+.header-phone{font-size:.95rem;font-weight:700;color:#c50101;text-decoration:none;letter-spacing:.01em;white-space:nowrap}
+.logo{height:80px;width:auto;cursor:pointer}
+nav{display:flex;align-items:center;gap:70px}
+nav a{text-decoration:none;color:#000;font-size:18px;font-weight:500;cursor:pointer}
+nav a.active{border-bottom:2px solid #000;pointer-events:none}
+.header-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.header-status{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:#444;white-space:nowrap;padding:5px 10px;border-radius:20px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.08)}
+.status-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.status-dot.open{background:#22c55e;box-shadow:0 0 0 2px rgba(34,197,94,.25)}
+.status-dot.closed{background:#ef4444;box-shadow:0 0 0 2px rgba(239,68,68,.25)}
+</style>
     <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
     <header>
         <div class="header-brand">
-            <img src="/images/logo.png" width="1359" height="768" class="logo" alt="Cal Silvino">
+            <img src="/images/logo.webp" width="1359" height="768" class="logo" alt="Logo Cal Silvino">
             <a href="tel:+376840720" class="header-phone">📞 +376 840 720</a>
         </div>
 
@@ -88,11 +104,11 @@
 
             <div class="menu-cards">
                 <a href="/.netlify/functions/serve-pdf?name=carta-es-ca" class="menu-img-link" onclick="openPdfModal('/.netlify/functions/serve-pdf?name=carta-es-ca', 'Español / Català'); return false;">
-                    <img loading="lazy" src="/images/MenuCatEsp.png" width="1536" height="1024" alt="Voir menu Español / Català" class="menu-img">
+                    <img decoding="async" loading="lazy" src="/images/MenuCatEsp.webp" width="1536" height="1024" alt="Voir menu Español / Català" class="menu-img">
                     <p class="menu-card-label">Español / Català</p>
                 </a>
                 <a href="/.netlify/functions/serve-pdf?name=carta-fr-en" class="menu-img-link" onclick="openPdfModal('/.netlify/functions/serve-pdf?name=carta-fr-en', 'Français / English'); return false;">
-                    <img loading="lazy" src="/images/MenuFrEn.png" width="1536" height="1024" alt="Voir menu Français / English" class="menu-img">
+                    <img decoding="async" loading="lazy" src="/images/MenuFrEn.webp" width="1536" height="1024" alt="Voir menu Français / English" class="menu-img">
                     <p class="menu-card-label">Français / English</p>
                 </a>
             </div>
@@ -186,26 +202,26 @@
 
             <div class="recipes-carousel">
                 <div class="recipes-carousel-track">
-                    <img loading="lazy" src="/images/carrusel/calsilvinoComida.jpeg" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
-                    <img loading="lazy" src="/images/carrusel/calsilvinoComida2.jpeg" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
-                    <img loading="lazy" src="/images/carrusel/calsilvinoComida3.jpeg" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
-                    <img loading="lazy" src="/images/carrusel/calsilvinoComida4.jpeg" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
-                    <img loading="lazy" src="/images/carrusel/calsilvinoComida5.jpeg" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
-                    <img loading="lazy" src="/images/carrusel/calsilvinoComida6.jpeg" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
-                    <img loading="lazy" src="/images/carrusel/calsilvinoComida7.jpeg" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
-                    <img loading="lazy" src="/images/carrusel/calsilvinoComida8.jpeg" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
-                    <img loading="lazy" src="/images/carrusel/calsilvinoComida9.jpeg" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
-                    <img loading="lazy" src="/images/carrusel/calsilvinoComida10.jpeg" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
-                    <img loading="lazy" src="/images/carrusel/calsilvinoComida.jpeg" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
-                    <img loading="lazy" src="/images/carrusel/calsilvinoComida2.jpeg" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
-                    <img loading="lazy" src="/images/carrusel/calsilvinoComida3.jpeg" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
-                    <img loading="lazy" src="/images/carrusel/calsilvinoComida4.jpeg" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
-                    <img loading="lazy" src="/images/carrusel/calsilvinoComida5.jpeg" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
-                    <img loading="lazy" src="/images/carrusel/calsilvinoComida6.jpeg" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
-                    <img loading="lazy" src="/images/carrusel/calsilvinoComida7.jpeg" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
-                    <img loading="lazy" src="/images/carrusel/calsilvinoComida8.jpeg" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
-                    <img loading="lazy" src="/images/carrusel/calsilvinoComida9.jpeg" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
-                    <img loading="lazy" src="/images/carrusel/calsilvinoComida10.jpeg" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
+                    <img decoding="async" loading="lazy" src="/images/carrusel/calsilvinoComida.webp" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
+                    <img decoding="async" loading="lazy" src="/images/carrusel/calsilvinoComida2.webp" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
+                    <img decoding="async" loading="lazy" src="/images/carrusel/calsilvinoComida3.webp" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
+                    <img decoding="async" loading="lazy" src="/images/carrusel/calsilvinoComida4.webp" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
+                    <img decoding="async" loading="lazy" src="/images/carrusel/calsilvinoComida5.webp" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
+                    <img decoding="async" loading="lazy" src="/images/carrusel/calsilvinoComida6.webp" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
+                    <img decoding="async" loading="lazy" src="/images/carrusel/calsilvinoComida7.webp" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
+                    <img decoding="async" loading="lazy" src="/images/carrusel/calsilvinoComida8.webp" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
+                    <img decoding="async" loading="lazy" src="/images/carrusel/calsilvinoComida9.webp" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
+                    <img decoding="async" loading="lazy" src="/images/carrusel/calsilvinoComida10.webp" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
+                    <img decoding="async" loading="lazy" src="/images/carrusel/calsilvinoComida.webp" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
+                    <img decoding="async" loading="lazy" src="/images/carrusel/calsilvinoComida2.webp" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
+                    <img decoding="async" loading="lazy" src="/images/carrusel/calsilvinoComida3.webp" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
+                    <img decoding="async" loading="lazy" src="/images/carrusel/calsilvinoComida4.webp" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
+                    <img decoding="async" loading="lazy" src="/images/carrusel/calsilvinoComida5.webp" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
+                    <img decoding="async" loading="lazy" src="/images/carrusel/calsilvinoComida6.webp" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
+                    <img decoding="async" loading="lazy" src="/images/carrusel/calsilvinoComida7.webp" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
+                    <img decoding="async" loading="lazy" src="/images/carrusel/calsilvinoComida8.webp" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
+                    <img decoding="async" loading="lazy" src="/images/carrusel/calsilvinoComida9.webp" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
+                    <img decoding="async" loading="lazy" src="/images/carrusel/calsilvinoComida10.webp" width="1920" height="2560" alt="Plat Cal Silvino" class="recipes-carousel-img">
                 </div>
             </div>
         </section>
@@ -244,7 +260,7 @@
 
     <footer>
         <div class="footer-left">
-            <img loading="lazy" src="/images/logo.png" width="1359" height="768" class="footer-logo">
+            <img decoding="async" loading="lazy" src="/images/logo.webp" width="1359" height="768" class="footer-logo">
 
             <div class="footer-info">
                 <p>Av. el Través, 21, AD400 La Massana</p>
@@ -314,6 +330,6 @@
         </div>
     </div>
 
-    <script src="/script.js"></script>
+    <script src="/script.js" defer></script>
 </body>
 </html>
