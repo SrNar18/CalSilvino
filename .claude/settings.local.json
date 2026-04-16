@@ -36,7 +36,8 @@
       "Bash(file logo.* logoWhite.*)",
       "Bash(node _webp_to_png.cjs)",
       "Bash(rm _webp_to_png.cjs)",
-      "Bash(ls -lh images/logo* images/logoWhite*)"
+      "Bash(ls -lh images/logo* images/logoWhite*)",
+      "Bash(node _srcset.cjs)"
     ]
   }
 }
