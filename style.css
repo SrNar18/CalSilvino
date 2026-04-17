@@ -211,6 +211,7 @@ header.hero-mode .header-status {
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
     display: inline-block;
+    white-space: nowrap;
     transition: 0.3s;
     cursor: pointer;
 }
@@ -1416,7 +1417,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 20px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 /* CTA secundario (Ver carta) */
@@ -1427,6 +1428,7 @@ footer {
     text-decoration: none;
     border-bottom: 1px solid rgba(255,255,255,0.5);
     padding-bottom: 2px;
+    white-space: nowrap;
     transition: border-color 0.2s, opacity 0.2s;
 }
 
