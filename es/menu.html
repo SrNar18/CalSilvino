@@ -105,7 +105,6 @@ nav a.active{border-bottom:2px solid #000;pointer-events:none}
                 <h1 class="menu-title">📋 <span>Nuestra Carta</span></h1>
                 <p class="menu-subtitle">Consulta o descarga las cartas en tu idioma</p>
             </div>
-
             <div class="menu-cards">
                 <a href="/.netlify/functions/serve-pdf?name=carta-es-ca" class="menu-img-link" onclick="openPdfModal('/.netlify/functions/serve-pdf?name=carta-es-ca', 'Español / Català'); return false;">
                     <img decoding="async" loading="lazy" src="/images/MenuCatEsp.webp" srcset="/images/MenuCatEsp-480w.webp 480w, /images/MenuCatEsp-768w.webp 768w, /images/MenuCatEsp-1200w.webp 1200w, /images/MenuCatEsp.webp 1536w" sizes="(max-width: 768px) 100vw, 45vw" width="1536" height="1024" alt="Ver carta Español / Català" class="menu-img">
@@ -114,6 +113,19 @@ nav a.active{border-bottom:2px solid #000;pointer-events:none}
                 <a href="/.netlify/functions/serve-pdf?name=carta-fr-en" class="menu-img-link" onclick="openPdfModal('/.netlify/functions/serve-pdf?name=carta-fr-en', 'Français / English'); return false;">
                     <img decoding="async" loading="lazy" src="/images/MenuFrEn.webp" srcset="/images/MenuFrEn-480w.webp 480w, /images/MenuFrEn-768w.webp 768w, /images/MenuFrEn-1200w.webp 1200w, /images/MenuFrEn.webp 1536w" sizes="(max-width: 768px) 100vw, 45vw" width="1536" height="1024" alt="Voir menu Français / English" class="menu-img">
                     <p class="menu-card-label">Français / English</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="menu-dia-section">
+            <div class="menu-dia-header">
+                <h2 class="menu-dia-title">🍽️ Menú del Día</h2>
+                <p class="menu-dia-subtitle">Consulta el menú del día de hoy</p>
+            </div>
+            <div class="menu-cards">
+                <a href="/.netlify/functions/serve-pdf?name=menu-dia" class="menu-img-link" onclick="openPdfModal('/.netlify/functions/serve-pdf?name=menu-dia', 'Menú del Día'); return false;">
+                    <img decoding="async" loading="lazy" src="/images/MenuDaily.png" sizes="(max-width: 768px) 100vw, 45vw" alt="Menú del Día Cal Silvino" class="menu-img">
+                    <p class="menu-card-label">Menú del Día</p>
                 </a>
             </div>
         </section>
@@ -129,39 +141,57 @@ nav a.active{border-bottom:2px solid #000;pointer-events:none}
                 <div class="menu-specialties-grid">
 
                     <div class="specialty-card">
-                        <span class="specialty-tag">Mar</span>
-                        <h3 class="specialty-name">Bacalao a la llauna</h3>
-                        <p class="specialty-desc">El plato estrella de la casa. Bacalao confitado en aceite de oliva virgen extra con ajo dorado y pimentón dulce.</p>
+                        <img src="/images/Especialitats/bacalla.webp" alt="Bacalao a la brasa" class="specialty-img" loading="lazy" decoding="async">
+                        <div class="specialty-card-body">
+                            <span class="specialty-tag">Brasa</span>
+                            <h3 class="specialty-name">Bacalao típico portugués</h3>
+                            <p class="specialty-desc">Gratinado y hecho a la brasa. Un homenaje a nuestras raíces portuguesas, el plato que nos define.</p>
+                        </div>
                     </div>
 
                     <div class="specialty-card">
-                        <span class="specialty-tag">Brasa</span>
-                        <h3 class="specialty-name">Pulpo a la brasa</h3>
-                        <p class="specialty-desc">Pulpo gallego braseado al fuego vivo, acompañado de patata aplastada, aceite de pimentón y flor de sal.</p>
+                        <img src="/images/Especialitats/pulpo.webp" alt="Pulpo a la brasa" class="specialty-img" loading="lazy" decoding="async">
+                        <div class="specialty-card-body">
+                            <span class="specialty-tag">Brasa</span>
+                            <h3 class="specialty-name">Pulpo a la brasa</h3>
+                            <p class="specialty-desc">Cocinado en nuestro horno de brasa al estilo de Cal Silvino. Sabor único, crujiente por fuera y tierno por dentro.</p>
+                        </div>
                     </div>
 
                     <div class="specialty-card">
-                        <span class="specialty-tag">Tradición</span>
-                        <h3 class="specialty-name">Callos a la madrileña</h3>
-                        <p class="specialty-desc">Guiso tradicional de callos con chorizo, morcilla y especias, cocinado a fuego lento durante horas.</p>
+                        <img src="/images/Especialitats/callos.webp" alt="Callos a la madrileña" class="specialty-img" loading="lazy" decoding="async">
+                        <div class="specialty-card-body">
+                            <span class="specialty-tag">Tradición</span>
+                            <h3 class="specialty-name">Callos a la madrileña</h3>
+                            <p class="specialty-desc">Cocinado a fuego lento durante horas con chorizo y las especias de siempre.</p>
+                        </div>
                     </div>
 
                     <div class="specialty-card">
-                        <span class="specialty-tag">Mar</span>
-                        <h3 class="specialty-name">Tartar de atún</h3>
-                        <p class="specialty-desc">Atún rojo cortado a cuchillo con aguacate cremoso, sésamo tostado, soja y un toque de wasabi.</p>
+                        <img src="/images/Especialitats/carpaccio.webp" alt="Carpaccio de ternera" class="specialty-img" loading="lazy" decoding="async">
+                        <div class="specialty-card-body">
+                            <span class="specialty-tag">Frescura</span>
+                            <h3 class="specialty-name">Carpaccio de ternera</h3>
+                            <p class="specialty-desc">Finas láminas de bou, aceite de oliva virgen y especias seleccionadas. Puro, limpio e incomparablemente fresco.</p>
+                        </div>
                     </div>
 
                     <div class="specialty-card">
-                        <span class="specialty-tag">Brasa</span>
-                        <h3 class="specialty-name">Carne a la brasa</h3>
-                        <p class="specialty-desc">Selección de cortes premium braseados sobre leña de encina. Servidos con guarnición de temporada.</p>
+                        <img src="/images/Especialitats/entrecot.webp" alt="Carnes a la brasa" class="specialty-img" loading="lazy" decoding="async">
+                        <div class="specialty-card-body">
+                            <span class="specialty-tag">Brasa</span>
+                            <h3 class="specialty-name">Carnes a la brasa</h3>
+                            <p class="specialty-desc">De bou (vaca vieja), seleccionando las mejores piezas para ofrecerte una experiencia única a la brasa.</p>
+                        </div>
                     </div>
 
                     <div class="specialty-card">
-                        <span class="specialty-tag">Tradición</span>
-                        <h3 class="specialty-name">Canelones caseros</h3>
-                        <p class="specialty-desc">Canelones rellenos de carne braseada y verduras, cubiertos de bechamel casera y queso gratinado.</p>
+                        <img src="/images/Especialitats/canelones.webp" alt="Canelones caseros" class="specialty-img" loading="lazy" decoding="async">
+                        <div class="specialty-card-body">
+                            <span class="specialty-tag">Tradición</span>
+                            <h3 class="specialty-name">Canelones caseros</h3>
+                            <p class="specialty-desc">Rellenos de carne con ceps y foie gras, cubiertos con bechamel casera y gratinados al horno.</p>
+                        </div>
                     </div>
 
                 </div>
@@ -269,7 +299,7 @@ nav a.active{border-bottom:2px solid #000;pointer-events:none}
             <div class="footer-info">
                 <p>Av. el Través, 21, AD400 La Massana</p>
                 <p>Teléfono: +376 840 720</p>
-                <p>info@restaurantcalsilvino.com</p>
+                <p>info@calsilvinorestaurant.com</p>
             </div>
         </div>
 
@@ -292,15 +322,6 @@ nav a.active{border-bottom:2px solid #000;pointer-events:none}
                     <p>20.00 - 23.30</p>
                 </div>
             </div>
-        </div>
-        <div class="footer-legal">
-            <a href="#" class="legal-link" onclick="showLegalPopup(event)">Política de privacidad</a>
-            <span class="legal-sep">·</span>
-            <a href="#" class="legal-link" onclick="showLegalPopup(event)">Términos y condiciones</a>
-            <span class="legal-sep">·</span>
-            <a href="#" class="legal-link" onclick="showLegalPopup(event)">Política de cookies</a>
-            <span class="legal-sep">·</span>
-            <a href="#" class="legal-link" onclick="showLegalPopup(event)">Aviso legal</a>
         </div>
     </footer>
 

@@ -10,7 +10,7 @@
         "description": "Restaurante familiar de cocina tradicional andorrana y mediterránea en La Massana, Andorra. Especialidad en bacalao a la llauna, pulpo a la brasa, carnes y platos de temporada.",
         "url": "https://restaurantcalsilvino.com",
         "telephone": "+376840720",
-        "email": "info@restaurantcalsilvino.com",
+        "email": "info@calsilvinorestaurant.com",
         "image": "https://restaurantcalsilvino.com/images/fondo.webp",
         "address": {
             "@type": "PostalAddress",

@@ -32,14 +32,13 @@ function openPdfModal(pdfPath, title) {
     const isMobile = /iPhone|iPad|Android|Mobile/i.test(navigator.userAgent);
 
     if (isMobile) {
-        frame.style.display = "none";
-        fallback.style.display = "flex";
-        frame.src = "";
-    } else {
-        frame.style.display = "block";
-        fallback.style.display = "none";
-        frame.src = freshPdfPath;
+        window.open(freshPdfPath, '_blank');
+        return;
     }
+
+    frame.style.display = "block";
+    fallback.style.display = "none";
+    frame.src = freshPdfPath;
 
     modal.classList.add("active");
     document.body.style.overflow = "hidden";

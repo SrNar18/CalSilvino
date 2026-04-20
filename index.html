@@ -57,9 +57,9 @@ header.hero-mode .header-status{color:rgba(255,255,255,.88);background:rgba(255,
 .home-banner{height:100vh;margin-top:-100px;position:relative;display:flex;align-items:center}
 .home-banner-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1}
 .home-banner-overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.30) 60%,rgba(0,0,0,.10) 100%);pointer-events:none;z-index:2}
-.home-banner-content{color:#fff;margin-left:60px;max-width:500px;position:relative;z-index:3}
-.home-banner-subtitle{font-size:13px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.75);margin:0 0 12px}
-.home-banner-title{font-size:56px;font-weight:700;margin-bottom:20px;line-height:1.15;text-shadow:0 2px 16px rgba(0,0,0,.45)}
+.home-banner-content{color:#fff;margin-left:clamp(20px,4vw,60px);max-width:clamp(280px,34vw,500px);position:relative;z-index:3}
+.home-banner-subtitle{font-size:clamp(10px,0.9vw,13px);font-weight:500;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.75);margin:0 0 12px}
+.home-banner-title{font-size:clamp(24px,3.2vw,56px);font-weight:700;margin-bottom:20px;line-height:1.15;text-shadow:0 2px 16px rgba(0,0,0,.45)}
 .home-banner-desc{font-size:16px;font-weight:300;line-height:1.65;color:rgba(255,255,255,.88);margin:0 0 32px}
 .home-banner-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(8px);padding:7px 16px;border-radius:30px;margin-bottom:18px;font-size:13px;font-weight:500}
 .badge-stars{color:#ffd557;font-size:14px;letter-spacing:1px}.badge-text{color:rgba(255,255,255,.92)}
@@ -358,7 +358,7 @@ header.hero-mode .header-status{color:rgba(255,255,255,.88);background:rgba(255,
                         <p class="contact-eyebrow">Som aquí</p>
                         <h3>📍 <span>Vine a viure una experiència gastronòmica a La Massana</span></h3>
                         <p>Av. el Través, 21 · AD400 La Massana, Andorra</p>
-                        <a href="https://maps.app.goo.gl/KgLBh4SZVhFojGUUA" target="_blank" rel="noopener noreferrer" class="parking-link" title="Pàrquing propi gratuït Cal Silvino">
+                        <a href="https://www.google.com/maps/place/Gicafer/@42.5464233,1.5162064,18.25z/data=!4m6!3m5!1s0x12af5ffc09b2816f:0xf3f85f1c5cafed53!8m2!3d42.5466429!4d1.5161339!16s%2Fg%2F11flzg256s?entry=ttu&g_ep=EgoyMDI2MDQxNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="parking-link" title="Pàrquing propi gratuït Cal Silvino">
                             🅿️ <span>Pàrquing propi gratuït — a 1 min</span>
                         </a>
                         <p><span>Tel:</span> <a href="tel:+376840720" class="contact-phone-link">+376 840 720</a></p>
@@ -393,7 +393,7 @@ header.hero-mode .header-status{color:rgba(255,255,255,.88);background:rgba(255,
                    title="Com arribar al Restaurant Cal Silvino a La Massana, Andorra">
                     📍 <span>Arribar al restaurant</span>
                 </a>
-                <a href="https://maps.app.goo.gl/KgLBh4SZVhFojGUUA"
+                <a href="https://www.google.com/maps/place/Gicafer/@42.5464233,1.5162064,18.25z/data=!4m6!3m5!1s0x12af5ffc09b2816f:0xf3f85f1c5cafed53!8m2!3d42.5466429!4d1.5161339!16s%2Fg%2F11flzg256s?entry=ttu&g_ep=EgoyMDI2MDQxNC4wIKXMDSoASAFQAw%3D%3D"
                    target="_blank" rel="noopener noreferrer"
                    class="btn-secondary directions-btn"
                    title="Com arribar al pàrquing gratuït de La Massana">
@@ -409,7 +409,7 @@ header.hero-mode .header-status{color:rgba(255,255,255,.88);background:rgba(255,
             <div class="footer-info">
                 <p>Av. el Través, 21, AD400 La Massana</p>
                 <p>Telèfon: +376 840 720</p>
-                <p>info@restaurantcalsilvino.com</p>
+                <p>info@calsilvinorestaurant.com</p>
             </div>
         </div>
         <div class="footer-right">
@@ -432,15 +432,6 @@ header.hero-mode .header-status{color:rgba(255,255,255,.88);background:rgba(255,
                     <p>11.00 - 16.00</p>
                 </div>
             </div>
-        </div>
-        <div class="footer-legal">
-            <a href="#" class="legal-link" onclick="showLegalPopup(event)">Política de privacitat</a>
-            <span class="legal-sep">·</span>
-            <a href="#" class="legal-link" onclick="showLegalPopup(event)">Termes i condicions</a>
-            <span class="legal-sep">·</span>
-            <a href="#" class="legal-link" onclick="showLegalPopup(event)">Política de galetes</a>
-            <span class="legal-sep">·</span>
-            <a href="#" class="legal-link" onclick="showLegalPopup(event)">Avís legal</a>
         </div>
     </footer>
 

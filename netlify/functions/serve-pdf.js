@@ -1,4 +1,4 @@
-const ALLOWED = ['carta-es-ca', 'carta-fr-en'];
+const ALLOWED = ['carta-es-ca', 'carta-fr-en', 'menu-dia'];
 
 export default async (req) => {
     const url = new URL(req.url);

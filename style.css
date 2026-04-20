@@ -321,8 +321,8 @@ header.hero-mode .header-status {
 
 .home-banner-content {
     color: white;
-    margin-left: 60px;
-    max-width: 500px;
+    margin-left: clamp(20px, 4vw, 60px);
+    max-width: clamp(280px, 34vw, 500px);
     animation: fadeInUp 0.9s ease forwards;
     position: relative;
     z-index: 3;
@@ -340,7 +340,7 @@ header.hero-mode .header-status {
 }
 
 .home-banner-subtitle {
-    font-size: 13px;
+    font-size: clamp(10px, 0.9vw, 13px);
     font-weight: 500;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -349,7 +349,7 @@ header.hero-mode .header-status {
 }
 
 .home-banner-title {
-    font-size: 56px;
+    font-size: clamp(24px, 3.2vw, 56px);
     font-weight: 700;
     margin-bottom: 20px;
     line-height: 1.15;
@@ -1405,7 +1405,7 @@ footer {
 
 /* Descripción bajo el H1 */
 .home-banner-desc {
-    font-size: 16px;
+    font-size: clamp(13px, 1.1vw, 16px);
     font-weight: 300;
     line-height: 1.65;
     color: rgba(255,255,255,0.88);
@@ -1761,16 +1761,74 @@ footer {
 .menu-section {
     min-height: auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
-    padding: 40px 40px 60px 40px;
+    justify-content: center;
+    gap: 60px;
+    padding: 60px 80px;
     background: linear-gradient(160deg, #fff9f5 0%, #ffffff 60%, #fff3ee 100%);
 }
 
+.menu-dia-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    padding: 60px 80px;
+    background: linear-gradient(135deg, #c50101 0%, #a10000 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-dia-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(255,255,255,0.06) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.menu-dia-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 10px;
+    text-align: left;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    white-space: nowrap;
+}
+
+.menu-dia-subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.8);
+    margin: 0 0 0;
+    text-align: left;
+    font-weight: 400;
+}
+
+.menu-dia-header {
+    flex: 0 0 auto;
+}
+
+.menu-dia-section .menu-card-label {
+    color: rgba(255,255,255,0.9);
+    font-weight: 600;
+}
+
+.menu-dia-section .menu-img-link:hover {
+    filter: drop-shadow(0 12px 28px rgba(0,0,0,0.35));
+}
+
+.menu-dia-section .menu-img {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    border: 3px solid rgba(255,255,255,0.15);
+}
+
 .menu-header {
-    text-align: center;
-    margin-bottom: 40px;
+    text-align: left;
+    margin-bottom: 0;
+    flex: 0 0 auto;
 }
 
 .menu-title {
@@ -1780,6 +1838,7 @@ footer {
     margin: 0;
     letter-spacing: -1px;
     line-height: 1.2;
+    white-space: nowrap;
 }
 
 .menu-subtitle {
@@ -1814,6 +1873,15 @@ footer {
     height: auto;
     display: block;
     border-radius: 20px;
+}
+
+.menu-card-title {
+    text-align: center;
+    margin: 0 0 10px 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.02em;
 }
 
 .menu-card-label {
@@ -1912,10 +1980,22 @@ footer {
 .specialty-card {
     background: #fff;
     border-radius: 18px;
-    padding: 28px 24px;
+    padding: 0;
+    overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     border-bottom: 3px solid transparent;
     transition: transform 0.3s, box-shadow 0.3s, border-bottom-color 0.3s;
+}
+
+.specialty-img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+}
+
+.specialty-card-body {
+    padding: 22px 24px 28px;
 }
 
 .specialty-card:hover {
@@ -2462,10 +2542,19 @@ header.hero-mode .hamburger.open span,
         gap: 14px;
     }
 
+    .footer-right {
+        width: 100%;
+    }
+
     .footer-schedule {
-        gap: 20px;
-        justify-content: flex-start;
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
         text-align: left;
+    }
+
+    .schedule-block {
+        max-width: 100%;
     }
 
     /* --- Página Contacto --- */
@@ -2494,7 +2583,26 @@ header.hero-mode .hamburger.open span,
 
     /* --- Página Menú --- */
     .menu-section {
+        flex-direction: column;
         padding: 40px 20px 50px;
+        gap: 32px;
+    }
+
+    .menu-dia-section {
+        flex-direction: column;
+        padding: 40px 20px 50px;
+        gap: 32px;
+    }
+
+    .menu-header,
+    .menu-dia-header {
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .menu-dia-title,
+    .menu-dia-subtitle {
+        text-align: center;
     }
 
     .menu-title {
@@ -2558,6 +2666,40 @@ header.hero-mode .hamburger.open span,
         height: 160px;
     }
 
+    /* --- Body --- */
+    body {
+        padding-top: 80px;
+    }
+
+    /* --- Header brand --- */
+    .header-brand {
+        gap: 10px;
+    }
+
+    /* --- Trust bar --- */
+    .trust-bar-item strong {
+        font-size: 15px;
+    }
+
+    .trust-bar-divider {
+        height: 28px;
+    }
+
+    /* --- Footer logo --- */
+    .footer-logo {
+        height: 55px;
+    }
+
+    /* --- Menú del Día --- */
+    .menu-dia-title {
+        font-size: 28px;
+        white-space: normal;
+    }
+
+    .menu-dia-subtitle {
+        font-size: 13px;
+    }
+
     /* --- Directions --- */
     .directions-btns {
         flex-direction: column;
@@ -2573,23 +2715,291 @@ header.hero-mode .hamburger.open span,
     }
 }
 
+/* ── RESPONSIVE TABLET 769px–1024px ── */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    nav {
+        gap: 36px;
+    }
+
+    nav a {
+        font-size: 15px;
+    }
+
+    .nav-btn {
+        padding: 11px 18px;
+        font-size: 14px;
+    }
+
+    .home-banner-content {
+        margin-left: clamp(20px, 3vw, 40px);
+    }
+
+    .trust-bar-item {
+        padding: 0 24px;
+    }
+
+    .trust-bar-item strong {
+        font-size: 15px;
+    }
+
+    .home-about-container {
+        gap: 36px;
+    }
+
+    .menu-section,
+    .menu-dia-section {
+        gap: 40px;
+        padding: 50px 40px;
+    }
+
+    .menu-img {
+        width: 220px;
+    }
+
+    .menu-title {
+        font-size: 38px;
+    }
+
+    .menu-dia-title {
+        font-size: 30px;
+    }
+
+    .menu-specialties-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 /* ── RESPONSIVE 480px ── */
 @media (max-width: 480px) {
 
-    .home-banner-title {
-        font-size: 34px;
+    body {
+        padding-top: 70px;
     }
 
+    header {
+        padding: 8px 12px;
+    }
+
+    .logo {
+        height: 55px;
+    }
+
+    .footer-logo {
+        height: 45px;
+    }
+
+    /* --- Banner --- */
+    .home-banner-title {
+        font-size: 30px;
+    }
+
+    .home-banner-desc {
+        font-size: 13px;
+    }
+
+    .btn-primary {
+        padding: 12px 22px;
+        font-size: 14px;
+    }
+
+    /* --- Trust bar --- */
+    .trust-bar {
+        gap: 8px 0;
+        padding: 14px 16px;
+    }
+
+    .trust-bar-item {
+        padding: 6px 12px;
+    }
+
+    .trust-bar-item strong {
+        font-size: 13px;
+    }
+
+    .trust-bar-item span {
+        font-size: 10px;
+    }
+
+    .trust-bar-divider {
+        height: 22px;
+    }
+
+    /* --- About --- */
     .home-about-text h2 {
+        font-size: 20px;
+    }
+
+    .home-about-text p {
+        font-size: 14px;
+    }
+
+    /* --- Schedule --- */
+    .home-schedule-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .home-schedule-item {
+        padding: 16px 12px;
+    }
+
+    .schedule-day {
+        font-size: 10px;
+    }
+
+    .slot-time {
+        font-size: 13px;
+    }
+
+    /* --- Reserve CTA --- */
+    .reserve-cta-title {
+        font-size: 26px;
+    }
+
+    .reserve-cta-desc {
+        font-size: 13px;
+    }
+
+    .reserve-cta-btn-primary,
+    .reserve-cta-btn-secondary {
+        padding: 12px 22px;
+        font-size: 14px;
+    }
+
+    /* --- Testimonials --- */
+    .testimonials-title {
         font-size: 22px;
     }
 
-    .home-schedule-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .testimonial-card {
+        padding: 20px 16px;
+    }
+
+    .testimonial-text {
+        font-size: 13px;
+    }
+
+    .testimonial-avatar {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+
+    /* --- Contact --- */
+    .home-contact-text h3 {
+        font-size: 16px;
+    }
+
+    /* --- Footer --- */
+    footer {
+        padding: 24px 16px;
+        gap: 20px;
+    }
+
+    .footer-info p {
+        font-size: 12px;
+    }
+
+    .schedule-block p {
+        font-size: 12px;
+    }
+
+    /* --- Menú page --- */
+    .menu-title {
+        font-size: 26px;
+    }
+
+    .menu-subtitle {
+        font-size: 13px;
+    }
+
+    .menu-dia-title {
+        font-size: 22px;
+        white-space: normal;
+    }
+
+    .menu-dia-subtitle {
+        font-size: 12px;
+    }
+
+    .menu-img {
+        width: 190px;
+    }
+
+    .menu-section-title {
+        font-size: 22px;
     }
 
     .specialty-card {
-        padding: 22px 18px;
+        padding: 18px 14px;
+    }
+
+    .specialty-name {
+        font-size: 16px;
+    }
+
+    .specialty-desc {
+        font-size: 12px;
+    }
+
+    .menu-feature-title {
+        font-size: 13px;
+    }
+
+    .menu-feature-text {
+        font-size: 11px;
+    }
+
+    .recipes-carousel-img {
+        width: 180px;
+        height: 140px;
+    }
+
+    .menu-cta-title {
+        font-size: 22px;
+    }
+
+    /* --- Directions --- */
+    .directions-section h2 {
+        font-size: 22px;
+    }
+}
+
+/* ── RESPONSIVE 360px ── */
+@media (max-width: 360px) {
+
+    body {
+        padding-top: 65px;
+    }
+
+    header {
+        padding: 6px 10px;
+    }
+
+    .logo {
+        height: 48px;
+    }
+
+    .home-banner-title {
+        font-size: 26px;
+    }
+
+    .home-schedule-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .menu-img {
+        width: 160px;
+    }
+
+    .trust-bar-item {
+        padding: 4px 8px;
+    }
+
+    footer {
+        padding: 18px 12px;
     }
 }
 

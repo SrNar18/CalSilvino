@@ -105,7 +105,6 @@ nav a.active{border-bottom:2px solid #000;pointer-events:none}
                 <h1 class="menu-title">📋 <span>Our Menu</span></h1>
                 <p class="menu-subtitle">View or download the menu in your language</p>
             </div>
-
             <div class="menu-cards">
                 <a href="/.netlify/functions/serve-pdf?name=carta-es-ca" class="menu-img-link" onclick="openPdfModal('/.netlify/functions/serve-pdf?name=carta-es-ca', 'Español / Català'); return false;">
                     <img decoding="async" loading="lazy" src="/images/MenuCatEsp.webp" srcset="/images/MenuCatEsp-480w.webp 480w, /images/MenuCatEsp-768w.webp 768w, /images/MenuCatEsp-1200w.webp 1200w, /images/MenuCatEsp.webp 1536w" sizes="(max-width: 768px) 100vw, 45vw" width="1536" height="1024" alt="View menu Español / Català" class="menu-img">
@@ -114,6 +113,19 @@ nav a.active{border-bottom:2px solid #000;pointer-events:none}
                 <a href="/.netlify/functions/serve-pdf?name=carta-fr-en" class="menu-img-link" onclick="openPdfModal('/.netlify/functions/serve-pdf?name=carta-fr-en', 'Français / English'); return false;">
                     <img decoding="async" loading="lazy" src="/images/MenuFrEn.webp" srcset="/images/MenuFrEn-480w.webp 480w, /images/MenuFrEn-768w.webp 768w, /images/MenuFrEn-1200w.webp 1200w, /images/MenuFrEn.webp 1536w" sizes="(max-width: 768px) 100vw, 45vw" width="1536" height="1024" alt="View menu Français / English" class="menu-img">
                     <p class="menu-card-label">Français / English</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="menu-dia-section">
+            <div class="menu-dia-header">
+                <h2 class="menu-dia-title">🍽️ Daily Menu</h2>
+                <p class="menu-dia-subtitle">Check today's daily menu</p>
+            </div>
+            <div class="menu-cards">
+                <a href="/.netlify/functions/serve-pdf?name=menu-dia" class="menu-img-link" onclick="openPdfModal('/.netlify/functions/serve-pdf?name=menu-dia', 'Daily Menu'); return false;">
+                    <img decoding="async" loading="lazy" src="/images/MenuDaily.png" sizes="(max-width: 768px) 100vw, 45vw" alt="Daily Menu Cal Silvino" class="menu-img">
+                    <p class="menu-card-label">Daily Menu</p>
                 </a>
             </div>
         </section>
@@ -129,39 +141,57 @@ nav a.active{border-bottom:2px solid #000;pointer-events:none}
                 <div class="menu-specialties-grid">
 
                     <div class="specialty-card">
-                        <span class="specialty-tag">Sea</span>
-                        <h3 class="specialty-name">Cod a la llauna</h3>
-                        <p class="specialty-desc">The signature dish of the house. Cod confited in extra virgin olive oil with golden garlic and sweet paprika.</p>
+                        <img src="/images/Especialitats/bacalla.webp" alt="Grilled cod" class="specialty-img" loading="lazy" decoding="async">
+                        <div class="specialty-card-body">
+                            <span class="specialty-tag">Grill</span>
+                            <h3 class="specialty-name">Traditional Portuguese cod</h3>
+                            <p class="specialty-desc">Gratinated and grilled over live fire. A tribute to our Portuguese roots and the dish that defines us.</p>
+                        </div>
                     </div>
 
                     <div class="specialty-card">
-                        <span class="specialty-tag">Grill</span>
-                        <h3 class="specialty-name">Grilled octopus</h3>
-                        <p class="specialty-desc">Galician octopus grilled over live fire, served with crushed potatoes, paprika oil and flaked salt.</p>
+                        <img src="/images/Especialitats/pulpo.webp" alt="Grilled octopus" class="specialty-img" loading="lazy" decoding="async">
+                        <div class="specialty-card-body">
+                            <span class="specialty-tag">Grill</span>
+                            <h3 class="specialty-name">Grilled octopus</h3>
+                            <p class="specialty-desc">Cooked in our charcoal oven Cal Silvino style. Unique flavour, crispy on the outside and tender on the inside.</p>
+                        </div>
                     </div>
 
                     <div class="specialty-card">
-                        <span class="specialty-tag">Tradition</span>
-                        <h3 class="specialty-name">Traditional tripe</h3>
-                        <p class="specialty-desc">Classic tripe stew with chorizo, blood sausage and spices, simmered on low heat for hours.</p>
+                        <img src="/images/Especialitats/callos.webp" alt="Traditional tripe" class="specialty-img" loading="lazy" decoding="async">
+                        <div class="specialty-card-body">
+                            <span class="specialty-tag">Tradition</span>
+                            <h3 class="specialty-name">Traditional tripe</h3>
+                            <p class="specialty-desc">Slow-cooked for hours with chorizo and time-honoured spices.</p>
+                        </div>
                     </div>
 
                     <div class="specialty-card">
-                        <span class="specialty-tag">Sea</span>
-                        <h3 class="specialty-name">Tuna tartare</h3>
-                        <p class="specialty-desc">Red tuna hand-cut with creamy avocado, toasted sesame, soy sauce and a touch of wasabi.</p>
+                        <img src="/images/Especialitats/carpaccio.webp" alt="Beef carpaccio" class="specialty-img" loading="lazy" decoding="async">
+                        <div class="specialty-card-body">
+                            <span class="specialty-tag">Fresh</span>
+                            <h3 class="specialty-name">Beef carpaccio</h3>
+                            <p class="specialty-desc">Thin slices of beef with extra virgin olive oil and selected spices. Pure, clean and incomparably fresh.</p>
+                        </div>
                     </div>
 
                     <div class="specialty-card">
-                        <span class="specialty-tag">Grill</span>
-                        <h3 class="specialty-name">Flame-grilled meat</h3>
-                        <p class="specialty-desc">Selection of premium cuts grilled over holm oak wood. Served with seasonal garnish.</p>
+                        <img src="/images/Especialitats/entrecot.webp" alt="Flame-grilled meats" class="specialty-img" loading="lazy" decoding="async">
+                        <div class="specialty-card-body">
+                            <span class="specialty-tag">Grill</span>
+                            <h3 class="specialty-name">Flame-grilled meats</h3>
+                            <p class="specialty-desc">From bou (aged cow), selecting the finest cuts to offer you a unique grilling experience.</p>
+                        </div>
                     </div>
 
                     <div class="specialty-card">
-                        <span class="specialty-tag">Tradition</span>
-                        <h3 class="specialty-name">Homemade cannelloni</h3>
-                        <p class="specialty-desc">Cannelloni filled with grilled meat and vegetables, topped with homemade béchamel and gratinated cheese.</p>
+                        <img src="/images/Especialitats/canelones.webp" alt="Homemade cannelloni" class="specialty-img" loading="lazy" decoding="async">
+                        <div class="specialty-card-body">
+                            <span class="specialty-tag">Tradition</span>
+                            <h3 class="specialty-name">Homemade cannelloni</h3>
+                            <p class="specialty-desc">Filled with meat, ceps mushrooms and foie gras, topped with homemade béchamel and baked au gratin.</p>
+                        </div>
                     </div>
 
                 </div>
@@ -269,7 +299,7 @@ nav a.active{border-bottom:2px solid #000;pointer-events:none}
             <div class="footer-info">
                 <p>Av. el Través, 21, AD400 La Massana</p>
                 <p>Phone: +376 840 720</p>
-                <p>info@restaurantcalsilvino.com</p>
+                <p>info@calsilvinorestaurant.com</p>
             </div>
         </div>
 
@@ -292,15 +322,6 @@ nav a.active{border-bottom:2px solid #000;pointer-events:none}
                     <p>20:00 - 23:30</p>
                 </div>
             </div>
-        </div>
-        <div class="footer-legal">
-            <a href="#" class="legal-link" onclick="showLegalPopup(event)">Privacy policy</a>
-            <span class="legal-sep">·</span>
-            <a href="#" class="legal-link" onclick="showLegalPopup(event)">Terms and conditions</a>
-            <span class="legal-sep">·</span>
-            <a href="#" class="legal-link" onclick="showLegalPopup(event)">Cookie policy</a>
-            <span class="legal-sep">·</span>
-            <a href="#" class="legal-link" onclick="showLegalPopup(event)">Legal notice</a>
         </div>
     </footer>
 

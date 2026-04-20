@@ -37,7 +37,21 @@
       "Bash(node _webp_to_png.cjs)",
       "Bash(rm _webp_to_png.cjs)",
       "Bash(ls -lh images/logo* images/logoWhite*)",
-      "Bash(node _srcset.cjs)"
+      "Bash(node _srcset.cjs)",
+      "Bash(dir \"C:\\\\Users\\\\Estades\\\\Documents\\\\CalSilvino\\\\images\\\\especialitats\")",
+      "Bash(cwebp -q 85 carpaccio.jpeg -o carpaccio.webp)",
+      "Bash(cwebp -q 85 callos.jpeg -o callos_new.webp)",
+      "Bash(cwebp -q 85 canelones.jpeg -o canelones.webp)",
+      "Bash(cwebp -q 85 entrecot.jpeg -o entrecot.webp)",
+      "Bash(magick --version)",
+      "Bash(convert --version)",
+      "Bash(ffmpeg -version)",
+      "Bash(python3 -c \"from PIL import Image; print\\('PIL ok'\\)\")",
+      "Bash(python -c \"from PIL import Image; print\\('PIL ok'\\)\")",
+      "Bash(where python:*)",
+      "Bash(where python3:*)",
+      "Bash(node -e \"console.log\\('node ok'\\)\")",
+      "Bash(node -e \"require\\('sharp'\\)\")"
     ]
   }
 }

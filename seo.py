@@ -26,7 +26,7 @@ RESTAURANT_SCHEMA = {
     "name": "Cal Silvino",
     "url": BASE_URL,
     "telephone": "+376840720",
-    "email": "info@restaurantcalsilvino.com",
+    "email": "info@calsilvinorestaurant.com",
     "image": f"{BASE_URL}/images/fondo.png",
     "logo": f"{BASE_URL}/images/logo.png",
     "description": "Restaurante familiar en La Massana, Andorra. Cocina tradicional andorrana y mediterránea.",
