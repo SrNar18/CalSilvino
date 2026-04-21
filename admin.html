@@ -211,7 +211,7 @@
                 <div class="form-group">
                     <label>Nuevo archivo PDF</label>
                     <input type="file" id="pdfFile" accept=".pdf,application/pdf" required>
-                    <p class="pdf-info">Máximo 5 MB · Solo formato PDF</p>
+                    <p class="pdf-info">Máximo 4 MB · Solo formato PDF</p>
                 </div>
                 <button type="submit" class="btn-submit" id="uploadBtn">Subir carta</button>
             </form>
@@ -299,28 +299,30 @@
         if (file.type !== 'application/pdf' && !file.name.endsWith('.pdf')) {
             showMsg(uploadMsg, 'El archivo debe ser un PDF', 'error'); return;
         }
-        if (file.size > 5 * 1024 * 1024) {
-            showMsg(uploadMsg, 'El archivo supera los 5 MB', 'error'); return;
+        if (file.size > 4 * 1024 * 1024) {
+            showMsg(uploadMsg, 'El archivo supera los 4 MB. Por favor comprime el PDF antes de subir.', 'error'); return;
         }
 
         uploadBtn.disabled    = true;
         uploadBtn.textContent = 'Subiendo...';
         uploadMsg.className   = 'message';
 
+        const base64 = await new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload  = () => resolve(reader.result.split(',')[1]);
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+        });
+
         try {
-            // Send raw binary — avoids base64 overhead that pushes large PDFs over Netlify's 6MB limit
-            const res  = await fetch(
-                `/.netlify/functions/upload-pdf?name=${encodeURIComponent(name)}`,
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/octet-stream',
-                        'Authorization': 'Bearer ' + token,
-                        'X-Pdf-Name': name
-                    },
-                    body: file
-                }
-            );
+            const res  = await fetch('/.netlify/functions/upload-pdf', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+                body: JSON.stringify({ name, data: base64 })
+            });
             const text = await res.text();
             let data;
             try { data = JSON.parse(text); }
