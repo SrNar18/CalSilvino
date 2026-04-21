@@ -406,6 +406,29 @@ footer {
     font-size: 14px;
 }
 
+/* CRÉDITO FOOTER */
+.footer-credit {
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 8px;
+    border-top: 1px solid rgba(0,0,0,0.12);
+    font-size: 13px;
+    color: #444;
+    font-weight: 500;
+}
+
+.footer-credit a {
+    color: #c50101;
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.footer-credit a:hover {
+    opacity: 0.75;
+}
+
 /* LEGAL FOOTER */
 .footer-legal {
     width: 100%;
