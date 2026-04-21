@@ -2622,11 +2622,11 @@ header.hero-mode .hamburger.open span,
         display: block;
         width: 100%;
         max-width: 300px;
+        margin: 0 auto;
     }
 
     .menu-img {
         width: 100%;
-        max-width: 300px;
         height: auto;
         border-radius: 14px;
     }

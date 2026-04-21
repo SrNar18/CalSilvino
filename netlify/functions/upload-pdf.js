@@ -2,7 +2,7 @@ import { getStore } from '@netlify/blobs';
 import { validateToken } from './lib/utils.js';
 
 const ALLOWED       = ['carta-es-ca', 'carta-fr-en', 'menu-dia'];
-const MAX_SIZE_BYTES = 4 * 1024 * 1024; // 4 MB
+const MAX_SIZE_BYTES = 5 * 1024 * 1024; // 5 MB
 
 export default async (req) => {
     if (req.method !== 'POST') {
