@@ -16,46 +16,47 @@ export default async (req) => {
         return Response.json({ error: 'No autorizado. Inicia sesión de nuevo.' }, { status: 401 });
     }
 
-    const contentType = req.headers.get('content-type') || '';
-
-    let name, pdfBuffer;
-
-    try {
-        if (contentType.includes('multipart/form-data')) {
-            // Modern path: FormData (no base64 overhead)
-            const formData = await req.formData();
-            name = formData.get('name');
-            const file = formData.get('pdf');
-            if (!file || typeof file === 'string') {
-                return Response.json({ error: 'Archivo PDF no recibido' }, { status: 400 });
-            }
-            const arrayBuffer = await file.arrayBuffer();
-            pdfBuffer = Buffer.from(arrayBuffer);
-        } else {
-            // Legacy path: JSON base64
-            const body = await req.json();
-            name = body.name;
-            pdfBuffer = Buffer.from(body.data, 'base64');
-        }
-    } catch {
-        return Response.json({ error: 'Petición inválida' }, { status: 400 });
-    }
+    // Name comes from query param or header
+    const url  = new URL(req.url);
+    const name = req.headers.get('x-pdf-name') || url.searchParams.get('name') || '';
 
     if (!ALLOWED.includes(name)) {
         return Response.json({ error: 'Nombre de archivo no permitido' }, { status: 400 });
     }
 
-    if (!pdfBuffer || pdfBuffer.length === 0 || pdfBuffer.length > MAX_SIZE_BYTES) {
-        return Response.json(
-            { error: `El archivo debe tener entre 1 byte y 5 MB` },
-            { status: 400 }
-        );
+    let pdfBuffer;
+    try {
+        const contentType = req.headers.get('content-type') || '';
+
+        if (contentType.includes('application/octet-stream') || contentType.includes('application/pdf')) {
+            // Direct binary upload — most efficient, no encoding overhead
+            const arrayBuffer = await req.arrayBuffer();
+            pdfBuffer = Buffer.from(arrayBuffer);
+        } else {
+            // Legacy JSON base64 fallback
+            const body = await req.json();
+            pdfBuffer  = Buffer.from(body.data, 'base64');
+        }
+    } catch (err) {
+        return Response.json({ error: 'No se pudo leer el archivo: ' + err.message }, { status: 400 });
     }
 
-    const store = getStore({ name: 'pdfs', consistency: 'strong' });
-    await store.set(name, pdfBuffer, {
-        metadata: { contentType: 'application/pdf', uploadedAt: new Date().toISOString() }
-    });
+    if (!pdfBuffer || pdfBuffer.length === 0) {
+        return Response.json({ error: 'El archivo está vacío' }, { status: 400 });
+    }
+
+    if (pdfBuffer.length > MAX_SIZE_BYTES) {
+        return Response.json({ error: 'El archivo supera los 5 MB' }, { status: 400 });
+    }
+
+    try {
+        const store = getStore({ name: 'pdfs', consistency: 'strong' });
+        await store.set(name, pdfBuffer, {
+            metadata: { contentType: 'application/pdf', uploadedAt: new Date().toISOString() }
+        });
+    } catch (err) {
+        return Response.json({ error: 'Error al guardar el PDF: ' + err.message }, { status: 500 });
+    }
 
     return Response.json({ success: true, message: 'PDF subido y actualizado correctamente.' });
 };

@@ -308,15 +308,19 @@
         uploadMsg.className   = 'message';
 
         try {
-            const formData = new FormData();
-            formData.append('name', name);
-            formData.append('pdf', file);
-
-            const res  = await fetch('/.netlify/functions/upload-pdf', {
-                method: 'POST',
-                headers: { 'Authorization': 'Bearer ' + token },
-                body: formData
-            });
+            // Send raw binary — avoids base64 overhead that pushes large PDFs over Netlify's 6MB limit
+            const res  = await fetch(
+                `/.netlify/functions/upload-pdf?name=${encodeURIComponent(name)}`,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/octet-stream',
+                        'Authorization': 'Bearer ' + token,
+                        'X-Pdf-Name': name
+                    },
+                    body: file
+                }
+            );
             const data = await res.json();
 
             if (res.ok && data.success) {
@@ -328,8 +332,8 @@
             } else {
                 showMsg(uploadMsg, data.error || 'Error al subir el PDF', 'error');
             }
-        } catch {
-            showMsg(uploadMsg, 'Error de conexión', 'error');
+        } catch (err) {
+            showMsg(uploadMsg, 'Error de conexión: ' + (err.message || ''), 'error');
         } finally {
             uploadBtn.disabled    = false;
             uploadBtn.textContent = 'Subir carta';
