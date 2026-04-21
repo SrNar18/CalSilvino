@@ -32,7 +32,7 @@ function openPdfModal(pdfPath, title) {
     const isMobile = /iPhone|iPad|Android|Mobile/i.test(navigator.userAgent);
 
     if (isMobile) {
-        window.open(freshPdfPath, '_blank');
+        window.location.href = freshPdfPath;
         return;
     }
 
