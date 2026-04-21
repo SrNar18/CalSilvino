@@ -211,7 +211,7 @@
                 <div class="form-group">
                     <label>Nuevo archivo PDF</label>
                     <input type="file" id="pdfFile" accept=".pdf,application/pdf" required>
-                    <p class="pdf-info">Máximo 4 MB · Solo formato PDF</p>
+                    <p class="pdf-info">Máximo 10 MB · Solo formato PDF</p>
                 </div>
                 <button type="submit" class="btn-submit" id="uploadBtn">Subir carta</button>
             </form>
@@ -288,57 +288,85 @@
     });
 
     // ── SUBIR PDF ──
+    const CHUNK_SIZE = 3 * 1024 * 1024; // 3 MB por chunk → ~4 MB base64, bajo el límite Lambda de 6 MB
+
+    function readBlobAsBase64(blob) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload  = () => resolve(reader.result.split(',')[1]);
+            reader.onerror = reject;
+            reader.readAsDataURL(blob);
+        });
+    }
+
+    async function postJSON(payload, token) {
+        const res  = await fetch('/.netlify/functions/upload-pdf', {
+            method: 'POST',
+            headers: {
+                'Content-Type':  'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify(payload)
+        });
+        const text = await res.text();
+        let data;
+        try { data = JSON.parse(text); }
+        catch { throw new Error(text || `Error ${res.status}`); }
+        if (!res.ok) {
+            if (res.status === 401) throw Object.assign(new Error(data.error || 'Sesión expirada'), { status: 401 });
+            throw new Error(data.error || `Error ${res.status}`);
+        }
+        return data;
+    }
+
     uploadForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const token   = sessionStorage.getItem(TOKEN_KEY);
-        const name    = document.getElementById('pdfName').value;
-        const fileEl  = document.getElementById('pdfFile');
-        const file    = fileEl.files[0];
+        const token  = sessionStorage.getItem(TOKEN_KEY);
+        const name   = document.getElementById('pdfName').value;
+        const fileEl = document.getElementById('pdfFile');
+        const file   = fileEl.files[0];
 
         if (!file) { showMsg(uploadMsg, 'Selecciona un archivo PDF', 'error'); return; }
         if (file.type !== 'application/pdf' && !file.name.endsWith('.pdf')) {
             showMsg(uploadMsg, 'El archivo debe ser un PDF', 'error'); return;
         }
-        if (file.size > 4 * 1024 * 1024) {
-            showMsg(uploadMsg, 'El archivo supera los 4 MB. Por favor comprime el PDF antes de subir.', 'error'); return;
+        if (file.size > 10 * 1024 * 1024) {
+            showMsg(uploadMsg, 'El archivo supera los 10 MB. Por favor comprime el PDF antes de subir.', 'error'); return;
         }
 
         uploadBtn.disabled    = true;
-        uploadBtn.textContent = 'Subiendo...';
         uploadMsg.className   = 'message';
 
-        const base64 = await new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload  = () => resolve(reader.result.split(',')[1]);
-            reader.onerror = reject;
-            reader.readAsDataURL(file);
-        });
+        const totalChunks = Math.ceil(file.size / CHUNK_SIZE);
+        const uploadId    = Date.now().toString(36) + Math.random().toString(36).slice(2);
 
         try {
-            const res  = await fetch('/.netlify/functions/upload-pdf', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + token
-                },
-                body: JSON.stringify({ name, data: base64 })
-            });
-            const text = await res.text();
-            let data;
-            try { data = JSON.parse(text); }
-            catch { throw new Error(text || `Error ${res.status}`); }
-
-            if (res.ok && data.success) {
+            if (totalChunks <= 1) {
+                // Archivo pequeño: subida directa
+                uploadBtn.textContent = 'Subiendo...';
+                const base64 = await readBlobAsBase64(file);
+                const data   = await postJSON({ action: 'single', name, data: base64 }, token);
                 showMsg(uploadMsg, '✓ ' + data.message, 'success');
-                fileEl.value = '';
-            } else if (res.status === 401) {
+            } else {
+                // Archivo grande: subida en chunks
+                for (let i = 0; i < totalChunks; i++) {
+                    uploadBtn.textContent = `Subiendo... ${i + 1}/${totalChunks}`;
+                    const chunk  = file.slice(i * CHUNK_SIZE, (i + 1) * CHUNK_SIZE);
+                    const base64 = await readBlobAsBase64(chunk);
+                    await postJSON({ action: 'chunk', uploadId, chunkIndex: i, totalChunks, name, data: base64 }, token);
+                }
+                uploadBtn.textContent = 'Procesando...';
+                const data = await postJSON({ action: 'finalize', uploadId, name, totalChunks }, token);
+                showMsg(uploadMsg, '✓ ' + data.message, 'success');
+            }
+            fileEl.value = '';
+        } catch (err) {
+            if (err.status === 401) {
                 sessionStorage.removeItem(TOKEN_KEY);
                 showMsg(uploadMsg, 'Sesión expirada. Recarga e inicia sesión.', 'error');
             } else {
-                showMsg(uploadMsg, data.error || 'Error al subir el PDF', 'error');
+                showMsg(uploadMsg, err.message || 'Error al subir el PDF', 'error');
             }
-        } catch (err) {
-            showMsg(uploadMsg, 'Error de conexión: ' + (err.message || ''), 'error');
         } finally {
             uploadBtn.disabled    = false;
             uploadBtn.textContent = 'Subir carta';
