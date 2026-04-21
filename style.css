@@ -2380,6 +2380,7 @@ header.hero-mode .hamburger.open span,
     /* --- Banner --- */
     .home-banner {
         height: 100vh;
+        height: 100dvh;
         min-height: 580px;
         margin-top: -100px;
     }
@@ -2612,17 +2613,22 @@ header.hero-mode .hamburger.open span,
     }
 
     .menu-cards {
-        flex-direction: column;
-        align-items: center;
-        gap: 28px;
+        display: block;
+        text-align: center;
         width: 100%;
     }
 
     .menu-img-link {
-        display: block;
+        display: inline-block;
         width: 100%;
         max-width: 300px;
-        margin: 0 auto;
+        margin-bottom: 28px;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .menu-img-link:last-child {
+        margin-bottom: 0;
     }
 
     .menu-img {
@@ -2810,6 +2816,12 @@ header.hero-mode .hamburger.open span,
     }
 
     /* --- Banner --- */
+    .home-banner {
+        margin-top: -70px;
+        height: 100vh;
+        height: 100dvh;
+    }
+
     .home-banner-title {
         font-size: 30px;
     }
@@ -3004,6 +3016,12 @@ header.hero-mode .hamburger.open span,
 
     .logo {
         height: 48px;
+    }
+
+    .home-banner {
+        margin-top: -65px;
+        height: 100vh;
+        height: 100dvh;
     }
 
     .home-banner-title {
