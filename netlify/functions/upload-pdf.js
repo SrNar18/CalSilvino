@@ -1,7 +1,7 @@
 import { getStore } from '@netlify/blobs';
 import { validateToken } from './lib/utils.js';
 
-const ALLOWED       = ['carta-es-ca', 'carta-fr-en', 'menu-dia'];
+const ALLOWED        = ['carta-es-ca', 'carta-fr-en', 'menu-dia'];
 const MAX_SIZE_BYTES = 5 * 1024 * 1024; // 5 MB
 
 export default async (req) => {
@@ -16,29 +16,38 @@ export default async (req) => {
         return Response.json({ error: 'No autorizado. Inicia sesión de nuevo.' }, { status: 401 });
     }
 
-    let body;
+    const contentType = req.headers.get('content-type') || '';
+
+    let name, pdfBuffer;
+
     try {
-        body = await req.json();
+        if (contentType.includes('multipart/form-data')) {
+            // Modern path: FormData (no base64 overhead)
+            const formData = await req.formData();
+            name = formData.get('name');
+            const file = formData.get('pdf');
+            if (!file || typeof file === 'string') {
+                return Response.json({ error: 'Archivo PDF no recibido' }, { status: 400 });
+            }
+            const arrayBuffer = await file.arrayBuffer();
+            pdfBuffer = Buffer.from(arrayBuffer);
+        } else {
+            // Legacy path: JSON base64
+            const body = await req.json();
+            name = body.name;
+            pdfBuffer = Buffer.from(body.data, 'base64');
+        }
     } catch {
         return Response.json({ error: 'Petición inválida' }, { status: 400 });
     }
-
-    const { name, data } = body;
 
     if (!ALLOWED.includes(name)) {
         return Response.json({ error: 'Nombre de archivo no permitido' }, { status: 400 });
     }
 
-    let pdfBuffer;
-    try {
-        pdfBuffer = Buffer.from(data, 'base64');
-    } catch {
-        return Response.json({ error: 'Datos de archivo inválidos' }, { status: 400 });
-    }
-
-    if (pdfBuffer.length === 0 || pdfBuffer.length > MAX_SIZE_BYTES) {
+    if (!pdfBuffer || pdfBuffer.length === 0 || pdfBuffer.length > MAX_SIZE_BYTES) {
         return Response.json(
-            { error: `El archivo debe tener entre 1 byte y ${MAX_SIZE_BYTES / 1024 / 1024} MB` },
+            { error: `El archivo debe tener entre 1 byte y 5 MB` },
             { status: 400 }
         );
     }
