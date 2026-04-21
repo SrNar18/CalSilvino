@@ -2625,6 +2625,21 @@ header.hero-mode .hamburger.open span,
         margin: 0 auto;
     }
 
+    /* Centrado explícito para la tarjeta única del Menú del Día */
+    .menu-dia-section .menu-cards {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menu-dia-section .menu-img-link {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+
     .menu-img {
         width: 100%;
         height: auto;
