@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="/images/icon.png">
+    <title>Avís Legal | Cal Silvino Restaurant</title>
+    <meta name="description" content="Avís legal del restaurant Cal Silvino, La Massana, Andorra. Informació sobre el titular, protecció de dades i condicions d'ús del lloc web.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://restaurantcalsilvino.com/avis-legal">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        /* AVÍS LEGAL PAGE */
+        .legal-hero {
+            background: linear-gradient(135deg, #c50101 0%, #8b0000 100%);
+            padding: 60px 40px 50px;
+            text-align: center;
+            color: #fff;
+        }
+        .legal-hero-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+            margin: 0 0 12px;
+        }
+        .legal-hero h1 {
+            font-size: clamp(28px, 5vw, 52px);
+            font-weight: 700;
+            margin: 0 0 14px;
+            line-height: 1.15;
+        }
+        .legal-hero-sub {
+            font-size: 15px;
+            font-weight: 300;
+            color: rgba(255,255,255,0.82);
+            margin: 0;
+        }
+
+        .legal-container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 60px 30px 80px;
+        }
+
+        .legal-toc {
+            background: #f7f3ee;
+            border-left: 4px solid #c50101;
+            border-radius: 0 12px 12px 0;
+            padding: 24px 28px;
+            margin-bottom: 52px;
+        }
+        .legal-toc-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #c50101;
+            margin: 0 0 14px;
+        }
+        .legal-toc ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .legal-toc li {
+            margin: 6px 0;
+            font-size: 13px;
+            color: #444;
+            line-height: 1.5;
+        }
+        .legal-toc a {
+            color: #444;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .legal-toc a:hover { color: #c50101; }
+
+        .legal-section {
+            margin-bottom: 48px;
+            scroll-margin-top: 120px;
+        }
+
+        .legal-section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: #c50101;
+            color: #fff;
+            border-radius: 50%;
+            font-size: 13px;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-right: 14px;
+        }
+
+        .legal-section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .legal-section h2 {
+            font-size: clamp(17px, 2.5vw, 21px);
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .legal-section p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #3d3d3d;
+            margin: 0 0 14px;
+        }
+        .legal-section p:last-child { margin-bottom: 0; }
+
+        .legal-divider {
+            border: none;
+            border-top: 1px solid #ece8e2;
+            margin: 0 0 48px;
+        }
+
+        .legal-info-box {
+            background: #fafafa;
+            border: 1px solid #ece8e2;
+            border-radius: 12px;
+            padding: 22px 26px;
+            margin-top: 4px;
+            margin-bottom: 14px;
+        }
+        .legal-info-box p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #444;
+            line-height: 1.7;
+        }
+        .legal-info-box strong {
+            color: #222;
+            font-weight: 600;
+        }
+        .legal-info-box a {
+            color: #c50101;
+            text-decoration: none;
+        }
+        .legal-info-box a:hover { text-decoration: underline; }
+
+        .legal-update {
+            background: #f7f3ee;
+            border-radius: 12px;
+            padding: 20px 26px;
+            text-align: center;
+            margin-top: 16px;
+        }
+        .legal-update p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+        .legal-update strong {
+            color: #c50101;
+        }
+
+        .back-link-wrap {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid #ece8e2;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #c50101;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            padding: 13px 30px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .back-link:hover {
+            background: #a10000;
+            transform: translateY(-1px);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .legal-hero { padding: 40px 20px 36px; }
+            .legal-container { padding: 40px 20px 60px; }
+            .legal-section-number { width: 30px; height: 30px; font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-brand">
+            <a href="/">
+                <img src="/images/logo.webp" width="1359" height="768" class="logo" alt="Cal Silvino — Restaurant La Massana Andorra">
+            </a>
+            <a href="tel:+376840720" class="header-phone">📞 +376 840 720</a>
+        </div>
+        <nav>
+            <a href="/">Inici</a>
+            <a href="/menu.html">Cartes</a>
+        </nav>
+        <div class="header-right">
+            <div class="lang-switcher" id="langSwitcher">
+                <button class="lang-btn" id="langBtn" aria-label="Canviar idioma">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <span id="langCurrent">CA</span>
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="lang-dropdown" id="langDropdown">
+                    <a href="/avis-legal.html" class="lang-option active" hreflang="ca"><span class="lang-flag">🇦🇩</span> Català</a>
+                    <a href="/es/aviso-legal.html" class="lang-option" hreflang="es"><span class="lang-flag">🇪🇸</span> Español</a>
+                    <a href="/pt/aviso-legal.html" class="lang-option" hreflang="pt"><span class="lang-flag">🇵🇹</span> Português</a>
+                    <a href="/fr/mentions-legales.html" class="lang-option" hreflang="fr"><span class="lang-flag">🇫🇷</span> Français</a>
+                    <a href="/en/legal-notice.html" class="lang-option" hreflang="en"><span class="lang-flag">🇬🇧</span> English</a>
+                </div>
+            </div>
+            <a href="https://wa.me/376840720?text=Hola!%20M'agradaria%20reservar%20una%20taula%20a%20Cal%20Silvino" target="_blank" rel="noopener noreferrer" class="nav-btn">WhatsApp</a>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <div class="legal-hero">
+            <p class="legal-hero-label">Cal Silvino · Restaurant</p>
+            <h1>Avís Legal</h1>
+            <p class="legal-hero-sub">Informació legal del lloc web restaurantcalsilvino.com</p>
+        </div>
+
+        <div class="legal-container">
+
+            <!-- ÍNDEX -->
+            <div class="legal-toc">
+                <p class="legal-toc-title">Índex de continguts</p>
+                <ol>
+                    <li><a href="#s1">Dades identificatives del titular</a></li>
+                    <li><a href="#s2">Objecte del lloc web</a></li>
+                    <li><a href="#s3">Ús del lloc web</a></li>
+                    <li><a href="#s4">Propietat intel·lectual i industrial</a></li>
+                    <li><a href="#s5">Enllaços a tercers</a></li>
+                    <li><a href="#s6">Protecció de dades personals</a></li>
+                    <li><a href="#s7">Cookies i tecnologies similars</a></li>
+                    <li><a href="#s8">Responsabilitat</a></li>
+                    <li><a href="#s9">Legislació aplicable</a></li>
+                    <li><a href="#s10">Última actualització</a></li>
+                </ol>
+            </div>
+
+            <!-- SECCIÓ 1 -->
+            <section class="legal-section" id="s1">
+                <div class="legal-section-header">
+                    <span class="legal-section-number">1</span>
+                    <h2>Dades identificatives del titular</h2>
+                </div>
+                <p>En compliment de la normativa aplicable al Principat d'Andorra sobre operadors que desenvolupen la seva activitat econòmica en un espai digital, s'informa que el present lloc web és titularitat de:</p>
+                <div class="legal-info-box">
+                    <p><strong>Nom comercial:</strong> Cal Silvino</p>
+                    <p><strong>Titular:</strong> [NOM FISCAL / RAÓ SOCIAL DEL TITULAR]</p>
+                    <p><strong>NRT / número de registre fiscal:</strong> [NRT]</p>
+                    <p><strong>Domicili:</strong> Av. el Través, 21, AD400 La Massana, Andorra</p>
+                    <p><strong>Telèfon:</strong> +376 840 720</p>
+                    <p><strong>Correu electrònic:</strong> <a href="mailto:info@calsilvinorestaurant.com">info@calsilvinorestaurant.com</a></p>
+                    <p><strong>Lloc web:</strong> <a href="https://restaurantcalsilvino.com/" target="_blank" rel="noopener">https://restaurantcalsilvino.com/</a></p>
+                </div>
+                <p>El lloc web té com a finalitat oferir informació sobre el restaurant Cal Silvino, la seva ubicació, horaris orientatius, carta, dades de contacte i vies per sol·licitar informació o realitzar reserves mitjançant canals externs.</p>
+            </section>
+
+            <hr class="legal-divider">
+
+            <!-- SECCIÓ 2 -->
+            <section class="legal-section" id="s2">
+                <div class="legal-section-header">
+                    <span class="legal-section-number">2</span>
+                    <h2>Objecte del lloc web</h2>
+                </div>
+                <p>El present lloc web té un caràcter merament informatiu i promocional. La seva finalitat és oferir informació general sobre el restaurant Cal Silvino, la seva ubicació, dades de contacte, carta, horaris orientatius i vies externes per sol·licitar informació o realitzar reserves.</p>
+                <p>La informació publicada al lloc web, incloent-hi preus, plats, menús, horaris, disponibilitat, serveis, fotografies o qualsevol altre contingut, pot no estar actualitzada en tot moment i podria diferir de la realitat en el moment de la consulta o de la visita a l'establiment.</p>
+                <p>El lloc web no permet la contractació directa de serveis, no incorpora passarel·la de pagament i no disposa de formularis propis de contacte, reserva o subscripció.</p>
+            </section>
+
+            <hr class="legal-divider">
+
+            <!-- SECCIÓ 3 -->
+            <section class="legal-section" id="s3">
+                <div class="legal-section-header">
+                    <span class="legal-section-number">3</span>
+                    <h2>Ús del lloc web</h2>
+                </div>
+                <p>L'usuari es compromet a utilitzar aquest lloc web de manera lícita, adequada i conforme a la bona fe, abstenint-se de fer qualsevol ús que pugui danyar, inutilitzar, sobrecarregar o deteriorar el lloc web, els seus continguts o el seu funcionament.</p>
+                <p>El titular es reserva el dret de modificar, actualitzar, suspendre o eliminar qualsevol contingut del lloc web en qualsevol moment, sense necessitat d'avís previ.</p>
+            </section>
+
+            <hr class="legal-divider">
+
+            <!-- SECCIÓ 4 -->
+            <section class="legal-section" id="s4">
+                <div class="legal-section-header">
+                    <span class="legal-section-number">4</span>
+                    <h2>Propietat intel·lectual i industrial</h2>
+                </div>
+                <p>Tots els continguts del lloc web, incloent-hi textos, fotografies, imatges, disseny gràfic, estructura, logotips, signes distintius i altres elements visuals o funcionals, són titularitat del titular del lloc web o s'utilitzen amb la corresponent autorització.</p>
+                <p>Queda prohibida la reproducció, distribució, comunicació pública, transformació o qualsevol altre ús no autoritzat dels continguts del lloc web, llevat d'autorització expressa i per escrit del titular.</p>
+            </section>
+
+            <hr class="legal-divider">
+
+            <!-- SECCIÓ 5 -->
+            <section class="legal-section" id="s5">
+                <div class="legal-section-header">
+                    <span class="legal-section-number">5</span>
+                    <h2>Enllaços a tercers</h2>
+                </div>
+                <p>El lloc web pot incloure enllaços a plataformes o serveis externs, com ara WhatsApp, Google Maps, Instagram, Facebook o altres serveis de tercers.</p>
+                <p>En fer clic en aquests enllaços, l'usuari abandona el lloc web i passa a estar subjecte a les condicions d'ús, polítiques de privacitat i polítiques de cookies d'aquestes plataformes. El titular d'aquest lloc web no controla ni es responsabilitza del contingut, funcionament, disponibilitat o tractament de dades realitzat per aquests tercers.</p>
+            </section>
+
+            <hr class="legal-divider">
+
+            <!-- SECCIÓ 6 -->
+            <section class="legal-section" id="s6">
+                <div class="legal-section-header">
+                    <span class="legal-section-number">6</span>
+                    <h2>Protecció de dades personals</h2>
+                </div>
+                <p>Aquest lloc web no inclou formularis propis, àrees privades, sistemes de registre ni mecanismes directes de recollida de dades personals per part del titular.</p>
+                <p>No obstant això, si l'usuari decideix contactar amb Cal Silvino a través de WhatsApp, telèfon, correu electrònic o altres canals externs, les dades que faciliti voluntàriament podran ser tractades amb la finalitat d'atendre la seva consulta, gestionar una sol·licitud d'informació o tramitar una reserva.</p>
+                <p>La base jurídica del tractament serà la sol·licitud realitzada pel mateix usuari o l'aplicació de mesures precontractuals a petició seva, de conformitat amb la normativa andorrana de protecció de dades personals.</p>
+                <p>Les dades no s'utilitzaran per a l'enviament de comunicacions comercials no sol·licitades ni se cediran a tercers, llevat d'obligació legal o quan sigui necessari per atendre la sol·licitud de l'usuari.</p>
+                <p>L'usuari pot exercir els seus drets d'accés, rectificació, supressió, oposició, limitació del tractament i la resta de drets reconeguts per la normativa aplicable, adreçant-se al titular a través del correu electrònic indicat en aquest avís legal.</p>
+            </section>
+
+            <hr class="legal-divider">
+
+            <!-- SECCIÓ 7 -->
+            <section class="legal-section" id="s7">
+                <div class="legal-section-header">
+                    <span class="legal-section-number">7</span>
+                    <h2>Cookies i tecnologies similars</h2>
+                </div>
+                <p>Aquest lloc web no utilitza cookies pròpies amb finalitat analítica, publicitària o de seguiment, llevat que s'incorporin en el futur eines que ho requereixin.</p>
+                <p>No obstant això, els serveis de tercers enllaçats des del lloc web, com ara WhatsApp, Google Maps, Instagram o Facebook, poden utilitzar cookies o altres tecnologies d'acord amb les seves pròpies polítiques. L'usuari haurà de consultar les polítiques corresponents de cada plataforma quan hi accedeixi.</p>
+                <p>En cas que en el futur s'incorporin eines d'analítica, mapes incrustats, píxels publicitaris, formularis, sistemes de reserva o altres funcionalitats que impliquin l'ús de cookies o el tractament addicional de dades personals, el titular haurà d'actualitzar aquest avís legal i, si escau, incorporar una política de privacitat i/o una política de cookies específica.</p>
+            </section>
+
+            <hr class="legal-divider">
+
+            <!-- SECCIÓ 8 -->
+            <section class="legal-section" id="s8">
+                <div class="legal-section-header">
+                    <span class="legal-section-number">8</span>
+                    <h2>Responsabilitat</h2>
+                </div>
+                <p>El titular fa esforços raonables per mantenir actualitzada i correcta la informació publicada al lloc web. No obstant això, el contingut del lloc té caràcter informatiu i orientatiu, per la qual cosa no es garanteix que la informació estigui sempre completa, actualitzada o lliure d'errors.</p>
+                <p>En particular, els preus, plats, menús, horaris, disponibilitat de productes, serveis oferts o qualsevol altra informació relacionada amb el restaurant poden variar sense avís previ i podrien no coincidir exactament amb la realitat en el moment de la consulta, reserva o visita a l'establiment.</p>
+                <p>Per confirmar qualsevol informació rellevant, l'usuari haurà de contactar directament amb el restaurant a través dels canals indicats al lloc web, especialment abans de desplaçar-se, realitzar una reserva o prendre una decisió basada en la informació publicada.</p>
+            </section>
+
+            <hr class="legal-divider">
+
+            <!-- SECCIÓ 9 -->
+            <section class="legal-section" id="s9">
+                <div class="legal-section-header">
+                    <span class="legal-section-number">9</span>
+                    <h2>Legislació aplicable</h2>
+                </div>
+                <p>El present avís legal es regeix per la legislació vigent al Principat d'Andorra.</p>
+                <p>Per a qualsevol controvèrsia derivada de l'ús del lloc web, les parts se sotmetran als jutjats i tribunals competents del Principat d'Andorra, llevat que la normativa aplicable estableixi una altra cosa.</p>
+            </section>
+
+            <hr class="legal-divider">
+
+            <!-- SECCIÓ 10 -->
+            <section class="legal-section" id="s10">
+                <div class="legal-section-header">
+                    <span class="legal-section-number">10</span>
+                    <h2>Última actualització</h2>
+                </div>
+                <div class="legal-update">
+                    <p>Última actualització: <strong>29/04/2026</strong></p>
+                </div>
+            </section>
+
+            <!-- TORNAR -->
+            <div class="back-link-wrap">
+                <a href="/" class="back-link">
+                    ← Tornar a l'inici
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-left">
+            <img decoding="async" loading="lazy" src="/images/logo.webp" width="1359" height="768" class="footer-logo" alt="Cal Silvino restaurant La Massana">
+            <div class="footer-info">
+                <p>Av. el Través, 21, AD400 La Massana</p>
+                <p>Telèfon: +376 840 720</p>
+                <p>info@calsilvinorestaurant.com</p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <div class="footer-schedule">
+                <div class="schedule-block">
+                    <p><strong>Dilluns</strong></p>
+                    <p>11.00 - 16.00</p>
+                </div>
+                <div class="schedule-block">
+                    <p><strong>Dimarts</strong></p>
+                    <p>Tancat</p>
+                </div>
+                <div class="schedule-block">
+                    <p><strong>Dimecres · Dijous · Divendres · Dissabte</strong></p>
+                    <p>11.00 - 16.00</p>
+                    <p>20.00 - 23.00</p>
+                </div>
+                <div class="schedule-block">
+                    <p><strong>Diumenge</strong></p>
+                    <p>11.00 - 16.00</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-credit">
+            Lloc web creat amb ❤️ per <a href="https://www.bitanube.com" target="_blank" rel="noopener noreferrer">Bitanube</a>
+        </div>
+    </footer>
+
+    <script src="/script.js" defer></script>
+</body>
+</html>

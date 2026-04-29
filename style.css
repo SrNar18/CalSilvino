@@ -429,18 +429,15 @@ footer {
     opacity: 0.75;
 }
 
-/* LEGAL FOOTER */
-.footer-legal {
-    width: 100%;
-    text-align: center;
-    padding-top: 20px;
-    margin-top: 20px;
-    border-top: 1px solid rgba(0,0,0,0.08);
+.footer-sep {
+    color: #ccc;
+    margin: 0 10px;
+    font-size: 13px;
 }
 
 .legal-link {
     color: #888;
-    font-size: 12px;
+    font-size: 13px;
     text-decoration: none;
     transition: color 0.2s;
 }
@@ -448,12 +445,6 @@ footer {
 .legal-link:hover {
     color: #c50101;
     text-decoration: underline;
-}
-
-.legal-sep {
-    color: #ccc;
-    margin: 0 6px;
-    font-size: 12px;
 }
 
 /* LEGAL MODAL */
